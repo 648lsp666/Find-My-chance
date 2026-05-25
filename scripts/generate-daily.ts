@@ -27,6 +27,29 @@ interface Signal {
 
 // ─── Signal fetchers ─────────────────────────────────────────────────────────
 
+async function fetchTrendingRepos() {
+  const since = new Date(Date.now() - 2 * 86_400_000).toISOString().slice(0, 10)
+  const headers: Record<string, string> = {
+    Accept: 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28',
+  }
+  if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`
+  const res = await fetch(
+    `https://api.github.com/search/repositories?q=pushed:>${since}+stars:500..50000+fork:false&sort=stars&order=desc&per_page=6`,
+    { headers },
+  )
+  if (!res.ok) throw new Error(`GitHub trending ${res.status}`)
+  const data: any = await res.json()
+  return (data.items ?? []).map((r: any) => ({
+    owner:       r.owner?.login ?? '',
+    repo:        r.name         ?? '',
+    description: r.description  ?? '',
+    url:         r.html_url     ?? '',
+    starsToday:  r.stargazers_count ?? 0,
+    language:    r.language     ?? '',
+  }))
+}
+
 async function fetchHNSignals(): Promise<Signal[]> {
   const since = Math.floor((Date.now() - 86_400_000) / 1000)
   const url =
@@ -146,12 +169,18 @@ async function main() {
   // ── Fetch signals ────────────────────────────────────────────────────────
   console.log(`Fetching signals for ${date}…`)
 
-  const results = await Promise.allSettled([
+  const [trendingResult, ...signalResults] = await Promise.allSettled([
+    fetchTrendingRepos(),
     fetchHNSignals(),
     fetchGitHubSignals(),
     fetchPHSignals(),
     fetch36krSignals(),
   ])
+  const results = signalResults
+
+  const trendingRepos = trendingResult.status === 'fulfilled' ? trendingResult.value : []
+  if (trendingResult.status === 'rejected') console.warn(`  ⚠ Trending: ${trendingResult.reason}`)
+  else console.log(`  ✓ Trending repos: ${trendingRepos.length}`)
 
   results.forEach((r, i) => {
     const name = ['HN', 'GitHub', 'Product Hunt', '36kr'][i]
@@ -266,6 +295,7 @@ ${signalBlock}
   }
 
   // ── Write output ─────────────────────────────────────────────────────────
+  if (trendingRepos.length > 0) data.trending = trendingRepos
   mkdirSync(outDir, { recursive: true })
   writeFileSync(outPath, JSON.stringify(data, null, 2) + '\n', 'utf-8')
   console.log(`✓ Wrote ${data.opportunities.length} opportunities → ${outPath}`)

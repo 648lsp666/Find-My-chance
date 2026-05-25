@@ -3,6 +3,10 @@
 import { useEffect, useState } from 'react'
 import type { TrendingRepo } from '@/lib/trending'
 
+interface Props {
+  staticRepos?: TrendingRepo[]
+}
+
 const LANG_COLORS: Record<string, string> = {
   TypeScript: '#3178C6', JavaScript: '#F7DF1E', Python: '#3572A5',
   Go: '#00ADD8', Rust: '#DEA584', Java: '#B07219', Swift: '#FA7343',
@@ -10,17 +14,18 @@ const LANG_COLORS: Record<string, string> = {
   Shell: '#4EAA25', Dockerfile: '#384D54', Vue: '#41B883', Svelte: '#FF3E00',
 }
 
-export default function TechSignals() {
-  const [repos, setRepos] = useState<TrendingRepo[]>([])
-  const [loading, setLoading] = useState(true)
+export default function TechSignals({ staticRepos }: Props) {
+  const [repos, setRepos] = useState<TrendingRepo[]>(staticRepos ?? [])
+  const [loading, setLoading] = useState(!staticRepos)
 
   useEffect(() => {
+    if (staticRepos) return
     fetch('/api/trending')
       .then(r => r.json())
       .then((data: TrendingRepo[]) => setRepos(data))
       .catch(() => setRepos([]))
       .finally(() => setLoading(false))
-  }, [])
+  }, [staticRepos])
 
   return (
     <div className="mb-6 print:hidden">

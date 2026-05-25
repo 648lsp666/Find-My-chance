@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import type { TrendingRepo } from './trending'
 
 export interface Source {
   title: string
@@ -30,6 +31,7 @@ export interface DayData {
   generatedAt: string
   summary: string
   opportunities: Opportunity[]
+  trending?: TrendingRepo[]
 }
 
 const DATA_DIR = path.join(process.cwd(), 'data', 'opportunities')

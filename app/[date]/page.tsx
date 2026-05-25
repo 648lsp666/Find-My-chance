@@ -61,7 +61,7 @@ export default function DatePage({ params }: { params: { date: string } }) {
         />
 
         {/* Tech signals strip */}
-        <TechSignals />
+        <TechSignals staticRepos={data.trending} />
 
         {/* Section header */}
         <div className="flex items-baseline gap-3 mb-4 print:mb-2">
