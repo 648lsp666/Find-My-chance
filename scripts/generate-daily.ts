@@ -2,17 +2,16 @@
 /**
  * Daily opportunity generator.
  * Fetches real signals from HN / GitHub / Product Hunt / 36kr,
- * then calls Claude API to produce a structured JSON file.
+ * then calls DeepSeek API to produce a structured JSON file.
  *
  * Usage:
  *   npm run generate              # skip if today's file exists
  *   npm run generate:force        # overwrite today's file
  *
- * Required env:  ANTHROPIC_API_KEY
+ * Required env:  DEEPSEEK_API_KEY
  * Optional env:  PRODUCT_HUNT_TOKEN, GITHUB_TOKEN, FORCE_GENERATE
  */
 
-import Anthropic from '@anthropic-ai/sdk'
 import { writeFileSync, existsSync, mkdirSync } from 'fs'
 import { join } from 'path'
 
@@ -125,10 +124,8 @@ async function fetch36krSignals(): Promise<Signal[]> {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
-  const apiKey = process.env.ANTHROPIC_API_KEY
-  if (!apiKey) throw new Error('ANTHROPIC_API_KEY is required')
-
-  const client = new Anthropic({ apiKey })
+  const apiKey = process.env.DEEPSEEK_API_KEY
+  if (!apiKey) throw new Error('DEEPSEEK_API_KEY is required')
 
   const date = new Date()
     .toLocaleString('sv', { timeZone: 'Asia/Shanghai' })
@@ -229,15 +226,26 @@ ${signalBlock}
   ]
 }`
 
-  // ── Call Claude ───────────────────────────────────────────────────────────
-  console.log('Calling Claude API…')
-  const msg = await client.messages.create({
-    model: 'claude-opus-4-7',
-    max_tokens: 8192,
-    messages: [{ role: 'user', content: prompt }],
+  // ── Call DeepSeek ─────────────────────────────────────────────────────────
+  console.log('Calling DeepSeek API…')
+  const res = await fetch('https://api.deepseek.com/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: 'deepseek-chat',
+      max_tokens: 8192,
+      messages: [{ role: 'user', content: prompt }],
+    }),
   })
-
-  const raw = msg.content[0].type === 'text' ? msg.content[0].text : ''
+  if (!res.ok) {
+    const err = await res.text()
+    throw new Error(`DeepSeek API ${res.status}: ${err}`)
+  }
+  const json: any = await res.json()
+  const raw: string = json.choices?.[0]?.message?.content ?? ''
 
   // Strip optional ```json fences if model added them
   const stripped = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim()
