@@ -7,13 +7,33 @@ import OpportunityCard from './OpportunityCard'
 const ALL_CATS = ['AI应用', '自媒体', 'SaaS工具', '整活玩具', '本地服务', '内容创作', '其他']
 
 const CAT_COLORS: Record<string, string> = {
-  'AI应用':   '#5B9CF6',
-  '自媒体':   '#A78BFA',
-  'SaaS工具': '#34D399',
-  '整活玩具': '#F87171',
-  '本地服务': '#FBBF24',
-  '内容创作': '#FB923C',
-  '其他':     '#9CA3AF',
+  'AI应用':   '#7C3AED',
+  '自媒体':   '#8B5CF6',
+  'SaaS工具': '#059669',
+  '整活玩具': '#DC2626',
+  '本地服务': '#D97706',
+  '内容创作': '#EA580C',
+  '其他':     '#6B7280',
+}
+
+type TimeBucket = '1mo' | '1-3mo' | '3mo+'
+type TimeFilter = 'all' | TimeBucket
+
+const TIME_OPTIONS: { value: TimeFilter; label: string }[] = [
+  { value: 'all',    label: '不限' },
+  { value: '1mo',   label: '⚡ 1个月内' },
+  { value: '1-3mo', label: '🚀 1-3个月' },
+  { value: '3mo+',  label: '📈 3个月+' },
+]
+
+function getTimeBucket(timeToRevenue: string): TimeBucket {
+  if (timeToRevenue.includes('周')) return '1mo'
+  const nums = (timeToRevenue.match(/\d+/g) ?? []).map(Number)
+  if (nums.length === 0) return '1-3mo'
+  const max = Math.max(...nums)
+  if (max <= 1) return '1mo'
+  if (max <= 3) return '1-3mo'
+  return '3mo+'
 }
 
 interface Props {
@@ -23,6 +43,7 @@ interface Props {
 export default function OpportunityList({ opportunities }: Props) {
   const [search, setSearch]         = useState('')
   const [activeCats, setActiveCats] = useState<string[]>([])
+  const [activeTime, setActiveTime] = useState<TimeFilter>('all')
 
   const presentCats = useMemo(
     () => ALL_CATS.filter(c => opportunities.some(o => o.category === c)),
@@ -38,17 +59,18 @@ export default function OpportunityList({ opportunities }: Props) {
     const q = search.trim().toLowerCase()
     return opportunities.filter(o => {
       const matchCat  = activeCats.length === 0 || activeCats.includes(o.category)
+      const matchTime = activeTime === 'all' || getTimeBucket(o.timeToRevenue) === activeTime
       const matchText = !q || [o.title, o.summary, o.description, o.painPoint, ...o.tags, o.revenueModel]
         .some(t => t.toLowerCase().includes(q))
-      return matchCat && matchText
+      return matchCat && matchTime && matchText
     })
-  }, [opportunities, search, activeCats])
+  }, [opportunities, search, activeCats, activeTime])
 
   return (
     <div>
       {/* Search bar */}
       <div className="relative mb-4">
-        <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-r-muted text-sm pointer-events-none">
+        <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-r-muted text-base pointer-events-none">
           ⌕
         </span>
         <input
@@ -56,12 +78,12 @@ export default function OpportunityList({ opportunities }: Props) {
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder="搜索机会关键词…"
-          className="w-full bg-r-card border border-r-border rounded-xl pl-9 pr-4 py-2.5 text-[13.5px] text-r-text placeholder:text-r-muted/50 font-sans outline-none focus:border-r-accent/50 transition-colors"
+          className="w-full bg-r-card border border-r-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] text-r-text placeholder:text-r-muted/60 font-sans outline-none focus:border-r-accent focus:ring-2 focus:ring-r-accent/10 transition-all"
         />
         {search && (
           <button
             onClick={() => setSearch('')}
-            className="absolute right-3.5 top-1/2 -translate-y-1/2 text-r-muted hover:text-r-faint text-xs transition-colors"
+            className="absolute right-3.5 top-1/2 -translate-y-1/2 text-r-muted hover:text-r-text text-xs transition-colors"
           >
             ✕
           </button>
@@ -69,34 +91,55 @@ export default function OpportunityList({ opportunities }: Props) {
       </div>
 
       {/* Category filter */}
-      <div className="flex flex-wrap gap-2 mb-6">
+      <div className="flex flex-wrap gap-2 mb-3 items-center">
+        <span className="font-mono text-[10px] text-r-faint tracking-[0.15em] uppercase shrink-0">类别</span>
         <button
           onClick={() => setActiveCats([])}
-          className={`font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded-lg border transition-all ${
+          className={`font-mono text-[11px] tracking-wide px-3 py-1.5 rounded-full border transition-all ${
             activeCats.length === 0
-              ? 'border-r-accent/50 bg-r-accent/10 text-r-accent'
-              : 'border-r-border bg-r-card text-r-muted hover:border-r-dim hover:text-r-faint'
+              ? 'border-r-accent bg-r-accent text-white shadow-sm'
+              : 'border-r-border bg-r-card text-r-muted hover:border-r-dim hover:text-r-accent hover:-translate-y-px'
           }`}
         >
           全部 ({opportunities.length})
         </button>
         {presentCats.map(cat => {
           const active = activeCats.includes(cat)
-          const color  = CAT_COLORS[cat] ?? '#9CA3AF'
+          const color  = CAT_COLORS[cat] ?? '#6B7280'
           const count  = opportunities.filter(o => o.category === cat).length
           return (
             <button
               key={cat}
               onClick={() => toggleCat(cat)}
-              className={`font-mono text-[10px] tracking-wider px-3 py-1.5 rounded-lg border transition-all ${
-                active ? 'border-opacity-60' : 'border-r-border bg-r-card text-r-muted hover:border-r-dim hover:text-r-faint'
+              className={`font-mono text-[11px] tracking-wide px-3 py-1.5 rounded-full border transition-all ${
+                active
+                  ? ''
+                  : 'border-r-border bg-r-card text-r-muted hover:border-r-dim hover:text-r-accent hover:-translate-y-px'
               }`}
-              style={active ? { borderColor: color, background: `${color}18`, color } : {}}
+              style={active ? { borderColor: color, background: color, color: 'white' } : {}}
             >
               {cat} ({count})
             </button>
           )
         })}
+      </div>
+
+      {/* Time-to-revenue filter */}
+      <div className="flex flex-wrap gap-2 mb-6 items-center">
+        <span className="font-mono text-[10px] text-r-faint tracking-[0.15em] uppercase shrink-0">变现周期</span>
+        {TIME_OPTIONS.map(({ value, label }) => (
+          <button
+            key={value}
+            onClick={() => setActiveTime(value)}
+            className={`font-mono text-[11px] tracking-wide px-3 py-1.5 rounded-full border transition-all ${
+              activeTime === value
+                ? 'border-r-time bg-r-time text-white shadow-sm'
+                : 'border-r-border bg-r-card text-r-muted hover:border-teal-300 hover:text-r-time hover:-translate-y-px'
+            }`}
+          >
+            {label}
+          </button>
+        ))}
       </div>
 
       {/* Results */}
@@ -108,15 +151,15 @@ export default function OpportunityList({ opportunities }: Props) {
         </div>
       ) : (
         <div className="text-center py-16 border border-r-border rounded-2xl bg-r-card">
-          <p className="font-display text-2xl font-bold text-r-dim mb-2">无结果</p>
-          <p className="font-mono text-[11px] text-r-muted tracking-wider">
+          <p className="font-display text-2xl font-bold text-r-muted mb-2">无结果</p>
+          <p className="font-mono text-[12px] text-r-faint tracking-wider">
             {search ? `没有找到「${search}」相关机会` : '当前筛选条件下暂无数据'}
           </p>
         </div>
       )}
 
       {filtered.length > 0 && filtered.length < opportunities.length && (
-        <p className="font-mono text-[10px] text-r-muted text-center mt-6 tracking-wider">
+        <p className="font-mono text-[11px] text-r-muted text-center mt-6 tracking-wider">
           显示 {filtered.length} / {opportunities.length} 条结果
         </p>
       )}
