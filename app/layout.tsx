@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
 import Header from '@/components/Header'
-import NavBar from '@/components/NavBar'
 import './globals.css'
 
 const syne = Plus_Jakarta_Sans({
@@ -48,7 +47,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="zh-CN" className={`${syne.variable} ${mono.variable}`}>
       <body>
         <Header />
-        <NavBar />
         {children}
       </body>
     </html>

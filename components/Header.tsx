@@ -1,10 +1,17 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import SubscribeForm from './SubscribeForm'
+
+const NAV_ITEMS = [
+  { href: '/', label: '每日机会', match: (p: string) => /^\/\d{4}-\d{2}-\d{2}/.test(p) || p === '/' },
+]
 
 export default function Header() {
   const [time, setTime] = useState('')
+  const pathname = usePathname()
 
   useEffect(() => {
     const tick = () =>
@@ -34,6 +41,27 @@ export default function Header() {
             </div>
           </div>
         </div>
+
+        {/* Center: nav */}
+        <nav className="hidden md:flex items-center h-full">
+          {NAV_ITEMS.map(item => {
+            const active = item.match(pathname)
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`relative h-full flex items-center px-4 font-mono text-[12px] tracking-wide transition-colors ${
+                  active ? 'text-r-accent' : 'text-r-muted hover:text-r-text'
+                }`}
+              >
+                {item.label}
+                {active && (
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-r-accent rounded-t-full" />
+                )}
+              </Link>
+            )
+          })}
+        </nav>
 
         {/* Right: subscribe + clock */}
         <div className="flex items-center gap-4">
