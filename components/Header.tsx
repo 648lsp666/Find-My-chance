@@ -30,7 +30,7 @@ export default function Header() {
               Prowl · 每日机会
             </div>
             <div className="font-display font-bold text-[17px] text-r-text leading-none tracking-tight">
-              虎嗅
+              见微
             </div>
           </div>
         </div>

@@ -52,7 +52,7 @@ export async function GET(req: NextRequest) {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '36px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ color: '#7C3AED', fontSize: '26px' }}>⌖</span>
-              <span style={{ color: '#1E1B4B', fontSize: '26px', fontWeight: 700 }}>虎嗅 Prowl</span>
+              <span style={{ color: '#1E1B4B', fontSize: '26px', fontWeight: 700 }}>见微 Prowl</span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
               <span style={{ color: '#7C3AED', fontSize: '18px', letterSpacing: '0.1em' }}>{date}</span>

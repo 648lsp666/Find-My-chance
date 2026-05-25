@@ -1,0 +1,43 @@
+<h2>改造方向选择</h2>
+<p class="subtitle">两种方案都采用亮白底 + 紫色主题，区别在改动深度</p>
+
+<div class="options">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>样式升级 — 保持结构不变</h3>
+      <p>只改颜色、字号、间距、筛选栏加回收周期。改动少、风险低，2-3小时完成。</p>
+      <ul style="margin-top:8px;padding-left:18px;font-size:13px;color:#888;line-height:1.8;">
+        <li>白底紫色主题全面替换</li>
+        <li>所有字号整体上调（9px→12px，13px→15px）</li>
+        <li>筛选栏新增「回收周期」一行</li>
+        <li>卡片内边距收紧，减少留白</li>
+        <li>hover 有颜色填充反馈，不只是边框变色</li>
+      </ul>
+      <div style="margin-top:10px;padding:8px;background:#FEF3C7;border-radius:6px;font-size:12px;color:#92400E;">
+        ⚠ DateNav 横向滚动体验不变；整体布局感和原版相似
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>全面重设计 — 布局 + 样式 + 交互（推荐）</h3>
+      <p>彻底重做视觉层次和信息组织，体验提升明显。改动较大，4-6小时完成。</p>
+      <ul style="margin-top:8px;padding-left:18px;font-size:13px;color:#888;line-height:1.8;">
+        <li>DateNav 改成顶部横向标签页，更有「切换日期」的感觉</li>
+        <li>筛选区域重设计：类别 + 回收周期 合并为统一筛选条</li>
+        <li>卡片增加类别色块头部，信息更有层次感</li>
+        <li>主内容区增宽（max-w-4xl），减少两侧无效留白</li>
+        <li>按钮/标签交互反馈更强（缩放动效 + 颜色填充）</li>
+        <li>「今日简报」突出展示，带渐变背景色块</li>
+      </ul>
+      <div style="margin-top:10px;padding:8px;background:#EDE9FE;border-radius:6px;font-size:12px;color:#5B21B6;">
+        ✦ 推荐：解决用户体验问题更彻底，页面现代感大幅提升
+      </div>
+    </div>
+  </div>
+
+</div>

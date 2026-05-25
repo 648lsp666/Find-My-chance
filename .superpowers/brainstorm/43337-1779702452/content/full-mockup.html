@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日机会雷达 · 重设计预览</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", sans-serif;
+    background: #F5F4FF;
+    color: #1E1B4B;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .site-header {
+    position: sticky; top: 0; z-index: 30;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #E5E3F5;
+    box-shadow: 0 1px 0 #E5E3F5;
+  }
+  .header-inner {
+    max-width: 900px; margin: 0 auto;
+    padding: 0 20px; height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: linear-gradient(135deg, #7C3AED, #5B21B6);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 16px;
+    box-shadow: 0 2px 8px rgba(124,58,237,0.35);
+  }
+  .brand-sub { font-size: 9px; color: #7C3AED; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2px; }
+  .brand-name { font-size: 17px; font-weight: 800; color: #1E1B4B; letter-spacing: -0.5px; }
+  .header-right { display: flex; align-items: center; gap: 16px; }
+  .subscribe-btn {
+    padding: 7px 16px; border-radius: 20px;
+    background: #7C3AED; color: white;
+    font-size: 12px; font-weight: 600; border: none; cursor: pointer;
+    transition: all 0.15s;
+  }
+  .subscribe-btn:hover { background: #6D28D9; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(124,58,237,0.4); }
+  .clock { font-size: 14px; font-weight: 600; color: #7C3AED; font-variant-numeric: tabular-nums; letter-spacing: 1px; }
+
+  /* ── Date Nav ── */
+  .date-nav-wrap {
+    background: white;
+    border-bottom: 1px solid #E5E3F5;
+  }
+  .date-nav-inner {
+    max-width: 900px; margin: 0 auto;
+    padding: 0 20px;
+    display: flex; align-items: stretch; gap: 2px;
+    overflow-x: auto;
+  }
+  .date-nav-inner::-webkit-scrollbar { display: none; }
+  .date-tab {
+    flex-shrink: 0; padding: 10px 18px;
+    font-size: 13px; font-weight: 500; color: #6B7280;
+    border-bottom: 2px solid transparent;
+    cursor: pointer; transition: all 0.15s;
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    text-decoration: none;
+  }
+  .date-tab:hover { color: #7C3AED; background: #F5F4FF; }
+  .date-tab.active {
+    color: #7C3AED; border-bottom-color: #7C3AED;
+    font-weight: 700;
+  }
+  .date-tab .tab-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.7; }
+  .date-tab .tab-day { font-size: 20px; font-weight: 700; line-height: 1; }
+  .today-dot { width: 5px; height: 5px; border-radius: 50%; background: #7C3AED; margin-top: 2px; }
+
+  /* ── Main ── */
+  main { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
+
+  /* ── Summary Banner ── */
+  .summary-banner {
+    background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+    border-radius: 16px; padding: 20px 24px; margin-bottom: 20px;
+    color: white; position: relative; overflow: hidden;
+  }
+  .summary-banner::before {
+    content: '⌖';
+    position: absolute; right: 20px; top: -10px;
+    font-size: 80px; opacity: 0.08; font-weight: 900; line-height: 1;
+  }
+  .summary-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.7; margin-bottom: 8px; }
+  .summary-text { font-size: 14px; line-height: 1.65; opacity: 0.92; }
+
+  /* ── Filter Bar ── */
+  .filter-section { margin-bottom: 20px; }
+  .filter-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; align-items: center; }
+  .filter-label { font-size: 10px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.15em; margin-right: 4px; flex-shrink: 0; }
+  .filter-divider { width: 100%; height: 1px; background: #E5E3F5; margin: 4px 0; }
+
+  .chip {
+    font-size: 12px; font-weight: 500;
+    padding: 6px 14px; border-radius: 20px;
+    border: 1.5px solid #E5E3F5;
+    background: white; color: #6B7280;
+    cursor: pointer; transition: all 0.15s;
+    display: flex; align-items: center; gap: 5px;
+    user-select: none;
+  }
+  .chip:hover { border-color: #C4B5FD; color: #7C3AED; background: #F5F3FF; transform: translateY(-1px); }
+  .chip.active { background: #7C3AED; border-color: #7C3AED; color: white; box-shadow: 0 2px 8px rgba(124,58,237,0.3); }
+  .chip .count { font-size: 10px; opacity: 0.7; }
+
+  .chip-time.active { background: #0D9488; border-color: #0D9488; box-shadow: 0 2px 8px rgba(13,148,136,0.3); }
+  .chip-time:hover { border-color: #5EEAD4; color: #0D9488; background: #F0FDFA; }
+
+  /* ── Search ── */
+  .search-wrap { position: relative; margin-bottom: 20px; }
+  .search-input {
+    width: 100%; padding: 11px 16px 11px 40px;
+    border: 1.5px solid #E5E3F5; border-radius: 12px;
+    background: white; font-size: 14px; color: #1E1B4B;
+    outline: none; transition: all 0.15s;
+  }
+  .search-input::placeholder { color: #9CA3AF; }
+  .search-input:focus { border-color: #7C3AED; box-shadow: 0 0 0 3px rgba(124,58,237,0.1); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #9CA3AF; font-size: 16px; }
+
+  /* ── Cards ── */
+  .cards-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .opp-card {
+    background: white; border-radius: 16px;
+    border: 1.5px solid #E5E3F5;
+    overflow: hidden; transition: all 0.2s;
+    cursor: default;
+  }
+  .opp-card:hover {
+    border-color: #C4B5FD;
+    box-shadow: 0 8px 32px rgba(124,58,237,0.12);
+    transform: translateY(-2px);
+  }
+
+  .card-header {
+    padding: 14px 20px 12px;
+    display: flex; align-items: center; gap: 10px;
+    border-bottom: 1px solid #F0EFF8;
+  }
+  .card-header-ai { background: linear-gradient(90deg, #EDE9FE, #F5F4FF); }
+  .card-header-media { background: linear-gradient(90deg, #EDE9FE 0%, rgba(237,233,254,0.3) 100%); }
+
+  .cat-badge {
+    font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px;
+  }
+  .cat-ai { background: #7C3AED; color: white; }
+  .cat-media { background: #8B5CF6; color: white; }
+  .cat-saas { background: #059669; color: white; }
+
+  .market-badge {
+    font-size: 11px; color: #6B7280;
+    border: 1px solid #E5E3F5; padding: 3px 10px; border-radius: 20px; background: white;
+  }
+  .time-badge {
+    font-size: 11px; font-weight: 500;
+    border: 1px solid #CCFBF1; background: #F0FDFA; color: #0D9488;
+    padding: 3px 10px; border-radius: 20px;
+  }
+  .potential {
+    margin-left: auto; display: flex; align-items: center; gap: 6px;
+    font-size: 11px; color: #9CA3AF;
+  }
+  .dots { display: flex; gap: 3px; }
+  .dot { width: 14px; height: 3px; border-radius: 2px; }
+  .dot.on { background: #7C3AED; }
+  .dot.off { background: #E5E3F5; }
+
+  .card-body { padding: 16px 20px 18px; }
+  .card-num { font-size: 11px; color: #C4B5FD; font-weight: 600; margin-bottom: 4px; }
+  .card-title { font-size: 19px; font-weight: 800; color: #1E1B4B; letter-spacing: -0.5px; line-height: 1.3; margin-bottom: 8px; }
+  .card-summary { font-size: 14px; color: #6B7280; line-height: 1.6; margin-bottom: 12px; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .tag { font-size: 11px; color: #A78BFA; background: #EDE9FE; padding: 2px 8px; border-radius: 4px; }
+
+  .card-desc { font-size: 14px; color: #374151; line-height: 1.7; margin-bottom: 14px; }
+
+  .pain-block {
+    background: #FFFBEB; border-left: 3px solid #F59E0B;
+    border-radius: 0 8px 8px 0; padding: 10px 14px; margin-bottom: 14px;
+    font-size: 13px; color: #78350F; line-height: 1.6;
+  }
+  .pain-label { font-size: 10px; color: #B45309; text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 4px; font-weight: 600; }
+
+  .path-section { margin-bottom: 14px; }
+  .path-label { font-size: 10px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 10px; }
+  .path-list { display: flex; flex-direction: column; gap: 8px; }
+  .path-item { display: flex; gap: 10px; align-items: flex-start; }
+  .path-num {
+    flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+    background: #EDE9FE; color: #7C3AED;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .path-text { font-size: 14px; color: #374151; line-height: 1.6; }
+
+  .card-divider { border: none; border-top: 1px solid #F0EFF8; margin: 14px 0; }
+
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 12px; }
+  .stat-item {}
+  .stat-label { font-size: 10px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
+  .stat-value { font-size: 14px; font-weight: 600; color: #1E1B4B; }
+  .stat-value.green { color: #059669; }
+
+  .revenue-row { font-size: 13px; color: #6B7280; margin-bottom: 12px; line-height: 1.6; }
+  .revenue-label { font-size: 10px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.12em; margin-right: 6px; }
+
+  .sources { display: flex; flex-wrap: wrap; gap: 10px; }
+  .source-link { font-size: 12px; color: #7C3AED; text-decoration: none; display: flex; align-items: center; gap: 3px; opacity: 0.7; transition: opacity 0.15s; }
+  .source-link:hover { opacity: 1; }
+
+  /* ── Footer ── */
+  .page-footer { text-align: center; margin-top: 40px; font-size: 11px; color: #C4B5FD; letter-spacing: 0.15em; text-transform: uppercase; }
+
+  /* ── Selection overlay ── */
+  .select-overlay {
+    position: fixed; bottom: 20px; right: 20px;
+    background: #7C3AED; color: white;
+    padding: 10px 18px; border-radius: 12px;
+    font-size: 13px; font-weight: 600;
+    cursor: pointer; box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+    transition: all 0.15s;
+  }
+  .select-overlay:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(124,58,237,0.5); }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-icon">⌖</div>
+      <div>
+        <div class="brand-sub">Daily Intelligence</div>
+        <div class="brand-name">每日机会雷达</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <button class="subscribe-btn">✉ 订阅推送</button>
+      <div class="clock">12:00:00</div>
+    </div>
+  </div>
+</header>
+
+<!-- Date Nav (tab style) -->
+<div class="date-nav-wrap">
+  <div class="date-nav-inner">
+    <a class="date-tab active" href="#">
+      <span class="tab-label">Today</span>
+      <span class="tab-day">25</span>
+      <span class="today-dot"></span>
+    </a>
+    <a class="date-tab" href="#">
+      <span class="tab-label">5月</span>
+      <span class="tab-day">24</span>
+    </a>
+    <a class="date-tab" href="#">
+      <span class="tab-label">5月</span>
+      <span class="tab-day">23</span>
+    </a>
+    <a class="date-tab" href="#">
+      <span class="tab-label">5月</span>
+      <span class="tab-day">22</span>
+    </a>
+    <a class="date-tab" href="#">
+      <span class="tab-label">5月</span>
+      <span class="tab-day">21</span>
+    </a>
+    <a class="date-tab" href="#">
+      <span class="tab-label">5月</span>
+      <span class="tab-day">20</span>
+    </a>
+  </div>
+</div>
+
+<!-- Main -->
+<main>
+
+  <!-- Summary Banner -->
+  <div class="summary-banner">
+    <div class="summary-label">今日市场简报 · 2026-05-25</div>
+    <div class="summary-text">AI应用与自媒体赛道继续领跑，本周出现多个门槛低的工具型机会。回收周期在1个月内的项目集中在小程序和信息差方向，整体竞争度偏低，适合快速验证。</div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filter-section">
+    <!-- Search -->
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input class="search-input" placeholder="搜索机会关键词…" />
+    </div>
+
+    <!-- Category Chips -->
+    <div class="filter-group">
+      <span class="filter-label">类别</span>
+      <button class="chip active">全部 <span class="count">8</span></button>
+      <button class="chip">AI应用 <span class="count">3</span></button>
+      <button class="chip">自媒体 <span class="count">2</span></button>
+      <button class="chip">SaaS工具 <span class="count">2</span></button>
+      <button class="chip">内容创作 <span class="count">1</span></button>
+    </div>
+
+    <!-- Time-to-Revenue Chips -->
+    <div class="filter-group">
+      <span class="filter-label">变现周期</span>
+      <button class="chip chip-time active">不限</button>
+      <button class="chip chip-time">⚡ 1周内</button>
+      <button class="chip chip-time">🚀 1个月内</button>
+      <button class="chip chip-time">📈 3个月+</button>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="cards-list">
+
+    <!-- Card 1 -->
+    <article class="opp-card">
+      <div class="card-header card-header-ai">
+        <span class="cat-badge cat-ai">AI应用</span>
+        <span class="market-badge">国内市场</span>
+        <span class="time-badge">⚡ 2-3周变现</span>
+        <div class="potential">
+          <span style="font-size:10px;color:#9CA3AF">潜力</span>
+          <div class="dots">
+            <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot off"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-num">01</div>
+        <h2 class="card-title">AI英语口语教练小程序</h2>
+        <p class="card-summary">利用 GPT-4o 语音 API 实现实时对话纠错，精准切中学生和职场人士的刚需痛点，订阅模式天花板高。</p>
+
+        <div class="tags">
+          <span class="tag">#AI教育</span>
+          <span class="tag">#小程序</span>
+          <span class="tag">#订阅制</span>
+        </div>
+
+        <p class="card-desc">微信小程序形态天然降低下载门槛，结合 GPT-4o 的实时语音对话能力，可以做到"随时随地对话纠错"体验，对标产品 Speak 在海外估值超10亿。</p>
+
+        <div class="pain-block">
+          <span class="pain-label">核心痛点</span>
+          国内英语学习者缺乏低成本的真实口语练习场景，传外教一小时成本高达200元以上，AI可以做到接近零边际成本。
+        </div>
+
+        <div class="path-section">
+          <div class="path-label">执行路径</div>
+          <div class="path-list">
+            <div class="path-item">
+              <div class="path-num">1</div>
+              <div class="path-text">接入 OpenAI Realtime API，搭建微信小程序语音对话原型（3天）</div>
+            </div>
+            <div class="path-item">
+              <div class="path-num">2</div>
+              <div class="path-text">小红书发布"AI英语陪练"测评视频，冷启动免费用户（1周）</div>
+            </div>
+            <div class="path-item">
+              <div class="path-num">3</div>
+              <div class="path-text">验证付费意愿后开启 ¥29/月 订阅，目标首月 100 付费用户</div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="card-divider" />
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-label">回收周期</div>
+            <div class="stat-value">2-3 周</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">启动成本</div>
+            <div class="stat-value green">¥500 内</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">竞争程度</div>
+            <div class="stat-value">中等</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">执行难度</div>
+            <div class="dots" style="margin-top:4px">
+              <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot off"></div><div class="dot off"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="revenue-row">
+          <span class="revenue-label">收益模式</span>
+          ¥29/月订阅 + ¥99/年会员，100用户月收入 ¥2900
+        </div>
+
+        <div class="sources">
+          <a class="source-link" href="#">Speak估值报道 ↗</a>
+          <a class="source-link" href="#">GPT-4o语音文档 ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2 (collapsed preview) -->
+    <article class="opp-card" style="opacity:0.8">
+      <div class="card-header" style="background:linear-gradient(90deg,#F5F3FF,#FAFAF9)">
+        <span class="cat-badge" style="background:#8B5CF6;color:white">自媒体</span>
+        <span class="market-badge">全球市场</span>
+        <span class="time-badge" style="background:#FFF7ED;border-color:#FED7AA;color:#C2410C">🚀 3-4周变现</span>
+        <div class="potential">
+          <span style="font-size:10px;color:#9CA3AF">潜力</span>
+          <div class="dots">
+            <div class="dot on" style="background:#8B5CF6"></div>
+            <div class="dot on" style="background:#8B5CF6"></div>
+            <div class="dot on" style="background:#8B5CF6"></div>
+            <div class="dot on" style="background:#8B5CF6"></div>
+            <div class="dot on" style="background:#8B5CF6"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-num">02</div>
+        <h2 class="card-title">AI工具评测 YouTube 频道</h2>
+        <p class="card-summary">在 YouTube 做中文AI工具测评，切入全球最大流量平台，广告+联盟变现路径清晰，复利效应显著。</p>
+        <div class="tags">
+          <span class="tag" style="background:#EDE9FE;color:#7C3AED">#自媒体</span>
+          <span class="tag" style="background:#EDE9FE;color:#7C3AED">#YouTube</span>
+          <span class="tag" style="background:#EDE9FE;color:#7C3AED">#AI测评</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="page-footer">
+    由 Claude AI Agent 每日 12:00 CST 自动生成 · 仅供参考
+  </div>
+</main>
+
+<!-- CTA overlay -->
+<div class="select-overlay" onclick="window.close()">
+  ✓ 这就是我想要的效果 → 开始写代码
+</div>
+
+</body>
+</html>

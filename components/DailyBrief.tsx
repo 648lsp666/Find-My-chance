@@ -28,7 +28,7 @@ export default function DailyBrief({ date, summary, count }: Props) {
             AI 今日简报 · {date}
           </p>
           <h2 className="font-display font-bold text-white" style={{ fontSize: '18px' }}>
-            虎嗅 · 今日简报
+            见微 · 今日简报
           </h2>
         </div>
         <div
