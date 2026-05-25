@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import { Syne, JetBrains_Mono } from 'next/font/google'
+import { Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
-const syne = Syne({
+const syne = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-syne',
   weight: ['600', '700', '800'],

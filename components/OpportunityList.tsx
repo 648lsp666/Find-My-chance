@@ -69,7 +69,7 @@ export default function OpportunityList({ opportunities }: Props) {
   return (
     <div>
       {/* Search bar */}
-      <div className="relative mb-4">
+      <div className="relative mb-4 print:hidden">
         <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-r-muted text-base pointer-events-none">
           ⌕
         </span>
@@ -91,7 +91,7 @@ export default function OpportunityList({ opportunities }: Props) {
       </div>
 
       {/* Category filter */}
-      <div className="flex flex-wrap gap-2 mb-3 items-center">
+      <div className="flex flex-wrap gap-2 mb-3 items-center print:hidden">
         <span className="font-mono text-[10px] text-r-faint tracking-[0.15em] uppercase shrink-0">类别</span>
         <button
           onClick={() => setActiveCats([])}
@@ -125,7 +125,7 @@ export default function OpportunityList({ opportunities }: Props) {
       </div>
 
       {/* Time-to-revenue filter */}
-      <div className="flex flex-wrap gap-2 mb-6 items-center">
+      <div className="flex flex-wrap gap-2 mb-6 items-center print:hidden">
         <span className="font-mono text-[10px] text-r-faint tracking-[0.15em] uppercase shrink-0">变现周期</span>
         {TIME_OPTIONS.map(({ value, label }) => (
           <button

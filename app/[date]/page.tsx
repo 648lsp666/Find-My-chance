@@ -3,6 +3,8 @@ import { getAllDates, getOpportunities } from '@/lib/opportunities'
 import Header from '@/components/Header'
 import DateNav from '@/components/DateNav'
 import OpportunityList from '@/components/OpportunityList'
+import DailyBrief from '@/components/DailyBrief'
+import SharePdfButtons from '@/components/SharePdfButtons'
 
 export async function generateStaticParams() {
   return getAllDates().map(date => ({ date }))
@@ -54,26 +56,16 @@ export default function DatePage({ params }: { params: { date: string } }) {
         <DateNav dates={allDates} currentDate={params.date} />
 
         {/* Daily brief */}
-        {data.summary && (
-          <div
-            className="rounded-2xl px-6 py-5 mb-6 relative overflow-hidden"
-            style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%)' }}
-          >
-            <div
-              className="absolute right-4 top-0 select-none pointer-events-none leading-none text-white font-bold"
-              style={{ fontSize: '90px', opacity: 0.06 }}
-            >
-              ⌖
-            </div>
-            <p className="font-mono text-[10px] text-white/70 tracking-[0.25em] uppercase mb-2">
-              今日市场简报 · {data.date}
-            </p>
-            <p className="font-sans text-[14px] text-white/90 leading-relaxed relative">{data.summary}</p>
-          </div>
-        )}
+        <DailyBrief
+          date={data.date}
+          summary={data.summary ?? ''}
+          count={data.opportunities.length}
+        />
 
         {/* Filter + cards */}
         <OpportunityList opportunities={data.opportunities} />
+
+        <SharePdfButtons date={params.date} />
 
         <p className="font-mono text-[9px] text-r-muted/40 text-center mt-12 tracking-[0.2em] uppercase">
           由 Claude AI Agent 每日 12:00 CST 自动生成 · 仅供参考

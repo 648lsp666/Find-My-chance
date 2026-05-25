@@ -40,3 +40,21 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 }
+
+@media print {
+  @page { margin: 16mm 14mm; }
+
+  body { background: #fff !important; color: #1E1B4B !important; }
+
+  .print\:hidden { display: none !important; }
+
+  .card-lift:hover { transform: none; box-shadow: none; }
+
+  article {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #E5E3F5 !important;
+    box-shadow: none !important;
+    margin-bottom: 12px;
+  }
+}

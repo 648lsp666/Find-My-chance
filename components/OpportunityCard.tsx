@@ -74,7 +74,7 @@ export default function OpportunityCard({
         {/* Index + Title */}
         <div className="flex items-baseline gap-3 mb-2">
           <span className="font-mono text-[11px] text-r-dim flex-shrink-0 tabular-nums font-semibold">{num}</span>
-          <h2 className="font-display font-extrabold text-[19px] text-r-text leading-snug tracking-tight">
+          <h2 className="font-display font-bold text-[19px] text-r-text leading-snug">
             {o.title}
           </h2>
         </div>
