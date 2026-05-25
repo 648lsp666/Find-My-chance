@@ -1,256 +1,92 @@
 {
   "date": "2026-05-26",
-  "generatedAt": "2026-05-25T17:53:37.482Z",
-  "summary": "今日信号显示，AI应用工具持续爆发，尤其围绕本地LLM自动化、企业AI分析、工作流录制的需求旺盛；同时，个人网站建站与开发者效率工具赛道依然火热。中国独立开发者宜抓住“AI+工作流自动化”、“AI+数据分析”、“低成本网站生成”三个方向，结合MCP协议与UI生成能力，快速切入细分市场。",
+  "generatedAt": "2026-05-25T17:59:59.588Z",
+  "summary": "今日信号显示三个清晰趋势：AI 应用下沉到具体场景（语音转写、UI 生成、个人工作流自动化）、iMessage 商业潜力被挖掘、以及量子计算和隐私合规等前沿方向带来工具需求。独立开发者可围绕“AI+跨平台消息路由”、“Mac 端轻量 AI 工具”、“数据合规自动化”等切口快速落地。",
   "opportunities": [
     {
       "id": 1,
-      "title": "AI 工作流录制器",
-      "category": "AI应用",
+      "title": "iMessage 自动营销助手",
+      "category": "SaaS工具",
       "market": "海外为主",
       "tags": [
-        "Mac自动化",
-        "AI Agent",
-        "零成本运行"
+        "iMessage",
+        "CRM",
+        "自动化营销"
       ],
-      "summary": "用AI录制Mac操作并生成自动化脚本",
-      "description": "借鉴Freu AI (信号30) 的思路，做一个更面向中国用户的AI桌面自动化工具。用户录制一系列操作（点击、输入），AI自动生成AppleScript或Shell脚本，并能以定时、触发器方式运行。国内中小企业、运营人员大量重复性操作（如数据录入、报表生成）有强烈需求，竞品目前只有海外付费工具。可先做Mac版，后续支持Win。定价月费30-50元，首月免费引流。",
-      "painPoint": "企业员工每天花费大量时间在重复性电脑操作上，但不会编程，无法自动化。",
+      "summary": "基于 Chert 思路，做针对外贸/电商的 iMessage 群发+回复机器人",
+      "description": "国外对 iMessage 的商用接入需求增长（类似 WhatsApp Business），但独立开发者很难提供完整 Twilio 级服务。差异化切入：专注中小跨境电商客户，提供预置模板+AI 自动回复（用于订单确认、物流通知）。市场规模：美国月活 iMessage 用户超 1 亿，但企业 API 成本极高（0.05 刀/条），用非官方方案前置转换漏斗。竞品：WhatsApp Business API 太贵，Telegram bots 用户少。轻量轮子：先做 Chrome 插件采集客户电话号码，配合 Python 脚本批量通过 iCloud 通道发信。",
+      "painPoint": "中小商家无法低成本触达海外苹果用户",
       "path": [
-        "第一步：使用Python + PyAutoGUI + LLM API构建操作录制与脚本生成原型",
-        "第二步：开发Mac菜单栏应用，支持录制、回放、定时触发核心功能",
-        "第三步：在小红书/即刻发布“Mac自动化”系列教程引流，收集种子用户",
-        "第四步：上线定价，提供7天免费试用，逐步增加条件判断、错误处理等高级功能"
+        "搭建 Chrome 扩展用于导出联系人号码",
+        "封装私有 iMessage 发送代理（基于 pyimessage 或 go-send）",
+        "开发预置营销模板+简单 AI 文案生成",
+        "上线 Gumroad/AppSumo 按年订阅销售"
       ],
-      "revenueModel": "订阅制：个人版39元/月，团队版99元/月，预计100付费用户后可月入1万元",
+      "revenueModel": "月费 $29-99，首年目标 50 客户 → MRR $1500+",
       "timeToRevenue": "2个月",
-      "startupCost": "< 5000元",
+      "startupCost": "< 2000元",
       "difficulty": 3,
-      "potential": 8,
-      "competition": "中",
+      "potential": 7,
+      "competition": "低",
       "sources": [
         {
-          "title": "Product Hunt: Freu AI - Automate any Mac app with $0 recurring run cost",
-          "url": "https://www.producthunt.com/products/freu-cli?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+          "title": "Launch HN: Chert (YC P26) – Twilio for iMessage",
+          "url": "https://www.trychert.com"
         }
       ]
     },
     {
       "id": 2,
-      "title": "AI数据洞察助手",
+      "title": "Mac 语音速记 AI 笔记",
       "category": "AI应用",
       "market": "国内为主",
       "tags": [
-        "数据分析",
-        "自然语言查询",
-        "企业服务"
+        "语音转文字",
+        "本地AI",
+        "效率工具"
       ],
-      "summary": "让老板用自然语言问数据",
-      "description": "参考Supaboard 3.0 (信号33) 和Unabyss (信号27)，做一个极简版AI数据洞察工具。用户连接公司数据库（MySQL/PostgreSQL/Excel），即可用自然语言提问（如“上个月销售额Top10的客户是谁”），AI自动生成SQL并返回可视化图表。国内大量小微企业无BI能力，用飞书/钉钉管理数据，痛点明确。先做飞书机器人版本，月费99元起，降低使用门槛。",
-      "painPoint": "中小公司老板想分析数据但不会写SQL，IT部门又没时间做报表。",
+      "summary": "集成 Voxxy 理念+本地离线转写+自动摘要",
+      "description": "现有语音转写工具（讯飞、飞书妙记）依赖云端且按分钟收费。独立开发者可借助 macOS CoreML + Whisper.cpp 做全离线语音记事，重点打击隐私敏感用户（律师、医生、记者）。功能：一键录音->自动转文字->LLM（可本地或云端化）生成摘要/待办。市场规模：中国知识工作者 1.5 亿，约 30%有实时语音笔记需求。竞品 Voxxy 仅转写，缺少摘要结构化。差异：聚焦“会议/灵感闪录”场景，增加自动提炼行动项。投入：一周 SwiftUI 原型，一月打磨。",
+      "painPoint": "云端录音转写隐私担忧，且缺乏智能摘要",
       "path": [
-        "第一步：用LangChain + 开源LLM部署自然语言转SQL服务，支持MySQL/PG",
-        "第二步：开发飞书/钉钉机器人，用户通过聊天窗口提问并接收回答与图表",
-        "第三步：在“人人都是产品经理”等社区发布“AI数据分析指南”文章，吸引企业主",
-        "第四步：提供14天免费试用，定价按数据量阶梯收费（99元/月-499元/月）"
+        "基于 Swift + Whisper.cpp 实现实时转录",
+        "集成 Ollama 本地模型做会议摘要",
+        "加入 iCloud 同步和 Markdown 导出",
+        "上架 Mac App Store 定价 $9.9 一次性"
       ],
-      "revenueModel": "SaaS订阅：99元/月起，预计50家企业客户可月入1.5万元",
-      "timeToRevenue": "3个月",
-      "startupCost": "< 10000元",
+      "revenueModel": "买断 $9.9，目标 2000 下载 → $20K",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1500元",
       "difficulty": 4,
-      "potential": 9,
+      "potential": 8,
       "competition": "中",
       "sources": [
         {
-          "title": "Product Hunt: Supaboard 3.0 - AI data analysts that understand your business",
-          "url": "https://www.producthunt.com/products/supaboard-ai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
-        },
-        {
-          "title": "Product Hunt: Unabyss - MCP-native self-updating context layer for your AI",
-          "url": "https://www.producthunt.com/products/unabyss?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+          "title": "Show HN: Voxxy – a minimal, fast voice-to-text app for macOS",
+          "url": "https://www.voxxy.io"
         }
       ]
     },
     {
       "id": 3,
-      "title": "Bento个人网站生成器",
-      "category": "SaaS工具",
-      "market": "海外为主",
+      "title": "Jira 逃脱手册",
+      "category": "内容创作",
+      "market": "国内外均可",
       "tags": [
-        "个人品牌",
-        "建站工具",
-        "设计师"
+        "项目管理",
+        "开源替代",
+        "SaaS对比"
       ],
-      "summary": "拖拽生成Bento风格个人网页",
-      "description": "借鉴own.page (信号28) 的Bento tiles布局理念，做一个面向中国设计师/独立开发者的个人网站生成器。Bento风格（卡片式网格布局）在海外极流行，国内尚无同类型工具。用户无需编码，拖拽组件（头像、作品集、博客、社交媒体链接）即可生成响应式个人主页。可免费发布基础版，高级模板/自定义域名收费。同时支持一键导出静态文件部署到Vercel。",
-      "painPoint": "设计师/独立开发者想要一个好看的个人网站展示作品，但不会写前端或觉得模板太死板。",
+      "summary": "出系列教程/模板，教团队从 Jira 迁移到 Plane",
+      "description": "Jira 复杂度高涨且被证明图灵完备（过于灵活），而 Plane（开源 Linear 替代）正获得大量关注。作为独立开发者可制作一套“Jira-to-Plane 迁移工具与指南”，包含：数据导出脚本（从 Jira CSV/API 转换到 Plane 格式）、自动 Sprint 映射模板、以及常见项目管理流程的最佳实践电子书。变现：迁移工具免费但限制免费导出量（前 500 条免费，之后付费），同时卖项目管理模板包。市场规模：每月有 5 万团队搜索“Jira alternative”。",
+      "painPoint": "Jira 使用成本高且配置复杂，迁移到开源 Plane 缺少操作指南",
       "path": [
-        "第一步：使用React + Tailwind CSS搭建Bento布局编辑器，预设10套卡片组件",
-        "第二步：实现拖拽排序、主题配色、响应式预览核心功能",
-        "第三步：在Product Hunt和V2EX发布，主打“5分钟搭建个人品牌主页”",
-        "第四步：免费版可发布，高级版（自定义域名、分析、联系表单）定价9美元/月或一次买断99美元"
+        "研究 Jira REST API 与 Plane API，编写 Node.js 迁移脚本",
+        "撰写 10 篇「Jira 迁移到 Plane」图文教程，发布掘金/Medium",
+        "打包自动迁移 CLI 工具开源（社区版）与付费 Pro 版（支持关系型字段）",
+        "在 Gumroad 售卖项目管理模板（$19）"
       ],
-      "revenueModel": "SaaS订阅+买断：免费+9美元/月或99美元买断，预计200付费用户后可月入1.8万美元",
-      "timeToRevenue": "2个月",
-      "startupCost": "< 3000元",
-      "difficulty": 3,
-      "potential": 7,
-      "competition": "低",
-      "sources": [
-        {
-          "title": "Product Hunt: own.page - Make your own personal website with bento tiles",
-          "url": "https://www.producthunt.com/products/own-page?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "title": "USB-C线缆检测工具",
-      "category": "整活玩具",
-      "market": "国内为主",
-      "tags": [
-        "硬件检测",
-        "实用工具",
-        "极客"
-      ],
-      "summary": "一测便知你的USB-C线能力",
-      "description": "灵感来自WhatCable (信号32)，做一个中国版的USB-C线缆检测工具。国内大量USB-C线材质量参差不齐，用户经常买到只能充电不能传数据、或只支持USB2.0的线。开发一个极简检测器硬件（成本约30元）+ 手机/PC App，插入线缆后自动检测支持协议（PD充电功率、USB3.0/3.1/4、雷电4等）。在B站/酷安做评测视频带货。首批1000个测试版，单品定价49-69元。",
-      "painPoint": "用户买了USB-C线但不知道它实际支持什么协议，经常被劣质线坑。",
-      "path": [
-        "第一步：采购USB-C PD诱骗器芯片 + 单片机，搭建线缆检测电路原型",
-        "第二步：开发配套微信小程序或PC端App，通过蓝牙/WiFi接收检测数据",
-        "第三步：在B站发布“你的USB-C线合格吗？”横评视频，引流至淘宝店",
-        "第四步：首批发售500个尝鲜版，收集反馈后迭代量产版，定价69元/个"
-      ],
-      "revenueModel": "硬件销售：69元/个，首批500个可收入3.45万元",
-      "timeToRevenue": "3个月",
-      "startupCost": "< 20000元",
-      "difficulty": 4,
-      "potential": 6,
-      "competition": "低",
-      "sources": [
-        {
-          "title": "Product Hunt: WhatCable - Know what your USB-C cable can really do",
-          "url": "https://www.producthunt.com/products/whatcable?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "title": "X帖子转Markdown工具",
-      "category": "自媒体",
-      "market": "海外为主",
-      "tags": [
-        "内容创作",
-        "知识管理",
-        "自动化"
-      ],
-      "summary": "一键把X帖子转成干净Markdown",
-      "description": "受到tweet.md (信号35) 启发，做一个更强大的X帖子转Markdown工具。很多创作者、研究员需要存档X上有价值的内容，但复制粘贴带格式很麻烦。工具支持单条/多条/时间线导出，自动提取文本、图片、引用并转成整洁的Markdown文件。可支持导出为Obsidian、Notion、Logseq格式。国内小红书/微博帖子格式需求类似，后续可扩展。免费版每月50条，付费版无限量。",
-      "painPoint": "内容创作者想保存X上有价值的信息，但手动复制粘贴非常低效且格式混乱。",
-      "path": [
-        "第一步：调用X API获取帖子内容，用正则+LLM清理格式并生成标准Markdown",
-        "第二步：开发Chrome扩展，在帖子页面增加“导出为MD”按钮",
-        "第三步：在Twitter推出#tweetmd标签活动，联合博主推广",
-        "第四步：免费版每月50条，付费版9美元/月，支持批量导出和Obsidian/Notion对接"
-      ],
-      "revenueModel": "Freemium订阅：每月9美元，预计100付费用户后可月入900美元",
-      "timeToRevenue": "1个月",
-      "startupCost": "< 1000元",
-      "difficulty": 2,
-      "potential": 6,
-      "competition": "中",
-      "sources": [
-        {
-          "title": "Product Hunt: tweet.md - X posts as clean Markdown",
-          "url": "https://www.producthunt.com/products/tweet-md?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "title": "本地LLM菜单栏帮手",
-      "category": "SaaS工具",
-      "market": "国内为主",
-      "tags": [
-        "Mac工具",
-        "本地AI",
-        "隐私优先"
-      ],
-      "summary": "Mac菜单栏快速调用本地大模型",
-      "description": "参考ModelHub (信号29) 做一个Mac菜单栏应用，让用户能快速切换和调用本地运行的LLM（如Ollama管理的Llama、Qwen、DeepSeek模型）。中国用户对数据隐私敏感，本地模型正流行。支持全局快捷键唤起、流式生成、复制结果。面向开发者、自媒体人、学生。基础功能免费（支持Ollama），高级功能（自定义提示词库、上下文管理）买断价29元。",
-      "painPoint": "用户想用本地LLM但每次打开终端或网页比较麻烦，缺少一个轻便的调起方式。",
-      "path": [
-        "第一步：用Swift开发Mac菜单栏应用，集成Ollama API，实现模型切换+文本生成",
-        "第二步：增加全局快捷键（如Option+Space）唤起输入窗口，流式输出到编辑器",
-        "第三步：在少数派、V2EX发布“Mac本地AI神器”帖子，吸引开发者下载",
-        "第四步：免费版支持基本功能，买断Pro版29元（提示词模板、多模型并发、上下文管理）"
-      ],
-      "revenueModel": "买断制：29元Pro版 + 捐赠，预计300用户付费后可月入8700元",
-      "timeToRevenue": "2个月",
-      "startupCost": "< 2000元",
-      "difficulty": 3,
-      "potential": 7,
-      "competition": "中",
-      "sources": [
-        {
-          "title": "Product Hunt: ModelHub - The missing menu bar app for local LLMs on Mac.",
-          "url": "https://www.producthunt.com/products/modelhub?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "title": "AI生成UI原型工具",
-      "category": "AI应用",
-      "market": "海外为主",
-      "tags": [
-        "UI设计",
-        "AI生成",
-        "Figma替代"
-      ],
-      "summary": "用AI在画布上直接生成UI界面",
-      "description": "受到Stitch 3.0 (信号26) 启发，做一个面向独立开发者的AI UI原型工具。用户输入需求（如“一个待办事项App的登录页”），AI在画布上生成可编辑的UI界面，用户可拖拽修改和迭代。瞄准Figma Pro用户中“想快速出原型但不想自己画”的群体。国内Figma被禁后，即时设计/MasterGo是替代品，但AI生成能力较弱。可先做Web版，集成Stable Diffusion或DALL-E的UI模型。",
-      "painPoint": "独立开发者想做App/网页原型但不会UI设计，外包设计又贵又慢。",
-      "path": [
-        "第一步：调研开源的UI生成模型（如ui2code、Screenshot-to-code），搭建后端生成服务",
-        "第二步：开发Web画布编辑器，支持AI生成的组件拖拽、属性编辑",
-        "第三步：在Indie Hackers和Product Hunt发帖，主打“5分钟从文字到UI原型”",
-        "第四步：免费版生成5个界面，Pro版19美元/月无限生成+导出Figma/代码"
-      ],
-      "revenueModel": "SaaS订阅：Pro 19美元/月，预计100用户付费后可月入1900美元",
-      "timeToRevenue": "3个月",
-      "startupCost": "< 10000元",
-      "difficulty": 4,
-      "potential": 9,
-      "competition": "中",
-      "sources": [
-        {
-          "title": "Product Hunt: Stitch 3.0 by Google - Generate and iterate UI screens with AI on a live canvas",
-          "url": "https://www.producthunt.com/products/stitch-by-google?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "title": "开源项目监控Bot",
-      "category": "SaaS工具",
-      "market": "海外为主",
-      "tags": [
-        "开发者工具",
-        "GitHub",
-        "自动化"
-      ],
-      "summary": "GitHub项目Star/Issue变化推送到微信",
-      "description": "中国开源项目（如Alist、Plane、Pake）在GitHub热度很高（信号16-25），但很多开发者没有及时了解自己项目Star变化、Issue讨论、PR状态的便捷方式。做一个GitHub Webhook + 微信/飞书Bot，当项目有Star、Issue、PR变动时，推送中文摘要到用户消息中。国内很多开发者用微信协作，但GitHub官方通知被屏蔽或忽略。定价9.9元/月，支持监控3个项目。",
-      "painPoint": "开源作者想第一时间知道项目动态，但GitHub邮件通知太多、微信又不方便查看。",
-      "path": [
-        "第一步：搭建GitHub Webhook接收服务，解析Star/Issue/PR事件",
-        "第二步：对接企业微信/飞书机器人，将事件翻译成中文摘要并推送",
-        "第三步：在GitHub上找100个热门中文项目作者，私信推荐试用",
-        "第四步：免费版监控1个项目，付费版9.9元/月监控3个项目，支持团队告警"
-      ],
-      "revenueModel": "SaaS订阅：9.9元/月起，预计200付费用户后可月入2000元",
+      "revenueModel": "CLI 工具年费 $49，模板 $19，预计首年 $5K",
       "timeToRevenue": "1个月",
       "startupCost": "< 500元",
       "difficulty": 2,
@@ -258,16 +94,176 @@
       "competition": "低",
       "sources": [
         {
-          "title": "GitHub: AlistGo/alist - 一个支持多存储的文件列表/WebDAV程序",
-          "url": "https://github.com/AlistGo/alist"
-        },
-        {
-          "title": "GitHub: makeplane/plane - Open-source Jira alternative",
+          "title": "makeplane/plane - Open-source Jira alternative",
           "url": "https://github.com/makeplane/plane"
         },
         {
-          "title": "GitHub: tw93/Pake - Turn any webpage into a desktop app",
+          "title": "Jira Is Turing-Complete",
+          "url": "https://seriot.ch/computation/jira.html"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "USB-C 线缆身份证工具",
+      "category": "整活玩具",
+      "market": "国内外均可",
+      "tags": [
+        "USB-C",
+        "硬件检测",
+        "小工具"
+      ],
+      "summary": "仿 WhatCable 做一款微信小程序，扫码识别线缆规格",
+      "description": "USB-C 线缆市场极其混乱，普通用户常买错线（充电慢 or 不支持视频）。WhatCable 是 App，但面向海外。国内痛点为：用户买裸线无说明书、电商标题参数造假。可做：微信小程序“线缆检测助手”：用户拍照线缆接口，利用图像识别判断接口类型；再结合电子行业数据库（USB-IF）推测最大功率/协议。也可扩展上游：接收用户扫描的线缆 E-marker 芯片信息（需配合小型硬件手机外设）→ 低成本硬件+免费软件。纯软件方案也可：输入线缆两端外观描述，AI 推断规格。",
+      "painPoint": "普通消费者无法判断 USB-C 线缆的真实性能",
+      "path": [
+        "收集国内主流 USB-C 线材参数数据库（200+ SKU）",
+        "开发微信小程序拍照识别（基于 TensorFlow Lite 分类器）",
+        "加入口碑打分功能（“这条线支持 100W 充电吗？”）",
+        "与线缆厂商合作内嵌防伪二维码，抽佣"
+      ],
+      "revenueModel": "免费小程序广告收入，硬件套件（检测器）¥39/个，月销 500 → ¥19.5K/月",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "低",
+      "sources": [
+        {
+          "title": "WhatCable: Know what your USB-C cable can really do",
+          "url": "https://www.producthunt.com/products/whatcable?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "中国独立开发者变现导航",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "副业",
+        "信息聚合",
+        "出海"
+      ],
+      "summary": "基于独立开发者列表做付费 Newsletter + 项目集市",
+      "description": "GitHub 上的「中国独立开发者项目列表」已有 48K+ star，但缺少商业化引导。独立开发者最缺的是“变现方法”和“项目曝光”。机会：运营一个双周刊，每期拆解 3 个列表里极有潜力但尚未海外的项目（如 Pake、Alist），给出出海推广建议、定价策略、合规提示。同时搭建项目众包/收购市场——允许开发者挂牌出售或寻找兼职。商业模式：Newsletter 订阅 ¥19/月（上限 1000 人），挂牌费 ¥99/项目，抽取交易佣金 5%。",
+      "painPoint": "优秀的国内开源项目缺乏变现途径和海外推广",
+      "path": [
+        "从列表中筛选 30 个有盈利潜力的项目，优先工具类",
+        "搭建 Substack 中文版（小报童）并发布 3 期免费内容",
+        "联系列表维护者 @1c7 获得推荐",
+        "推出“出海加速器”一对一咨询 ¥299/次"
+      ],
+      "revenueModel": "订阅 ¥19/月+咨询 ¥299，3 个月达 200 订户+10 咨询=¥9K/月",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "低",
+      "sources": [
+        {
+          "title": "1c7/chinese-independent-developer",
+          "url": "https://github.com/1c7/chinese-independent-developer"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "AI 数据流编排 MCP 工具",
+      "category": "AI应用",
+      "market": "海外为主",
+      "tags": [
+        "MCP",
+        "AI Agent",
+        "上下文管理"
+      ],
+      "summary": "参考 Unabyss 思路，做面向独立开发者的轻量级上下文管理 CLI",
+      "description": "当前 AI coding 的最大痛点：对话上下文丢失、项目理解不连贯。MCP（Model Context Protocol 兴起）但现有方案都偏重后端。轻量替代：做 VSCode 插件+CLI，自动维护「项目知识图谱」文件（函数调用图、文件名结构、关键注释），每次对话自动注入作为系统提示。区别于大厂方案：不限制模型、轻量、支持本地。目标用户：10 人以下小团队和独立开发者。竞品：SourceGraph Cody（太重）、Edgee Fallback（仅故障转移）。",
+      "painPoint": "AI 编码助手每次对话忘记项目上下文，重复描述太累",
+      "path": [
+        "调研 MCP 规范与 claude-code 的提示注入方式",
+        "实现 Node.js CLI：扫描项目目录生成`project_context.yaml`",
+        "VSCode 扩展：一键注入当前编辑文件的上下文到对话",
+        "开源社区版，付费版支持大项目增量索引"
+      ],
+      "revenueModel": "开源免费，付费托管版 $9/月（自动同步+部署），首年 100 付费用户= $900/月",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 3000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "sources": [
+        {
+          "title": "Unabyss: MCP-native self-updating context layer for your AI",
+          "url": "https://www.producthunt.com/products/unabyss?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        },
+        {
+          "title": "Edgee Fallback Models: Claude Code that never stops",
+          "url": "https://www.producthunt.com/products/edgee?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Web 转桌面单文件工具",
+      "category": "SaaS工具",
+      "market": "国内外均可",
+      "tags": [
+        "Pake",
+        "桌面应用",
+        "Web封装"
+      ],
+      "summary": "仿 Pake 但我做 Saas 版：在线拖拽生成桌面应用",
+      "description": "Pake 用命令行将一个网页转成桌面 App，很棒但门槛高。独立开发者可搭建 Web 服务：用户输入 URL，选择图标、窗口尺寸、是否托盘等配置，一键打包下载 Windows/Mac/Linux 三平台桌面应用。无需安装任何依赖。差异化：预置视频站（B站/YouTube）响应式优化、提供透明背景模式用于浮动小工具。潜在用户：非技术人员（产品经理、运营）想将常用 SaaS 做成桌面快捷方式。变现：免费版带水印，付费版 $4.99/次打包，企业版 $99/月无限打包+自定义打包服务。",
+      "painPoint": "非技术人员想将常用网页做成桌面 App 但不会用命令行",
+      "path": [
+        "后端基于 Electron 打包脚本+队列系统",
+        "前端拖拽界面设置 URL、图标、窗口参数",
+        "接入 Stripe 支付：单次打包 $4.99",
+        "推广渠道：写一篇“5 个漂亮桌面应用的在线生成”在少数派发布"
+      ],
+      "revenueModel": "单次 $4.99，首月 200 用户= $1K",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1500元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "sources": [
+        {
+          "title": "tw93/Pake - Turn any webpage into a desktop app",
           "url": "https://github.com/tw93/Pake"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "小红书 Bento 个人主页生成",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "Bento",
+        "个人品牌",
+        "网页设计"
+      ],
+      "summary": "参考 own.page 模式，做小红书博主专属个人名片页",
+      "description": "小红书博主常需发布“找我合作”的链接页，但 Notion 太慢，Canva 太死。模仿 own.page 的 Bento 格子布局，聚焦小红书的格式：需要展示粉丝数、近期合作案例、报价单、联系方式。差异化：直接从小红书公开 API（或模拟登录）自动拉取最新笔记、互动数据，生成动态格子。进一步提供二维码名片、官网 SEO 优化。市场规模：万粉以上的小红书博主约 100 万人，愿意为个人品牌工具花费 99-199 元。竞品：Linktree（海外，不支持小红书）、自建站（复杂）。",
+      "painPoint": "小红书博主缺少专业、自动更新的个人品牌链接页",
+      "path": [
+        "开发 Bento 布局编辑器（类似 notion 拖拽）",
+        "实现小红书数据自动同步（模拟登录+爬虫，需合规）",
+        "内置支付宝/微信支付收款码与报价单",
+        "在小红书搜索「个人主页装修」等关键词推广"
+      ],
+      "revenueModel": "年费 ¥99（基础版），¥199（Pro 版含自定义域名），目标 300 用户= ¥3~6万/年",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "sources": [
+        {
+          "title": "own.page: Make your own personal website with bento tiles",
+          "url": "https://www.producthunt.com/products/own-page?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
         }
       ]
     }
