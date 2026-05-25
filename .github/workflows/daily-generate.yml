@@ -43,6 +43,7 @@ jobs:
           git add data/opportunities/
           git diff --staged --quiet && echo "No new data to commit" || (
             git commit -m "chore: generate opportunities $(TZ=Asia/Shanghai date +%Y-%m-%d)"
+            git pull --rebase
             git push
           )
 
