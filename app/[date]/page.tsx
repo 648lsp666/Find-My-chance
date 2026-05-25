@@ -50,16 +50,25 @@ export default function DatePage({ params }: { params: { date: string } }) {
     <div className="min-h-screen">
       <Header />
 
-      <main className="max-w-3xl mx-auto px-4 pb-20">
+      <main className="w-full max-w-sm sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto px-4 pb-20">
         <DateNav dates={allDates} currentDate={params.date} />
 
         {/* Daily brief */}
         {data.summary && (
-          <div className="rounded-2xl border border-r-border bg-r-card px-5 py-4 mb-6">
-            <p className="font-mono text-[9px] text-r-accent tracking-[0.3em] uppercase mb-2">
+          <div
+            className="rounded-2xl px-6 py-5 mb-6 relative overflow-hidden"
+            style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%)' }}
+          >
+            <div
+              className="absolute right-4 top-0 select-none pointer-events-none leading-none text-white font-bold"
+              style={{ fontSize: '90px', opacity: 0.06 }}
+            >
+              ⌖
+            </div>
+            <p className="font-mono text-[10px] text-white/70 tracking-[0.25em] uppercase mb-2">
               今日市场简报 · {data.date}
             </p>
-            <p className="font-sans text-[13.5px] text-r-text/70 leading-relaxed">{data.summary}</p>
+            <p className="font-sans text-[14px] text-white/90 leading-relaxed relative">{data.summary}</p>
           </div>
         )}
 
