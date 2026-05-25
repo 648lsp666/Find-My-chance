@@ -50,7 +50,7 @@ export default function DatePage({ params }: { params: { date: string } }) {
     <div className="min-h-screen">
       <Header />
 
-      <main className="w-full max-w-sm sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto px-4 pb-20">
+      <main className="max-w-6xl mx-auto px-6 pb-20">
         <DateNav dates={allDates} currentDate={params.date} />
 
         {/* Daily brief */}

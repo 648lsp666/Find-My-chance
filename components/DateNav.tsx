@@ -10,7 +10,7 @@ interface Props {
 export default function DateNav({ dates, currentDate }: Props) {
   return (
     <div className="bg-white border-b border-r-border">
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="flex overflow-x-auto no-scrollbar">
           {dates.slice(0, 20).map((date, i) => {
             const [, m, d] = date.split('-')
