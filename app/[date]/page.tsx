@@ -9,7 +9,35 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { date: string } }) {
-  return { title: `${params.date} · 每日机会雷达` }
+  const data = getOpportunities(params.date)
+  if (!data) return { title: `${params.date} · 每日机会雷达` }
+
+  const tops = data.opportunities.slice(0, 3)
+  const ogParams = new URLSearchParams({
+    date: params.date,
+    count: String(data.opportunities.length),
+    ...(tops[0] ? { t0: tops[0].title } : {}),
+    ...(tops[1] ? { t1: tops[1].title } : {}),
+    ...(tops[2] ? { t2: tops[2].title } : {}),
+  })
+  const ogImage = `/api/og?${ogParams.toString()}`
+  const desc = data.summary || `${params.date} 共 ${data.opportunities.length} 个副业机会`
+
+  return {
+    title: params.date,
+    description: desc,
+    openGraph: {
+      title: `${params.date} 副业机会`,
+      description: desc,
+      url: `/${params.date}`,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `${params.date} 每日机会雷达` }],
+    },
+    twitter: {
+      title: `${params.date} 副业机会`,
+      description: desc,
+      images: [ogImage],
+    },
+  }
 }
 
 export default function DatePage({ params }: { params: { date: string } }) {
