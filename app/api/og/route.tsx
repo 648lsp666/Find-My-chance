@@ -41,7 +41,7 @@ export async function GET(req: NextRequest) {
           style={{
             width: '100%',
             height: '100%',
-            background: '#0B0B12',
+            background: '#F5F4FF',
             display: 'flex',
             flexDirection: 'column',
             padding: '52px 60px',
@@ -51,19 +51,19 @@ export async function GET(req: NextRequest) {
           {/* Header */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '36px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{ color: '#E8A020', fontSize: '26px' }}>⌖</span>
-              <span style={{ color: '#E8E6F0', fontSize: '26px', fontWeight: 700 }}>每日机会雷达</span>
+              <span style={{ color: '#7C3AED', fontSize: '26px' }}>⌖</span>
+              <span style={{ color: '#1E1B4B', fontSize: '26px', fontWeight: 700 }}>每日机会雷达</span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
-              <span style={{ color: '#E8A020', fontSize: '18px', letterSpacing: '0.1em' }}>{date}</span>
-              <span style={{ color: '#5A5A78', fontSize: '11px', letterSpacing: '0.3em' }}>DAILY · RADAR</span>
+              <span style={{ color: '#7C3AED', fontSize: '18px', letterSpacing: '0.1em' }}>{date}</span>
+              <span style={{ color: '#6B7280', fontSize: '11px', letterSpacing: '0.3em' }}>DAILY · RADAR</span>
             </div>
           </div>
 
           {/* Count */}
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '28px' }}>
-            <span style={{ color: '#E8A020', fontSize: '80px', fontWeight: 700, lineHeight: '1' }}>{count}</span>
-            <span style={{ color: '#E8E6F0', fontSize: '28px', fontWeight: 700 }}>个副业机会</span>
+            <span style={{ color: '#7C3AED', fontSize: '80px', fontWeight: 700, lineHeight: '1' }}>{count}</span>
+            <span style={{ color: '#1E1B4B', fontSize: '28px', fontWeight: 700 }}>个副业机会</span>
           </div>
 
           {/* Opportunity titles */}
@@ -80,16 +80,16 @@ export async function GET(req: NextRequest) {
                     alignItems: 'center',
                     gap: '16px',
                     padding: '14px 20px',
-                    background: '#111120',
+                    background: '#FFFFFF',
                     borderRadius: '12px',
-                    border: '1px solid #1C1C30',
+                    border: '1px solid #E5E3F5',
                     borderLeft: `3px solid ${c}`,
                   }}
                 >
-                  <span style={{ color: '#5A5A78', fontSize: '13px', minWidth: '22px' }}>
+                  <span style={{ color: '#6B7280', fontSize: '13px', minWidth: '22px' }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <span style={{ color: '#E8E6F0', fontSize: '21px', fontWeight: 700 }}>{truncated}</span>
+                  <span style={{ color: '#1E1B4B', fontSize: '21px', fontWeight: 700 }}>{truncated}</span>
                 </div>
               )
             })}
@@ -101,17 +101,17 @@ export async function GET(req: NextRequest) {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              borderTop: '1px solid #1C1C30',
+              borderTop: '1px solid #E5E3F5',
               paddingTop: '20px',
               marginTop: '24px',
             }}
           >
-            <span style={{ color: '#5A5A78', fontSize: '13px', letterSpacing: '0.08em' }}>
+            <span style={{ color: '#6B7280', fontSize: '13px', letterSpacing: '0.08em' }}>
               opportunity-radar-ruby.vercel.app
             </span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#E8A020' }} />
-              <span style={{ color: '#5A5A78', fontSize: '11px', letterSpacing: '0.2em' }}>AI GENERATED</span>
+              <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#7C3AED' }} />
+              <span style={{ color: '#6B7280', fontSize: '11px', letterSpacing: '0.2em' }}>AI GENERATED</span>
             </div>
           </div>
         </div>
