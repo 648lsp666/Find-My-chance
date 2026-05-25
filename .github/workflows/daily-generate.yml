@@ -1,0 +1,47 @@
+name: Daily Opportunity Generation
+
+on:
+  schedule:
+    # 04:00 UTC = 12:00 CST
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Overwrite if today file already exists'
+        type: boolean
+        default: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate daily opportunities
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PRODUCT_HUNT_TOKEN: ${{ secrets.PRODUCT_HUNT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCE_GENERATE: ${{ inputs.force && '1' || '' }}
+        run: npm run generate
+
+      - name: Commit and push new data
+        run: |
+          git config user.name "OpRadar Bot"
+          git config user.email "bot@opradar.indevs.in"
+          git add data/opportunities/
+          git diff --staged --quiet && echo "No new data to commit" || (
+            git commit -m "chore: generate opportunities $(TZ=Asia/Shanghai date +%Y-%m-%d)"
+            git push
+          )

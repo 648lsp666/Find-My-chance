@@ -24,6 +24,15 @@ function parseSignal(title: string): { label: string; icon: string; color: strin
   return { label, icon: '📡', color: '#6B7280' }
 }
 
+function isSpecificUrl(url: string): boolean {
+  try {
+    const u = new URL(url)
+    return u.pathname.length > 1 && u.pathname !== '/'
+  } catch {
+    return false
+  }
+}
+
 const CATS: Record<string, { color: string; bg: string; headerBg: string; label: string }> = {
   'AI应用':   { color: '#7C3AED', bg: 'rgba(124,58,237,0.08)',  headerBg: 'linear-gradient(90deg,#EDE9FE,#F5F4FF)', label: 'AI应用' },
   '自媒体':   { color: '#8B5CF6', bg: 'rgba(139,92,246,0.08)',  headerBg: 'linear-gradient(90deg,#EDE9FE,#F5F4FF)', label: '自媒体' },
@@ -69,26 +78,34 @@ export default function OpportunityCard({
     >
       {/* Signal header */}
       {o.sources.length > 0 && (() => {
-        const sig = parseSignal(o.sources[0].title)
-        return (
-          <a
-            href={o.sources[0].url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 border-b border-r-border group"
-            style={{ background: `${sig.color}08` }}
-          >
+        const src = o.sources[0]
+        const sig = parseSignal(src.title)
+        const hasLink = isSpecificUrl(src.url)
+        const inner = (
+          <>
             <span className="text-[13px]">{sig.icon}</span>
             <span className="font-mono text-[11px] font-semibold" style={{ color: sig.color }}>
               {sig.label}
             </span>
             <span className="font-sans text-[11px] text-r-muted truncate flex-1">
-              · {o.sources[0].title.replace(sig.label, '').replace(/^[\s·:—\-]+/, '')}
+              · {src.title.replace(sig.label, '').replace(/^[\s·:—\-]+/, '')}
             </span>
-            <span className="font-mono text-[10px] text-r-muted/50 group-hover:text-r-muted transition-colors flex-shrink-0">
-              为什么今天 ↗
-            </span>
+            {hasLink && (
+              <span className="font-mono text-[10px] text-r-muted/50 group-hover:text-r-muted transition-colors flex-shrink-0">
+                为什么今天 ↗
+              </span>
+            )}
+          </>
+        )
+        const cls = "flex items-center gap-2 px-5 py-2.5 border-b border-r-border group"
+        return hasLink ? (
+          <a href={src.url} target="_blank" rel="noopener noreferrer" className={cls} style={{ background: `${sig.color}08` }}>
+            {inner}
           </a>
+        ) : (
+          <div className={cls} style={{ background: `${sig.color}08` }}>
+            {inner}
+          </div>
         )
       })()}
 
@@ -211,19 +228,27 @@ export default function OpportunityCard({
         {/* Sources */}
         {o.sources.length > 0 && (
           <div className="flex flex-wrap gap-3">
-            {o.sources.map((s, i) => (
-              <a
-                key={i}
-                href={s.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-[12px] tracking-wide transition-all flex items-center gap-1 hover:opacity-100"
-                style={{ color: cat.color, opacity: 0.65 }}
-              >
-                <span>{s.title}</span>
-                <span style={{ fontSize: '10px' }}>↗</span>
-              </a>
-            ))}
+            {o.sources.map((s, i) => {
+              const hasLink = isSpecificUrl(s.url)
+              const cls = "font-mono text-[12px] tracking-wide flex items-center gap-1"
+              return hasLink ? (
+                <a
+                  key={i}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${cls} transition-all hover:opacity-100`}
+                  style={{ color: cat.color, opacity: 0.65 }}
+                >
+                  <span>{s.title}</span>
+                  <span style={{ fontSize: '10px' }}>↗</span>
+                </a>
+              ) : (
+                <span key={i} className={cls} style={{ color: cat.color, opacity: 0.5 }}>
+                  {s.title}
+                </span>
+              )
+            })}
           </div>
         )}
       </div>

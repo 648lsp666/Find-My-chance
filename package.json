@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate": "tsx scripts/generate-daily.ts",
+    "generate:force": "FORCE_GENERATE=1 tsx scripts/generate-daily.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.54.0",
     "@fontsource/noto-sans-sc": "^5.2.9",
     "@react-email/components": "^1.0.12",
     "@vercel/og": "^0.11.1",
@@ -19,6 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "^20",
+    "tsx": "^4.19.0",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
