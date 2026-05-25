@@ -6,21 +6,15 @@
   * { box-sizing: border-box; }
 
   body {
-    background-color: #0B0B12;
-    color: #E8E6F0;
-    background-image: radial-gradient(
-      circle at 1px 1px,
-      rgba(255, 255, 255, 0.035) 1px,
-      transparent 0
-    );
-    background-size: 24px 24px;
+    background-color: #F5F4FF;
+    color: #1E1B4B;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
   }
 
   ::selection {
-    background: rgba(232, 160, 32, 0.3);
-    color: #fff;
+    background: rgba(124, 58, 237, 0.2);
+    color: #1E1B4B;
   }
 }
 
@@ -32,8 +26,9 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   }
   .card-lift:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.12);
+    border-color: #C4B5FD !important;
   }
 
   .fade-in {
