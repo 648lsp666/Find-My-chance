@@ -49,22 +49,22 @@ export default function OpportunityCard({
         style={{ background: cat.headerBg }}
       >
         <span
-          className="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-full text-white"
+          className="font-mono text-[12px] font-semibold px-2.5 py-1 rounded-full text-white"
           style={{ background: cat.color }}
         >
           {cat.label}
         </span>
-        <span className="font-mono text-[11px] text-r-muted border border-r-border rounded-full px-2.5 py-1 bg-white">
+        <span className="font-mono text-[12px] text-r-muted border border-r-border rounded-full px-2.5 py-1 bg-white">
           {o.market}
         </span>
         <span
-          className="font-mono text-[11px] px-2.5 py-1 rounded-full border"
+          className="font-mono text-[12px] px-2.5 py-1 rounded-full border"
           style={{ background: '#F0FDFA', borderColor: '#CCFBF1', color: '#0D9488' }}
         >
           ⚡ {o.timeToRevenue}
         </span>
         <div className="ml-auto flex items-center gap-2">
-          <span className="font-mono text-[10px] text-r-muted">潜力</span>
+          <span className="font-mono text-[11px] text-r-muted">潜力</span>
           <Dots value={Math.round(o.potential / 2)} max={5} color={cat.color} />
         </div>
       </div>
@@ -73,7 +73,7 @@ export default function OpportunityCard({
       <div className="px-5 pt-4 pb-5">
         {/* Index + Title */}
         <div className="flex items-baseline gap-3 mb-2">
-          <span className="font-mono text-[11px] text-r-dim flex-shrink-0 tabular-nums font-semibold">{num}</span>
+          <span className="font-mono text-[12px] text-r-dim flex-shrink-0 tabular-nums font-semibold">{num}</span>
           <h2 className="font-display font-bold text-[19px] text-r-text leading-snug">
             {o.title}
           </h2>
@@ -89,7 +89,7 @@ export default function OpportunityCard({
             {o.tags.map(t => (
               <span
                 key={t}
-                className="font-mono text-[11px] px-2 py-0.5 rounded-md"
+                className="font-mono text-[12px] px-2 py-0.5 rounded-md"
                 style={{ background: cat.bg, color: cat.color }}
               >
                 #{t}
@@ -109,22 +109,22 @@ export default function OpportunityCard({
           style={{ background: '#FFFBEB', borderLeftColor: '#F59E0B' }}
         >
           <span
-            className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase block mb-1"
+            className="font-mono text-[11px] font-semibold tracking-[0.2em] uppercase block mb-1"
             style={{ color: '#B45309' }}
           >
             核心痛点
           </span>
-          <span className="font-sans text-[13px] text-r-text/80 leading-relaxed">{o.painPoint}</span>
+          <span className="font-sans text-[14px] text-r-text/80 leading-relaxed">{o.painPoint}</span>
         </div>
 
         {/* Path */}
         <div className="mb-4">
-          <p className="font-mono text-[10px] text-r-faint tracking-[0.2em] uppercase mb-3">执行路径</p>
+          <p className="font-mono text-[11px] text-r-faint tracking-[0.2em] uppercase mb-3">执行路径</p>
           <ol className="space-y-3">
             {o.path.map((step, i) => (
               <li key={i} className="flex gap-3">
                 <span
-                  className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center font-mono text-[10px] font-bold mt-0.5"
+                  className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center font-mono text-[11px] font-bold mt-0.5"
                   style={{ background: cat.bg, color: cat.color }}
                 >
                   {i + 1}
@@ -146,19 +146,19 @@ export default function OpportunityCard({
             { label: '竞争程度', value: o.competition,    style: { color: '#1E1B4B' } },
           ].map(({ label, value, style }) => (
             <div key={label}>
-              <p className="font-mono text-[10px] text-r-faint tracking-[0.15em] uppercase mb-1.5">{label}</p>
-              <p className="font-mono text-[13px] font-semibold" style={style}>{value}</p>
+              <p className="font-mono text-[11px] text-r-faint tracking-[0.15em] uppercase mb-1.5">{label}</p>
+              <p className="font-mono text-[14px] font-semibold" style={style}>{value}</p>
             </div>
           ))}
           <div>
-            <p className="font-mono text-[10px] text-r-faint tracking-[0.15em] uppercase mb-2">执行难度</p>
+            <p className="font-mono text-[11px] text-r-faint tracking-[0.15em] uppercase mb-2">执行难度</p>
             <Dots value={o.difficulty} max={5} color={cat.color} />
           </div>
         </div>
 
         {/* Revenue model */}
-        <p className="font-sans text-[13px] text-r-muted mb-3 leading-relaxed">
-          <span className="font-mono text-[10px] text-r-faint tracking-[0.15em] uppercase mr-2">收益模式</span>
+        <p className="font-sans text-[14px] text-r-muted mb-3 leading-relaxed">
+          <span className="font-mono text-[11px] text-r-faint tracking-[0.15em] uppercase mr-2">收益模式</span>
           {o.revenueModel}
         </p>
 
@@ -171,7 +171,7 @@ export default function OpportunityCard({
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-[11px] tracking-wide transition-all flex items-center gap-1 hover:opacity-100"
+                className="font-mono text-[12px] tracking-wide transition-all flex items-center gap-1 hover:opacity-100"
                 style={{ color: cat.color, opacity: 0.65 }}
               >
                 <span>{s.title}</span>

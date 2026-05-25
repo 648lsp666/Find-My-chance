@@ -27,10 +27,10 @@ export default function Header() {
           </div>
           <div>
             <div className="font-mono text-[9px] text-r-accent tracking-[0.3em] uppercase leading-none mb-0.5">
-              Daily Intelligence
+              Prowl · 每日机会
             </div>
             <div className="font-display font-bold text-[17px] text-r-text leading-none tracking-tight">
-              每日机会雷达
+              虎嗅
             </div>
           </div>
         </div>

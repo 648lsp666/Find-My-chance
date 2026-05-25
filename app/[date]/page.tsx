@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: { date: string } }) {
   const data = getOpportunities(params.date)
-  if (!data) return { title: `${params.date} · 每日机会雷达` }
+  if (!data) return { title: `${params.date} · 虎嗅 Prowl` }
 
   const tops = data.opportunities.slice(0, 3)
   const ogParams = new URLSearchParams({
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: { date: string } })
       title: `${params.date} 副业机会`,
       description: desc,
       url: `/${params.date}`,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: `${params.date} 每日机会雷达` }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `${params.date} 虎嗅 Prowl` }],
     },
     twitter: {
       title: `${params.date} 副业机会`,
@@ -67,8 +67,8 @@ export default function DatePage({ params }: { params: { date: string } }) {
 
         <SharePdfButtons date={params.date} />
 
-        <p className="font-mono text-[9px] text-r-muted/40 text-center mt-12 tracking-[0.2em] uppercase">
-          由 Claude AI Agent 每日 12:00 CST 自动生成 · 仅供参考
+        <p className="font-mono text-[10px] text-r-muted/40 text-center mt-12 tracking-[0.2em] uppercase">
+          虎嗅 Prowl · 由 Claude AI 每日自动生成 · 仅供参考
         </p>
       </main>
     </div>

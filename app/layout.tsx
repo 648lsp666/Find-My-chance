@@ -21,12 +21,12 @@ const SITE_URL = 'https://opportunity-radar-ruby.vercel.app'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: '每日机会雷达',
-    template: '%s · 每日机会雷达',
+    default: '虎嗅 Prowl',
+    template: '%s · 虎嗅 Prowl',
   },
-  description: 'AI 每天扫描 GitHub Trending、Product Hunt 和国内热点，为你生成 3–8 个有执行路径的副业机会。',
+  description: 'AI 每天扫描 GitHub Trending 和市场热点，为你生成有执行路径的副业机会。鹰视狼顾，贪婪寻找机会。',
   openGraph: {
-    siteName: '每日机会雷达',
+    siteName: '虎嗅 Prowl',
     type: 'website',
     locale: 'zh_CN',
     url: SITE_URL,
