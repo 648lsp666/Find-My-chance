@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation'
 import { getAllDates, getOpportunities } from '@/lib/opportunities'
-import Header from '@/components/Header'
 import DateNav from '@/components/DateNav'
 import OpportunityList from '@/components/OpportunityList'
 import DailyBrief from '@/components/DailyBrief'
@@ -51,8 +50,6 @@ export default function DatePage({ params }: { params: { date: string } }) {
 
   return (
     <div className="min-h-screen">
-      <Header />
-
       <main className="max-w-6xl mx-auto px-6 pb-20">
         <DateNav dates={allDates} currentDate={params.date} />
 
