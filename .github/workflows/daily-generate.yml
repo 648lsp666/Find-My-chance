@@ -19,6 +19,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -42,7 +44,7 @@ jobs:
           git config user.email "bot@opradar.indevs.in"
           git add data/opportunities/
           git diff --staged --quiet || git commit -m "chore: generate opportunities $(TZ=Asia/Shanghai date +%Y-%m-%d)"
-          git pull --rebase origin main
+          git pull --rebase -X ours origin main
           git push origin main
 
       - name: Deploy to Vercel
