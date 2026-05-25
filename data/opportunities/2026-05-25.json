@@ -1,0 +1,137 @@
+{
+  "date": "2026-05-25",
+  "generatedAt": "2026-05-25T04:00:00Z",
+  "summary": "AI工具赛道持续升温，国内中小企业对低成本数字化工具需求旺盛。小红书、抖音内容工具类赛道出现结构性机会，海外 SaaS 工具本地化窗口期仍存。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "AI证件照/形象照一键生成",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": ["AI", "图像", "小程序"],
+      "summary": "用 AI 替代传统影楼，帮人低成本生成专业形象照",
+      "description": "证件照/职场形象照是高频刚需，传统拍摄成本 200-500 元，年轻人对价格敏感。市面上已有 Remini、美图等玩家，但垂直场景（简历照、领英头像、企业工牌）仍有差异化空间。结合小程序分发+社群裂变，单月 GMV 破万较为可行。",
+      "painPoint": "传统证件照拍摄贵、耗时，且质量参差不齐；现有 AI 工具风格单一，缺乏场景化定制。",
+      "path": [
+        "调研现有竞品（美拍证件照、Remini），找 1-2 个差异化场景（如 LinkedIn 头像、AI 简历照）",
+        "接入 Stable Diffusion 或 ComfyUI API，搭建基础图片处理流水线",
+        "微信小程序上线，设计单张 3-8 元的低价切入策略",
+        "通过大学生群体+求职季节点做裂变推广，积累前 1000 个用户"
+      ],
+      "revenueModel": "按张收费 3-8 元，批量包（20张99元）；后续可做企业团购（工牌、名片照）",
+      "timeToRevenue": "1-2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "sources": [
+        { "title": "Product Hunt - AI Photo Tools", "url": "https://www.producthunt.com" },
+        { "title": "36氪：AI图像赛道融资报告", "url": "https://36kr.com" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "小红书/抖音爆款脚本批量生产工具",
+      "category": "SaaS工具",
+      "market": "国内",
+      "tags": ["自媒体", "AI写作", "工具"],
+      "summary": "帮中小商家批量生成符合平台调性的短视频脚本",
+      "description": "中小商家缺内容团队，但小红书/抖音投流必须持续产出内容。现有 AI 写作工具（如秘塔、ChatGPT）产出的内容平台味不足，商家仍需大量二次加工。针对特定垂类（母婴、美食、本地生活）训练专属脚本模板库，产品即服务。",
+      "painPoint": "中小商家每天需发 3-5 条短视频，内容生产是最大瓶颈，外包成本高且质量不稳定。",
+      "path": [
+        "选定 1 个垂类（建议母婴或本地餐饮），深度研究 200 条爆款视频结构",
+        "用 Claude/GPT-4o 搭建脚本生成 workflow，输入产品+场景→输出完整分镜脚本",
+        "以 199元/月 订阅制在小红书商业群冷启动，免费体验 3 天",
+        "收集反馈迭代，3 个月内做到 50 个付费用户"
+      ],
+      "revenueModel": "订阅制 199-399元/月，企业版 999元/月（含私域运营咨询）",
+      "timeToRevenue": "1-3个月",
+      "startupCost": "< 200元",
+      "difficulty": 2,
+      "potential": 8,
+      "competition": "中",
+      "sources": [
+        { "title": "虎嗅：AI内容工具赛道分析", "url": "https://www.huxiu.com" },
+        { "title": "V2EX 创业板块讨论", "url": "https://v2ex.com" }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "体检报告 AI 解读助手",
+      "category": "AI应用",
+      "market": "国内",
+      "tags": ["健康", "AI", "微信小程序"],
+      "summary": "帮普通人读懂体检报告，从数字堆变成行动建议",
+      "description": "年度体检是国内高频场景，但大部分人拿到报告看不懂专业术语，医生又没时间详解。市面上类似产品（如丁香医生）主打问诊，体检报告解读是空白的垂直切口。小程序上传 PDF/拍照→AI 解读→个性化建议，付费意愿强。",
+      "painPoint": "体检报告充斥医疗术语，普通人无法自行判断哪些指标需要关注，复诊排队成本极高。",
+      "path": [
+        "用 Claude API 搭建 OCR + 报告解析流水线，支持 PDF 和图片输入",
+        "设计清晰的输出格式：正常/需关注/需就医三级分类 + 通俗解释",
+        "微信小程序发布，定价单次 9.9 元或年卡 39 元",
+        "在中年用户聚集的微信群、知乎健康话题做冷启动推广"
+      ],
+      "revenueModel": "单次解读 9.9 元；家庭年卡 99 元（3 份报告）；企业团体套餐",
+      "timeToRevenue": "2-3个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 9,
+      "competition": "低",
+      "sources": [
+        { "title": "36氪：数字医疗创业方向", "url": "https://36kr.com" },
+        { "title": "Product Hunt - Health AI Tools", "url": "https://www.producthunt.com" }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "海外 SaaS 产品中文化本地运营代理",
+      "category": "其他",
+      "market": "国内为主",
+      "tags": ["SaaS", "本地化", "代理"],
+      "summary": "帮海外优质 SaaS 做中文本地化，从中赚取分成",
+      "description": "2026 年仍有大量优质海外工具（Notion、Linear、Framer 等）在中国知名度不高。本地代理商帮其做中文文档、B 站/小红书推广、国内付款通道，通常能拿到 20-40% 收入分成。前期不需要开发，核心能力是运营和内容。",
+      "painPoint": "海外 SaaS 公司缺乏本地运营资源，中国用户因语言和支付障碍无法顺畅使用优质工具。",
+      "path": [
+        "筛选 10 个月活 5-50 万、尚未本地化的海外工具（优先 AI 类、效率类）",
+        "主动联系其官方邮件，提供本地化合作方案（文档翻译+社区运营）",
+        "签订分成协议后，在 B 站/小红书制作中文教程，导流至官网",
+        "建立付费用户社群，提供本地化支持服务"
+      ],
+      "revenueModel": "订阅收入 20-40% 分成；一次性本地化服务费 5000-20000 元",
+      "timeToRevenue": "2-4个月",
+      "startupCost": "< 300元",
+      "difficulty": 2,
+      "potential": 7,
+      "competition": "低",
+      "sources": [
+        { "title": "Product Hunt 海外新工具", "url": "https://www.producthunt.com" },
+        { "title": "GitHub Trending", "url": "https://github.com/trending" }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "闲鱼/转转 AI 智能定价+描述生成器",
+      "category": "AI应用",
+      "market": "国内",
+      "tags": ["闲置经济", "AI", "工具"],
+      "summary": "帮二手卖家快速定准价格、写出吸引人的商品描述",
+      "description": "国内二手市场规模超万亿，但大量普通用户因不会定价（导致亏卖或卖不出）、不会写描述而放弃闲置变现。上传商品照片→AI 识别品类型号→爬取同类成交价→生成定价区间+优化描述，整个流程 30 秒完成。",
+      "painPoint": "二手卖家定价靠感觉、描述靠随手写，导致长期压货或低价贱卖，平均少赚 20-40%。",
+      "path": [
+        "搭建图像识别（品类识别）+ 网页抓取（闲鱼同类价格）的 pipeline",
+        "用 GPT-4o vision 生成商品描述优化建议",
+        "微信小程序/H5 上线，免费体验 3 次，之后 6.9 元/月",
+        "在闲鱼买家群、二手交流社群推广，重点打「卖贵了 N 元」的用户故事"
+      ],
+      "revenueModel": "月卡 6.9 元；年卡 49 元；企业版（二手店）299 元/月",
+      "timeToRevenue": "2-3个月",
+      "startupCost": "< 800元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "sources": [
+        { "title": "虎嗅：闲置经济报告", "url": "https://www.huxiu.com" },
+        { "title": "V2EX 闲鱼运营讨论", "url": "https://v2ex.com" }
+      ]
+    }
+  ]
+}
