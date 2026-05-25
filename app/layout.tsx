@@ -26,11 +26,20 @@ export const metadata: Metadata = {
     template: '%s · 见微 Prowl',
   },
   description: '见微知著 · AI 每天扫描 GitHub Trending 和市场热点，为你发现肉眼难见的副业机会。',
+  icons: {
+    icon: [
+      { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico' },
+    ],
+    apple: { url: '/apple-touch-icon.png', sizes: '180x180' },
+  },
   openGraph: {
     siteName: '见微 Prowl',
     type: 'website',
     locale: 'zh_CN',
     url: SITE_URL,
+    images: [{ url: '/icon-512.png', width: 512, height: 512 }],
   },
   twitter: {
     card: 'summary_large_image',
