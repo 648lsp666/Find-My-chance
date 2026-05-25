@@ -14,14 +14,15 @@ const config: Config = {
       },
       colors: {
         r: {
-          bg:     '#0B0B12',
-          card:   '#111120',
-          border: '#1C1C30',
-          dim:    '#252540',
-          muted:  '#5A5A78',
-          faint:  '#9090A8',
-          text:   '#E8E6F0',
-          accent: '#E8A020',
+          bg:     '#F5F4FF',
+          card:   '#FFFFFF',
+          border: '#E5E3F5',
+          dim:    '#C4B5FD',
+          muted:  '#6B7280',
+          faint:  '#9CA3AF',
+          text:   '#1E1B4B',
+          accent: '#7C3AED',
+          time:   '#0D9488',
         },
       },
       keyframes: {
