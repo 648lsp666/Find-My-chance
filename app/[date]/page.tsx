@@ -2,14 +2,14 @@ import { notFound } from 'next/navigation'
 import { getAllDates, getOpportunities } from '@/lib/opportunities'
 import Header from '@/components/Header'
 import DateNav from '@/components/DateNav'
-import OpportunityCard from '@/components/OpportunityCard'
+import OpportunityList from '@/components/OpportunityList'
 
 export async function generateStaticParams() {
   return getAllDates().map(date => ({ date }))
 }
 
 export async function generateMetadata({ params }: { params: { date: string } }) {
-  return { title: `${params.date} 机会雷达` }
+  return { title: `${params.date} · 每日机会雷达` }
 }
 
 export default function DatePage({ params }: { params: { date: string } }) {
@@ -19,25 +19,27 @@ export default function DatePage({ params }: { params: { date: string } }) {
   const allDates = getAllDates()
 
   return (
-    <div className="min-h-screen bg-[#f5f5f7]">
+    <div className="min-h-screen">
       <Header />
-      <main className="max-w-3xl mx-auto px-4 pb-16">
+
+      <main className="max-w-3xl mx-auto px-4 pb-20">
         <DateNav dates={allDates} currentDate={params.date} />
 
+        {/* Daily brief */}
         {data.summary && (
-          <p className="text-sm text-gray-500 bg-white rounded-xl px-4 py-3 mb-6 leading-relaxed border border-gray-100">
-            {data.summary}
-          </p>
+          <div className="rounded-2xl border border-r-border bg-r-card px-5 py-4 mb-6">
+            <p className="font-mono text-[9px] text-r-accent tracking-[0.3em] uppercase mb-2">
+              今日市场简报 · {data.date}
+            </p>
+            <p className="font-sans text-[13.5px] text-r-text/70 leading-relaxed">{data.summary}</p>
+          </div>
         )}
 
-        <div className="space-y-4">
-          {data.opportunities.map(opp => (
-            <OpportunityCard key={opp.id} opportunity={opp} />
-          ))}
-        </div>
+        {/* Filter + cards */}
+        <OpportunityList opportunities={data.opportunities} />
 
-        <p className="text-center text-xs text-gray-300 mt-10">
-          由 AI Agent 每日自动生成 · 仅供参考
+        <p className="font-mono text-[9px] text-r-muted/40 text-center mt-12 tracking-[0.2em] uppercase">
+          由 Claude AI Agent 每日 12:00 CST 自动生成 · 仅供参考
         </p>
       </main>
     </div>

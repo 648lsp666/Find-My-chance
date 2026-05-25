@@ -1,119 +1,185 @@
 import type { Opportunity } from '@/lib/opportunities'
 
-const CATEGORY_COLORS: Record<string, string> = {
-  'AI应用':    'bg-blue-50 text-blue-700 border-blue-200',
-  '自媒体':    'bg-purple-50 text-purple-700 border-purple-200',
-  'SaaS工具':  'bg-green-50 text-green-700 border-green-200',
-  '整活玩具':  'bg-orange-50 text-orange-700 border-orange-200',
-  '本地服务':  'bg-yellow-50 text-yellow-700 border-yellow-200',
-  '内容创作':  'bg-pink-50 text-pink-700 border-pink-200',
+const CATS: Record<string, { color: string; bg: string; label: string }> = {
+  'AI应用':   { color: '#5B9CF6', bg: 'rgba(91,156,246,0.1)',  label: 'AI应用' },
+  '自媒体':   { color: '#A78BFA', bg: 'rgba(167,139,250,0.1)', label: '自媒体' },
+  'SaaS工具': { color: '#34D399', bg: 'rgba(52,211,153,0.1)',  label: 'SaaS'   },
+  '整活玩具': { color: '#F87171', bg: 'rgba(248,113,113,0.1)', label: '整活'   },
+  '本地服务': { color: '#FBBF24', bg: 'rgba(251,191,36,0.1)',  label: '本地'   },
+  '内容创作': { color: '#FB923C', bg: 'rgba(251,146,60,0.1)',  label: '内容'   },
 }
 
-const CATEGORY_BORDER: Record<string, string> = {
-  'AI应用':    'border-l-blue-400',
-  '自媒体':    'border-l-purple-400',
-  'SaaS工具':  'border-l-green-400',
-  '整活玩具':  'border-l-orange-400',
-  '本地服务':  'border-l-yellow-400',
-  '内容创作':  'border-l-pink-400',
-}
-
-function DotRating({ value, max, color }: { value: number; max: number; color: string }) {
+function Dots({ value, max, color }: { value: number; max: number; color: string }) {
   return (
-    <span className="flex gap-0.5">
+    <span className="flex gap-[3px] items-center">
       {Array.from({ length: max }).map((_, i) => (
         <span
           key={i}
-          className={`w-2 h-2 rounded-full ${i < value ? color : 'bg-gray-200'}`}
+          className="inline-block w-[14px] h-[3px] rounded-full transition-colors"
+          style={{ background: i < value ? color : '#1C1C30' }}
         />
       ))}
     </span>
   )
 }
 
-export default function OpportunityCard({ opportunity: o }: { opportunity: Opportunity }) {
-  const catColor = CATEGORY_COLORS[o.category] ?? 'bg-gray-50 text-gray-700 border-gray-200'
-  const borderColor = CATEGORY_BORDER[o.category] ?? 'border-l-gray-400'
+export default function OpportunityCard({
+  opportunity: o,
+  index,
+}: {
+  opportunity: Opportunity
+  index: number
+}) {
+  const cat = CATS[o.category] ?? { color: '#9CA3AF', bg: 'rgba(156,163,175,0.1)', label: o.category }
+  const num = String(index + 1).padStart(2, '0')
 
   return (
-    <div className={`bg-white rounded-2xl border border-gray-100 border-l-4 ${borderColor} p-5 shadow-sm`}>
-      {/* Top row */}
-      <div className="flex flex-wrap items-center gap-2 mb-3">
-        <span className={`text-xs font-medium px-2 py-0.5 rounded-full border ${catColor}`}>
-          {o.category}
-        </span>
-        <span className="text-xs text-gray-400 border border-gray-200 rounded-full px-2 py-0.5">
-          {o.market}
-        </span>
-        {o.tags.slice(0, 3).map(tag => (
-          <span key={tag} className="text-xs text-gray-400">#{tag}</span>
-        ))}
-        <span className="ml-auto flex items-center gap-1 text-xs text-gray-400">
-          潜力
-          <DotRating value={Math.round(o.potential / 2)} max={5} color="bg-[#5b50e8]" />
-        </span>
+    <article
+      className="relative overflow-hidden rounded-2xl border border-r-border bg-r-card card-lift fade-in"
+      style={{ animationDelay: `${index * 80}ms` }}
+    >
+      {/* Colored left strip */}
+      <div
+        className="absolute left-0 top-0 bottom-0 w-[3px] rounded-l-2xl"
+        style={{ background: cat.color }}
+      />
+
+      {/* Ghost index number */}
+      <div
+        className="absolute right-0 top-0 font-display font-bold select-none pointer-events-none leading-none"
+        style={{
+          fontSize: '120px',
+          color: cat.color,
+          opacity: 0.04,
+          transform: 'translate(8px, -12px)',
+        }}
+      >
+        {num}
       </div>
 
-      {/* Title */}
-      <h2 className="text-base font-bold text-gray-900 mb-1">{o.title}</h2>
-      <p className="text-sm text-gray-500 mb-3">{o.summary}</p>
-
-      {/* Description */}
-      <p className="text-sm text-gray-700 leading-relaxed mb-4">{o.description}</p>
-
-      {/* Pain point */}
-      <div className="bg-amber-50 border border-amber-100 rounded-lg px-3 py-2 mb-4">
-        <span className="text-xs font-medium text-amber-700">核心痛点  </span>
-        <span className="text-sm text-amber-900">{o.painPoint}</span>
-      </div>
-
-      {/* Path */}
-      <div className="mb-4">
-        <p className="text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">执行路径</p>
-        <ol className="space-y-1.5">
-          {o.path.map((step, i) => (
-            <li key={i} className="flex gap-2 text-sm text-gray-700">
-              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#5b50e8] text-white text-xs flex items-center justify-center font-medium">
-                {i + 1}
-              </span>
-              <span>{step}</span>
-            </li>
-          ))}
-        </ol>
-      </div>
-
-      {/* Stats row */}
-      <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-gray-500 mb-4 border-t border-gray-50 pt-3">
-        <span>⏱ 回收周期 <strong className="text-gray-700">{o.timeToRevenue}</strong></span>
-        <span>💰 启动成本 <strong className="text-gray-700">{o.startupCost}</strong></span>
-        <span>🔥 竞争 <strong className="text-gray-700">{o.competition}</strong></span>
-        <span className="flex items-center gap-1">
-          🎚 难度
-          <DotRating value={o.difficulty} max={5} color="bg-gray-500" />
-        </span>
-      </div>
-
-      {/* Revenue model */}
-      <p className="text-xs text-gray-500 mb-3">
-        <span className="font-medium text-gray-600">收益模式：</span>{o.revenueModel}
-      </p>
-
-      {/* Sources */}
-      {o.sources.length > 0 && (
-        <div className="flex flex-wrap gap-2">
-          {o.sources.map((s, i) => (
-            <a
-              key={i}
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-[#5b50e8] hover:underline"
-            >
-              {s.title} ↗
-            </a>
-          ))}
+      <div className="pl-6 pr-5 pt-5 pb-5 relative">
+        {/* Category + market + potential row */}
+        <div className="flex items-center gap-2 mb-4 flex-wrap">
+          <span
+            className="font-mono text-[10px] font-medium px-2.5 py-1 rounded-md tracking-wider"
+            style={{ color: cat.color, background: cat.bg }}
+          >
+            {cat.label}
+          </span>
+          <span className="font-mono text-[10px] text-r-muted border border-r-border rounded-md px-2.5 py-1 tracking-wide">
+            {o.market}
+          </span>
+          <div className="ml-auto flex items-center gap-2">
+            <span className="font-mono text-[9px] text-r-muted tracking-widest uppercase">潜力</span>
+            <Dots value={Math.round(o.potential / 2)} max={5} color={cat.color} />
+          </div>
         </div>
-      )}
-    </div>
+
+        {/* Index + Title */}
+        <div className="flex items-baseline gap-3 mb-1.5">
+          <span className="font-mono text-[11px] text-r-muted flex-shrink-0 tabular-nums">{num}</span>
+          <h2 className="font-display font-bold text-[19px] text-r-text leading-snug tracking-tight">
+            {o.title}
+          </h2>
+        </div>
+
+        <p className="font-sans text-[13px] text-r-muted leading-relaxed mb-4 pl-[26px]">
+          {o.summary}
+        </p>
+
+        {/* Tags */}
+        {o.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4 pl-[26px]">
+            {o.tags.map(t => (
+              <span key={t} className="font-mono text-[9px] text-r-muted/60 tracking-wider">
+                #{t}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* Description */}
+        <p className="font-sans text-[13.5px] text-r-text/65 leading-[1.75] mb-4">
+          {o.description}
+        </p>
+
+        {/* Pain point */}
+        <div
+          className="rounded-lg px-4 py-3 mb-5 border-l-2"
+          style={{ background: 'rgba(232,160,32,0.07)', borderLeftColor: '#E8A020' }}
+        >
+          <span className="font-mono text-[9px] text-r-accent tracking-[0.25em] uppercase mr-2">
+            核心痛点
+          </span>
+          <span className="font-sans text-[13px] text-r-text/75 leading-relaxed">{o.painPoint}</span>
+        </div>
+
+        {/* Path */}
+        <div className="mb-5">
+          <p className="font-mono text-[9px] text-r-muted tracking-[0.25em] uppercase mb-3">
+            执行路径
+          </p>
+          <ol className="space-y-3">
+            {o.path.map((step, i) => (
+              <li key={i} className="flex gap-3">
+                <span
+                  className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center font-mono text-[9px] font-medium mt-0.5"
+                  style={{ background: cat.bg, color: cat.color }}
+                >
+                  {i + 1}
+                </span>
+                <span className="font-sans text-[13.5px] text-r-text/70 leading-relaxed">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-r-border/60 my-4" />
+
+        {/* Stats grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
+          {[
+            { label: '回收周期', value: o.timeToRevenue, valueColor: '#E8E6F0' },
+            { label: '启动成本', value: o.startupCost,   valueColor: '#34D399' },
+            { label: '竞争程度', value: o.competition,    valueColor: '#E8E6F0' },
+          ].map(({ label, value, valueColor }) => (
+            <div key={label}>
+              <p className="font-mono text-[8px] text-r-muted tracking-[0.2em] uppercase mb-1.5">{label}</p>
+              <p className="font-mono text-[13px] font-medium tabular-nums" style={{ color: valueColor }}>{value}</p>
+            </div>
+          ))}
+          <div>
+            <p className="font-mono text-[8px] text-r-muted tracking-[0.2em] uppercase mb-2">执行难度</p>
+            <Dots value={o.difficulty} max={5} color={cat.color} />
+          </div>
+        </div>
+
+        {/* Revenue model */}
+        <p className="font-sans text-[12px] text-r-muted mb-4 leading-relaxed">
+          <span className="font-mono text-[9px] text-r-muted/50 tracking-[0.2em] uppercase mr-2">收益模式</span>
+          {o.revenueModel}
+        </p>
+
+        {/* Sources */}
+        {o.sources.length > 0 && (
+          <div className="flex flex-wrap gap-3">
+            {o.sources.map((s, i) => (
+              <a
+                key={i}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[10px] tracking-wide transition-all hover:opacity-100 flex items-center gap-1"
+                style={{ color: cat.color, opacity: 0.6 }}
+              >
+                <span>{s.title}</span>
+                <span style={{ fontSize: '9px' }}>↗</span>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </article>
   )
 }

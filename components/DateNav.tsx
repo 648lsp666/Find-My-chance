@@ -7,29 +7,40 @@ interface Props {
   currentDate: string
 }
 
-function formatDate(d: string) {
-  const [, m, day] = d.split('-')
-  return `${m}/${day}`
-}
-
 export default function DateNav({ dates, currentDate }: Props) {
-  const visible = dates.slice(0, 14)
-
   return (
-    <div className="flex gap-2 overflow-x-auto py-4 no-scrollbar">
-      {visible.map(date => (
-        <Link
-          key={date}
-          href={`/${date}`}
-          className={`flex-shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
-            date === currentDate
-              ? 'bg-[#5b50e8] text-white'
-              : 'bg-white text-gray-500 hover:text-gray-900 border border-gray-200'
-          }`}
-        >
-          {date === dates[0] ? `今天 ${formatDate(date)}` : formatDate(date)}
-        </Link>
-      ))}
+    <div className="py-5">
+      <p className="font-mono text-[9px] text-r-muted tracking-[0.25em] uppercase mb-3 px-0.5">
+        期刊存档
+      </p>
+      <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+        {dates.slice(0, 20).map((date, i) => {
+          const [y, m, d] = date.split('-')
+          const active = date === currentDate
+          const isLatest = i === 0
+          return (
+            <Link
+              key={date}
+              href={`/${date}`}
+              className={`flex-shrink-0 rounded-xl border transition-all duration-200 text-center px-3 pt-2 pb-2.5 min-w-[52px] ${
+                active
+                  ? 'border-r-accent/60 bg-r-accent/10 text-r-accent'
+                  : 'border-r-border bg-r-card text-r-muted hover:border-r-dim hover:text-r-faint'
+              }`}
+            >
+              <div className="font-mono text-[8px] tracking-[0.2em] uppercase leading-none mb-1 opacity-70">
+                {isLatest ? 'TODAY' : `${m}月`}
+              </div>
+              <div className="font-mono font-medium text-[20px] leading-none tabular-nums">
+                {d}
+              </div>
+              {isLatest && (
+                <div className="w-1 h-1 rounded-full bg-r-accent mx-auto mt-1.5" />
+              )}
+            </Link>
+          )
+        })}
+      </div>
     </div>
   )
 }
