@@ -15,12 +15,15 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-30 border-b border-r-border bg-r-bg/90 backdrop-blur-md">
-      <div className="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
+    <header className="sticky top-0 z-30 border-b border-r-border bg-white/95 backdrop-blur-md">
+      <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Left: brand */}
         <div className="flex items-center gap-3">
-          <div className="w-7 h-7 rounded-lg flex items-center justify-center border border-r-accent/40 bg-r-accent/10">
-            <span className="text-r-accent text-sm leading-none">⌖</span>
+          <div
+            className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-base leading-none"
+            style={{ background: 'linear-gradient(135deg, #7C3AED, #5B21B6)', boxShadow: '0 2px 8px rgba(124,58,237,0.35)' }}
+          >
+            ⌖
           </div>
           <div>
             <div className="font-mono text-[9px] text-r-accent tracking-[0.3em] uppercase leading-none mb-0.5">
@@ -41,7 +44,7 @@ export default function Header() {
             <div className="font-mono text-[9px] text-r-muted tracking-[0.2em] uppercase leading-none mb-1">
               CST · AI Powered
             </div>
-            <div className="font-mono text-sm text-r-accent tabular-nums">
+            <div className="font-mono text-sm text-r-accent tabular-nums font-semibold">
               {time || '──:──:──'}
             </div>
           </div>
