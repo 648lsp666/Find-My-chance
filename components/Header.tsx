@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import SubscribeForm from './SubscribeForm'
 
 export default function Header() {
   const [time, setTime] = useState('')
@@ -31,13 +32,18 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Right: live clock */}
-        <div className="text-right hidden sm:block">
-          <div className="font-mono text-[9px] text-r-muted tracking-[0.2em] uppercase leading-none mb-1">
-            CST · AI Powered
+        {/* Right: subscribe + clock */}
+        <div className="flex items-center gap-4">
+          <div className="hidden md:block">
+            <SubscribeForm />
           </div>
-          <div className="font-mono text-sm text-r-accent tabular-nums">
-            {time || '──:──:──'}
+          <div className="text-right hidden sm:block">
+            <div className="font-mono text-[9px] text-r-muted tracking-[0.2em] uppercase leading-none mb-1">
+              CST · AI Powered
+            </div>
+            <div className="font-mono text-sm text-r-accent tabular-nums">
+              {time || '──:──:──'}
+            </div>
           </div>
         </div>
       </div>
