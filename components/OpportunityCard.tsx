@@ -1,5 +1,29 @@
 import type { Opportunity } from '@/lib/opportunities'
 
+const SOURCE_MAP: Record<string, { label: string; icon: string; color: string }> = {
+  'product hunt': { label: 'Product Hunt', icon: '🔶', color: '#DA552F' },
+  'github':       { label: 'GitHub',        icon: '⭐', color: '#24292E' },
+  '36氪':         { label: '36氪',           icon: '📰', color: '#E6353C' },
+  '36kr':         { label: '36氪',           icon: '📰', color: '#E6353C' },
+  'hacker news':  { label: 'Hacker News',   icon: '🔸', color: '#FF6600' },
+  'hn':           { label: 'Hacker News',   icon: '🔸', color: '#FF6600' },
+  'reddit':       { label: 'Reddit',        icon: '🤖', color: '#FF4500' },
+  '少数派':       { label: '少数派',         icon: '📱', color: '#E44C7E' },
+  '知乎':         { label: '知乎',           icon: '💬', color: '#0084FF' },
+  '微博':         { label: '微博',           icon: '📣', color: '#E6162D' },
+  'twitter':      { label: 'X / Twitter',   icon: '𝕏', color: '#000000' },
+  'x.com':        { label: 'X / Twitter',   icon: '𝕏', color: '#000000' },
+}
+
+function parseSignal(title: string): { label: string; icon: string; color: string } {
+  const lower = title.toLowerCase()
+  for (const [key, val] of Object.entries(SOURCE_MAP)) {
+    if (lower.includes(key)) return val
+  }
+  const label = title.split(/[·:—\-]/)[0].trim().slice(0, 18)
+  return { label, icon: '📡', color: '#6B7280' }
+}
+
 const CATS: Record<string, { color: string; bg: string; headerBg: string; label: string }> = {
   'AI应用':   { color: '#7C3AED', bg: 'rgba(124,58,237,0.08)',  headerBg: 'linear-gradient(90deg,#EDE9FE,#F5F4FF)', label: 'AI应用' },
   '自媒体':   { color: '#8B5CF6', bg: 'rgba(139,92,246,0.08)',  headerBg: 'linear-gradient(90deg,#EDE9FE,#F5F4FF)', label: '自媒体' },
@@ -43,9 +67,34 @@ export default function OpportunityCard({
       className="rounded-2xl border border-r-border bg-r-card card-lift fade-in overflow-hidden"
       style={{ animationDelay: `${index * 80}ms` }}
     >
-      {/* Colored header */}
+      {/* Signal header */}
+      {o.sources.length > 0 && (() => {
+        const sig = parseSignal(o.sources[0].title)
+        return (
+          <a
+            href={o.sources[0].url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2.5 border-b border-r-border group"
+            style={{ background: `${sig.color}08` }}
+          >
+            <span className="text-[13px]">{sig.icon}</span>
+            <span className="font-mono text-[11px] font-semibold" style={{ color: sig.color }}>
+              {sig.label}
+            </span>
+            <span className="font-sans text-[11px] text-r-muted truncate flex-1">
+              · {o.sources[0].title.replace(sig.label, '').replace(/^[\s·:—\-]+/, '')}
+            </span>
+            <span className="font-mono text-[10px] text-r-muted/50 group-hover:text-r-muted transition-colors flex-shrink-0">
+              为什么今天 ↗
+            </span>
+          </a>
+        )
+      })()}
+
+      {/* Category / meta header */}
       <div
-        className="flex items-center gap-2 px-5 py-3 border-b border-r-border flex-wrap"
+        className="flex items-center gap-2 px-5 py-2.5 border-b border-r-border flex-wrap"
         style={{ background: cat.headerBg }}
       >
         <span
@@ -53,9 +102,6 @@ export default function OpportunityCard({
           style={{ background: cat.color }}
         >
           {cat.label}
-        </span>
-        <span className="font-mono text-[12px] text-r-muted border border-r-border rounded-full px-2.5 py-1 bg-white">
-          {o.market}
         </span>
         <span
           className="font-mono text-[12px] px-2.5 py-1 rounded-full border"
