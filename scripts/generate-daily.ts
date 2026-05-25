@@ -71,8 +71,23 @@ async function fetchGitHubSignals(): Promise<Signal[]> {
 }
 
 async function fetchPHSignals(): Promise<Signal[]> {
-  const token = process.env.PRODUCT_HUNT_TOKEN
-  if (!token) return []
+  const clientId = process.env.PRODUCT_HUNT_KEY
+  const clientSecret = process.env.PRODUCT_HUNT_SECRET
+  if (!clientId || !clientSecret) return []
+
+  // Exchange client credentials for access token
+  const tokenRes = await fetch('https://api.producthunt.com/v2/oauth/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      client_id: clientId,
+      client_secret: clientSecret,
+      grant_type: 'client_credentials',
+    }),
+  })
+  if (!tokenRes.ok) throw new Error(`PH token exchange ${tokenRes.status}`)
+  const { access_token } = await tokenRes.json() as { access_token: string }
+
   const postedAfter = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10) + 'T00:00:00Z'
   const query = `{
     posts(order: VOTES, postedAfter: "${postedAfter}", first: 10) {
@@ -83,7 +98,7 @@ async function fetchPHSignals(): Promise<Signal[]> {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${access_token}`,
     },
     body: JSON.stringify({ query }),
   })

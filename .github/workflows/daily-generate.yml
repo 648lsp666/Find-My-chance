@@ -31,7 +31,8 @@ jobs:
       - name: Generate daily opportunities
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          PRODUCT_HUNT_TOKEN: ${{ secrets.PRODUCT_HUNT_TOKEN }}
+          PRODUCT_HUNT_KEY: ${{ secrets.PRODUCT_HUNT_KEY }}
+          PRODUCT_HUNT_SECRET: ${{ secrets.PRODUCT_HUNT_SECRET }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FORCE_GENERATE: ${{ inputs.force && '1' || '' }}
         run: npm run generate
