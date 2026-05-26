@@ -1,12 +1,39 @@
 'use client'
 
+import { useMemo } from 'react'
+import type { Opportunity } from '@/lib/opportunities'
+
 interface Props {
   date: string
   summary: string
   count: number
+  opportunities: Opportunity[]
+  selectedTag: string | null
+  onTagSelect: (tag: string) => void
 }
 
-export default function DailyBrief({ date, summary, count }: Props) {
+const STAGGER = [0, 14, 4, 20, 8, 16, 2, 22, 10, 6, 18, 12, 24, 0, 14]
+
+function tagStyle(count: number): { fontSize: number; fontWeight: number; color: string } {
+  if (count >= 4) return { fontSize: 27, fontWeight: 800, color: '#7C3AED' }
+  if (count === 3) return { fontSize: 19, fontWeight: 700, color: '#5B21B6' }
+  if (count === 2) return { fontSize: 13, fontWeight: 400, color: '#6D28D9' }
+  return { fontSize: 10, fontWeight: 400, color: '#C4B5FD' }
+}
+
+export default function DailyBrief({ date, summary, count, opportunities, selectedTag, onTagSelect }: Props) {
+  const tagCounts = useMemo(() => {
+    const counts: Record<string, number> = {}
+    for (const opp of opportunities) {
+      for (const tag of opp.tags) {
+        counts[tag] = (counts[tag] ?? 0) + 1
+      }
+    }
+    return Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 15)
+  }, [opportunities])
+
   if (!summary) return null
 
   return (
@@ -45,6 +72,40 @@ export default function DailyBrief({ date, summary, count }: Props) {
       >
         {summary}
       </p>
+
+      {tagCounts.length > 0 && (
+        <div className="mt-4 pt-4 border-t border-white/10">
+          <p className="font-mono text-[9px] text-white/40 tracking-[0.2em] uppercase mb-3">
+            今日热词 · 点击过滤，再次点击取消
+          </p>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-0">
+            {tagCounts.map(([tag, tagCount], i) => {
+              const { fontSize, fontWeight, color } = tagStyle(tagCount)
+              const isSelected = selectedTag === tag
+              return (
+                <span
+                  key={tag}
+                  onClick={() => onTagSelect(tag)}
+                  style={{
+                    fontSize,
+                    fontWeight,
+                    color: isSelected ? '#fff' : color,
+                    marginTop: STAGGER[i % STAGGER.length],
+                    textDecoration: isSelected ? 'underline' : 'none',
+                    opacity: selectedTag && !isSelected ? 0.35 : 1,
+                    cursor: 'pointer',
+                    lineHeight: 1.4,
+                    transition: 'opacity 0.15s, color 0.15s',
+                    userSelect: 'none',
+                  }}
+                >
+                  {tag}<sup style={{ fontSize: fontSize * 0.4, color: '#A78BFA', marginLeft: 1 }}>{tagCount}</sup>
+                </span>
+              )
+            })}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

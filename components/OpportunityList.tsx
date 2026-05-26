@@ -40,9 +40,10 @@ function getTimeBucket(timeToRevenue: string): TimeBucket {
 interface Props {
   opportunities: Opportunity[]
   date: string
+  selectedTag: string | null
 }
 
-export default function OpportunityList({ opportunities, date }: Props) {
+export default function OpportunityList({ opportunities, date, selectedTag }: Props) {
   const [search, setSearch]         = useState('')
   const [activeCats, setActiveCats] = useState<string[]>([])
   const [activeTime, setActiveTime] = useState<TimeFilter>('all')
@@ -66,9 +67,10 @@ export default function OpportunityList({ opportunities, date }: Props) {
       const matchTime = activeTime === 'all' || getTimeBucket(o.timeToRevenue) === activeTime
       const matchText = !q || [o.title, o.summary, o.description, o.painPoint, ...o.tags, o.revenueModel]
         .some(t => t.toLowerCase().includes(q))
-      return matchCat && matchTime && matchText
+      const matchTag  = !selectedTag || o.tags.includes(selectedTag)
+      return matchCat && matchTime && matchText && matchTag
     })
-  }, [opportunities, search, activeCats, activeTime])
+  }, [opportunities, search, activeCats, activeTime, selectedTag])
 
   return (
     <div>

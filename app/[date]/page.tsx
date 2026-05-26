@@ -1,8 +1,7 @@
 import { notFound } from 'next/navigation'
 import { getAllDates, getOpportunities } from '@/lib/opportunities'
 import DateNav from '@/components/DateNav'
-import OpportunityList from '@/components/OpportunityList'
-import DailyBrief from '@/components/DailyBrief'
+import DailyContent from '@/components/DailyContent'
 import TechSignals from '@/components/TechSignals'
 import SharePdfButtons from '@/components/SharePdfButtons'
 
@@ -53,31 +52,11 @@ export default function DatePage({ params }: { params: { date: string } }) {
       <main className="max-w-6xl mx-auto px-6 pb-20">
         <DateNav dates={allDates} currentDate={params.date} />
 
-        {/* Daily brief */}
-        <DailyBrief
-          date={data.date}
-          summary={data.summary ?? ''}
-          count={data.opportunities.length}
-        />
-
         {/* Tech signals strip */}
         <TechSignals staticRepos={data.trending} />
 
-        {/* Section header */}
-        <div className="flex items-baseline gap-3 mb-4 print:mb-2">
-          <h2 className="font-display font-bold text-r-text" style={{ fontSize: '20px' }}>
-            今日机会
-          </h2>
-          <span className="font-mono text-[12px] text-r-muted">
-            · {data.opportunities.length} 个
-          </span>
-          <span className="font-sans text-[12px] text-r-faint ml-1">
-            每条均标注来源信号
-          </span>
-        </div>
-
-        {/* Filter + cards */}
-        <OpportunityList opportunities={data.opportunities} date={params.date} />
+        {/* Daily brief + word cloud + opportunity list */}
+        <DailyContent data={data} date={params.date} />
 
         <SharePdfButtons date={params.date} />
 
