@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation'
 import { getAllDates, getOpportunities } from '@/lib/opportunities'
 import DateNav from '@/components/DateNav'
 import DailyContent from '@/components/DailyContent'
-import TechSignals from '@/components/TechSignals'
 import SharePdfButtons from '@/components/SharePdfButtons'
 
 export async function generateStaticParams() {
@@ -51,9 +50,6 @@ export default function DatePage({ params }: { params: { date: string } }) {
     <div className="min-h-screen">
       <main className="max-w-6xl mx-auto px-6 pb-20">
         <DateNav dates={allDates} currentDate={params.date} />
-
-        {/* Tech signals strip */}
-        <TechSignals staticRepos={data.trending} />
 
         {/* Daily brief + word cloud + opportunity list */}
         <DailyContent data={data} date={params.date} />
