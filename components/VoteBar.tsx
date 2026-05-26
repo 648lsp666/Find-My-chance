@@ -25,7 +25,7 @@ export default function VoteBar({ date, opportunityId, initialCounts }: Props) {
         setVoted(initialCounts.myVote ?? null)
       }
     }
-  }, [initialCounts?.up, initialCounts?.down, initialCounts?.myVote]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [initialCounts?.up, initialCounts?.down, initialCounts?.myVote])
 
   async function handleVote(type: 'up' | 'down') {
     if (!isSignedIn) {
