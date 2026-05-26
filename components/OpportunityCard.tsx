@@ -89,15 +89,15 @@ export default function OpportunityCard({
         const hasLink = isSpecificUrl(src.url)
         const inner = (
           <>
-            <span className="text-[13px]">{sig.icon}</span>
-            <span className="font-mono text-[11px] font-semibold" style={{ color: sig.color }}>
+            <span className="text-[14px]">{sig.icon}</span>
+            <span className="font-mono text-[13px] font-semibold" style={{ color: sig.color }}>
               {sig.label}
             </span>
-            <span className="font-sans text-[11px] text-r-muted truncate flex-1">
+            <span className="font-sans text-[13px] text-r-muted truncate flex-1">
               · {src.title.replace(sig.label, '').replace(/^[\s·:—\-]+/, '')}
             </span>
             {hasLink && (
-              <span className="font-mono text-[10px] text-r-muted/50 group-hover:text-r-muted transition-colors flex-shrink-0">
+              <span className="font-mono text-[12px] text-r-muted/60 group-hover:text-r-muted transition-colors flex-shrink-0">
                 为什么今天 ↗
               </span>
             )}
@@ -133,7 +133,7 @@ export default function OpportunityCard({
           ⚡ {o.timeToRevenue}
         </span>
         <div className="ml-auto flex items-center gap-2">
-          <span className="font-mono text-[11px] text-r-muted">潜力</span>
+          <span className="font-mono text-[13px] text-r-muted">潜力</span>
           <Dots value={Math.round(o.potential / 2)} max={5} color={cat.color} />
         </div>
       </div>
@@ -142,7 +142,7 @@ export default function OpportunityCard({
       <div className="px-5 pt-4 pb-5">
         {/* Index + Title */}
         <div className="flex items-baseline gap-3 mb-2">
-          <span className="font-mono text-[12px] text-r-dim flex-shrink-0 tabular-nums font-semibold">{num}</span>
+          <span className="font-mono text-[14px] text-r-dim flex-shrink-0 tabular-nums font-semibold">{num}</span>
           <h2 className="font-display font-bold text-[19px] text-r-text leading-snug">
             {o.title}
           </h2>
@@ -178,7 +178,7 @@ export default function OpportunityCard({
           style={{ background: '#FFFBEB', borderLeftColor: '#F59E0B' }}
         >
           <span
-            className="font-mono text-[11px] font-semibold tracking-[0.2em] uppercase block mb-1"
+            className="font-mono text-[13px] font-semibold tracking-[0.15em] uppercase block mb-1"
             style={{ color: '#B45309' }}
           >
             核心痛点
@@ -188,12 +188,12 @@ export default function OpportunityCard({
 
         {/* Path */}
         <div className="mb-4">
-          <p className="font-mono text-[11px] text-r-faint tracking-[0.2em] uppercase mb-3">执行路径</p>
+          <p className="font-mono text-[13px] text-r-muted tracking-[0.15em] uppercase mb-3">执行路径</p>
           <ol className="space-y-3">
             {o.path.map((step, i) => (
               <li key={i} className="flex gap-3">
                 <span
-                  className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center font-mono text-[11px] font-bold mt-0.5"
+                  className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center font-mono text-[12px] font-bold mt-0.5"
                   style={{ background: cat.bg, color: cat.color }}
                 >
                   {i + 1}
@@ -215,19 +215,19 @@ export default function OpportunityCard({
             { label: '竞争程度', value: o.competition,    style: { color: '#1E1B4B' } },
           ].map(({ label, value, style }) => (
             <div key={label}>
-              <p className="font-mono text-[11px] text-r-faint tracking-[0.15em] uppercase mb-1.5">{label}</p>
+              <p className="font-mono text-[13px] text-r-muted tracking-[0.1em] uppercase mb-1.5">{label}</p>
               <p className="font-mono text-[14px] font-semibold" style={style}>{value}</p>
             </div>
           ))}
           <div>
-            <p className="font-mono text-[11px] text-r-faint tracking-[0.15em] uppercase mb-2">执行难度</p>
+            <p className="font-mono text-[13px] text-r-muted tracking-[0.1em] uppercase mb-2">执行难度</p>
             <Dots value={o.difficulty} max={5} color={cat.color} />
           </div>
         </div>
 
         {/* Revenue model */}
         <p className="font-sans text-[14px] text-r-muted mb-3 leading-relaxed">
-          <span className="font-mono text-[11px] text-r-faint tracking-[0.15em] uppercase mr-2">收益模式</span>
+          <span className="font-mono text-[13px] text-r-muted tracking-[0.1em] uppercase mr-2">收益模式</span>
           {o.revenueModel}
         </p>
 
@@ -247,7 +247,7 @@ export default function OpportunityCard({
                   style={{ color: cat.color, opacity: 0.65 }}
                 >
                   <span>{s.title}</span>
-                  <span style={{ fontSize: '10px' }}>↗</span>
+                  <span style={{ fontSize: '12px' }}>↗</span>
                 </a>
               ) : (
                 <span key={i} className={cls} style={{ color: cat.color, opacity: 0.5 }}>

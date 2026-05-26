@@ -24,7 +24,7 @@ export default function DailyBrief({ date, summary, count }: Props) {
 
       <div className="flex items-start justify-between gap-4 mb-3 relative">
         <div>
-          <p className="font-mono text-[9px] text-white/60 tracking-[0.3em] uppercase mb-1">
+          <p className="font-mono text-[11px] text-white/70 tracking-[0.2em] uppercase mb-1">
             AI 今日简报 · {date}
           </p>
           <h2 className="font-display font-bold text-white" style={{ fontSize: '18px' }}>
@@ -36,7 +36,7 @@ export default function DailyBrief({ date, summary, count }: Props) {
           style={{ background: 'rgba(255,255,255,0.12)' }}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="font-mono text-[10px] text-white/80 tracking-[0.1em]">
+          <span className="font-mono text-[12px] text-white/90 tracking-[0.1em]">
             {count} 个机会
           </span>
         </div>
@@ -44,7 +44,7 @@ export default function DailyBrief({ date, summary, count }: Props) {
 
       <p
         className="font-sans leading-relaxed relative"
-        style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.85)' }}
+        style={{ fontSize: '15px', color: 'rgba(255,255,255,0.9)' }}
       >
         {summary}
       </p>

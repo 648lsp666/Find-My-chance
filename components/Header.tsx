@@ -35,7 +35,7 @@ export default function Header() {
             <Image src="/logo.png" alt="见微 Prowl" width={32} height={32} className="w-full h-full object-cover" />
           </div>
           <div>
-            <div className="font-mono text-[9px] text-r-accent tracking-[0.3em] uppercase leading-none mb-0.5">
+            <div className="font-mono text-[11px] text-r-accent tracking-[0.25em] uppercase leading-none mb-0.5">
               Prowl
             </div>
             <div className="font-display font-bold text-[17px] text-r-text leading-none tracking-tight">
@@ -52,7 +52,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative h-full flex items-center px-4 font-mono text-[12px] tracking-wide transition-colors ${
+                className={`relative h-full flex items-center px-4 font-mono text-[14px] tracking-wide transition-colors ${
                   active ? 'text-r-accent' : 'text-r-muted hover:text-r-text'
                 }`}
               >
@@ -68,7 +68,7 @@ export default function Header() {
         {/* Right: clock + subscribe + auth */}
         <div className="flex items-center gap-3">
           <div className="text-right hidden sm:block">
-            <div className="font-mono text-[9px] text-r-muted tracking-[0.2em] uppercase leading-none mb-1">
+            <div className="font-mono text-[11px] text-r-muted tracking-[0.15em] uppercase leading-none mb-1">
               CST · AI Powered
             </div>
             <div className="font-mono text-sm text-r-accent tabular-nums font-semibold">
@@ -79,13 +79,13 @@ export default function Header() {
             <button
               onClick={subscribe}
               disabled={loading}
-              className="hidden sm:block font-mono text-[11px] tracking-wide px-3 py-1.5 rounded-full border border-r-accent text-r-accent hover:bg-r-accent hover:text-white transition-all disabled:opacity-50"
+              className="hidden sm:block font-mono text-[13px] tracking-wide px-3 py-1.5 rounded-full border border-r-accent text-r-accent hover:bg-r-accent hover:text-white transition-all disabled:opacity-50"
             >
               订阅每日推送
             </button>
           )}
           {isSignedIn && subscribed && (
-            <span className="hidden sm:block font-mono text-[11px] text-r-muted tracking-wide">
+            <span className="hidden sm:block font-mono text-[13px] text-r-muted tracking-wide">
               ✓ 已订阅
             </span>
           )}
