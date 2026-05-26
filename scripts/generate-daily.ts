@@ -219,43 +219,43 @@ ${JSON.stringify(draft, null, 2)}
 3. 删除被标记的条目，从剩余中保留质量最高的 6-8 条
 4. 只返回最终机会数组的 JSON，格式：[{ ...opportunity对象 }]，不要有任何其他文字`
 
-  const res = await fetch('https://api.deepseek.com/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model: 'deepseek-v4-flash',
-      max_tokens: 8192,
-      messages: [{ role: 'user', content: qualityPrompt }],
-    }),
-  })
-
-  if (!res.ok) {
-    console.warn(`  ⚠ Pass 2 API error ${res.status}`)
-    return null
-  }
-
-  const json: any = await res.json()
-  const raw: string = json.choices?.[0]?.message?.content ?? ''
-  const stripped = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim()
-  const start = stripped.indexOf('[')
-  const end = stripped.lastIndexOf(']')
-  if (start === -1 || end === -1) {
-    console.warn('  ⚠ Pass 2 failed: no JSON array in response')
-    return null
-  }
-
   try {
+    const res = await fetch('https://api.deepseek.com/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'deepseek-v4-flash',
+        max_tokens: 8192,
+        messages: [{ role: 'user', content: qualityPrompt }],
+      }),
+    })
+
+    if (!res.ok) {
+      console.warn(`  ⚠ Pass 2 API error ${res.status}`)
+      return null
+    }
+
+    const json: any = await res.json()
+    const raw: string = json.choices?.[0]?.message?.content ?? ''
+    const stripped = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim()
+    const start = stripped.indexOf('[')
+    const end = stripped.lastIndexOf(']')
+    if (start === -1 || end === -1) {
+      console.warn('  ⚠ Pass 2 failed: no JSON array in response')
+      return null
+    }
+
     const result = JSON.parse(stripped.slice(start, end + 1))
     if (!Array.isArray(result) || result.length === 0) {
       console.warn('  ⚠ Pass 2 returned empty array')
       return null
     }
     return result
-  } catch {
-    console.warn('  ⚠ Pass 2 failed: JSON parse error')
+  } catch (err: any) {
+    console.warn(`  ⚠ Pass 2 failed: ${err?.message ?? err}`)
     return null
   }
 }
