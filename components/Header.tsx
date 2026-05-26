@@ -16,7 +16,7 @@ export default function Header() {
   const [time, setTime] = useState('')
   const pathname = usePathname()
   const { isSignedIn } = useAuth()
-  const { subscribed, loading, subscribe } = useSubscription()
+  const { subscribed, loading, initializing, subscribe } = useSubscription()
 
   useEffect(() => {
     const tick = () =>
@@ -75,17 +75,20 @@ export default function Header() {
               {time || '──:──:──'}
             </div>
           </div>
-          {isSignedIn && !subscribed && (
+          {isSignedIn && !initializing && !subscribed && (
             <button
               onClick={subscribe}
               disabled={loading}
-              className="hidden sm:block font-mono text-[13px] tracking-wide px-3 py-1.5 rounded-full border border-r-accent text-r-accent hover:bg-r-accent hover:text-white transition-all disabled:opacity-50"
+              className="hidden sm:block font-mono text-[11px] tracking-wide px-3 py-1.5 rounded-full border border-r-accent text-r-accent hover:bg-r-accent hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               订阅每日推送
             </button>
           )}
-          {isSignedIn && subscribed && (
-            <span className="hidden sm:block font-mono text-[13px] text-r-muted tracking-wide">
+          {isSignedIn && !initializing && subscribed && (
+            <span
+              title="已订阅（暂不支持取消订阅）"
+              className="hidden sm:block font-mono text-[11px] text-r-muted tracking-wide"
+            >
               ✓ 已订阅
             </span>
           )}

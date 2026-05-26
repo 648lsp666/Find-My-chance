@@ -6,15 +6,18 @@ import { useUser } from '@clerk/nextjs'
 export function useSubscription(): {
   subscribed: boolean
   loading: boolean
+  initializing: boolean
   subscribe: () => Promise<void>
 } {
   const { isSignedIn } = useUser()
   const [subscribed, setSubscribed] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [initializing, setInitializing] = useState(true)
 
   useEffect(() => {
     if (!isSignedIn) {
       setSubscribed(false)
+      setInitializing(false)
       return
     }
     const controller = new AbortController()
@@ -26,6 +29,7 @@ export function useSubscription(): {
       .catch((e: Error) => {
         if (e.name !== 'AbortError') { /* ignore */ }
       })
+      .finally(() => setInitializing(false))
     return () => controller.abort()
   }, [isSignedIn])
 
@@ -44,5 +48,5 @@ export function useSubscription(): {
     }
   }
 
-  return { subscribed, loading, subscribe }
+  return { subscribed, loading, initializing, subscribe }
 }
