@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useUser, useClerk } from '@clerk/nextjs'
 import type { VoteCounts } from '@/hooks/useVotes'
 
 interface Props {
@@ -10,30 +11,32 @@ interface Props {
 }
 
 export default function VoteBar({ date, opportunityId, initialCounts }: Props) {
-  const [counts, setCounts] = useState<VoteCounts>({ up: 0, down: 0 })
+  const [counts, setCounts] = useState<{ up: number; down: number }>({ up: 0, down: 0 })
   const [voted, setVoted] = useState<'up' | 'down' | null>(null)
   const [loading, setLoading] = useState(false)
+  const { isSignedIn } = useUser()
+  const { openSignIn } = useClerk()
 
-  // When parent hydrates initialCounts from useVotes, update local counts (only if not yet voted)
+  // When parent hydrates initialCounts from useVotes, update counts and restore voted state
   useEffect(() => {
-    if (initialCounts && !voted) {
-      setCounts(initialCounts)
+    if (initialCounts) {
+      setCounts({ up: initialCounts.up, down: initialCounts.down })
+      if (initialCounts.myVote !== undefined) {
+        setVoted(initialCounts.myVote ?? null)
+      }
     }
-  }, [initialCounts?.up, initialCounts?.down]) // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Restore voted state from localStorage on mount
-  useEffect(() => {
-    const stored = localStorage.getItem(`voted:${date}:${opportunityId}`)
-    if (stored === 'up' || stored === 'down') setVoted(stored)
-  }, [date, opportunityId])
+  }, [initialCounts?.up, initialCounts?.down, initialCounts?.myVote]) // eslint-disable-line react-hooks/exhaustive-deps
 
   async function handleVote(type: 'up' | 'down') {
+    if (!isSignedIn) {
+      openSignIn()
+      return
+    }
     if (voted || loading) return
 
     // Optimistic update
     setCounts(prev => ({ ...prev, [type]: prev[type] + 1 }))
     setVoted(type)
-    localStorage.setItem(`voted:${date}:${opportunityId}`, type)
     setLoading(true)
 
     try {
@@ -42,14 +45,14 @@ export default function VoteBar({ date, opportunityId, initialCounts }: Props) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ date, id: opportunityId, type }),
       })
+      if (res.status === 409) return // already voted server-side, keep optimistic state
       if (!res.ok) throw new Error('vote failed')
-      const data: VoteCounts = await res.json()
+      const data: { up: number; down: number } = await res.json()
       setCounts(data)
     } catch {
       // Rollback
       setCounts(prev => ({ ...prev, [type]: prev[type] - 1 }))
       setVoted(null)
-      localStorage.removeItem(`voted:${date}:${opportunityId}`)
       alert('投票失败，请稍后再试')
     } finally {
       setLoading(false)
