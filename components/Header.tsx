@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { SignInButton, UserButton } from '@clerk/nextjs'
 import { useAuth } from '@clerk/nextjs'
+import { useSubscription } from '@/hooks/useSubscription'
 
 const NAV_ITEMS = [
   { href: '/', label: '每日机会', match: (p: string) => /^\/\d{4}-\d{2}-\d{2}/.test(p) || p === '/' },
@@ -15,6 +16,7 @@ export default function Header() {
   const [time, setTime] = useState('')
   const pathname = usePathname()
   const { isSignedIn } = useAuth()
+  const { subscribed, loading, subscribe } = useSubscription()
 
   useEffect(() => {
     const tick = () =>
@@ -63,8 +65,8 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Right: clock + auth */}
-        <div className="flex items-center gap-4">
+        {/* Right: clock + subscribe + auth */}
+        <div className="flex items-center gap-3">
           <div className="text-right hidden sm:block">
             <div className="font-mono text-[9px] text-r-muted tracking-[0.2em] uppercase leading-none mb-1">
               CST · AI Powered
@@ -73,6 +75,20 @@ export default function Header() {
               {time || '──:──:──'}
             </div>
           </div>
+          {isSignedIn && !subscribed && (
+            <button
+              onClick={subscribe}
+              disabled={loading}
+              className="hidden sm:block font-mono text-[11px] tracking-wide px-3 py-1.5 rounded-full border border-r-accent text-r-accent hover:bg-r-accent hover:text-white transition-all disabled:opacity-50"
+            >
+              订阅每日推送
+            </button>
+          )}
+          {isSignedIn && subscribed && (
+            <span className="hidden sm:block font-mono text-[11px] text-r-muted tracking-wide">
+              ✓ 已订阅
+            </span>
+          )}
           {!isSignedIn && (
             <SignInButton mode="modal">
               <button className="font-mono text-[13px] font-bold tracking-wide px-5 py-2 rounded-full bg-r-accent text-white hover:opacity-90 active:scale-95 transition-all shadow-sm">
