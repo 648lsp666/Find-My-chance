@@ -1,7 +1,7 @@
 #!/usr/bin/env tsx
 /**
  * Daily opportunity generator.
- * Fetches real signals from HN / GitHub / Product Hunt / 36kr,
+ * Fetches real signals from HN / GitHub / Product Hunt / 36kr / IndieHackers,
  * then calls DeepSeek API to produce a structured JSON file.
  *
  * Usage:
@@ -130,7 +130,7 @@ async function fetchIHSignals(): Promise<Signal[]> {
   // `indiehackers` tag surfaces genuine indie-hacker signals daily.
   // The DEV.to API is public and needs no auth key.
   const res = await fetch(
-    'https://dev.to/api/articles?tag=indiehackers&per_page=10&top=1',
+    'https://dev.to/api/articles?tag=indiehackers&per_page=10&top=3',
     {
       headers: { 'User-Agent': 'Mozilla/5.0 (compatible; OpRadar/1.0)' },
       signal: AbortSignal.timeout(8000),
@@ -145,7 +145,7 @@ async function fetchIHSignals(): Promise<Signal[]> {
       source: 'IndieHackers',
       title: a.title,
       url: a.url,
-      description: a.description?.slice(0, 200) ?? '',
+      description: a.description?.slice(0, 200),
       score: a.public_reactions_count ?? 0,
     }))
 }
