@@ -6,7 +6,6 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { SignInButton, UserButton } from '@clerk/nextjs'
 import { useAuth } from '@clerk/nextjs'
-import SubscribeForm from './SubscribeForm'
 
 const NAV_ITEMS = [
   { href: '/', label: '每日机会', match: (p: string) => /^\/\d{4}-\d{2}-\d{2}/.test(p) || p === '/' },
@@ -64,21 +63,8 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Right: auth + subscribe + clock */}
+        {/* Right: clock + auth */}
         <div className="flex items-center gap-4">
-          {!isSignedIn && (
-            <SignInButton mode="modal">
-              <button className="font-mono text-[12px] tracking-wide px-3 py-1.5 rounded-full border border-r-accent text-r-accent hover:bg-r-accent hover:text-white transition-all">
-                登录
-              </button>
-            </SignInButton>
-          )}
-          {isSignedIn && (
-            <UserButton />
-          )}
-          <div className="hidden md:block">
-            <SubscribeForm />
-          </div>
           <div className="text-right hidden sm:block">
             <div className="font-mono text-[9px] text-r-muted tracking-[0.2em] uppercase leading-none mb-1">
               CST · AI Powered
@@ -87,6 +73,14 @@ export default function Header() {
               {time || '──:──:──'}
             </div>
           </div>
+          {!isSignedIn && (
+            <SignInButton mode="modal">
+              <button className="font-mono text-[13px] font-bold tracking-wide px-5 py-2 rounded-full bg-r-accent text-white hover:opacity-90 active:scale-95 transition-all shadow-sm">
+                登录 / 注册
+              </button>
+            </SignInButton>
+          )}
+          {isSignedIn && <UserButton />}
         </div>
       </div>
     </header>
