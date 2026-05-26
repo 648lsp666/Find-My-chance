@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react'
 import type { Opportunity } from '@/lib/opportunities'
 import OpportunityCard from './OpportunityCard'
+import { useVotes } from '@/hooks/useVotes'
 
 const ALL_CATS = ['AI应用', '自媒体', 'SaaS工具', '整活玩具', '本地服务', '内容创作', '其他']
 
@@ -38,12 +39,15 @@ function getTimeBucket(timeToRevenue: string): TimeBucket {
 
 interface Props {
   opportunities: Opportunity[]
+  date: string
 }
 
-export default function OpportunityList({ opportunities }: Props) {
+export default function OpportunityList({ opportunities, date }: Props) {
   const [search, setSearch]         = useState('')
   const [activeCats, setActiveCats] = useState<string[]>([])
   const [activeTime, setActiveTime] = useState<TimeFilter>('all')
+  const ids = useMemo(() => opportunities.map(o => o.id), [opportunities])
+  const voteCounts = useVotes(date, ids)
 
   const presentCats = useMemo(
     () => ALL_CATS.filter(c => opportunities.some(o => o.category === c)),
@@ -146,7 +150,13 @@ export default function OpportunityList({ opportunities }: Props) {
       {filtered.length > 0 ? (
         <div className="space-y-4">
           {filtered.map((opp, i) => (
-            <OpportunityCard key={opp.id} opportunity={opp} index={i} />
+            <OpportunityCard
+              key={opp.id}
+              opportunity={opp}
+              index={i}
+              date={date}
+              initialCounts={voteCounts[opp.id]}
+            />
           ))}
         </div>
       ) : (

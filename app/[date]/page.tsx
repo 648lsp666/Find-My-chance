@@ -77,7 +77,7 @@ export default function DatePage({ params }: { params: { date: string } }) {
         </div>
 
         {/* Filter + cards */}
-        <OpportunityList opportunities={data.opportunities} />
+        <OpportunityList opportunities={data.opportunities} date={params.date} />
 
         <SharePdfButtons date={params.date} />
 

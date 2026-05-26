@@ -1,4 +1,6 @@
 import type { Opportunity } from '@/lib/opportunities'
+import VoteBar from './VoteBar'
+import type { VoteCounts } from '@/hooks/useVotes'
 
 const SOURCE_MAP: Record<string, { label: string; icon: string; color: string }> = {
   'product hunt': { label: 'Product Hunt', icon: '🔶', color: '#DA552F' },
@@ -59,9 +61,13 @@ function Dots({ value, max, color }: { value: number; max: number; color: string
 export default function OpportunityCard({
   opportunity: o,
   index,
+  date,
+  initialCounts,
 }: {
   opportunity: Opportunity
   index: number
+  date: string
+  initialCounts?: VoteCounts
 }) {
   const cat = CATS[o.category] ?? {
     color: '#6B7280',
@@ -251,6 +257,8 @@ export default function OpportunityCard({
             })}
           </div>
         )}
+
+        <VoteBar date={date} opportunityId={o.id} initialCounts={initialCounts} />
       </div>
     </article>
   )
