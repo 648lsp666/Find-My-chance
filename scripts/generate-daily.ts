@@ -12,7 +12,7 @@
  * Optional env:  PRODUCT_HUNT_TOKEN, GITHUB_TOKEN, FORCE_GENERATE
  */
 
-import { writeFileSync, existsSync, mkdirSync } from 'fs'
+import { writeFileSync, existsSync, mkdirSync, readFileSync, readdirSync } from 'fs'
 import { join } from 'path'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -175,6 +175,27 @@ async function fetch36krSignals(): Promise<Signal[]> {
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
+function loadRecentHistory(outDir: string, days: number = 14): string {
+  const entries: string[] = []
+  try {
+    const files = readdirSync(outDir)
+      .filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
+      .sort()
+      .slice(-days)
+    for (const file of files) {
+      const raw = JSON.parse(readFileSync(join(outDir, file), 'utf-8'))
+      for (const opp of raw.opportunities ?? []) {
+        if (opp.title && opp.category) {
+          entries.push(`- [${opp.category}] ${opp.title}`)
+        }
+      }
+    }
+  } catch {
+    // outDir may not exist on first run, or files may be malformed — safe to ignore
+  }
+  return entries.join('\n')
+}
+
 async function main() {
   const apiKey = process.env.DEEPSEEK_API_KEY
   if (!apiKey) throw new Error('DEEPSEEK_API_KEY is required')
@@ -220,6 +241,13 @@ async function main() {
 
   if (signals.length < 5) {
     throw new Error(`Only ${signals.length} signals collected — too few for quality output`)
+  }
+
+  const historyContext = loadRecentHistory(outDir)
+  if (historyContext) {
+    console.log(`  ✓ Loaded dedup history: ${historyContext.split('\n').length} recent opportunities`)
+  } else {
+    console.log('  ℹ No history found (first run or empty dir)')
   }
 
   // ── Build prompt ─────────────────────────────────────────────────────────
