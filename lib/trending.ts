@@ -5,6 +5,9 @@ export interface TrendingRepo {
   url: string
   starsToday: number
   language: string
+  insight?: string
+  opportunityType?: '就业' | '产品' | '学习' | '趋势'
+  chinaFit?: 'high' | 'medium' | 'low'
 }
 
 export async function fetchGithubTrending(): Promise<TrendingRepo[]> {

@@ -14,6 +14,19 @@ const LANG_COLORS: Record<string, string> = {
   Shell: '#4EAA25', Dockerfile: '#384D54', Vue: '#41B883', Svelte: '#FF3E00',
 }
 
+const OPP_TYPE_STYLES: Record<string, { bg: string; text: string }> = {
+  '就业': { bg: 'rgba(29,78,216,0.15)', text: '#93C5FD' },
+  '产品': { bg: 'rgba(6,95,70,0.2)',   text: '#6EE7B7' },
+  '学习': { bg: 'rgba(146,64,14,0.2)', text: '#FCD34D' },
+  '趋势': { bg: 'rgba(109,40,217,0.2)',text: '#C4B5FD' },
+}
+
+const CHINA_FIT: Record<string, { label: string; color: string }> = {
+  high:   { label: '🇨🇳 国内优先', color: '#10B981' },
+  medium: { label: '🇨🇳 可行',    color: '#F59E0B' },
+  low:    { label: '🌐 出海向',   color: '#6B7280' },
+}
+
 export default function TechSignals({ staticRepos }: Props) {
   const [repos, setRepos] = useState<TrendingRepo[]>(staticRepos ?? [])
   const [loading, setLoading] = useState(!staticRepos)
@@ -27,25 +40,29 @@ export default function TechSignals({ staticRepos }: Props) {
       .finally(() => setLoading(false))
   }, [staticRepos])
 
+  const hasInsights = repos.some(r => r.insight)
+
   return (
     <div className="mb-6 print:hidden">
-      {/* Header */}
       <div className="flex items-center gap-3 mb-4">
         <svg className="w-5 h-5 flex-shrink-0 text-r-text" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
         </svg>
         <h2 className="font-display font-bold text-[20px] text-r-text">今日技术风口</h2>
-        <span className="font-sans text-[14px] text-r-muted">· 驱动今日机会的技术信号</span>
+        <span className="font-sans text-[14px] text-r-muted">
+          · {hasInsights ? '驱动今日机会的技术信号及机会解读' : '驱动今日机会的技术信号'}
+        </span>
       </div>
 
-      {/* Cards */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         {loading
           ? Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="h-24 rounded-xl bg-r-border animate-pulse" />
+              <div key={i} className="h-32 rounded-xl bg-r-border animate-pulse" />
             ))
           : repos.map(repo => {
               const dotColor = LANG_COLORS[repo.language] ?? '#8B5CF6'
+              const oppStyle = repo.opportunityType ? OPP_TYPE_STYLES[repo.opportunityType] : null
+              const fitInfo = repo.chinaFit ? CHINA_FIT[repo.chinaFit] : null
               return (
                 <a
                   key={`${repo.owner}/${repo.repo}`}
@@ -54,36 +71,65 @@ export default function TechSignals({ staticRepos }: Props) {
                   rel="noopener noreferrer"
                   className="group flex flex-col gap-2 rounded-xl border border-r-border bg-r-card px-4 py-3 hover:border-r-dim hover:shadow-sm transition-all"
                 >
-                  {/* Repo name + owner */}
-                  <div>
-                    <p className="font-mono text-[14px] font-semibold text-r-text group-hover:text-r-accent transition-colors leading-snug">
-                      {repo.repo}
-                    </p>
-                    <p className="font-mono text-[12px] text-r-muted">{repo.owner}</p>
+                  {/* Name row + opportunity type badge */}
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="min-w-0">
+                      <p className="font-mono text-[13px] font-semibold text-r-text group-hover:text-r-accent transition-colors leading-snug truncate">
+                        {repo.repo}
+                      </p>
+                      <p className="font-mono text-[11px] text-r-muted">{repo.owner}</p>
+                    </div>
+                    {oppStyle && repo.opportunityType && (
+                      <span
+                        className="flex-shrink-0 font-mono text-[10px] px-2 py-0.5 rounded-full mt-0.5"
+                        style={{ background: oppStyle.bg, color: oppStyle.text }}
+                      >
+                        {repo.opportunityType}
+                      </span>
+                    )}
                   </div>
+
+                  {/* AI Insight */}
+                  {repo.insight && (
+                    <div
+                      className="rounded-lg px-3 py-2"
+                      style={{ background: 'rgba(124,58,237,0.07)', borderLeft: '2px solid rgba(124,58,237,0.4)' }}
+                    >
+                      <p className="font-sans text-[12px] leading-relaxed" style={{ color: '#7C3AED' }}>
+                        {repo.insight}
+                      </p>
+                    </div>
+                  )}
 
                   {/* Description */}
                   {repo.description ? (
-                    <p className="font-sans text-[13px] text-r-muted leading-relaxed line-clamp-2 flex-1">
+                    <p className="font-sans text-[12px] text-r-muted/70 leading-relaxed line-clamp-2 flex-1">
                       {repo.description}
                     </p>
                   ) : (
-                    <p className="font-sans text-[13px] text-r-muted/50 italic flex-1">暂无描述</p>
+                    !repo.insight && (
+                      <p className="font-sans text-[12px] text-r-muted/40 italic flex-1">暂无描述</p>
+                    )
                   )}
 
-                  {/* Footer: language + stars */}
-                  <div className="flex items-center gap-3 pt-1 border-t border-r-border">
+                  {/* Footer */}
+                  <div className="flex items-center gap-2 pt-1.5 border-t border-r-border flex-wrap">
                     {repo.language && (
                       <span className="flex items-center gap-1">
                         <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: dotColor }} />
-                        <span className="font-mono text-[12px] text-r-muted">{repo.language}</span>
+                        <span className="font-mono text-[11px] text-r-muted">{repo.language}</span>
+                      </span>
+                    )}
+                    {fitInfo && (
+                      <span className="font-mono text-[10px]" style={{ color: fitInfo.color }}>
+                        {fitInfo.label}
                       </span>
                     )}
                     <span className="flex items-center gap-1 ml-auto text-r-muted">
                       <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                       </svg>
-                      <span className="font-mono text-[12px]">{repo.starsToday.toLocaleString()}</span>
+                      <span className="font-mono text-[11px]">{repo.starsToday.toLocaleString()}</span>
                     </span>
                   </div>
                 </a>
