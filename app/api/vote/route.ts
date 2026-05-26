@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
 
     const key = `votes:${date}:${id}`
     await kv.hincrby(key, type, 1)
-    const result = await kv.hgetall<{ up: string; down: string }>(key)
+    const result = await kv.hgetall<{ up?: string; down?: string }>(key)
 
     return NextResponse.json({
       up: parseInt(result?.up ?? '0', 10),
