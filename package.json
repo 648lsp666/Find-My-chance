@@ -11,6 +11,7 @@
     "generate:force": "FORCE_GENERATE=1 tsx scripts/generate-daily.ts"
   },
   "dependencies": {
+    "@clerk/localizations": "^4.6.8",
     "@clerk/nextjs": "^7.4.1",
     "@fontsource/noto-sans-sc": "^5.2.9",
     "@react-email/components": "^1.0.12",

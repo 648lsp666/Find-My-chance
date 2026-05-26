@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
+import { zhCN } from '@clerk/localizations'
 import Header from '@/components/Header'
 import './globals.css'
 
@@ -54,7 +55,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      localization={zhCN}
+      appearance={{ variables: { colorPrimary: '#7C3AED', borderRadius: '12px' } }}
+    >
       <html lang="zh-CN" className={`${syne.variable} ${mono.variable}`}>
         <body>
           <Header />
