@@ -17,6 +17,7 @@
     "@react-email/components": "^1.0.12",
     "@upstash/redis": "^1.38.0",
     "@vercel/og": "^0.11.1",
+    "@vercel/speed-insights": "^2.0.0",
     "next": "^14.2.0",
     "react": "^18",
     "react-dom": "^18",
