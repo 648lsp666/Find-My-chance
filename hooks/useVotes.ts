@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 
-export type VoteCounts = { up: number; down: number }
+export type VoteCounts = { up: number; down: number; myVote?: 'up' | 'down' | null }
 
 export function useVotes(
   date: string,
@@ -15,7 +15,7 @@ export function useVotes(
     if (!idsKey) return
     fetch(`/api/votes?date=${encodeURIComponent(date)}&ids=${idsKey}`)
       .then(r => (r.ok ? r.json() : null))
-      .then((data: Record<string, { up: number; down: number }> | null) => {
+      .then((data: Record<string, { up: number; down: number; myVote?: 'up' | 'down' | null }> | null) => {
         if (!data) return
         const mapped: Record<number, VoteCounts> = {}
         for (const [key, val] of Object.entries(data)) {
