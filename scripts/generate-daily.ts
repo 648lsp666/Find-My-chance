@@ -268,7 +268,7 @@ ${signalBlock}
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: 'deepseek-chat',
+      model: 'deepseek-v4-flash',
       max_tokens: 8192,
       messages: [{ role: 'user', content: prompt }],
     }),
