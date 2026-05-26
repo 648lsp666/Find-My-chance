@@ -1,271 +1,325 @@
 {
   "date": "2026-05-26",
-  "generatedAt": "2026-05-25T17:59:59.588Z",
-  "summary": "今日信号显示三个清晰趋势：AI 应用下沉到具体场景（语音转写、UI 生成、个人工作流自动化）、iMessage 商业潜力被挖掘、以及量子计算和隐私合规等前沿方向带来工具需求。独立开发者可围绕“AI+跨平台消息路由”、“Mac 端轻量 AI 工具”、“数据合规自动化”等切口快速落地。",
+  "generatedAt": "2026-05-26T05:41:43.877Z",
+  "summary": "今日信号显示AI辅助编程反思与隐私技术升温，同时WordPress插件推广、AI内容生成等独立开发者实战案例涌现。适合中国开发者的机会集中在AI工具、在线教育工具和内容营销服务，启动成本低，3个月内可验证。",
   "opportunities": [
     {
       "id": 1,
-      "title": "iMessage 自动营销助手",
-      "category": "SaaS工具",
-      "market": "海外为主",
+      "title": "AI深度代码审查插件",
+      "category": "AI应用",
+      "market": "国内为主",
       "tags": [
-        "iMessage",
-        "CRM",
-        "自动化营销"
+        "VSCode扩展",
+        "代码质量",
+        "AI辅助编程"
       ],
-      "summary": "基于 Chert 思路，做针对外贸/电商的 iMessage 群发+回复机器人",
-      "description": "国外对 iMessage 的商用接入需求增长（类似 WhatsApp Business），但独立开发者很难提供完整 Twilio 级服务。差异化切入：专注中小跨境电商客户，提供预置模板+AI 自动回复（用于订单确认、物流通知）。市场规模：美国月活 iMessage 用户超 1 亿，但企业 API 成本极高（0.05 刀/条），用非官方方案前置转换漏斗。竞品：WhatsApp Business API 太贵，Telegram bots 用户少。轻量轮子：先做 Chrome 插件采集客户电话号码，配合 Python 脚本批量通过 iCloud 通道发信。",
-      "painPoint": "中小商家无法低成本触达海外苹果用户",
+      "summary": "慢但更深入的AI代码审查助手",
+      "description": "基于信号2（AI写代码更慢但更好），当前AI代码补全快但流于表面，开发者需要深度审查（逻辑、安全、可维护性）。定位为VSCode插件，利用大模型逐行分析代码，给出慢而扎实的建议。国内开发者付费意愿强，竞品如CodeGeeX轻审查，可差异化主打「慢工细活」。前期开源免费积累用户，后推出企业版或高级功能订阅。",
+      "painPoint": "AI代码补全太快太浅，无法发现深层逻辑漏洞和风格问题。",
       "path": [
-        "搭建 Chrome 扩展用于导出联系人号码",
-        "封装私有 iMessage 发送代理（基于 pyimessage 或 go-send）",
-        "开发预置营销模板+简单 AI 文案生成",
-        "上线 Gumroad/AppSumo 按年订阅销售"
+        "第一步：用Python/TypeScript开发VSCode插件原型，集成OpenAI/通义千问API",
+        "第二步：在GitHub开源并发布到VSCode市场，在掘金/知乎宣传",
+        "第三步：收集反馈，添加自定义规则、安全扫描等付费功能",
+        "第四步：推出个人版订阅（¥29/月）和企业版（¥299/团队/月）"
       ],
-      "revenueModel": "月费 $29-99，首年目标 50 客户 → MRR $1500+",
+      "revenueModel": "Freemium，个人版¥29/月，企业版¥299/月，预估首月50个人用户收入¥1450",
       "timeToRevenue": "2个月",
       "startupCost": "< 2000元",
       "difficulty": 3,
-      "potential": 7,
-      "competition": "低",
+      "potential": 8,
+      "competition": "中",
+      "evidence": "信号2指出AI写代码更慢但更好，热度385，说明开发者对深度AI辅助编程有反思和需求。",
       "sources": [
         {
-          "title": "Launch HN: Chert (YC P26) – Twilio for iMessage",
-          "url": "https://www.trychert.com"
+          "title": "Using AI to write better code more slowly",
+          "url": "https://nolanlawson.com/2026/05/25/using-ai-to-write-better-code-more-slowly/"
         }
       ]
     },
     {
       "id": 2,
-      "title": "Mac 语音速记 AI 笔记",
-      "category": "AI应用",
+      "title": "WordPress插件推广外包",
+      "category": "内容创作",
       "market": "国内为主",
       "tags": [
-        "语音转文字",
-        "本地AI",
-        "效率工具"
+        "WordPress",
+        "插件营销",
+        "独立开发者"
       ],
-      "summary": "集成 Voxxy 理念+本地离线转写+自动摘要",
-      "description": "现有语音转写工具（讯飞、飞书妙记）依赖云端且按分钟收费。独立开发者可借助 macOS CoreML + Whisper.cpp 做全离线语音记事，重点打击隐私敏感用户（律师、医生、记者）。功能：一键录音->自动转文字->LLM（可本地或云端化）生成摘要/待办。市场规模：中国知识工作者 1.5 亿，约 30%有实时语音笔记需求。竞品 Voxxy 仅转写，缺少摘要结构化。差异：聚焦“会议/灵感闪录”场景，增加自动提炼行动项。投入：一周 SwiftUI 原型，一月打磨。",
-      "painPoint": "云端录音转写隐私担忧，且缺乏智能摘要",
+      "summary": "帮WordPress插件作者快速上官方文档",
+      "description": "信号30记录了独立开发者如何在一周内让自己的WordPress插件进入两大页面构建器官方文档。国内WordPress插件市场庞大但中文宣传薄弱，很多优质插件无人问津。可以成立一个「插件推广代理」服务：帮助开发者撰写英文文档、提交到官方文档、联系KOL评测、在WordPress.org优化描述。按插件收费，单次服务¥500-2000。",
+      "painPoint": "WordPress插件开发者懂技术但不懂推广，插件淹没在海量市场中。",
       "path": [
-        "基于 Swift + Whisper.cpp 实现实时转录",
-        "集成 Ollama 本地模型做会议摘要",
-        "加入 iCloud 同步和 Markdown 导出",
-        "上架 Mac App Store 定价 $9.9 一次性"
+        "第一步：研究5个成功的插件推广案例，打造标准服务包",
+        "第二步：在V2EX、站长社区发帖接单，首单免费或折扣",
+        "第三步：帮客户完成文档撰写、官方文档提交、邮件模板",
+        "第四步：积累口碑后提升价格，推出月度运维套餐"
       ],
-      "revenueModel": "买断 $9.9，目标 2000 下载 → $20K",
-      "timeToRevenue": "2个月",
-      "startupCost": "< 1500元",
-      "difficulty": 4,
-      "potential": 8,
-      "competition": "中",
+      "revenueModel": "单次服务¥800-2000，按插件收费，首月接10单收入¥8000-20000",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 2,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "信号30作者真实案例：通过冷邮件和模板，一周内将插件引入两大页面构建器官方文档。",
       "sources": [
         {
-          "title": "Show HN: Voxxy – a minimal, fast voice-to-text app for macOS",
-          "url": "https://www.voxxy.io"
+          "title": "How I Got My WordPress Plugin Into Two Major Page Builders' Official Docs in One Week",
+          "url": "https://dev.to/gronrafal/how-i-got-my-wordpress-plugin-into-two-major-page-builders-official-docs-in-one-week-2km4"
         }
       ]
     },
     {
       "id": 3,
-      "title": "Jira 逃脱手册",
-      "category": "内容创作",
-      "market": "国内外均可",
-      "tags": [
-        "项目管理",
-        "开源替代",
-        "SaaS对比"
-      ],
-      "summary": "出系列教程/模板，教团队从 Jira 迁移到 Plane",
-      "description": "Jira 复杂度高涨且被证明图灵完备（过于灵活），而 Plane（开源 Linear 替代）正获得大量关注。作为独立开发者可制作一套“Jira-to-Plane 迁移工具与指南”，包含：数据导出脚本（从 Jira CSV/API 转换到 Plane 格式）、自动 Sprint 映射模板、以及常见项目管理流程的最佳实践电子书。变现：迁移工具免费但限制免费导出量（前 500 条免费，之后付费），同时卖项目管理模板包。市场规模：每月有 5 万团队搜索“Jira alternative”。",
-      "painPoint": "Jira 使用成本高且配置复杂，迁移到开源 Plane 缺少操作指南",
-      "path": [
-        "研究 Jira REST API 与 Plane API，编写 Node.js 迁移脚本",
-        "撰写 10 篇「Jira 迁移到 Plane」图文教程，发布掘金/Medium",
-        "打包自动迁移 CLI 工具开源（社区版）与付费 Pro 版（支持关系型字段）",
-        "在 Gumroad 售卖项目管理模板（$19）"
-      ],
-      "revenueModel": "CLI 工具年费 $49，模板 $19，预计首年 $5K",
-      "timeToRevenue": "1个月",
-      "startupCost": "< 500元",
-      "difficulty": 2,
-      "potential": 5,
-      "competition": "低",
-      "sources": [
-        {
-          "title": "makeplane/plane - Open-source Jira alternative",
-          "url": "https://github.com/makeplane/plane"
-        },
-        {
-          "title": "Jira Is Turing-Complete",
-          "url": "https://seriot.ch/computation/jira.html"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "title": "USB-C 线缆身份证工具",
-      "category": "整活玩具",
-      "market": "国内外均可",
-      "tags": [
-        "USB-C",
-        "硬件检测",
-        "小工具"
-      ],
-      "summary": "仿 WhatCable 做一款微信小程序，扫码识别线缆规格",
-      "description": "USB-C 线缆市场极其混乱，普通用户常买错线（充电慢 or 不支持视频）。WhatCable 是 App，但面向海外。国内痛点为：用户买裸线无说明书、电商标题参数造假。可做：微信小程序“线缆检测助手”：用户拍照线缆接口，利用图像识别判断接口类型；再结合电子行业数据库（USB-IF）推测最大功率/协议。也可扩展上游：接收用户扫描的线缆 E-marker 芯片信息（需配合小型硬件手机外设）→ 低成本硬件+免费软件。纯软件方案也可：输入线缆两端外观描述，AI 推断规格。",
-      "painPoint": "普通消费者无法判断 USB-C 线缆的真实性能",
-      "path": [
-        "收集国内主流 USB-C 线材参数数据库（200+ SKU）",
-        "开发微信小程序拍照识别（基于 TensorFlow Lite 分类器）",
-        "加入口碑打分功能（“这条线支持 100W 充电吗？”）",
-        "与线缆厂商合作内嵌防伪二维码，抽佣"
-      ],
-      "revenueModel": "免费小程序广告收入，硬件套件（检测器）¥39/个，月销 500 → ¥19.5K/月",
-      "timeToRevenue": "3个月",
-      "startupCost": "< 2000元",
-      "difficulty": 3,
-      "potential": 5,
-      "competition": "低",
-      "sources": [
-        {
-          "title": "WhatCable: Know what your USB-C cable can really do",
-          "url": "https://www.producthunt.com/products/whatcable?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "title": "中国独立开发者变现导航",
-      "category": "内容创作",
+      "title": "在线几何画板工具",
+      "category": "SaaS工具",
       "market": "国内为主",
       "tags": [
-        "副业",
-        "信息聚合",
-        "出海"
+        "数学教育",
+        "交互式绘图",
+        "几何可视化"
       ],
-      "summary": "基于独立开发者列表做付费 Newsletter + 项目集市",
-      "description": "GitHub 上的「中国独立开发者项目列表」已有 48K+ star，但缺少商业化引导。独立开发者最缺的是“变现方法”和“项目曝光”。机会：运营一个双周刊，每期拆解 3 个列表里极有潜力但尚未海外的项目（如 Pake、Alist），给出出海推广建议、定价策略、合规提示。同时搭建项目众包/收购市场——允许开发者挂牌出售或寻找兼职。商业模式：Newsletter 订阅 ¥19/月（上限 1000 人），挂牌费 ¥99/项目，抽取交易佣金 5%。",
-      "painPoint": "优秀的国内开源项目缺乏变现途径和海外推广",
+      "summary": "命令行几何工具的Web版，替代几何画板",
+      "description": "信号15的Geomatic是一个命令驱动的几何工具，支持自动微分。国内数学老师常用的几何画板价格高且需安装，在线免费替代品少。可以开发一个Web版，支持输入命令绘制点、线、圆，并自动计算几何关系，适配中文和数学教材。免费用户可导出图片，付费用户可导出交互式课件、保存工程。对标GeoGebra但更轻量。",
+      "painPoint": "几何画板贵且难用，老师与学生需要免费在线几何绘图工具。",
       "path": [
-        "从列表中筛选 30 个有盈利潜力的项目，优先工具类",
-        "搭建 Substack 中文版（小报童）并发布 3 期免费内容",
-        "联系列表维护者 @1c7 获得推荐",
-        "推出“出海加速器”一对一咨询 ¥299/次"
+        "第一步：前端用Three.js/CSS 3D，后端用Python计算，复刻Geomatic核心命令",
+        "第二步：添加中文界面、教材题库示例，部署到Vercel",
+        "第三步：在教师群、知乎数学话题推广，提供免费版",
+        "第四步：推出Pro版（¥9.9/月）解锁课件导出、无限工程"
       ],
-      "revenueModel": "订阅 ¥19/月+咨询 ¥299，3 个月达 200 订户+10 咨询=¥9K/月",
-      "timeToRevenue": "1个月",
-      "startupCost": "< 1000元",
-      "difficulty": 2,
-      "potential": 6,
-      "competition": "低",
-      "sources": [
-        {
-          "title": "1c7/chinese-independent-developer",
-          "url": "https://github.com/1c7/chinese-independent-developer"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "title": "AI 数据流编排 MCP 工具",
-      "category": "AI应用",
-      "market": "海外为主",
-      "tags": [
-        "MCP",
-        "AI Agent",
-        "上下文管理"
-      ],
-      "summary": "参考 Unabyss 思路，做面向独立开发者的轻量级上下文管理 CLI",
-      "description": "当前 AI coding 的最大痛点：对话上下文丢失、项目理解不连贯。MCP（Model Context Protocol 兴起）但现有方案都偏重后端。轻量替代：做 VSCode 插件+CLI，自动维护「项目知识图谱」文件（函数调用图、文件名结构、关键注释），每次对话自动注入作为系统提示。区别于大厂方案：不限制模型、轻量、支持本地。目标用户：10 人以下小团队和独立开发者。竞品：SourceGraph Cody（太重）、Edgee Fallback（仅故障转移）。",
-      "painPoint": "AI 编码助手每次对话忘记项目上下文，重复描述太累",
-      "path": [
-        "调研 MCP 规范与 claude-code 的提示注入方式",
-        "实现 Node.js CLI：扫描项目目录生成`project_context.yaml`",
-        "VSCode 扩展：一键注入当前编辑文件的上下文到对话",
-        "开源社区版，付费版支持大项目增量索引"
-      ],
-      "revenueModel": "开源免费，付费托管版 $9/月（自动同步+部署），首年 100 付费用户= $900/月",
+      "revenueModel": "Freemium，Pro版¥9.9/月，按1000付费用户算月收入¥9900",
       "timeToRevenue": "3个月",
       "startupCost": "< 3000元",
       "difficulty": 4,
       "potential": 8,
       "competition": "中",
+      "evidence": "信号15的Geomatic在Hacker News获63分，说明命令行几何工具受到关注，存在Web化需求。",
       "sources": [
         {
-          "title": "Unabyss: MCP-native self-updating context layer for your AI",
-          "url": "https://www.producthunt.com/products/unabyss?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+          "title": "Geomatic – A command-driven geometry studio enabled with autodiff",
+          "url": "https://www.tinyvolt.com/geomatic"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "AI文章人性化改写器",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "内容生成",
+        "AI检测规避",
+        "SEO"
+      ],
+      "summary": "让AI文章更像人写的，绕过检测",
+      "description": "信号34提到作者用AI写了5万篇文章，但「死互联网理论」指AI内容雷同被识别。许多内容创作者需要让AI文章更自然，避免被搜索引擎或平台判定为AI生成。开发一个在线改写工具，输入AI文本，通过替换句式、添加口语化表达、插入轻微错误等方式提升「人类评分」。免费版改500字，付费版无限。",
+      "painPoint": "AI生成内容容易被检测到，导致流量降权或封号。",
+      "path": [
+        "第一步：使用大模型+规则引擎，实现改写逻辑，开发Web应用",
+        "第二步：集成主流AI检测器（如GPTZero）作为评分反馈",
+        "第三步：在自媒体社群、SEO群推广，提供3次免费试用",
+        "第四步：推出包月制¥19.9/月，或按次付费¥1/千字"
+      ],
+      "revenueModel": "月订阅¥19.9/月，按500用户计月收入¥9950",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "高",
+      "evidence": "信号34作者已通过AI写了5万篇文章，说明AI内容生成市场巨大，但检测风险催生改写需求。",
+      "sources": [
+        {
+          "title": "The dead internet theory is half right",
+          "url": "https://dev.to/lukasz_blania_4b7d226fa2a/the-dead-internet-theory-is-half-right-3id7"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "微信机器人付费模板",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "微信机器人",
+        "Telegram Stars",
+        "付费订阅"
+      ],
+      "summary": "一键搭建微信付费机器人，借鉴TG模式",
+      "description": "信号28/33展示了在Telegram上通过Stars实现付费bot订阅，收入可观。中国微信生态类似但缺乏标准化付费机器人方案。可以开发一套「微信付费机器人模板」，集成企业微信或个人微信机器人API，支持自动回复、付费解锁功能、定时订阅。卖给有营销需求的微商、社群主。提供SaaS版按月付费。",
+      "painPoint": "微信社群主想自动回复收费内容，但缺乏简单可靠的付费机器人工具。",
+      "path": [
+        "第一步：基于Wechaty或企业微信API开发基础付费回复框架",
+        "第二步：搭建SaaS后台，支持自定义回复包、支付接口（微信支付）",
+        "第三步：在小鹅通、知乎等平台发布教程，引流",
+        "第四步：按月收费¥99/月，或一次性付费¥299"
+      ],
+      "revenueModel": "SaaS订阅¥99/月，按100个用户计月收入¥9900",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "信号28作者通过Telegram bot赚到实际收入，信号33详细计算了Stars到手金额，证明付费bot模式可行。",
+      "sources": [
+        {
+          "title": "I built a paid Telegram bot. Here's what Telegram Stars actually pay.",
+          "url": "https://dev.to/__747bb5a1521/i-built-a-paid-telegram-bot-heres-what-telegram-stars-actually-pay-3fo"
         },
         {
-          "title": "Edgee Fallback Models: Claude Code that never stops",
-          "url": "https://www.producthunt.com/products/edgee?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+          "title": "我做了个付费 Telegram bot。Telegram Stars 实际给开发者多少钱，我算了一笔账。",
+          "url": "https://dev.to/__747bb5a1521/wo-zuo-liao-ge-fu-fei-telegram-bot-telegram-stars-shi-ji-gei-kai-fa-zhe-duo-shao-qian-wo-suan-liao-bi-zhang--3p9k"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "在线秘密共享工具",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "密码学",
+        "密钥管理",
+        "安全工具"
+      ],
+      "summary": "一键生成Shamir秘密共享片段",
+      "description": "信号11详细解释了Shamir的秘密共享原理，热度135，说明开发者对安全技术有兴趣。很多企业和个人在管理私钥、密码时需要将秘密分割存储。开发一个简单易用的在线工具，输入秘密和阈值，自动生成N个分片，并支持下载或打印。免费版支持3个分片，付费版支持自定义质数、更多分片、API接入。",
+      "painPoint": "普通人需要安全分割密码/私钥，但没有简便的工具，手算复杂。",
+      "path": [
+        "第一步：用JavaScript实现Shamir算法，前端页面，不存储任何数据",
+        "第二步：部署到GitHub Pages或Vercel，开源",
+        "第三步：在Hacker News、Product Hunt发布，吸引海外用户",
+        "第四步：推出付费API（$9/月）和企业私有部署（$99/年）"
+      ],
+      "revenueModel": "免费+付费API，首月预计100企业用户收入$9900（约¥70000）",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "信号11在HN获135分，说明开发者对秘密共享原理及应用有浓厚兴趣。",
+      "sources": [
+        {
+          "title": "How Shamir's Secret Sharing Works",
+          "url": "https://ente.com/blog/how-shamirs-secret-sharing-works/"
         }
       ]
     },
     {
       "id": 7,
-      "title": "Web 转桌面单文件工具",
-      "category": "SaaS工具",
-      "market": "国内外均可",
+      "title": "交互式代码阅读助手",
+      "category": "AI应用",
+      "market": "国内为主",
       "tags": [
-        "Pake",
-        "桌面应用",
-        "Web封装"
+        "代码学习",
+        "阅读工具",
+        "AI解释"
       ],
-      "summary": "仿 Pake 但我做 Saas 版：在线拖拽生成桌面应用",
-      "description": "Pake 用命令行将一个网页转成桌面 App，很棒但门槛高。独立开发者可搭建 Web 服务：用户输入 URL，选择图标、窗口尺寸、是否托盘等配置，一键打包下载 Windows/Mac/Linux 三平台桌面应用。无需安装任何依赖。差异化：预置视频站（B站/YouTube）响应式优化、提供透明背景模式用于浮动小工具。潜在用户：非技术人员（产品经理、运营）想将常用 SaaS 做成桌面快捷方式。变现：免费版带水印，付费版 $4.99/次打包，企业版 $99/月无限打包+自定义打包服务。",
-      "painPoint": "非技术人员想将常用网页做成桌面 App 但不会用命令行",
+      "summary": "点选代码自动解释，降低阅读门槛",
+      "description": "信号9指出「没人再打开编程书了」，说明开发者更倾向于在线片段式学习，但阅读复杂代码仍困难。开发一个浏览器扩展或在线工具，用户选中一段代码，即可获得行级中文注释、语法解析、执行逻辑动画。面向编程初学者和需要快速理解他人代码的开发者。免费版每天10次，Pro版¥15/月不限次。",
+      "painPoint": "新手读开源项目代码像天书，缺乏及时解释工具。",
       "path": [
-        "后端基于 Electron 打包脚本+队列系统",
-        "前端拖拽界面设置 URL、图标、窗口参数",
-        "接入 Stripe 支付：单次打包 $4.99",
-        "推广渠道：写一篇“5 个漂亮桌面应用的在线生成”在少数派发布"
+        "第一步：用AST解析器+大模型实现代码分段解释，开发Chrome扩展",
+        "第二步：先在GitHub Pages上展示demo，收集内测用户",
+        "第三步：在掘金、B站发教程推广，突出「秒懂复杂代码」",
+        "第四步：上线付费订阅，对接微信支付"
       ],
-      "revenueModel": "单次 $4.99，首月 200 用户= $1K",
-      "timeToRevenue": "2个月",
-      "startupCost": "< 1500元",
+      "revenueModel": "Freemium，Pro版¥15/月，预计200付费用户月收入¥3000",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 2000元",
       "difficulty": 3,
       "potential": 7,
       "competition": "中",
+      "evidence": "信号9热度148，反映编程书籍衰落现象，同时暗示开发者需要新的学习方式。",
       "sources": [
         {
-          "title": "tw93/Pake - Turn any webpage into a desktop app",
-          "url": "https://github.com/tw93/Pake"
+          "title": "Nobody cracks open a programming book anymore",
+          "url": "https://unix.foo/posts/nobody-cracks-open-a-programming-book/"
         }
       ]
     },
     {
       "id": 8,
-      "title": "小红书 Bento 个人主页生成",
-      "category": "本地服务",
-      "market": "国内为主",
+      "title": "隐私年龄验证API",
+      "category": "SaaS工具",
+      "market": "海外为主",
       "tags": [
-        "Bento",
-        "个人品牌",
-        "网页设计"
+        "年龄验证",
+        "隐私保护",
+        "合规"
       ],
-      "summary": "参考 own.page 模式，做小红书博主专属个人名片页",
-      "description": "小红书博主常需发布“找我合作”的链接页，但 Notion 太慢，Canva 太死。模仿 own.page 的 Bento 格子布局，聚焦小红书的格式：需要展示粉丝数、近期合作案例、报价单、联系方式。差异化：直接从小红书公开 API（或模拟登录）自动拉取最新笔记、互动数据，生成动态格子。进一步提供二维码名片、官网 SEO 优化。市场规模：万粉以上的小红书博主约 100 万人，愿意为个人品牌工具花费 99-199 元。竞品：Linktree（海外，不支持小红书）、自建站（复杂）。",
-      "painPoint": "小红书博主缺少专业、自动更新的个人品牌链接页",
+      "summary": "不收集用户数据的年龄验证服务",
+      "description": "信号1显示加州拟立法要求平台验证年龄但豁免Linux，背后是隐私与监管博弈。许多海外网站和应用需要年龄验证但又担心收集过多用户数据。提供一种零知识证明的年龄验证API：用户通过第三方认证（如ID.me）获得一个加密令牌，API仅返回「是否成年」布尔值，不存储任何原始数据。按调用次数收费。",
+      "painPoint": "网站需要年龄验证合规，但直接收集身份证信息隐私风险高。",
       "path": [
-        "开发 Bento 布局编辑器（类似 notion 拖拽）",
-        "实现小红书数据自动同步（模拟登录+爬虫，需合规）",
-        "内置支付宝/微信支付收款码与报价单",
-        "在小红书搜索「个人主页装修」等关键词推广"
+        "第一步：研究零知识证明方案或简单委托验证流程，开发API",
+        "第二步：与现有认证提供商（如Login with Google）合作",
+        "第三步：在Hacker News、国外科技博客发文章宣传",
+        "第四步：按1000次调用$5定价，提供免费层100次/月"
       ],
-      "revenueModel": "年费 ¥99（基础版），¥199（Pro 版含自定义域名），目标 300 用户= ¥3~6万/年",
-      "timeToRevenue": "2个月",
-      "startupCost": "< 2000元",
-      "difficulty": 3,
-      "potential": 6,
-      "competition": "低",
+      "revenueModel": "按量计费，月均1000次调用收入$5，若100家客户（每家用10万次）月收入$5000",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "信号1热度778，说明年龄验证话题受极大关注，Linux豁免凸显隐私担忧。",
       "sources": [
         {
-          "title": "own.page: Make your own personal website with bento tiles",
-          "url": "https://www.producthunt.com/products/own-page?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+          "title": "California moves to exempt Linux from its age-verification law after backlash",
+          "url": "https://www.tomshardware.com/software/linux/california-moves-to-exempt-linux-from-its-upcoming-age-verification-law-after-backlash-over-forcing-operating-systems-to-collect-users-ages-amendment-proposed-by-the-same-lawmaker-who-wrote-the-original-law"
         }
       ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "mastodon",
+      "repo": "mastodon",
+      "description": "Your self-hosted, globally interconnected microblogging community",
+      "url": "https://github.com/mastodon/mastodon",
+      "starsToday": 49965,
+      "language": "Ruby"
+    },
+    {
+      "owner": "nlohmann",
+      "repo": "json",
+      "description": "JSON for Modern C++",
+      "url": "https://github.com/nlohmann/json",
+      "starsToday": 49778,
+      "language": "C++"
+    },
+    {
+      "owner": "makeplane",
+      "repo": "plane",
+      "description": "🔥🔥🔥 Open-source Jira, Linear, Monday, and ClickUp alternative. Plane is a modern project management platform to manage tasks, sprints, docs, and triage.",
+      "url": "https://github.com/makeplane/plane",
+      "starsToday": 49732,
+      "language": "TypeScript"
+    },
+    {
+      "owner": "expo",
+      "repo": "expo",
+      "description": "An open-source framework for making universal native apps with React. Expo runs on Android, iOS, and the web.",
+      "url": "https://github.com/expo/expo",
+      "starsToday": 49660,
+      "language": "TypeScript"
+    },
+    {
+      "owner": "cypress-io",
+      "repo": "cypress",
+      "description": "Fast, easy and reliable testing for anything that runs in a browser.",
+      "url": "https://github.com/cypress-io/cypress",
+      "starsToday": 49645,
+      "language": "TypeScript"
+    },
+    {
+      "owner": "AlistGo",
+      "repo": "alist",
+      "description": "🗂️A file list/WebDAV program that supports multiple storages, powered by Gin and Solidjs. / 一个支持多存储的文件列表/WebDAV程序，使用 Gin 和 Solidjs。",
+      "url": "https://github.com/AlistGo/alist",
+      "starsToday": 49530,
+      "language": "Go"
     }
   ]
 }

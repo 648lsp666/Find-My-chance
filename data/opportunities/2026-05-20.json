@@ -1,0 +1,395 @@
+{
+  "date": "2026-05-20",
+  "generatedAt": "2026-05-26T09:37:17.510Z",
+  "summary": "今日信号显示，苹果视频壁纸逆向工程、字节跳动Lance模型、自托管协作后端、Telegram bot变现等方向热度较高，同时GitHub上Alist（50K star）、Pake（49K star）等成熟项目具备衍生商业机会的潜力。独立开发者可聚焦个性化工具、AI垂直应用、轻量SaaS等方向，3个月内较快变现。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "自定义视频壁纸工具",
+      "category": "整活玩具",
+      "market": "国内为主",
+      "tags": [
+        "macOS",
+        "个性化",
+        "视频壁纸"
+      ],
+      "summary": "将任意视频设为macOS动态壁纸的付费应用",
+      "description": "基于对苹果视频壁纸的逆向工程，开发一款macOS应用，允许用户导入本地或在线视频，一键设置为桌面动态壁纸。苹果原生仅支持有限内置壁纸，用户自定义需求强烈。可提供基础版免费（水印），Pro版去除水印并支持视频裁剪、循环设置等。按下载量估算，macOS用户约1亿，假设0.1%转化，每份$4.99，收入可观。",
+      "painPoint": "Mac用户无法自由使用自定义视频作为动态壁纸，苹果限制严格。",
+      "path": [
+        "第一步：基于逆向成果（phosphene）实现视频解析与壁纸注入功能",
+        "第二步：设计简洁UI，支持拖拽导入、预览、循环设置",
+        "第三步：打包为macOS .app，提交App Store（或独立分发）",
+        "第四步：在Reddit、V2EX、少数派等社区推广，初期免费积累口碑"
+      ],
+      "revenueModel": "Pro版一次性购买$4.99，预估月销售200-500份，月收入$1,000-$2,500",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2,000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "该逆向工程在HN获426分，说明大量用户对自定义视频壁纸诉求强烈。",
+      "sources": [
+        {
+          "title": "Show HN: I reverse engineered Apple's video wallpapers",
+          "url": "https://github.com/kageroumado/phosphene"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "电商图AI生成器",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "AI图像",
+        "电商",
+        "Lance",
+        "视频生成"
+      ],
+      "summary": "基于字节Lance模型一键生成商品图/短视频",
+      "description": "利用字节跳动开源的Lance模型（3B参数，图文视频理解+生成），构建垂直电商场景工具。用户上传白底商品图或简单描述，模型自动生成带场景的产品展示图或15秒短视频。国内电商卖家（尤其是淘宝/拼多多中小卖家）有大量作图需求，目前用Midjourney成本高且需设计经验。可提供按次付费或包月套餐。",
+      "painPoint": "中小电商卖家缺乏专业设计能力，外包制作商品图/视频成本高且周期长。",
+      "path": [
+        "第一步：部署Lance模型（本地或服务器），封装REST API",
+        "第二步：开发Web端简易界面，支持上传+文字描述+风格选择",
+        "第三步：对接微信/支付宝支付，按张收费（如1元/张）",
+        "第四步：在淘宝卖家群、小红书电商圈推广，提供首单免费试用"
+      ],
+      "revenueModel": "按次计费1元/张，月均1000张订单，月收入1000元；也可包月99元无限生成",
+      "timeToRevenue": "1.5个月",
+      "startupCost": "< 3,000元（服务器费用）",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "Lance模型在HN获64分，由字节跳动开源，证明其技术实力和关注度。",
+      "sources": [
+        {
+          "title": "Show HN: Lance – image/video generation and understanding in one model",
+          "url": "https://github.com/bytedance/Lance"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "轻量协作白板工具",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "协作",
+        "白板",
+        "Hocuspocus",
+        "远程会议"
+      ],
+      "summary": "基于Hocuspocus搭建实时协作白板SaaS",
+      "description": "Hocuspocus是自托管Yjs协作后端，适合构建实时协同应用。可快速开发一个在线白板工具，支持多人实时绘画、文字、便签、思维导图，无需注册即可创建房间。与Miro、Excalidraw等竞品相比，主打轻量、自部署、隐私。面向国内小团队（5-20人）和企业内部使用。提供免费版限制房间数，付费版解锁无限房间和高级功能。",
+      "painPoint": "现有白板工具要么功能臃肿，要么数据存储在海外，国内团队有隐私顾虑。",
+      "path": [
+        "第一步：基于Hocuspocus搭建WebSocket协作后端",
+        "第二步：前端使用React + Yjs实现白板交互（借鉴tldraw等开源库）",
+        "第三步：部署到国内服务器（阿里云/腾讯云），支持微信登录",
+        "第四步：在V2EX、掘金、知乎推广，针对远程团队和教育场景"
+      ],
+      "revenueModel": "免费版3个房间；付费版19元/月/团队，目标初期100个付费用户，月收入1900元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2,000元（服务器+域名）",
+      "difficulty": 4,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Hocuspocus 4在HN获38分，说明自托管协作方案受到开发者关注。",
+      "sources": [
+        {
+          "title": "Show HN: Hocuspocus 4 – self-hosted Yjs collaboration backend",
+          "url": "https://github.com/ueberdosis/hocuspocus"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "AI文档体检优化",
+      "category": "AI应用",
+      "market": "海外为主",
+      "tags": [
+        "文档",
+        "AI agent",
+        "优化",
+        "LLM"
+      ],
+      "summary": "帮企业扫描文档并给出AI易读性优化建议",
+      "description": "随着AI Agent（如Claude Code、Codex）直接读取文档执行任务，文档必须对AI友好。该工具通过分析文档结构、格式、复杂度，给出优化建议（如增加语义标记、拆分段落、添加JSON-LD）。面向开源项目、API文档团队、SaaS帮助中心。可做成Chrome扩展或在线SaaS，扫描文档URL生成报告，付费解锁批量扫描和自动修复。",
+      "painPoint": "现有文档主要为人类设计，AI代理阅读时效率低，容易误解。",
+      "path": [
+        "第一步：定义AI友好文档评分指标（结构、语法、嵌套等）",
+        "第二步：基于LLM和规则引擎实现分析器，集成Markdown/HTML解析",
+        "第三步：开发Chrome扩展 + Web界面，支持输入文档链接或上传文件",
+        "第四步：在GitHub、Product Hunt、Twitter推广，联系开源项目维护者"
+      ],
+      "revenueModel": "免费扫描单个页面，付费套餐$9/月50次，$29/月无限次",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3,000元（LLM API费用）",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Dari-docs在HN获23分，明确指出文档需要为AI优化，市场需求正在形成。",
+      "sources": [
+        {
+          "title": "Show HN: Dari-docs – Optimize your docs using parallel coding agents",
+          "url": "https://github.com/mupt-ai/dari-docs"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "浏览器自动化AI助手",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "Chrome扩展",
+        "AI agent",
+        "浏览器控制",
+        "自动化"
+      ],
+      "summary": "让AI agent通过Chrome扩展操控浏览器的SaaS",
+      "description": "参考zot-chrome-operator的思路，开发一个Chrome扩展，允许终端AI agent（如Claude Code、LangChain Agent）通过WebSocket或REST API控制浏览器。可执行点击、输入、截图等操作，用于自动化测试、数据爬取、表单填写等。面向开发者/QA团队。提供免费基础版（本地模式），付费版（云托管agent、高级脚本调度）。",
+      "painPoint": "AI agent无法直接操作网页，现有Playwright/Puppeteer学习曲线陡峭。",
+      "path": [
+        "第一步：开发Chrome扩展暴露控制接口（基于chrome.debugger或content script）",
+        "第二步：提供Python/Node.js SDK，支持agent调用",
+        "第三步：搭建云API代理，让agent无需用户本地安装扩展也能远程控制",
+        "第四步：在GitHub、Dev.to、HN推广，提供免费试用"
+      ],
+      "revenueModel": "免费版限制每月100次操作；付费版$15/月1000次，$50/月无限",
+      "timeToRevenue": "2.5个月",
+      "startupCost": "< 4,000元（开发+服务器）",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "该扩展在HN获11分，且终端agent控制浏览器是新兴需求。",
+      "sources": [
+        {
+          "title": "Show HN: Chrome ext to let zot, your terminal coding agent, operate the browser",
+          "url": "https://github.com/patriceckhart/zot-chrome-operator"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "垂直远程工作板",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "远程工作",
+        "招聘",
+        "内容运营"
+      ],
+      "summary": "专注国内远程技术岗位的职位聚合平台",
+      "description": "参考remotejobs.place思路，但聚焦国内市场。远程工作在中国逐渐普及，但高质量远程岗位分散在微信群、论坛、公司官网。通过爬虫和人工筛选，聚合国内远程技术职位（开发、设计、产品），按公司/薪资/技能标签分类。提供免费浏览，付费解锁高级筛选、简历推送、企业入驻服务。初期靠SEO和社区运营获取流量。",
+      "painPoint": "国内远程招聘信息零散，搜索成本高，缺少集中可信平台。",
+      "path": [
+        "第一步：从各大招聘网站、公司官网、微信群爬取远程岗位，建立数据库",
+        "第二步：搭建Web前端，支持按技术栈、薪资、地域筛选",
+        "第三步：注册公众号/小红书账号，每日发布精选远程岗位吸引求职者",
+        "第四步：联系企业HR入驻，收取月费299元/企业，或简历推荐费"
+      ],
+      "revenueModel": "企业入驻月费299元，初期获得10家企业，月收入2990元；个人付费简历优化99元/次",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2,000元（域名+服务器+爬虫成本）",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "remotejobs.place在HN获8分，说明远程工作板持续有市场需求。",
+      "sources": [
+        {
+          "title": "Show HN: Remote Job Board",
+          "url": "https://www.remotejobs.place"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "结构化爬虫API",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "Scraping",
+        "API",
+        "结构化数据",
+        "AI"
+      ],
+      "summary": "输入URL返回结构化JSON的Scraping API",
+      "description": "参考Runo的思路，提供智能爬虫API，用户输入目标网页URL，系统自动提取关键信息（标题、价格、正文、图片等）并返回结构化JSON。可针对电商、新闻、招聘等垂直领域优化。与通用爬虫API（如ScraperAPI）区别在于输出结构化而非原始HTML。按API调用次数收费，并提供缓存和字段定制。",
+      "painPoint": "普通爬虫API只返回HTML，开发者还需自行解析，效率低。",
+      "path": [
+        "第一步：基于开源解析器（如Readability、Jina AI）构建智能提取引擎",
+        "第二步：包装为REST API，支持指定字段和返回格式",
+        "第三步：部署到云函数（AWS Lambda），按量计费降低成本",
+        "第四步：在Product Hunt、RapidAPI、Dev.to推广，提供100次免费试用"
+      ],
+      "revenueModel": "按次收费，$0.005/次，每月10万次调用，月收入$500",
+      "timeToRevenue": "1.5个月",
+      "startupCost": "< 2,000元（云函数费用）",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Runo在HN获4分，但其理念'返回typed JSON而非raw HTML'切中开发者痛点。",
+      "sources": [
+        {
+          "title": "Show HN: Runo – Scraping API that returns typed JSON, not raw HTML",
+          "url": "https://scrapewithruno.com/?version=2.0"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "个人云盘搭建服务",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "云存储",
+        "WebDAV",
+        "Alist",
+        "私有化"
+      ],
+      "summary": "一键部署个人云盘并集成多存储后端",
+      "description": "基于开源项目Alist（49K+ star），提供一键部署个人云盘的服务。用户只需选择存储后端（阿里云盘、天翼云、S3等），系统自动搭建WebDAV服务，支持文件管理、分享、离线下载。免费版仅管理单个存储，付费版支持多存储聚合、自定义域名、团队协作。面向有隐私需求的个人用户和小型企业。",
+      "painPoint": "现有网盘限制多、速度慢、隐私堪忧，自建复杂。",
+      "path": [
+        "第一步：封装Alist的Docker部署脚本，提供一键安装向导",
+        "第二步：开发Web控制台让用户管理存储、生成分享链接",
+        "第三步：对接微信支付，提供付费订阅（会员可多存储、自定义域名）",
+        "第四步：在V2EX、少数派、QQ群推广，强调隐私和速度"
+      ],
+      "revenueModel": "免费版1个存储；Pro版9.9元/月，3个存储+自定义域名；企业版49元/月",
+      "timeToRevenue": "1.5个月",
+      "startupCost": "< 3,000元（服务器+开发）",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "Alist在GitHub拥有49,531 star，说明自建文件列表/WebDAV需求巨大。",
+      "sources": [
+        {
+          "title": "AlistGo/alist",
+          "url": "https://github.com/AlistGo/alist"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "AI Agent技能市场",
+      "category": "AI应用",
+      "market": "海外为主",
+      "tags": [
+        "AI agent",
+        "技能",
+        "市场",
+        "OpenClaw"
+      ],
+      "summary": "围绕OpenClaw创建技能交易平台",
+      "description": "OpenClaw是流行的AI agent框架，其skills注册表已有5,400+技能。可为OpenClaw搭建一个技能市场，允许开发者上传、分享、售卖技能。提供技能分类、评分、安装一键脚本。免费技能吸引流量，付费技能抽佣20%。面向OpenClaw开发者社区，初期通过Reddit、GitHub议题推广。",
+      "painPoint": "OpenClaw技能分散在GitHub，缺少集中发现和付费变现渠道。",
+      "path": [
+        "第一步：爬取现有5,400+技能并分类整理到网站",
+        "第二步：开发技能上传、审核、支付系统（Stripe）",
+        "第三步：为热门技能提供一键安装命令（opm install xxx）",
+        "第四步：在OpenClaw社区、Discoed、HN上发布，邀请顶级技能作者入驻"
+      ],
+      "revenueModel": "付费技能抽佣20%，免费技能展示；预计前3个月10个付费技能，月收入约$200",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2,000元（域名+服务器）",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "awesome-openclaw-skills在GitHub获49,323 star，说明该技能生态活跃且有大量需求。",
+      "sources": [
+        {
+          "title": "VoltAgent/awesome-openclaw-skills",
+          "url": "https://github.com/VoltAgent/awesome-openclaw-skills"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "网页变桌面应用服务",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "Pake",
+        "桌面应用",
+        "打包",
+        "Web"
+      ],
+      "summary": "在线将任意网页打包为原生桌面应用",
+      "description": "基于Pake（49K+ star）提供在线服务：用户输入URL，选择应用图标、窗口配置，系统自动生成macOS/Windows/Linux安装包。Pake本身只能命令行操作，该服务降低使用门槛。免费版生成有水印，付费版去除水印并支持自定义高级设置（如多窗口、菜单栏）。面向不想学习编程的普通用户和企业。",
+      "painPoint": "开发者用Pake很顺手，但普通用户无法操作命令行；企业需要批量打包应用。",
+      "path": [
+        "第一步：封装Pake打包流程为Web API，后端调用Pake CLI",
+        "第二步：构建前端向导页面，分步引导用户配置应用",
+        "第三步：对接Stripe支付，提供即时下载链接",
+        "第四步：在Product Hunt、Twitter上推广，与Pake作者合作引流"
+      ],
+      "revenueModel": "免费版带水印；付费版$5/个，企业批量$99/月50个",
+      "timeToRevenue": "1.5个月",
+      "startupCost": "< 3,000元（服务器+云编译环境）",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Pake在GitHub拥有49,061 star，表明网页转桌面应用有广泛需求。",
+      "sources": [
+        {
+          "title": "tw93/Pake",
+          "url": "https://github.com/tw93/Pake"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "mastodon",
+      "repo": "mastodon",
+      "description": "Your self-hosted, globally interconnected microblogging community",
+      "url": "https://github.com/mastodon/mastodon",
+      "starsToday": 49964,
+      "language": "Ruby"
+    },
+    {
+      "owner": "nlohmann",
+      "repo": "json",
+      "description": "JSON for Modern C++",
+      "url": "https://github.com/nlohmann/json",
+      "starsToday": 49779,
+      "language": "C++"
+    },
+    {
+      "owner": "makeplane",
+      "repo": "plane",
+      "description": "🔥🔥🔥 Open-source Jira, Linear, Monday, and ClickUp alternative. Plane is a modern project management platform to manage tasks, sprints, docs, and triage.",
+      "url": "https://github.com/makeplane/plane",
+      "starsToday": 49745,
+      "language": "TypeScript"
+    },
+    {
+      "owner": "expo",
+      "repo": "expo",
+      "description": "An open-source framework for making universal native apps with React. Expo runs on Android, iOS, and the web.",
+      "url": "https://github.com/expo/expo",
+      "starsToday": 49664,
+      "language": "TypeScript"
+    },
+    {
+      "owner": "cypress-io",
+      "repo": "cypress",
+      "description": "Fast, easy and reliable testing for anything that runs in a browser.",
+      "url": "https://github.com/cypress-io/cypress",
+      "starsToday": 49647,
+      "language": "TypeScript"
+    },
+    {
+      "owner": "AlistGo",
+      "repo": "alist",
+      "description": "🗂️A file list/WebDAV program that supports multiple storages, powered by Gin and Solidjs. / 一个支持多存储的文件列表/WebDAV程序，使用 Gin 和 Solidjs。",
+      "url": "https://github.com/AlistGo/alist",
+      "starsToday": 49531,
+      "language": "Go"
+    }
+  ]
+}

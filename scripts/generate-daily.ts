@@ -14,6 +14,7 @@
 
 import { writeFileSync, existsSync, mkdirSync, readFileSync, readdirSync } from 'fs'
 import { join } from 'path'
+import { get as httpsGet } from 'https'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -50,11 +51,20 @@ async function fetchTrendingRepos() {
   }))
 }
 
-async function fetchHNSignals(): Promise<Signal[]> {
-  const since = Math.floor((Date.now() - 86_400_000) / 1000)
+async function fetchHNSignals(dateStr?: string): Promise<Signal[]> {
+  let sinceTs: number
+  if (dateStr) {
+    sinceTs = Math.floor(new Date(dateStr + 'T00:00:00Z').getTime() / 1000)
+  } else {
+    sinceTs = Math.floor((Date.now() - 86_400_000) / 1000)
+  }
+  const untilTs = dateStr
+    ? Math.floor(new Date(dateStr + 'T23:59:59Z').getTime() / 1000)
+    : Math.floor(Date.now() / 1000)
+
   const url =
     `https://hn.algolia.com/api/v1/search?tags=(show_hn,front_page)` +
-    `&numericFilters=created_at_i>${since}&hitsPerPage=15`
+    `&numericFilters=created_at_i>${sinceTs},created_at_i<${untilTs}&hitsPerPage=25`
   const res = await fetch(url)
   if (!res.ok) throw new Error(`HN API ${res.status}`)
   const data: any = await res.json()
@@ -69,8 +79,10 @@ async function fetchHNSignals(): Promise<Signal[]> {
     }))
 }
 
-async function fetchGitHubSignals(): Promise<Signal[]> {
-  const since = new Date(Date.now() - 2 * 86_400_000).toISOString().slice(0, 10)
+async function fetchGitHubSignals(dateStr?: string): Promise<Signal[]> {
+  const since = dateStr
+    ? new Date(new Date(dateStr).getTime() - 2 * 86_400_000).toISOString().slice(0, 10)
+    : new Date(Date.now() - 2 * 86_400_000).toISOString().slice(0, 10)
   const headers: Record<string, string> = {
     Accept: 'application/vnd.github+json',
     'X-GitHub-Api-Version': '2022-11-28',
@@ -79,7 +91,7 @@ async function fetchGitHubSignals(): Promise<Signal[]> {
     headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`
   }
   const res = await fetch(
-    `https://api.github.com/search/repositories?q=pushed:>${since}+stars:500..50000+fork:false&sort=stars&order=desc&per_page=10`,
+    `https://api.github.com/search/repositories?q=pushed:>${since}+stars:500..50000+fork:false&sort=stars&order=desc&per_page=20`,
     { headers },
   )
   if (!res.ok) throw new Error(`GitHub API ${res.status}`)
@@ -93,13 +105,17 @@ async function fetchGitHubSignals(): Promise<Signal[]> {
   }))
 }
 
-async function fetchPHSignals(): Promise<Signal[]> {
+async function fetchPHSignals(dateStr?: string): Promise<Signal[]> {
   const token = process.env.PRODUCT_HUNT_TOKEN
   if (!token) return []
 
-  const postedAfter = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10) + 'T00:00:00Z'
+  const postedAfter = dateStr
+    ? dateStr + 'T00:00:00Z'
+    : new Date(Date.now() - 86_400_000).toISOString().slice(0, 10) + 'T00:00:00Z'
+  const postedBefore = dateStr ? dateStr + 'T23:59:59Z' : undefined
+  const postedBeforeArg = postedBefore ? `, postedBefore: "${postedBefore}"` : ''
   const query = `{
-    posts(order: VOTES, postedAfter: "${postedAfter}", first: 10) {
+    posts(order: VOTES, postedAfter: "${postedAfter}"${postedBeforeArg}, first: 15) {
       edges { node { name tagline url votesCount } }
     }
   }`
@@ -130,7 +146,7 @@ async function fetchIHSignals(): Promise<Signal[]> {
   // `indiehackers` tag surfaces genuine indie-hacker signals daily.
   // The DEV.to API is public and needs no auth key.
   const res = await fetch(
-    'https://dev.to/api/articles?tag=indiehackers&per_page=10&top=3',
+    'https://dev.to/api/articles?tag=indiehackers&per_page=15&top=3',
     {
       headers: { 'User-Agent': 'Mozilla/5.0 (compatible; OpRadar/1.0)' },
       signal: AbortSignal.timeout(8000),
@@ -140,7 +156,7 @@ async function fetchIHSignals(): Promise<Signal[]> {
   const data: any[] = await res.json()
   return data
     .filter((a: any) => a.url && a.title)
-    .slice(0, 10)
+    .slice(0, 15)
     .map((a: any) => ({
       source: 'IndieHackers',
       title: a.title,
@@ -148,6 +164,61 @@ async function fetchIHSignals(): Promise<Signal[]> {
       description: a.description?.slice(0, 200),
       score: a.public_reactions_count ?? 0,
     }))
+}
+
+function httpsGetJson(url: string, timeoutMs = 15000): Promise<any> {
+  return new Promise((resolve, reject) => {
+    const req = httpsGet(url, { headers: { 'User-Agent': 'curl/8.4.0' } }, (res) => {
+      let raw = ''
+      res.on('data', (chunk) => { raw += chunk })
+      res.on('end', () => {
+        try { resolve(JSON.parse(raw)) } catch (e) { reject(e) }
+      })
+    })
+    req.setTimeout(timeoutMs, () => { req.destroy(new Error('timeout')) })
+    req.on('error', reject)
+  })
+}
+
+async function fetchV2EXSignals(): Promise<Signal[]> {
+  const data: any[] = await httpsGetJson('https://www.v2ex.com/api/topics/hot.json')
+  return data
+    .filter((t: any) => t.url && t.title)
+    .slice(0, 15)
+    .map((t: any) => ({
+      source: 'V2EX',
+      title: t.title,
+      url: t.url,
+      description: t.content?.slice(0, 200),
+      score: t.replies ?? 0,
+    }))
+}
+
+async function fetchSSPAISignals(): Promise<Signal[]> {
+  const res = await fetch('https://sspai.com/feed', {
+    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; OpRadar/1.0)' },
+    signal: AbortSignal.timeout(10000),
+  })
+  if (!res.ok) throw new Error(`SSPAI RSS ${res.status}`)
+  const xml = await res.text()
+  const items: Signal[] = []
+  const re = /<item>([\s\S]*?)<\/item>/g
+  let m: RegExpExecArray | null
+  while ((m = re.exec(xml)) !== null && items.length < 15) {
+    const chunk = m[1]
+    const title =
+      chunk.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/)?.[1] ??
+      chunk.match(/<title>(.*?)<\/title>/)?.[1] ?? ''
+    const url =
+      chunk.match(/<link>(https?:\/\/[^<]+)<\/link>/)?.[1] ??
+      chunk.match(/<guid>(https?:\/\/[^<]+)<\/guid>/)?.[1] ?? ''
+    const desc =
+      chunk.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/)?.[1]
+        ?.replace(/<[^>]+>/g, '')
+        .slice(0, 200) ?? ''
+    if (title && url) items.push({ source: '少数派', title, url, description: desc })
+  }
+  return items
 }
 
 async function fetch36krSignals(): Promise<Signal[]> {
@@ -216,7 +287,7 @@ ${JSON.stringify(draft, null, 2)}
 任务：
 1. 标记与历史 category+主题重复度 > 70% 的条目
 2. 标记 evidence 字段模糊（无具体数字或案例）的条目
-3. 删除被标记的条目，从剩余中保留质量最高的 6-8 条
+3. 删除被标记的条目，从剩余中保留质量最高的 10-12 条
 4. 只返回最终机会数组的 JSON，格式：[{ ...opportunity对象 }]，不要有任何其他文字`
 
   try {
@@ -228,7 +299,7 @@ ${JSON.stringify(draft, null, 2)}
       },
       body: JSON.stringify({
         model: 'deepseek-v4-flash',
-        max_tokens: 8192,
+        max_tokens: 16384,
         messages: [{ role: 'user', content: qualityPrompt }],
       }),
     })
@@ -264,9 +335,8 @@ async function main() {
   const apiKey = process.env.DEEPSEEK_API_KEY
   if (!apiKey) throw new Error('DEEPSEEK_API_KEY is required')
 
-  const date = new Date()
-    .toLocaleString('sv', { timeZone: 'Asia/Shanghai' })
-    .slice(0, 10)
+  const date = process.env.BACKFILL_DATE
+    ?? new Date().toLocaleString('sv', { timeZone: 'Asia/Shanghai' }).slice(0, 10)
 
   const outDir = join(process.cwd(), 'data', 'opportunities')
   const outPath = join(outDir, `${date}.json`)
@@ -279,13 +349,17 @@ async function main() {
   // ── Fetch signals ────────────────────────────────────────────────────────
   console.log(`Fetching signals for ${date}…`)
 
+  const targetDate = process.env.TARGET_DATE || undefined
+
   const [trendingResult, ...signalResults] = await Promise.allSettled([
     fetchTrendingRepos(),
-    fetchHNSignals(),
-    fetchGitHubSignals(),
-    fetchPHSignals(),
+    fetchHNSignals(targetDate),
+    fetchGitHubSignals(targetDate),
+    fetchPHSignals(targetDate),
     fetch36krSignals(),
     fetchIHSignals(),
+    fetchV2EXSignals(),
+    fetchSSPAISignals(),
   ])
   const results = signalResults
 
@@ -294,7 +368,7 @@ async function main() {
   else console.log(`  ✓ Trending repos: ${trendingRepos.length}`)
 
   results.forEach((r, i) => {
-    const name = ['HN', 'GitHub', 'Product Hunt', '36kr', 'IndieHackers'][i]
+    const name = ['HN', 'GitHub', 'Product Hunt', '36kr', 'IndieHackers', 'V2EX', '少数派'][i]
     if (r.status === 'rejected') console.warn(`  ⚠ ${name}: ${r.reason}`)
     else console.log(`  ✓ ${name}: ${r.value.length} signals`)
   })
@@ -332,13 +406,13 @@ async function main() {
     ? `\n【近14天已生成的机会（避免重复）】\n${historyContext}\n`
     : ''
 
-  const prompt = `今天是 ${date}。以下是从各平台实时抓取的技术与市场信号（共 ${signals.length} 条，含真实 URL）：
+  const prompt = `今天是 ${date}。以下是从 HN、GitHub、Product Hunt、36kr、IndieHackers、V2EX、少数派等平台实时抓取的技术与市场信号（共 ${signals.length} 条，含真实 URL）：
 
 ${signalBlock}
 ${dedupeSection}
 ---
 
-请基于以上真实信号，为中国独立开发者/个人创业者挖掘 8-10 个可落地的副业机会。
+请基于以上真实信号，为中国独立开发者/个人创业者挖掘 12-15 个可落地的副业机会。
 
 **严格要求：**
 1. 每个机会必须由上面某条信号触发，sources[].url 必须直接使用上面列表中的真实 URL（不允许使用主页 URL）
@@ -394,7 +468,7 @@ ${dedupeSection}
     },
     body: JSON.stringify({
       model: 'deepseek-v4-flash',
-      max_tokens: 8192,
+      max_tokens: 16384,
       messages: [{ role: 'user', content: prompt }],
     }),
   })
@@ -403,6 +477,10 @@ ${dedupeSection}
     throw new Error(`DeepSeek API ${res.status}: ${err}`)
   }
   const json: any = await res.json()
+  const finishReason = json.choices?.[0]?.finish_reason
+  if (finishReason === 'length') {
+    throw new Error('DeepSeek response truncated (finish_reason=length) — output too long')
+  }
   const raw: string = json.choices?.[0]?.message?.content ?? ''
 
   // Strip optional ```json fences if model added them
@@ -423,10 +501,10 @@ ${dedupeSection}
   console.log('Running quality check (Pass 2)…')
   const checkedOpportunities = await runQualityCheck(apiKey, data.opportunities, historyContext)
 
-  if (checkedOpportunities && checkedOpportunities.length >= 6) {
+  if (checkedOpportunities && checkedOpportunities.length >= 8) {
     console.log(`  ✓ Pass 2: ${data.opportunities.length} → ${checkedOpportunities.length} opportunities`)
     data.opportunities = checkedOpportunities
-  } else if (checkedOpportunities && checkedOpportunities.length < 6) {
+  } else if (checkedOpportunities && checkedOpportunities.length < 8) {
     console.warn(`  ⚠ Pass 2 filtered too aggressively (${checkedOpportunities.length} left), using Pass 1`)
   } else {
     console.warn('  ⚠ Pass 2 failed, using Pass 1 output')

@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "generate": "tsx scripts/generate-daily.ts",
-    "generate:force": "FORCE_GENERATE=1 tsx scripts/generate-daily.ts"
+    "generate:force": "FORCE_GENERATE=1 tsx scripts/generate-daily.ts",
+    "backfill": "tsx scripts/backfill.ts",
+    "backfill:force": "tsx scripts/backfill.ts --force"
   },
   "dependencies": {
     "@clerk/localizations": "^4.6.8",
