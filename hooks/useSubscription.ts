@@ -13,19 +13,26 @@ export function useSubscription(): {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (!isSignedIn) return
-    fetch('/api/subscribe')
+    if (!isSignedIn) {
+      setSubscribed(false)
+      return
+    }
+    const controller = new AbortController()
+    fetch('/api/subscribe', { signal: controller.signal })
       .then(r => (r.ok ? r.json() : null))
       .then((data: { subscribed: boolean } | null) => {
         if (data) setSubscribed(data.subscribed)
       })
-      .catch(() => {})
+      .catch((e: Error) => {
+        if (e.name !== 'AbortError') { /* ignore */ }
+      })
+    return () => controller.abort()
   }, [isSignedIn])
 
   async function subscribe() {
     if (subscribed || loading) return
-    setSubscribed(true) // optimistic
     setLoading(true)
+    setSubscribed(true) // optimistic
     try {
       const res = await fetch('/api/subscribe', { method: 'POST' })
       if (!res.ok) throw new Error('subscribe failed')
