@@ -24,10 +24,10 @@ export async function GET(req: NextRequest) {
 
     const response: Record<string, { up: number; down: number }> = {}
     ids.forEach((id, i) => {
-      const raw = results[i] as { up?: string; down?: string } | null
+      const raw = (results[i] ?? {}) as Record<string, string>
       response[String(id)] = {
-        up: parseInt(raw?.up ?? '0', 10),
-        down: parseInt(raw?.down ?? '0', 10),
+        up: parseInt(raw.up ?? '0', 10),
+        down: parseInt(raw.down ?? '0', 10),
       }
     })
 
