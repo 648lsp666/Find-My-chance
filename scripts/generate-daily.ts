@@ -268,19 +268,25 @@ async function main() {
     )
     .join('\n\n')
 
+  const dedupeSection = historyContext
+    ? `\n【近14天已生成的机会（避免重复）】\n${historyContext}\n`
+    : ''
+
   const prompt = `今天是 ${date}。以下是从各平台实时抓取的技术与市场信号（共 ${signals.length} 条，含真实 URL）：
 
 ${signalBlock}
-
+${dedupeSection}
 ---
 
-请基于以上真实信号，为中国独立开发者/个人创业者挖掘 6-8 个可落地的副业机会。
+请基于以上真实信号，为中国独立开发者/个人创业者挖掘 8-10 个可落地的副业机会。
 
 **严格要求：**
 1. 每个机会必须由上面某条信号触发，sources[].url 必须直接使用上面列表中的真实 URL（不允许使用主页 URL）
 2. 面向 1 人独立执行，3 个月内可见收益，启动成本可控
 3. 优先考虑国内市场可行性（也可做海外向）
 4. category 只能从以下选择：AI应用、SaaS工具、自媒体、整活玩具、本地服务、内容创作
+5. ${historyContext ? 'category 相同且主题高度相似的机会不得重复出现（参考近14天历史）' : '避免生成过于相似的机会'}
+6. evidence 必须引用上方信号列表中的真实数据（具体数字、用户量、涨幅等），不允许使用模糊表达如"市场需求旺盛"
 
 只返回如下格式的 JSON，不要有任何其他文字或 markdown 代码块：
 
@@ -310,6 +316,7 @@ ${signalBlock}
       "difficulty": 3,
       "potential": 7,
       "competition": "低",
+      "evidence": "直接引用信号中的具体数字或案例，例如：'该 GitHub 仓库 3 天内获得 2400 star，说明开发者对此类工具需求强烈'",
       "sources": [
         { "title": "信号来源描述", "url": "必须是上面信号列表中的真实 URL" }
       ]
