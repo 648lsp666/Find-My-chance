@@ -125,6 +125,31 @@ async function fetchPHSignals(): Promise<Signal[]> {
   }))
 }
 
+async function fetchIHSignals(): Promise<Signal[]> {
+  // DEV.to is a major cross-posting hub for IndieHackers — querying the
+  // `indiehackers` tag surfaces genuine indie-hacker signals daily.
+  // The DEV.to API is public and needs no auth key.
+  const res = await fetch(
+    'https://dev.to/api/articles?tag=indiehackers&per_page=10&top=1',
+    {
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; OpRadar/1.0)' },
+      signal: AbortSignal.timeout(8000),
+    },
+  )
+  if (!res.ok) throw new Error(`IndieHackers (DEV.to) ${res.status}`)
+  const data: any[] = await res.json()
+  return data
+    .filter((a: any) => a.url && a.title)
+    .slice(0, 10)
+    .map((a: any) => ({
+      source: 'IndieHackers',
+      title: a.title,
+      url: a.url,
+      description: a.description?.slice(0, 200) ?? '',
+      score: a.public_reactions_count ?? 0,
+    }))
+}
+
 async function fetch36krSignals(): Promise<Signal[]> {
   const res = await fetch('https://36kr.com/feed', {
     headers: { 'User-Agent': 'Mozilla/5.0 (compatible; OpRadar/1.0)' },
@@ -175,6 +200,7 @@ async function main() {
     fetchGitHubSignals(),
     fetchPHSignals(),
     fetch36krSignals(),
+    fetchIHSignals(),
   ])
   const results = signalResults
 
@@ -183,7 +209,7 @@ async function main() {
   else console.log(`  ✓ Trending repos: ${trendingRepos.length}`)
 
   results.forEach((r, i) => {
-    const name = ['HN', 'GitHub', 'Product Hunt', '36kr'][i]
+    const name = ['HN', 'GitHub', 'Product Hunt', '36kr', 'IndieHackers'][i]
     if (r.status === 'rejected') console.warn(`  ⚠ ${name}: ${r.reason}`)
     else console.log(`  ✓ ${name}: ${r.value.length} signals`)
   })
