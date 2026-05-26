@@ -5,9 +5,10 @@ import Link from 'next/link'
 interface Props {
   dates: string[]
   currentDate: string
+  basePath?: string
 }
 
-export default function DateNav({ dates, currentDate }: Props) {
+export default function DateNav({ dates, currentDate, basePath = '' }: Props) {
   return (
     <div className="bg-white border-b border-r-border">
       <div className="max-w-6xl mx-auto px-6">
@@ -19,7 +20,7 @@ export default function DateNav({ dates, currentDate }: Props) {
             return (
               <Link
                 key={date}
-                href={`/${date}`}
+                href={`${basePath}/${date}`}
                 className={`flex-shrink-0 flex flex-col items-center gap-0.5 px-5 py-3 border-b-2 transition-all duration-200 ${
                   active
                     ? 'border-r-accent text-r-accent'
