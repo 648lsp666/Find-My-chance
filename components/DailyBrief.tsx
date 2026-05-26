@@ -15,10 +15,10 @@ interface Props {
 const STAGGER = [0, 14, 4, 20, 8, 16, 2, 22, 10, 6, 18, 12, 24, 0, 14]
 
 function tagStyle(count: number): { fontSize: number; fontWeight: number; color: string } {
-  if (count >= 4) return { fontSize: 27, fontWeight: 800, color: '#7C3AED' }
-  if (count === 3) return { fontSize: 19, fontWeight: 700, color: '#5B21B6' }
-  if (count === 2) return { fontSize: 13, fontWeight: 400, color: '#6D28D9' }
-  return { fontSize: 10, fontWeight: 400, color: '#C4B5FD' }
+  if (count >= 4) return { fontSize: 36, fontWeight: 900, color: '#fff' }
+  if (count === 3) return { fontSize: 26, fontWeight: 700, color: '#EDE9FE' }
+  if (count === 2) return { fontSize: 18, fontWeight: 500, color: '#C4B5FD' }
+  return { fontSize: 13, fontWeight: 400, color: '#A78BFA' }
 }
 
 export default function DailyBrief({ date, summary, count, opportunities, selectedTag, onTagSelect }: Props) {
@@ -74,8 +74,8 @@ export default function DailyBrief({ date, summary, count, opportunities, select
       </p>
 
       {tagCounts.length > 0 && (
-        <div className="mt-4 pt-4 border-t border-white/10">
-          <p className="font-mono text-[9px] text-white/40 tracking-[0.2em] uppercase mb-3">
+        <div className="mt-4 rounded-xl px-4 py-4" style={{ background: 'rgba(0,0,0,0.25)' }}>
+          <p className="font-mono text-[9px] text-white/50 tracking-[0.2em] uppercase mb-3">
             今日热词 · 点击过滤，再次点击取消
           </p>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-0">
