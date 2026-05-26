@@ -183,11 +183,15 @@ function loadRecentHistory(outDir: string, days: number = 14): string {
       .sort()
       .slice(-days)
     for (const file of files) {
-      const raw = JSON.parse(readFileSync(join(outDir, file), 'utf-8'))
-      for (const opp of raw.opportunities ?? []) {
-        if (opp.title && opp.category) {
-          entries.push(`- [${opp.category}] ${opp.title}`)
+      try {
+        const data = JSON.parse(readFileSync(join(outDir, file), 'utf-8'))
+        for (const opp of data.opportunities ?? []) {
+          if (opp.title && opp.category) {
+            entries.push(`- [${opp.category}] ${opp.title}`)
+          }
         }
+      } catch {
+        // skip malformed files
       }
     }
   } catch {
