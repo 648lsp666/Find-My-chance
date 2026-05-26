@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { auth } from '@clerk/nextjs/server'
 import { kv } from '@/lib/kv'
 
 export async function GET(req: NextRequest) {
@@ -16,18 +17,33 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({})
     }
 
+    // Batch fetch aggregate counts
     const pipeline = kv.pipeline()
     for (const id of ids) {
       pipeline.hgetall(`votes:${date}:${id}`)
     }
     const results = await pipeline.exec()
 
-    const response: Record<string, { up: number; down: number }> = {}
+    // Batch fetch per-user vote state (if logged in)
+    const { userId } = await auth()
+    let myVoteResults: (string | null)[] = ids.map(() => null)
+
+    if (userId) {
+      const pipeline2 = kv.pipeline()
+      for (const id of ids) {
+        pipeline2.get(`voted:${userId}:${date}:${id}`)
+      }
+      myVoteResults = (await pipeline2.exec()) as (string | null)[]
+    }
+
+    const response: Record<string, { up: number; down: number; myVote: 'up' | 'down' | null }> = {}
     ids.forEach((id, i) => {
       const raw = (results[i] ?? {}) as Record<string, string>
+      const myVote = (myVoteResults[i] as 'up' | 'down' | null) ?? null
       response[String(id)] = {
         up: parseInt(raw.up ?? '0', 10),
         down: parseInt(raw.down ?? '0', 10),
+        myVote,
       }
     })
 
