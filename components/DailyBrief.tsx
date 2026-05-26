@@ -24,10 +24,10 @@ export default function DailyBrief({ date, summary, count }: Props) {
 
       <div className="flex items-start justify-between gap-4 mb-3 relative">
         <div>
-          <p className="font-mono text-[11px] text-white/70 tracking-[0.2em] uppercase mb-1">
+          <p className="font-mono text-[13px] text-white/70 tracking-[0.15em] uppercase mb-1.5">
             AI 今日简报 · {date}
           </p>
-          <h2 className="font-display font-bold text-white" style={{ fontSize: '18px' }}>
+          <h2 className="font-display font-bold text-white" style={{ fontSize: '22px' }}>
             见微 · 今日简报
           </h2>
         </div>
