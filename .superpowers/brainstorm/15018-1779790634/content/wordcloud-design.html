@@ -1,0 +1,71 @@
+<h2>词云嵌入 DailyBrief 效果</h2>
+<p class="subtitle">点击词语可过滤下方机会列表，词越大 = 今日出现次数越多</p>
+
+<div class="mockup" style="max-width:760px;margin:0 auto">
+  <div class="mockup-header">DailyBrief 卡片（方案 B · react-d3-cloud）</div>
+  <div class="mockup-body" style="background:#fff;border-radius:12px;padding:24px">
+
+    <!-- DailyBrief header -->
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
+      <div>
+        <div style="font-family:monospace;font-size:10px;color:#7C3AED;letter-spacing:3px;text-transform:uppercase;margin-bottom:4px">Daily · 2026-05-26</div>
+        <div style="font-size:22px;font-weight:800;color:#1a1a2e;line-height:1.2">今日发现 <span style="color:#7C3AED">12</span> 个副业机会</div>
+      </div>
+      <div style="font-family:monospace;font-size:11px;color:#9CA3AF;text-align:right">
+        <div>AI POWERED</div>
+        <div style="color:#7C3AED;font-weight:600">12:00 CST</div>
+      </div>
+    </div>
+
+    <!-- AI summary -->
+    <div style="font-size:14px;color:#374151;line-height:1.7;margin-bottom:20px;padding:12px;background:#faf9ff;border-left:3px solid #7C3AED;border-radius:0 8px 8px 0">
+      今日 HN 和 V2EX 信号强烈聚焦于 AI 工具变现与插件赛道，GitHub trending 出现多个开源项目已在独立开发者圈引发热议……
+    </div>
+
+    <!-- Word cloud section -->
+    <div style="border-top:1px solid #f3f4f6;padding-top:16px">
+      <div style="font-family:monospace;font-size:10px;color:#9CA3AF;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px">今日热词 · 点击过滤</div>
+
+      <!-- Simulated d3-cloud layout - random positions, varied sizes and rotations -->
+      <div style="position:relative;height:160px;background:#fdfcff;border-radius:10px;overflow:hidden">
+
+        <span style="position:absolute;top:30px;left:160px;font-size:28px;font-weight:800;color:#7C3AED;transform:rotate(-8deg);cursor:pointer;transition:opacity .2s" onmouseover="this.style.opacity=.7" onmouseout="this.style.opacity=1">AI应用</span>
+
+        <span style="position:absolute;top:70px;left:10px;font-size:20px;font-weight:700;color:#5B21B6;transform:rotate(5deg);cursor:pointer;transition:opacity .2s" onmouseover="this.style.opacity=.7" onmouseout="this.style.opacity=1">SaaS工具</span>
+
+        <span style="position:absolute;top:20px;left:360px;font-size:17px;font-weight:600;color:#6D28D9;transform:rotate(-15deg);cursor:pointer" onmouseover="this.style.opacity=.7" onmouseout="this.style.opacity=1">Chrome插件</span>
+
+        <span style="position:absolute;top:95px;left:200px;font-size:22px;font-weight:800;color:#7C3AED;transform:rotate(3deg);cursor:pointer" onmouseover="this.style.opacity=.7" onmouseout="this.style.opacity=1">副业变现</span>
+
+        <span style="position:absolute;top:15px;left:50px;font-size:13px;color:#8B5CF6;transform:rotate(-5deg);cursor:pointer" onmouseover="this.style.opacity=.7" onmouseout="this.style.opacity=1">自媒体</span>
+
+        <span style="position:absolute;top:115px;left:400px;font-size:15px;font-weight:600;color:#6D28D9;transform:rotate(10deg);cursor:pointer" onmouseover="this.style.opacity=.7" onmouseout="this.style.opacity=1">效率工具</span>
+
+        <span style="position:absolute;top:60px;left:530px;font-size:12px;color:#A78BFA;transform:rotate(-12deg);cursor:pointer" onmouseover="this.style.opacity=.7" onmouseout="this.style.opacity=1">本地服务</span>
+
+        <span style="position:absolute;top:110px;left:80px;font-size:11px;color:#9CA3AF;transform:rotate(8deg);cursor:pointer" onmouseover="this.style.opacity=.7" onmouseout="this.style.opacity=1">内容创作</span>
+
+        <span style="position:absolute;top:40px;left:500px;font-size:16px;font-weight:700;color:#5B21B6;transform:rotate(-3deg);cursor:pointer" onmouseover="this.style.opacity=.7" onmouseout="this.style.opacity=1">整活玩具</span>
+
+        <span style="position:absolute;top:130px;left:300px;font-size:11px;color:#C4B5FD;transform:rotate(6deg);cursor:pointer" onmouseover="this.style.opacity=.7" onmouseout="this.style.opacity=1">独立开发</span>
+
+        <!-- Selected state indicator -->
+        <div style="position:absolute;bottom:6px;right:8px;font-family:monospace;font-size:9px;color:#C4B5FD">点击词语过滤 · 再次点击取消</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:24px;max-width:760px;margin-left:auto;margin-right:auto">
+  <div class="section">
+    <h3>技术实现要点</h3>
+    <ul style="font-size:14px;color:#374151;line-height:2;padding-left:20px">
+      <li><code style="background:#f3f4f6;padding:1px 6px;border-radius:4px;font-size:12px">react-d3-cloud</code> — dynamic import + <code style="background:#f3f4f6;padding:1px 6px;border-radius:4px;font-size:12px">ssr: false</code>，避免 SSG 报错</li>
+      <li>数据来源：聚合当天所有 opportunity 的 <code style="background:#f3f4f6;padding:1px 6px;border-radius:4px;font-size:12px">tags[]</code>，统计频次决定字号</li>
+      <li>颜色：紫色调色板（<code style="background:#f3f4f6;padding:1px 6px;border-radius:4px;font-size:12px">#7C3AED → #C4B5FD</code>），与现有主题一致</li>
+      <li>点击 → 通过 URL 参数或 state 传递 tag 到 OpportunityList 过滤</li>
+      <li>选中态：高亮当前词 + 下方列表只显示含该 tag 的机会</li>
+    </ul>
+  </div>
+</div>

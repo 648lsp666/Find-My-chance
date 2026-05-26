@@ -1,0 +1,95 @@
+<h2>词云放在哪？</h2>
+<p class="subtitle">选一个你认为最合适的位置</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:16px;background:#faf9ff;border-radius:8px">
+      <div style="font-family:monospace;font-size:10px;color:#7C3AED;letter-spacing:2px;margin-bottom:4px">PROWL · AI POWERED</div>
+      <div style="background:linear-gradient(135deg,#7C3AED11,#7C3AED22);border-radius:8px;padding:12px;margin-bottom:8px">
+        <div style="font-size:11px;font-weight:600;color:#1a1a2e;margin-bottom:8px">📊 今日关键词</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <span style="font-size:18px;font-weight:800;color:#7C3AED">AI应用</span>
+          <span style="font-size:14px;font-weight:600;color:#5B21B6">SaaS工具</span>
+          <span style="font-size:12px;color:#6D28D9">内容创作</span>
+          <span style="font-size:20px;font-weight:800;color:#7C3AED">副业</span>
+          <span style="font-size:11px;color:#8B5CF6">自媒体</span>
+          <span style="font-size:16px;font-weight:700;color:#6D28D9">Chrome插件</span>
+          <span style="font-size:10px;color:#A78BFA">本地服务</span>
+          <span style="font-size:13px;color:#7C3AED">效率工具</span>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:8px;font-size:10px;color:#6b7280">
+        🤖 今日整体趋势：AI 工具需求强劲，独立开发者...
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A · 嵌入 DailyBrief</h3>
+      <p>词云放在每日摘要卡片里，作为 AI 摘要的视觉补充。紧凑，不额外占空间。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:16px;background:#faf9ff;border-radius:8px">
+      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:8px;font-size:10px;color:#6b7280;margin-bottom:6px">
+        🤖 今日整体趋势：AI 工具需求强劲...
+      </div>
+      <div style="background:linear-gradient(135deg,#7C3AED08,#7C3AED18);border:1px solid #ede9fe;border-radius:8px;padding:12px;margin-bottom:6px">
+        <div style="font-size:11px;font-weight:600;color:#1a1a2e;margin-bottom:8px">今日热词</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+          <span style="font-size:22px;font-weight:800;color:#7C3AED">AI应用</span>
+          <span style="font-size:13px;color:#6D28D9">插件变现</span>
+          <span style="font-size:16px;font-weight:700;color:#5B21B6">SaaS</span>
+          <span style="font-size:11px;color:#8B5CF6">本地服务</span>
+          <span style="font-size:19px;font-weight:700;color:#7C3AED">副业</span>
+          <span style="font-size:12px;color:#6D28D9">自媒体</span>
+          <span style="font-size:10px;color:#A78BFA">效率工具</span>
+          <span style="font-size:15px;color:#7C3AED">内容创作</span>
+        </div>
+      </div>
+      <div style="background:#f9fafb;border:1px solid #f3f4f6;border-radius:6px;padding:8px;font-size:10px;color:#374151">
+        🔥 GitHub Trending · V2EX 热议 · Product Hunt...
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B · DailyBrief 与 TechSignals 之间</h3>
+      <p>独立成一个区块，视觉权重明确，用户一眼就能看到今日标签全貌。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:16px;background:#faf9ff;border-radius:8px">
+      <div style="display:flex;gap:8px;align-items:flex-start">
+        <div style="flex:1">
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:8px;margin-bottom:6px">
+            <div style="font-size:10px;font-weight:600;color:#1a1a2e;margin-bottom:4px">今日机会 · 12 个</div>
+            <div style="font-size:9px;color:#6b7280">每条均标注来源信号</div>
+          </div>
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:8px">
+            <div style="font-size:9px;font-weight:600;margin-bottom:4px;color:#374151">🔤 AI副业关键词</div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px">
+              <span style="font-size:13px;font-weight:700;color:#7C3AED">AI应用</span>
+              <span style="font-size:10px;color:#6D28D9">SaaS</span>
+              <span style="font-size:11px;color:#5B21B6">副业</span>
+              <span style="font-size:9px;color:#8B5CF6">插件</span>
+              <span style="font-size:12px;color:#7C3AED">内容</span>
+            </div>
+          </div>
+        </div>
+        <div style="width:55%;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:8px">
+          <div style="font-size:9px;font-weight:600;color:#7C3AED;margin-bottom:6px">AI自动写作助手</div>
+          <div style="font-size:8px;color:#6b7280;line-height:1.4">利用 HN 讨论串发现的痛点...</div>
+          <div style="display:flex;gap:3px;margin-top:4px;flex-wrap:wrap">
+            <span style="background:#ede9fe;color:#7C3AED;font-size:7px;padding:1px 4px;border-radius:3px">AI应用</span>
+            <span style="background:#ede9fe;color:#7C3AED;font-size:7px;padding:1px 4px;border-radius:3px">内容创作</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C · 机会列表侧边栏</h3>
+      <p>词云固定在列表左侧，同时作为快速筛选器。点击词云标签直接过滤机会。桌面端效果好，移动端收起。</p>
+    </div>
+  </div>
+
+</div>

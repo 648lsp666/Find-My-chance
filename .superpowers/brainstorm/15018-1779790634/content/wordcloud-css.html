@@ -1,0 +1,67 @@
+<h2>纯 CSS 词云效果</h2>
+<p class="subtitle">flex wrap 布局，字号 = 频次，点击过滤机会列表</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:16px;background:#fdfcff;border-radius:8px">
+      <div style="font-family:monospace;font-size:9px;color:#9CA3AF;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">今日热词 · 点击过滤，再次点击取消</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:8px 0">
+        <span style="font-size:26px;font-weight:800;color:#7C3AED;cursor:pointer;line-height:1">AI应用<sup style="font-size:11px;color:#A78BFA;font-weight:600">4</sup></span>
+        <span style="font-size:20px;font-weight:700;color:#5B21B6;cursor:pointer;line-height:1">副业变现<sup style="font-size:10px;color:#A78BFA">3</sup></span>
+        <span style="font-size:18px;font-weight:600;color:#6D28D9;cursor:pointer;line-height:1">SaaS工具<sup style="font-size:9px;color:#A78BFA">3</sup></span>
+        <span style="font-size:14px;color:#7C3AED;cursor:pointer;line-height:1">Chrome插件<sup style="font-size:8px;color:#C4B5FD">2</sup></span>
+        <span style="font-size:14px;color:#6D28D9;cursor:pointer;line-height:1">效率工具<sup style="font-size:8px;color:#C4B5FD">2</sup></span>
+        <span style="font-size:13px;color:#8B5CF6;cursor:pointer;line-height:1">整活玩具<sup style="font-size:8px;color:#C4B5FD">2</sup></span>
+        <span style="font-size:11px;color:#9CA3AF;cursor:pointer;line-height:1">自媒体<sup style="font-size:7px;color:#D8B4FE">1</sup></span>
+        <span style="font-size:11px;color:#9CA3AF;cursor:pointer;line-height:1">内容创作<sup style="font-size:7px;color:#D8B4FE">1</sup></span>
+        <span style="font-size:11px;color:#9CA3AF;cursor:pointer;line-height:1">本地服务<sup style="font-size:7px;color:#D8B4FE">1</sup></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A · 上标数字</h3>
+      <p>频次以上标紧贴词语，干净不占位</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:16px;background:#fdfcff;border-radius:8px">
+      <div style="font-family:monospace;font-size:9px;color:#9CA3AF;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">今日热词 · 点击过滤，再次点击取消</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 0">
+        <span style="display:inline-flex;align-items:baseline;gap:3px;cursor:pointer">
+          <span style="font-size:26px;font-weight:800;color:#7C3AED;line-height:1">AI应用</span>
+          <span style="font-size:10px;background:#ede9fe;color:#7C3AED;padding:1px 5px;border-radius:8px;font-family:monospace">×4</span>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:3px;cursor:pointer">
+          <span style="font-size:20px;font-weight:700;color:#5B21B6;line-height:1">副业变现</span>
+          <span style="font-size:9px;background:#ede9fe;color:#5B21B6;padding:1px 5px;border-radius:8px;font-family:monospace">×3</span>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:3px;cursor:pointer">
+          <span style="font-size:18px;font-weight:600;color:#6D28D9;line-height:1">SaaS工具</span>
+          <span style="font-size:9px;background:#ede9fe;color:#6D28D9;padding:1px 5px;border-radius:8px;font-family:monospace">×3</span>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:3px;cursor:pointer">
+          <span style="font-size:14px;color:#7C3AED;line-height:1">Chrome插件</span>
+          <span style="font-size:8px;background:#f5f3ff;color:#7C3AED;padding:1px 4px;border-radius:6px;font-family:monospace">×2</span>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:3px;cursor:pointer">
+          <span style="font-size:14px;color:#6D28D9;line-height:1">效率工具</span>
+          <span style="font-size:8px;background:#f5f3ff;color:#6D28D9;padding:1px 4px;border-radius:6px;font-family:monospace">×2</span>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:3px;cursor:pointer">
+          <span style="font-size:11px;color:#9CA3AF;line-height:1">自媒体</span>
+          <span style="font-size:7px;background:#f9f7ff;color:#A78BFA;padding:1px 4px;border-radius:6px;font-family:monospace">×1</span>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:3px;cursor:pointer">
+          <span style="font-size:11px;color:#9CA3AF;line-height:1">本地服务</span>
+          <span style="font-size:7px;background:#f9f7ff;color:#A78BFA;padding:1px 4px;border-radius:6px;font-family:monospace">×1</span>
+        </span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B · 胶囊 ×N</h3>
+      <p>数量用小胶囊跟在词语旁，风格和 OpportunityCard 的 tag 徽章一致</p>
+    </div>
+  </div>
+
+</div>

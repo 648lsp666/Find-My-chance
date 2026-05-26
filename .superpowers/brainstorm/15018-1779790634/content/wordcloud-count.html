@@ -1,0 +1,98 @@
+<h2>标签数量怎么展示？</h2>
+<p class="subtitle">标题已改为「今日热词 · 点击过滤，再次点击取消」</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:16px;background:#fdfcff;border-radius:8px;min-height:140px">
+      <div style="font-family:monospace;font-size:9px;color:#9CA3AF;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">今日热词 · 点击过滤，再次点击取消</div>
+      <div style="position:relative;height:110px">
+        <!-- Tooltip style: hover shows count -->
+        <div style="position:absolute;top:8px;left:100px">
+          <span style="font-size:26px;font-weight:800;color:#7C3AED;cursor:pointer;transform:rotate(-8deg);display:inline-block">AI应用</span>
+          <div style="position:absolute;top:-24px;left:50%;transform:translateX(-50%);background:#1a1a2e;color:#fff;font-size:10px;padding:2px 8px;border-radius:4px;white-space:nowrap;font-family:monospace">4 个机会</div>
+        </div>
+        <span style="position:absolute;top:55px;left:10px;font-size:18px;font-weight:700;color:#5B21B6;transform:rotate(5deg);cursor:pointer;display:inline-block">SaaS工具</span>
+        <span style="position:absolute;top:10px;left:310px;font-size:15px;font-weight:600;color:#6D28D9;transform:rotate(-12deg);cursor:pointer;display:inline-block">Chrome插件</span>
+        <span style="position:absolute;top:70px;left:190px;font-size:20px;font-weight:800;color:#7C3AED;transform:rotate(3deg);cursor:pointer;display:inline-block">副业变现</span>
+        <span style="position:absolute;top:8px;left:30px;font-size:11px;color:#8B5CF6;transform:rotate(-5deg);cursor:pointer;display:inline-block">自媒体</span>
+        <span style="position:absolute;top:80px;left:360px;font-size:13px;color:#6D28D9;transform:rotate(10deg);cursor:pointer;display:inline-block">效率工具</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A · Tooltip（悬停显示）</h3>
+      <p>hover 时弹出「4 个机会」提示，词云本身保持干净；缺点是移动端 hover 不友好。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:16px;background:#fdfcff;border-radius:8px;min-height:140px">
+      <div style="font-family:monospace;font-size:9px;color:#9CA3AF;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">今日热词 · 点击过滤，再次点击取消</div>
+      <div style="position:relative;height:110px">
+        <!-- Superscript count -->
+        <div style="position:absolute;top:8px;left:95px;display:inline-flex;align-items:flex-start;gap:1px">
+          <span style="font-size:26px;font-weight:800;color:#7C3AED;cursor:pointer;transform:rotate(-8deg);display:inline-block">AI应用</span>
+          <sup style="font-size:11px;font-weight:700;color:#A78BFA;margin-top:6px">4</sup>
+        </div>
+        <div style="position:absolute;top:55px;left:8px;display:inline-flex;align-items:flex-start;gap:1px">
+          <span style="font-size:18px;font-weight:700;color:#5B21B6;transform:rotate(5deg);display:inline-block">SaaS工具</span>
+          <sup style="font-size:10px;color:#A78BFA;margin-top:4px">3</sup>
+        </div>
+        <div style="position:absolute;top:10px;left:305px;display:inline-flex;align-items:flex-start;gap:1px">
+          <span style="font-size:15px;font-weight:600;color:#6D28D9;transform:rotate(-12deg);display:inline-block">Chrome插件</span>
+          <sup style="font-size:9px;color:#A78BFA;margin-top:3px">2</sup>
+        </div>
+        <div style="position:absolute;top:70px;left:185px;display:inline-flex;align-items:flex-start;gap:1px">
+          <span style="font-size:20px;font-weight:800;color:#7C3AED;transform:rotate(3deg);display:inline-block">副业变现</span>
+          <sup style="font-size:10px;color:#A78BFA;margin-top:5px">3</sup>
+        </div>
+        <div style="position:absolute;top:8px;left:28px">
+          <span style="font-size:11px;color:#8B5CF6;display:inline-block">自媒体</span>
+          <sup style="font-size:8px;color:#C4B5FD">1</sup>
+        </div>
+        <div style="position:absolute;top:80px;left:358px">
+          <span style="font-size:13px;color:#6D28D9;display:inline-block">效率工具</span>
+          <sup style="font-size:8px;color:#C4B5FD">2</sup>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B · 上标数字</h3>
+      <p>数量以上标形式紧贴词语右上角，始终可见，紧凑优雅。移动端也友好。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:16px;background:#fdfcff;border-radius:8px;min-height:140px">
+      <div style="font-family:monospace;font-size:9px;color:#9CA3AF;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">今日热词 · 点击过滤，再次点击取消</div>
+      <div style="position:relative;height:110px">
+        <!-- Badge pill below word -->
+        <div style="position:absolute;top:5px;left:90px;display:flex;flex-direction:column;align-items:center;gap:2px">
+          <span style="font-size:26px;font-weight:800;color:#7C3AED;cursor:pointer;transform:rotate(-8deg);display:inline-block">AI应用</span>
+          <span style="font-size:9px;background:#ede9fe;color:#7C3AED;padding:1px 6px;border-radius:10px;font-family:monospace;font-weight:600">×4</span>
+        </div>
+        <div style="position:absolute;top:50px;left:5px;display:flex;flex-direction:column;align-items:center;gap:2px">
+          <span style="font-size:18px;font-weight:700;color:#5B21B6;transform:rotate(5deg);display:inline-block">SaaS工具</span>
+          <span style="font-size:8px;background:#ede9fe;color:#5B21B6;padding:1px 5px;border-radius:10px;font-family:monospace">×3</span>
+        </div>
+        <div style="position:absolute;top:10px;left:300px;display:flex;flex-direction:column;align-items:center;gap:2px">
+          <span style="font-size:15px;font-weight:600;color:#6D28D9;transform:rotate(-12deg);display:inline-block">Chrome插件</span>
+          <span style="font-size:8px;background:#ede9fe;color:#6D28D9;padding:1px 5px;border-radius:10px;font-family:monospace">×2</span>
+        </div>
+        <div style="position:absolute;top:68px;left:178px;display:flex;flex-direction:column;align-items:center;gap:2px">
+          <span style="font-size:20px;font-weight:800;color:#7C3AED;transform:rotate(3deg);display:inline-block">副业变现</span>
+          <span style="font-size:8px;background:#ede9fe;color:#7C3AED;padding:1px 5px;border-radius:10px;font-family:monospace">×3</span>
+        </div>
+        <div style="position:absolute;top:5px;left:25px;display:flex;flex-direction:column;align-items:center;gap:1px">
+          <span style="font-size:11px;color:#8B5CF6;display:inline-block">自媒体</span>
+          <span style="font-size:7px;background:#f5f3ff;color:#8B5CF6;padding:0px 4px;border-radius:8px;font-family:monospace">×1</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C · 胶囊标签 ×N</h3>
+      <p>数量用紫色小胶囊 ×4 跟在词语下方，视觉上像卡片 tag，风格和现有 OpportunityCard 的 tag 徽章一致。</p>
+    </div>
+  </div>
+
+</div>

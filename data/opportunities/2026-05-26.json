@@ -1,133 +1,368 @@
 {
   "date": "2026-05-26",
-  "generatedAt": "2026-05-26T05:41:43.877Z",
-  "summary": "今日信号显示AI辅助编程反思与隐私技术升温，同时WordPress插件推广、AI内容生成等独立开发者实战案例涌现。适合中国开发者的机会集中在AI工具、在线教育工具和内容营销服务，启动成本低，3个月内可验证。",
+  "generatedAt": "2026-05-26T14:36:58.423Z",
+  "summary": "今日信号显示三大趋势：AI部署成本分化（本地LLM+外包模式性价比凸显）、基础设施依赖风险（GitHub Actions/Pages再次宕机）、用户隐私与安全新博弈（Motorola劫持、VPN退出）。独立创业者可聚焦本地AI服务、反劫持工具、自动化监控与个性化内容生成。",
   "opportunities": [
     {
       "id": 1,
-      "title": "AI深度代码审查插件",
-      "category": "AI应用",
+      "title": "电商链接净化器",
+      "category": "整活玩具",
       "market": "国内为主",
       "tags": [
-        "VSCode扩展",
-        "代码质量",
-        "AI辅助编程"
+        "浏览器扩展",
+        "电商",
+        "反劫持"
       ],
-      "summary": "慢但更深入的AI代码审查助手",
-      "description": "基于信号2（AI写代码更慢但更好），当前AI代码补全快但流于表面，开发者需要深度审查（逻辑、安全、可维护性）。定位为VSCode插件，利用大模型逐行分析代码，给出慢而扎实的建议。国内开发者付费意愿强，竞品如CodeGeeX轻审查，可差异化主打「慢工细活」。前期开源免费积累用户，后推出企业版或高级功能订阅。",
-      "painPoint": "AI代码补全太快太浅，无法发现深层逻辑漏洞和风格问题。",
+      "summary": "检测并修正被篡改的电商联盟链接",
+      "description": "Motorola手机偷改Amazon链接的事件表明恶意插入联盟代码已非罕见。国内电商场景（淘宝/京东/拼多多）同样存在推广链接被劫持的问题。开发一款浏览器扩展，自动检测页面中隐藏的追踪参数并还原原始链接，同时提供报告功能。初期可通过免费版积累用户，Pro版增加主动防护、自定义白名单等。",
+      "painPoint": "用户在不知情下被劫持链接，贡献佣金给恶意方。",
       "path": [
-        "第一步：用Python/TypeScript开发VSCode插件原型，集成OpenAI/通义千问API",
-        "第二步：在GitHub开源并发布到VSCode市场，在掘金/知乎宣传",
-        "第三步：收集反馈，添加自定义规则、安全扫描等付费功能",
-        "第四步：推出个人版订阅（¥29/月）和企业版（¥299/团队/月）"
+        "用 Manifest V3 编写扩展核心检测逻辑（匹配常见联盟 ID 模式）",
+        "上线 Chrome/Edge 应用商店，配合小红书/微博宣传",
+        "收集用户反馈，增加对国内主流电商的适配",
+        "推出付费 Pro 版（自动更新规则库 + 实时拦截通知）"
       ],
-      "revenueModel": "Freemium，个人版¥29/月，企业版¥299/月，预估首月50个人用户收入¥1450",
+      "revenueModel": "免费版引流，Pro版 ¥4.9/月；预估首月 300 用户，收入 ¥1500",
       "timeToRevenue": "2个月",
-      "startupCost": "< 2000元",
-      "difficulty": 3,
-      "potential": 8,
-      "competition": "中",
-      "evidence": "信号2指出AI写代码更慢但更好，热度385，说明开发者对深度AI辅助编程有反思和需求。",
+      "startupCost": "< 500元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "该条新闻在 Hacker News 获得 289 分，反映出用户对设备内置劫持行为的高度敏感和不满。",
       "sources": [
         {
-          "title": "Using AI to write better code more slowly",
-          "url": "https://nolanlawson.com/2026/05/25/using-ai-to-write-better-code-more-slowly/"
+          "title": "Motorola phones have started hijacking the Amazon app to insert affiliate codes",
+          "url": "https://9to5google.com/2026/05/25/motorola-amazon-app-hijacking-behavior/"
         }
       ]
     },
     {
       "id": 2,
-      "title": "WordPress插件推广外包",
-      "category": "内容创作",
+      "title": "本地AI模型部署服务",
+      "category": "本地服务",
       "market": "国内为主",
       "tags": [
-        "WordPress",
-        "插件营销",
-        "独立开发者"
+        "LLM",
+        "本地部署",
+        "微调"
       ],
-      "summary": "帮WordPress插件作者快速上官方文档",
-      "description": "信号30记录了独立开发者如何在一周内让自己的WordPress插件进入两大页面构建器官方文档。国内WordPress插件市场庞大但中文宣传薄弱，很多优质插件无人问津。可以成立一个「插件推广代理」服务：帮助开发者撰写英文文档、提交到官方文档、联系KOL评测、在WordPress.org优化描述。按插件收费，单次服务¥500-2000。",
-      "painPoint": "WordPress插件开发者懂技术但不懂推广，插件淹没在海量市场中。",
+      "summary": "为中小企业提供本地LLM微调与部署一站式方案",
+      "description": "信号19指出外包+LocalAI将比调用Frontier API更经济。国内中小企业对数据隐私敏感（如医疗/金融），但缺乏技术能力部署开源模型。可提供从硬件选型、模型微调至K8s部署的全套服务。按项目收费，同时提供后期维护订阅。初期在猪八戒/程序员客栈接单，逐步沉淀成标准化产品。",
+      "painPoint": "企业想用AI但担心数据出境，又无力自建本地AI基础设施。",
       "path": [
-        "第一步：研究5个成功的插件推广案例，打造标准服务包",
-        "第二步：在V2EX、站长社区发帖接单，首单免费或折扣",
-        "第三步：帮客户完成文档撰写、官方文档提交、邮件模板",
-        "第四步：积累口碑后提升价格，推出月度运维套餐"
+        "学习 vLLM、Ollama、Dify 等工具的部署与微调",
+        "在技术社区（V2EX、即刻）发布 2-3 篇实战指南建立信任",
+        "主动联系本地中小企业IT部门提供免费诊断",
+        "交付标准服务包（微调 + 部署 + 3 个月维护）"
       ],
-      "revenueModel": "单次服务¥800-2000，按插件收费，首月接10单收入¥8000-20000",
-      "timeToRevenue": "1个月",
-      "startupCost": "< 500元",
-      "difficulty": 2,
-      "potential": 7,
-      "competition": "低",
-      "evidence": "信号30作者真实案例：通过冷邮件和模板，一周内将插件引入两大页面构建器官方文档。",
+      "revenueModel": "单项目收费 1-5 万，后期按月维护费 2000-5000 元；预估前3月完成2单，收入 6 万",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 2000元（GPU租赁）",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "文章预测外包+LocalAI将比Frontier实验室更经济，且获得 39 分热度，说明行业正在关注成本优势。",
       "sources": [
         {
-          "title": "How I Got My WordPress Plugin Into Two Major Page Builders' Official Docs in One Week",
-          "url": "https://dev.to/gronrafal/how-i-got-my-wordpress-plugin-into-two-major-page-builders-official-docs-in-one-week-2km4"
+          "title": "Outsourcing plus LocalAI will soon become more economical vs. Frontier labs",
+          "url": "https://www.signalbloom.ai/posts/outsourcing-plus-localai-will-soon-become-more-economical-vs-frontier-labs/"
         }
       ]
     },
     {
       "id": 3,
-      "title": "在线几何画板工具",
-      "category": "SaaS工具",
-      "market": "国内为主",
+      "title": "自托管VPN一键部署",
+      "category": "本地服务",
+      "market": "海外为主",
       "tags": [
-        "数学教育",
-        "交互式绘图",
-        "几何可视化"
+        "VPN",
+        "隐私",
+        "自动化"
       ],
-      "summary": "命令行几何工具的Web版，替代几何画板",
-      "description": "信号15的Geomatic是一个命令驱动的几何工具，支持自动微分。国内数学老师常用的几何画板价格高且需安装，在线免费替代品少。可以开发一个Web版，支持输入命令绘制点、线、圆，并自动计算几何关系，适配中文和数学教材。免费用户可导出图片，付费用户可导出交互式课件、保存工程。对标GeoGebra但更轻量。",
-      "painPoint": "几何画板贵且难用，老师与学生需要免费在线几何绘图工具。",
+      "summary": "提供轻量级VPN服务器一键安装与运维服务",
+      "description": "Mullvad退出IP VPN服务器，用户对隐私VPN需求上升，但商业VPN仍存信任风险。开发一个自动化脚本（Ansible/Terraform），用户只需提供VPS信息即可快速部署WireGuard + DNS防泄漏 + 流量伪装。同时提供收费的运维监控面板（在线时长、带宽使用）。目标人群：海外华人及隐私意识强的开发者。",
+      "painPoint": "不想信任商业VPN，但自己搭建VPN流程繁琐且易出错。",
       "path": [
-        "第一步：前端用Three.js/CSS 3D，后端用Python计算，复刻Geomatic核心命令",
-        "第二步：添加中文界面、教材题库示例，部署到Vercel",
-        "第三步：在教师群、知乎数学话题推广，提供免费版",
-        "第四步：推出Pro版（¥9.9/月）解锁课件导出、无限工程"
+        "编写 WireGuard + Fail2Ban + SSR 一键部署脚本",
+        "在 GitHub 开源基础版，附带文档和视频教程",
+        "提供付费版（可视化Web面板 + 多节点切换）",
+        "在 IndieHackers、Reddit r/selfhosted 推广"
       ],
-      "revenueModel": "Freemium，Pro版¥9.9/月，按1000付费用户算月收入¥9900",
-      "timeToRevenue": "3个月",
-      "startupCost": "< 3000元",
-      "difficulty": 4,
-      "potential": 8,
+      "revenueModel": "基础版免费，Web面板授权 ¥99/次；预估首月 200 付费用户，收入 ¥2 万",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 7,
       "competition": "中",
-      "evidence": "信号15的Geomatic在Hacker News获63分，说明命令行几何工具受到关注，存在Web化需求。",
+      "evidence": "Mullvad 的 Exit IP VPN 服务器缓解部署新闻获得 394 分，说明 VPN 隐私话题是目前社区焦点。",
       "sources": [
         {
-          "title": "Geomatic – A command-driven geometry studio enabled with autodiff",
-          "url": "https://www.tinyvolt.com/geomatic"
+          "title": "Exit IP VPN servers mitigation rollout",
+          "url": "https://mullvad.net/en/help/exit-ip-vpn-servers-mitigation-rollout"
         }
       ]
     },
     {
       "id": 4,
-      "title": "AI文章人性化改写器",
+      "title": "CI/CD状态监控面板",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "DevOps",
+        "监控",
+        "告警"
+      ],
+      "summary": "聚合监控GitHub Actions、GitLab CI等流水线状态",
+      "description": "GitHub Actions再次大规模宕机（405分），开发者被迫手动排查。开发一个SaaS工具，通过API获取多个CI/CD平台的状态，并叠加自定义健康检查。当流水线失败或平台宕机时，通过Slack/邮件/钉钉多渠道告警。免费版监控1个项目，付费版支持多项目+历史分析。",
+      "painPoint": "CI/CD平台宕机时无法第一时间感知，导致无效等待和发布延迟。",
+      "path": [
+        "撸一个Node.js后端，轮询GitHub/Statuspage API",
+        "用 React 搭建仪表盘，支持 Webhook 告警",
+        "上线 Product Hunt、Hacker News Show HN",
+        "推出免费版获客，Pro 版 $9/月"
+      ],
+      "revenueModel": "免费版100人用，转化率5%，Pro $9/月，首月收入约 $450（约¥3200）",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元（服务器+域名）",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "GitHub Actions 宕机新闻热度 405 分，且单独 incident 页面获 44 分，开发者对可靠 CI/CD 监控的需求明确。",
+      "sources": [
+        {
+          "title": "GitHub Actions down again today",
+          "url": "https://www.githubstatus.com/?today"
+        },
+        {
+          "title": "Incident with Actions and Pages",
+          "url": "https://www.githubstatus.com/incidents/gnftqj9htp0g"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "终端记账工具",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "CLI",
+        "个人理财",
+        "开发者"
+      ],
+      "summary": "面向开发者的终端记账与财务规划工具",
+      "description": "Hacker News上Fungible项目（14分）展示了终端理财需求。国内缺乏类似的高质量 CL 记账工具。开发一款TUI（终端界面）应用，支持多币种、自动分类、报表导出，并集成Plaid类API（国内用水星/支付宝导出）。核心卖点：极速启动、离线安全、Vim快捷键。通过Homebrew分发，付费功能包括投资组合追踪。",
+      "painPoint": "主流记账App界面冗杂且数据在云端，开发者偏好终端工具。",
+      "path": [
+        "用 Go/Rust 编写核心引擎，支持 CSV/QIF 导入",
+        "设计 TUI 界面（bubbletea/ratatui）",
+        "在 GitHub 开源基础版，Pro 版闭源",
+        "在 V2EX、Reddit r/commandline 推广"
+      ],
+      "revenueModel": "免费版功能完整，投资模块 ¥49 一次性购买；预估首月 500 下载，10% 付费，收入 ¥2450",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Fungible 在 Hacker News 获得 14 分，说明终端理财工具有明确的小众受众。",
+      "sources": [
+        {
+          "title": "Show HN: Fungible – A local personal finance app in the terminal",
+          "url": "https://github.com/tomfunk/fungible"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "桌面本地AI绘图",
       "category": "AI应用",
       "market": "国内为主",
       "tags": [
-        "内容生成",
-        "AI检测规避",
-        "SEO"
+        "Stable Diffusion",
+        "本地运行",
+        "macOS/Windows"
       ],
-      "summary": "让AI文章更像人写的，绕过检测",
-      "description": "信号34提到作者用AI写了5万篇文章，但「死互联网理论」指AI内容雷同被识别。许多内容创作者需要让AI文章更自然，避免被搜索引擎或平台判定为AI生成。开发一个在线改写工具，输入AI文本，通过替换句式、添加口语化表达、插入轻微错误等方式提升「人类评分」。免费版改500字，付费版无限。",
-      "painPoint": "AI生成内容容易被检测到，导致流量降权或封号。",
+      "summary": "跨平台桌面应用离线运行Stable Diffusion",
+      "description": "PhoneDiffusion（10分）实现了iOS本地AI生成，但桌面端仍有空白。开发一款基于Electron或Tauri的桌面应用，封装ollama或自定义推理引擎，支持模型切换、ControlNet、Prompt库。用户无需配置环境即可本地出图，隐私安全。国内对标：Midjourney付费高且国外，本地版可吸引设计师和AI爱好者。初期免费，高级功能（超分、批量生成）付费。",
+      "painPoint": "使用在线AI绘图需付费且作品可能被收集，本地方案配置复杂。",
       "path": [
-        "第一步：使用大模型+规则引擎，实现改写逻辑，开发Web应用",
-        "第二步：集成主流AI检测器（如GPTZero）作为评分反馈",
-        "第三步：在自媒体社群、SEO群推广，提供3次免费试用",
-        "第四步：推出包月制¥19.9/月，或按次付费¥1/千字"
+        "基于 Stable Diffusion WebUI API 或 ComfyUI 封装成桌面应用",
+        "打包成 DMG/EXE，内置常用模型（SD 1.5、SDXL、FLUX）",
+        "在少数派、知乎、B站发布教程视频",
+        "推出会员订阅 ¥19.9/月 解锁高级模型和性能加速"
       ],
-      "revenueModel": "月订阅¥19.9/月，按500用户计月收入¥9950",
+      "revenueModel": "免费版基础生成，Pro ¥19.9/月；目标 500 付费用户，月收入约 ¥1 万",
       "timeToRevenue": "2个月",
-      "startupCost": "< 2000元",
+      "startupCost": "< 3000元（GPU租用测试）",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "PhoneDiffusion 在 Hacker News 获得 10 分且支持本地离线，说明用户对端侧AI生成有兴趣。",
+      "sources": [
+        {
+          "title": "Show HN: PhoneDiffusion – Local AI image generation for iOS",
+          "url": "https://apps.apple.com/us/app/phonediffusion/id6762061991"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "项目管理模板市场",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "Plane",
+        "模板",
+        "SCRUM"
+      ],
+      "summary": "为开源项目Plane提供中文项目管理模板",
+      "description": "Plane（49766 star）是热门开源项目管理工具，但国内用户缺乏现成模板。创建一系列针对不同场景（互联网创业、电商运营、个人OKR）的模板，并在飞书/Notion习惯的用户中推广。通过售卖模板包（¥29/套）获利。同时可提供付费安装服务。",
+      "painPoint": "从Jira/ClickUp迁移到Plane后需要重新搭建流程，耗时费力。",
+      "path": [
+        "研究 Plane 的数据结构和导出导入 API",
+        "制作 5 套中文模板（含看板、字段、自动化规则）",
+        "在 V2EX、微信技术群、Plane 官方社区发布",
+        "付费模板通过 Gumroad（国内可接支付宝）销售"
+      ],
+      "revenueModel": "每套模板 ¥29，目标 100 份，收入 ¥2900",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 100元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Plane 在 GitHub 拥有 49766 star，是 Jira 热门的开源替代，表明用户基数庞大且需要生态内容。",
+      "sources": [
+        {
+          "title": "makeplane/plane: Open-source Jira/Linear alternative",
+          "url": "https://github.com/makeplane/plane"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Penpot设计插件市场",
+      "category": "内容创作",
+      "market": "海外为主",
+      "tags": [
+        "设计工具",
+        "插件",
+        "开源"
+      ],
+      "summary": "为Penpot开发中文设计插件并售卖",
+      "description": "Penpot（48451 star）是开源Figma替代，但插件生态薄弱。开发实用插件（如自动标注、图标库管理、中文SVG模板）并在其官方商店上架。同时提供定制开发服务。国内设计师可借此迁移至开源工具，降低订阅成本。",
+      "painPoint": "Figma订阅贵且网络限制，Penpot功能接近但缺少常用插件。",
+      "path": [
+        "学习 Penpot 插件开发文档（基于 ClojureScript）",
+        "开发第一个插件（如「一键生成产品说明图」）并发布",
+        "在 Dribbble、设计社区宣传免费版",
+        "付费插件定价 $5 起，定制开发 ¥500 起"
+      ],
+      "revenueModel": "插件销售收入 + 定制开发；首月预计 3-5 个付费订单，收入 ¥1500",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 200元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Penpot 以 48451 star 位列 GitHub 热门，是开源设计工具的标杆，生态建设有明显机会。",
+      "sources": [
+        {
+          "title": "penpot/penpot: Open-source design tool",
+          "url": "https://github.com/penpot/penpot"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Remotion视频模板库",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "视频",
+        "模板",
+        "React"
+      ],
+      "summary": "用Remotion制作可定制视频模板并销售",
+      "description": "Remotion（48087 star）用React代码生成视频，适合动态模板。制作一系列中文营销视频模板（新品发布、活动通知、生日祝福），用户只需修改组件参数即可导出.mp4。在B站、小红书展示效果，通过爱发电/小鹅通售卖。",
+      "painPoint": "企业制作营销视频成本高，可编程模板能极大提升效率。",
+      "path": [
+        "学习 Remotion 并制作 3 个精美模板（含动效）",
+        "在 GitHub 开源 1 个基础模板获星",
+        "录制使用教程并投放到视频平台",
+        "付费模板按套 ¥99，或会员订阅 ¥49/月"
+      ],
+      "revenueModel": "目标月售 50 套，收入 ¥4950",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Remotion 在 GitHub 有 48087 star，且 2026 年仍活跃，说明视频编程社区需求旺盛。",
+      "sources": [
+        {
+          "title": "remotion-dev/remotion: Make videos programmatically with React",
+          "url": "https://github.com/remotion-dev/remotion"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "动态DNS托管服务",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "DDNS",
+        "IPv6",
+        "DNSSEC"
+      ],
+      "summary": "面向开发者的轻量级动态DNS管理平台",
+      "description": "DynIP（211分）是一个开源DDNS方案，但托管服务仍有需求。提供比传统DDNS更简单的体验：用户一键下发Token，自动更新A/AAAA记录，支持DNSSEC签名。付费功能包括多域名、历史解析日志、API访问。对标DuckDNS但更专业。",
+      "painPoint": "自建DDNS需要维护服务器，免费DDNS服务不稳定且功能少。",
+      "path": [
+        "基于 Go 开发核心 API（兼容 RFC 2136）",
+        "搭建前端注册页面（免费版支持2个子域名）",
+        "在 Hacker News Show HN、GitHub 推广",
+        "Pro 版 $5/月（无限域名、DNSSEC、API）"
+      ],
+      "revenueModel": "免费版获客，Pro 版 $5/月；首月目标 50 付费用户，收入 $250（约¥1800）",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元（云服务器+域名）",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "DynIP 在 Hacker News 获得 211 分，说明动态DNS是开发者刚需，且用户对开源方案感兴趣。",
+      "sources": [
+        {
+          "title": "DynIP – Dynamic DNS with RFC 2136, IPv6, DNSSEC, and BYOD",
+          "url": "https://dynip.dev/"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "AI内容检测器",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "AI生成检测",
+        "浏览器扩展",
+        "反欺诈"
+      ],
+      "summary": "浏览器插件快速检测页面内容是否AI生成",
+      "description": "死互联网理论（51号信号）指出AI生成内容泛滥。开发一款浏览器扩展，利用本地小模型（如GPTZero的轻量版）或 API 判断文章/评论是否为AI撰写。国内自媒体平台（公众号、抖音文案）对此有需求（避免被举报）。免费版支持文本分析，付费版支持批量检测和报告导出。",
+      "painPoint": "无法分辨内容是否为AI生成，影响审核和原创判断。",
+      "path": [
+        "使用 HuggingFace 上的开源检测模型（如roberta-base-openai-detector）",
+        "编写 Chrome 扩展，可右键选中文本分析",
+        "在知乎、技术博客发布评测对比文章",
+        "Pro 版 ¥3.9/月（无限次数 + 批量扫描）"
+      ],
+      "revenueModel": "免费版每日 10 次，Pro 版 ¥3.9/月；预计首月 1000 付费用户，收入 ¥3900",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元（API 调用初始费用）",
       "difficulty": 3,
       "potential": 8,
-      "competition": "高",
-      "evidence": "信号34作者已通过AI写了5万篇文章，说明AI内容生成市场巨大，但检测风险催生改写需求。",
+      "competition": "中",
+      "evidence": "IndieHackers 文章《The dead internet theory is half right》揭示已有50,000篇AI文章被生产，凸显检测需求。",
       "sources": [
         {
           "title": "The dead internet theory is half right",
@@ -136,138 +371,35 @@
       ]
     },
     {
-      "id": 5,
-      "title": "微信机器人付费模板",
-      "category": "SaaS工具",
-      "market": "国内为主",
-      "tags": [
-        "微信机器人",
-        "Telegram Stars",
-        "付费订阅"
-      ],
-      "summary": "一键搭建微信付费机器人，借鉴TG模式",
-      "description": "信号28/33展示了在Telegram上通过Stars实现付费bot订阅，收入可观。中国微信生态类似但缺乏标准化付费机器人方案。可以开发一套「微信付费机器人模板」，集成企业微信或个人微信机器人API，支持自动回复、付费解锁功能、定时订阅。卖给有营销需求的微商、社群主。提供SaaS版按月付费。",
-      "painPoint": "微信社群主想自动回复收费内容，但缺乏简单可靠的付费机器人工具。",
-      "path": [
-        "第一步：基于Wechaty或企业微信API开发基础付费回复框架",
-        "第二步：搭建SaaS后台，支持自定义回复包、支付接口（微信支付）",
-        "第三步：在小鹅通、知乎等平台发布教程，引流",
-        "第四步：按月收费¥99/月，或一次性付费¥299"
-      ],
-      "revenueModel": "SaaS订阅¥99/月，按100个用户计月收入¥9900",
-      "timeToRevenue": "3个月",
-      "startupCost": "< 5000元",
-      "difficulty": 4,
-      "potential": 7,
-      "competition": "中",
-      "evidence": "信号28作者通过Telegram bot赚到实际收入，信号33详细计算了Stars到手金额，证明付费bot模式可行。",
-      "sources": [
-        {
-          "title": "I built a paid Telegram bot. Here's what Telegram Stars actually pay.",
-          "url": "https://dev.to/__747bb5a1521/i-built-a-paid-telegram-bot-heres-what-telegram-stars-actually-pay-3fo"
-        },
-        {
-          "title": "我做了个付费 Telegram bot。Telegram Stars 实际给开发者多少钱，我算了一笔账。",
-          "url": "https://dev.to/__747bb5a1521/wo-zuo-liao-ge-fu-fei-telegram-bot-telegram-stars-shi-ji-gei-kai-fa-zhe-duo-shao-qian-wo-suan-liao-bi-zhang--3p9k"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "title": "在线秘密共享工具",
+      "id": 13,
+      "title": "社交排程托管服务",
       "category": "SaaS工具",
       "market": "海外为主",
       "tags": [
-        "密码学",
-        "密钥管理",
-        "安全工具"
+        "社交媒体",
+        "调度",
+        "开源"
       ],
-      "summary": "一键生成Shamir秘密共享片段",
-      "description": "信号11详细解释了Shamir的秘密共享原理，热度135，说明开发者对安全技术有兴趣。很多企业和个人在管理私钥、密码时需要将秘密分割存储。开发一个简单易用的在线工具，输入秘密和阈值，自动生成N个分片，并支持下载或打印。免费版支持3个分片，付费版支持自定义质数、更多分片、API接入。",
-      "painPoint": "普通人需要安全分割密码/私钥，但没有简便的工具，手算复杂。",
+      "summary": "基于TryPost的多平台社交发布托管平台",
+      "description": "TryPost（11分）是开源社交排程工具，但需要自部署。提供托管版本：用户注册即可接入Twitter/LinkedIn/Mastodon，无需自己搭建服务器。收费按月订阅，免费版支持1个平台、5条排程。差异化：支持多账号轮发、AI内容建议（可选）。",
+      "painPoint": "开源排程工具功能强但部署麻烦，商业工具太贵。",
       "path": [
-        "第一步：用JavaScript实现Shamir算法，前端页面，不存储任何数据",
-        "第二步：部署到GitHub Pages或Vercel，开源",
-        "第三步：在Hacker News、Product Hunt发布，吸引海外用户",
-        "第四步：推出付费API（$9/月）和企业私有部署（$99/年）"
+        "Fork TryPost 并添加多租户支持和支付集成",
+        "使用 Vercel + Supabase 快速部署",
+        "在 Product Hunt、IndieHackers 推广",
+        "Hobby 版 $5/月，Pro 版 $15/月"
       ],
-      "revenueModel": "免费+付费API，首月预计100企业用户收入$9900（约¥70000）",
+      "revenueModel": "首月目标 50 付费用户，Hobby 为主，收入约 $250（约¥1800）",
       "timeToRevenue": "2个月",
-      "startupCost": "< 1000元",
-      "difficulty": 2,
-      "potential": 6,
-      "competition": "低",
-      "evidence": "信号11在HN获135分，说明开发者对秘密共享原理及应用有浓厚兴趣。",
-      "sources": [
-        {
-          "title": "How Shamir's Secret Sharing Works",
-          "url": "https://ente.com/blog/how-shamirs-secret-sharing-works/"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "title": "交互式代码阅读助手",
-      "category": "AI应用",
-      "market": "国内为主",
-      "tags": [
-        "代码学习",
-        "阅读工具",
-        "AI解释"
-      ],
-      "summary": "点选代码自动解释，降低阅读门槛",
-      "description": "信号9指出「没人再打开编程书了」，说明开发者更倾向于在线片段式学习，但阅读复杂代码仍困难。开发一个浏览器扩展或在线工具，用户选中一段代码，即可获得行级中文注释、语法解析、执行逻辑动画。面向编程初学者和需要快速理解他人代码的开发者。免费版每天10次，Pro版¥15/月不限次。",
-      "painPoint": "新手读开源项目代码像天书，缺乏及时解释工具。",
-      "path": [
-        "第一步：用AST解析器+大模型实现代码分段解释，开发Chrome扩展",
-        "第二步：先在GitHub Pages上展示demo，收集内测用户",
-        "第三步：在掘金、B站发教程推广，突出「秒懂复杂代码」",
-        "第四步：上线付费订阅，对接微信支付"
-      ],
-      "revenueModel": "Freemium，Pro版¥15/月，预计200付费用户月收入¥3000",
-      "timeToRevenue": "3个月",
-      "startupCost": "< 2000元",
+      "startupCost": "< 2000元（服务器+付费 API 初始调用）",
       "difficulty": 3,
-      "potential": 7,
+      "potential": 6,
       "competition": "中",
-      "evidence": "信号9热度148，反映编程书籍衰落现象，同时暗示开发者需要新的学习方式。",
+      "evidence": "TryPost 在 Hacker News 获得 11 分，且开源属性受开发者关注，托管版有明确补充价值。",
       "sources": [
         {
-          "title": "Nobody cracks open a programming book anymore",
-          "url": "https://unix.foo/posts/nobody-cracks-open-a-programming-book/"
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "title": "隐私年龄验证API",
-      "category": "SaaS工具",
-      "market": "海外为主",
-      "tags": [
-        "年龄验证",
-        "隐私保护",
-        "合规"
-      ],
-      "summary": "不收集用户数据的年龄验证服务",
-      "description": "信号1显示加州拟立法要求平台验证年龄但豁免Linux，背后是隐私与监管博弈。许多海外网站和应用需要年龄验证但又担心收集过多用户数据。提供一种零知识证明的年龄验证API：用户通过第三方认证（如ID.me）获得一个加密令牌，API仅返回「是否成年」布尔值，不存储任何原始数据。按调用次数收费。",
-      "painPoint": "网站需要年龄验证合规，但直接收集身份证信息隐私风险高。",
-      "path": [
-        "第一步：研究零知识证明方案或简单委托验证流程，开发API",
-        "第二步：与现有认证提供商（如Login with Google）合作",
-        "第三步：在Hacker News、国外科技博客发文章宣传",
-        "第四步：按1000次调用$5定价，提供免费层100次/月"
-      ],
-      "revenueModel": "按量计费，月均1000次调用收入$5，若100家客户（每家用10万次）月收入$5000",
-      "timeToRevenue": "3个月",
-      "startupCost": "< 5000元",
-      "difficulty": 4,
-      "potential": 7,
-      "competition": "中",
-      "evidence": "信号1热度778，说明年龄验证话题受极大关注，Linux豁免凸显隐私担忧。",
-      "sources": [
-        {
-          "title": "California moves to exempt Linux from its age-verification law after backlash",
-          "url": "https://www.tomshardware.com/software/linux/california-moves-to-exempt-linux-from-its-upcoming-age-verification-law-after-backlash-over-forcing-operating-systems-to-collect-users-ages-amendment-proposed-by-the-same-lawmaker-who-wrote-the-original-law"
+          "title": "Show HN: TryPost – open-source Social Media Scheduler",
+          "url": "https://trypost.it/en"
         }
       ]
     }
@@ -278,48 +410,66 @@
       "repo": "mastodon",
       "description": "Your self-hosted, globally interconnected microblogging community",
       "url": "https://github.com/mastodon/mastodon",
-      "starsToday": 49965,
-      "language": "Ruby"
+      "starsToday": 49964,
+      "language": "Ruby",
+      "insight": "可做中文定制版或主题插件市场",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
     },
     {
       "owner": "nlohmann",
       "repo": "json",
       "description": "JSON for Modern C++",
       "url": "https://github.com/nlohmann/json",
-      "starsToday": 49778,
-      "language": "C++"
+      "starsToday": 49779,
+      "language": "C++",
+      "insight": "学习现代C++最佳实践库，不适合直接创业",
+      "opportunityType": "学习",
+      "chinaFit": "medium"
     },
     {
       "owner": "makeplane",
       "repo": "plane",
       "description": "🔥🔥🔥 Open-source Jira, Linear, Monday, and ClickUp alternative. Plane is a modern project management platform to manage tasks, sprints, docs, and triage.",
       "url": "https://github.com/makeplane/plane",
-      "starsToday": 49732,
-      "language": "TypeScript"
+      "starsToday": 49766,
+      "language": "TypeScript",
+      "insight": "可做中文模板销售或企业部署服务",
+      "opportunityType": "产品",
+      "chinaFit": "high"
     },
     {
       "owner": "expo",
       "repo": "expo",
       "description": "An open-source framework for making universal native apps with React. Expo runs on Android, iOS, and the web.",
       "url": "https://github.com/expo/expo",
-      "starsToday": 49660,
-      "language": "TypeScript"
+      "starsToday": 49675,
+      "language": "TypeScript",
+      "insight": "Expo模板市场或深度培训课程",
+      "opportunityType": "产品",
+      "chinaFit": "high"
     },
     {
       "owner": "cypress-io",
       "repo": "cypress",
       "description": "Fast, easy and reliable testing for anything that runs in a browser.",
       "url": "https://github.com/cypress-io/cypress",
-      "starsToday": 49645,
-      "language": "TypeScript"
+      "starsToday": 49647,
+      "language": "TypeScript",
+      "insight": "可做Cypress最佳实践插件或企业培训",
+      "opportunityType": "产品",
+      "chinaFit": "high"
     },
     {
       "owner": "AlistGo",
       "repo": "alist",
       "description": "🗂️A file list/WebDAV program that supports multiple storages, powered by Gin and Solidjs. / 一个支持多存储的文件列表/WebDAV程序，使用 Gin 和 Solidjs。",
       "url": "https://github.com/AlistGo/alist",
-      "starsToday": 49530,
-      "language": "Go"
+      "starsToday": 49533,
+      "language": "Go",
+      "insight": "可做Alist托管服务或存储插件市场",
+      "opportunityType": "产品",
+      "chinaFit": "high"
     }
   ]
 }

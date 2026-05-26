@@ -331,6 +331,57 @@ ${JSON.stringify(draft, null, 2)}
   }
 }
 
+async function annotateTrending(apiKey: string, repos: any[]): Promise<any[] | null> {
+  if (repos.length === 0) return null
+
+  const repoList = repos.map((r: any, i: number) =>
+    `[T${i + 1}] ${r.owner}/${r.repo}${r.description ? ': ' + r.description : ''} | ★${r.starsToday} | ${r.language || '未知'}`
+  ).join('\n')
+
+  const annotatePrompt = `以下是今日 GitHub 热门仓库：
+
+${repoList}
+
+请为每个仓库提供面向中国独立开发者的简短机会解读。只返回 JSON 数组，不要有任何其他文字：
+
+[
+  {
+    "owner": "仓库owner",
+    "repo": "仓库名",
+    "insight": "25字以内中文：这个仓库对独立开发者意味着什么机会",
+    "opportunityType": "产品",
+    "chinaFit": "high"
+  }
+]
+
+opportunityType 必须是以下之一：就业、产品、学习、趋势
+chinaFit 必须是以下之一：high、medium、low`
+
+  try {
+    const res = await fetch('https://api.deepseek.com/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+      body: JSON.stringify({
+        model: 'deepseek-v4-flash',
+        max_tokens: 2048,
+        messages: [{ role: 'user', content: annotatePrompt }],
+      }),
+    })
+    if (!res.ok) { console.warn(`  ⚠ Trending annotation ${res.status}`); return null }
+    const json: any = await res.json()
+    const raw: string = json.choices?.[0]?.message?.content ?? ''
+    const stripped = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim()
+    const start = stripped.indexOf('[')
+    const end = stripped.lastIndexOf(']')
+    if (start === -1 || end === -1) return null
+    const result = JSON.parse(stripped.slice(start, end + 1))
+    return Array.isArray(result) ? result : null
+  } catch (err: any) {
+    console.warn(`  ⚠ Trending annotation failed: ${err?.message ?? err}`)
+    return null
+  }
+}
+
 async function main() {
   const apiKey = process.env.DEEPSEEK_API_KEY
   if (!apiKey) throw new Error('DEEPSEEK_API_KEY is required')
@@ -402,24 +453,14 @@ async function main() {
     )
     .join('\n\n')
 
-  const trendingBlock = trendingRepos.length > 0
-    ? trendingRepos.map((r: any, i: number) =>
-        `[T${i + 1}] ${r.owner}/${r.repo}${r.description ? ': ' + r.description : ''} | ★${r.starsToday} | ${r.language || '未知语言'}`
-      ).join('\n')
-    : ''
-
   const dedupeSection = historyContext
     ? `\n【近14天已生成的机会（避免重复）】\n${historyContext}\n`
-    : ''
-
-  const trendingSection = trendingBlock
-    ? `\n【今日 GitHub 热门仓库（需在 trending 数组中附机会解读）】\n${trendingBlock}\n`
     : ''
 
   const prompt = `今天是 ${date}。以下是从 HN、GitHub、Product Hunt、36kr、IndieHackers、V2EX、少数派等平台实时抓取的技术与市场信号（共 ${signals.length} 条，含真实 URL）：
 
 ${signalBlock}
-${dedupeSection}${trendingSection}
+${dedupeSection}
 ---
 
 请基于以上真实信号，为中国独立开发者/个人创业者挖掘 12-15 个可落地的副业机会。
@@ -431,7 +472,6 @@ ${dedupeSection}${trendingSection}
 4. category 只能从以下选择：AI应用、SaaS工具、自媒体、整活玩具、本地服务、内容创作
 5. ${historyContext ? 'category 相同且主题高度相似的机会不得重复出现（参考近14天历史）' : '避免生成过于相似的机会'}
 6. evidence 必须引用上方信号列表中的真实数据（具体数字、用户量、涨幅等），不允许使用模糊表达如"市场需求旺盛"
-${trendingBlock ? `7. 对【今日 GitHub 热门仓库】中每个仓库，在 trending 数组中提供：insight（30字以内中文机会解读）、opportunityType（"就业"|"产品"|"学习"|"趋势"，选最主要一种）、chinaFit（"high"|"medium"|"low"，评估国内适用性）` : ''}
 
 只返回如下格式的 JSON，不要有任何其他文字或 markdown 代码块：
 
@@ -466,20 +506,7 @@ ${trendingBlock ? `7. 对【今日 GitHub 热门仓库】中每个仓库，在 t
         { "title": "信号来源描述", "url": "必须是上面信号列表中的真实 URL" }
       ]
     }
-  ]${trendingBlock ? `,
-  "trending": [
-    {
-      "owner": "owner_name",
-      "repo": "repo_name",
-      "description": "原始描述",
-      "url": "https://github.com/owner/repo",
-      "starsToday": 1234,
-      "language": "Python",
-      "insight": "30字以内中文：这个仓库对独立开发者意味着什么",
-      "opportunityType": "产品",
-      "chinaFit": "high"
-    }
-  ]` : ''}
+  ]
 }`
 
   // ── Call DeepSeek ─────────────────────────────────────────────────────────
@@ -534,19 +561,23 @@ ${trendingBlock ? `7. 对【今日 GitHub 热门仓库】中每个仓库，在 t
     console.warn('  ⚠ Pass 2 failed, using Pass 1 output')
   }
 
-  // ── Write output ─────────────────────────────────────────────────────────
-  // Merge AI insights onto raw trending repos (raw data is authoritative for stars/url/etc)
+  // ── Pass 3: annotate trending repos ──────────────────────────────────────
   if (trendingRepos.length > 0) {
-    if (Array.isArray(data.trending) && data.trending.length > 0) {
-      const aiTrending: any[] = data.trending
+    console.log('Annotating trending repos (Pass 3)…')
+    const annotations = await annotateTrending(apiKey, trendingRepos)
+    if (annotations && annotations.length > 0) {
+      console.log(`  ✓ Pass 3: annotated ${annotations.length} repos`)
       data.trending = trendingRepos.map((repo: any) => {
-        const ai = aiTrending.find((a: any) => a.repo === repo.repo && a.owner === repo.owner)
-        return ai ? { ...repo, insight: ai.insight, opportunityType: ai.opportunityType, chinaFit: ai.chinaFit } : repo
+        const ann = annotations.find((a: any) => a.repo === repo.repo && a.owner === repo.owner)
+        return ann ? { ...repo, insight: ann.insight, opportunityType: ann.opportunityType, chinaFit: ann.chinaFit } : repo
       })
     } else {
+      console.warn('  ⚠ Pass 3 failed, using raw trending data')
       data.trending = trendingRepos
     }
   }
+
+  // ── Write output ─────────────────────────────────────────────────────────
   mkdirSync(outDir, { recursive: true })
   writeFileSync(outPath, JSON.stringify(data, null, 2) + '\n', 'utf-8')
   console.log(`✓ Wrote ${data.opportunities.length} opportunities → ${outPath}`)

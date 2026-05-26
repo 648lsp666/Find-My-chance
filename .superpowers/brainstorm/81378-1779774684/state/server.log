@@ -1,0 +1,5 @@
+{"type":"server-started","port":56716,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:56716","screen_dir":"/Users/sanli/Desktop/workplace/ai-programme/workspace/projects/opportunity-radar/.superpowers/brainstorm/81378-1779774684/content","state_dir":"/Users/sanli/Desktop/workplace/ai-programme/workspace/projects/opportunity-radar/.superpowers/brainstorm/81378-1779774684/state"}
+{"type":"screen-added","file":"/Users/sanli/Desktop/workplace/ai-programme/workspace/projects/opportunity-radar/.superpowers/brainstorm/81378-1779774684/content/vote-styles.html"}
+{"source":"user-event","type":"click","text":"B\n    \n      \n        收益模式 · 订阅制，目标月收 3000 元\n        \n          对你有帮助吗？\n          👍 32\n          👎 8\n        \n      \n    \n    \n      彩色胶囊 + 实时计数\n      醒目活泼，投票数量始终可见，有社交感","choice":"b","id":null,"timestamp":1779774829494}
+{"type":"screen-added","file":"/Users/sanli/Desktop/workplace/ai-programme/workspace/projects/opportunity-radar/.superpowers/brainstorm/81378-1779774684/content/waiting-1.html"}
+{"type":"server-stopped","reason":"idle timeout"}

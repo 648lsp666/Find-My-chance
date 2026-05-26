@@ -1,0 +1,104 @@
+<h2>分散感词云</h2>
+<p class="subtitle">保持 CSS 实现，加入分散效果</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:16px;background:#fdfcff;border-radius:8px">
+      <div style="font-family:monospace;font-size:9px;color:#9CA3AF;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">今日热词 · 点击过滤，再次点击取消</div>
+      <!-- Center-aligned flex + slight rotation on each word -->
+      <div style="display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:center;padding:8px 0">
+        <span style="display:inline-flex;align-items:baseline;gap:2px;transform:rotate(-6deg);cursor:pointer">
+          <span style="font-size:27px;font-weight:800;color:#7C3AED;line-height:1">AI应用</span>
+          <sup style="font-size:11px;color:#A78BFA">4</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;transform:rotate(4deg);cursor:pointer">
+          <span style="font-size:19px;font-weight:700;color:#5B21B6;line-height:1">副业变现</span>
+          <sup style="font-size:9px;color:#A78BFA">3</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;transform:rotate(-3deg);cursor:pointer">
+          <span style="font-size:17px;font-weight:600;color:#6D28D9;line-height:1">SaaS工具</span>
+          <sup style="font-size:9px;color:#A78BFA">3</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;transform:rotate(7deg);cursor:pointer">
+          <span style="font-size:13px;color:#7C3AED;line-height:1">Chrome插件</span>
+          <sup style="font-size:7px;color:#C4B5FD">2</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;transform:rotate(-8deg);cursor:pointer">
+          <span style="font-size:13px;color:#6D28D9;line-height:1">效率工具</span>
+          <sup style="font-size:7px;color:#C4B5FD">2</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;transform:rotate(5deg);cursor:pointer">
+          <span style="font-size:12px;color:#8B5CF6;line-height:1">整活玩具</span>
+          <sup style="font-size:7px;color:#C4B5FD">2</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;transform:rotate(-4deg);cursor:pointer">
+          <span style="font-size:11px;color:#A78BFA;line-height:1">自媒体</span>
+          <sup style="font-size:7px;color:#D8B4FE">1</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;transform:rotate(6deg);cursor:pointer">
+          <span style="font-size:10px;color:#A78BFA;line-height:1">内容创作</span>
+          <sup style="font-size:6px;color:#D8B4FE">1</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;transform:rotate(-5deg);cursor:pointer">
+          <span style="font-size:10px;color:#C4B5FD;line-height:1">本地服务</span>
+          <sup style="font-size:6px;color:#D8B4FE">1</sup>
+        </span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A · 居中 + 微旋转</h3>
+      <p>flex 居中排列，每个词轻微旋转（±8°），流动自然，不会混乱</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:16px;background:#fdfcff;border-radius:8px">
+      <div style="font-family:monospace;font-size:9px;color:#9CA3AF;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">今日热词 · 点击过滤，再次点击取消</div>
+      <!-- Variable margin nudge, no rotation -->
+      <div style="display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;justify-content:center;padding:4px 0">
+        <span style="display:inline-flex;align-items:baseline;gap:2px;margin-top:14px;cursor:pointer">
+          <span style="font-size:27px;font-weight:800;color:#7C3AED;line-height:1">AI应用</span>
+          <sup style="font-size:11px;color:#A78BFA">4</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;margin-top:4px;cursor:pointer">
+          <span style="font-size:19px;font-weight:700;color:#5B21B6;line-height:1">副业变现</span>
+          <sup style="font-size:9px;color:#A78BFA">3</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;margin-top:20px;cursor:pointer">
+          <span style="font-size:17px;font-weight:600;color:#6D28D9;line-height:1">SaaS工具</span>
+          <sup style="font-size:9px;color:#A78BFA">3</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;margin-top:0px;cursor:pointer">
+          <span style="font-size:13px;color:#7C3AED;line-height:1">Chrome插件</span>
+          <sup style="font-size:7px;color:#C4B5FD">2</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;margin-top:18px;cursor:pointer">
+          <span style="font-size:13px;color:#6D28D9;line-height:1">效率工具</span>
+          <sup style="font-size:7px;color:#C4B5FD">2</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;margin-top:6px;cursor:pointer">
+          <span style="font-size:12px;color:#8B5CF6;line-height:1">整活玩具</span>
+          <sup style="font-size:7px;color:#C4B5FD">2</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;margin-top:22px;cursor:pointer">
+          <span style="font-size:11px;color:#A78BFA;line-height:1">自媒体</span>
+          <sup style="font-size:7px;color:#D8B4FE">1</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;margin-top:10px;cursor:pointer">
+          <span style="font-size:10px;color:#A78BFA;line-height:1">内容创作</span>
+          <sup style="font-size:6px;color:#D8B4FE">1</sup>
+        </span>
+        <span style="display:inline-flex;align-items:baseline;gap:2px;margin-top:2px;cursor:pointer">
+          <span style="font-size:10px;color:#C4B5FD;line-height:1">本地服务</span>
+          <sup style="font-size:6px;color:#D8B4FE">1</sup>
+        </span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B · 垂直错落</h3>
+      <p>每个词用不同 margin-top 上下错落，无旋转，视觉上参差有层次感</p>
+    </div>
+  </div>
+
+</div>
