@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { SignInButton, UserButton } from '@clerk/nextjs'
+import { useAuth } from '@clerk/nextjs'
 import SubscribeForm from './SubscribeForm'
 
 const NAV_ITEMS = [
@@ -13,6 +15,7 @@ const NAV_ITEMS = [
 export default function Header() {
   const [time, setTime] = useState('')
   const pathname = usePathname()
+  const { isSignedIn } = useAuth()
 
   useEffect(() => {
     const tick = () =>
@@ -61,8 +64,18 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Right: subscribe + clock */}
+        {/* Right: auth + subscribe + clock */}
         <div className="flex items-center gap-4">
+          {!isSignedIn && (
+            <SignInButton mode="modal">
+              <button className="font-mono text-[12px] tracking-wide px-3 py-1.5 rounded-full border border-r-accent text-r-accent hover:bg-r-accent hover:text-white transition-all">
+                登录
+              </button>
+            </SignInButton>
+          )}
+          {isSignedIn && (
+            <UserButton />
+          )}
           <div className="hidden md:block">
             <SubscribeForm />
           </div>
