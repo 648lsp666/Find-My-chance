@@ -200,6 +200,66 @@ function loadRecentHistory(outDir: string, days: number = 14): string {
   return entries.join('\n')
 }
 
+async function runQualityCheck(
+  apiKey: string,
+  draft: any[],
+  historyContext: string,
+): Promise<any[] | null> {
+  const historySection = historyContext
+    ? `\n近14天历史机会（用于去重判断）：\n${historyContext}\n`
+    : ''
+
+  const qualityPrompt = `你是内容质检员。${historySection}
+今日草稿机会（${draft.length}条）：
+${JSON.stringify(draft, null, 2)}
+
+任务：
+1. 标记与历史 category+主题重复度 > 70% 的条目
+2. 标记 evidence 字段模糊（无具体数字或案例）的条目
+3. 删除被标记的条目，从剩余中保留质量最高的 6-8 条
+4. 只返回最终机会数组的 JSON，格式：[{ ...opportunity对象 }]，不要有任何其他文字`
+
+  const res = await fetch('https://api.deepseek.com/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: 'deepseek-v4-flash',
+      max_tokens: 8192,
+      messages: [{ role: 'user', content: qualityPrompt }],
+    }),
+  })
+
+  if (!res.ok) {
+    console.warn(`  ⚠ Pass 2 API error ${res.status}`)
+    return null
+  }
+
+  const json: any = await res.json()
+  const raw: string = json.choices?.[0]?.message?.content ?? ''
+  const stripped = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim()
+  const start = stripped.indexOf('[')
+  const end = stripped.lastIndexOf(']')
+  if (start === -1 || end === -1) {
+    console.warn('  ⚠ Pass 2 failed: no JSON array in response')
+    return null
+  }
+
+  try {
+    const result = JSON.parse(stripped.slice(start, end + 1))
+    if (!Array.isArray(result) || result.length === 0) {
+      console.warn('  ⚠ Pass 2 returned empty array')
+      return null
+    }
+    return result
+  } catch {
+    console.warn('  ⚠ Pass 2 failed: JSON parse error')
+    return null
+  }
+}
+
 async function main() {
   const apiKey = process.env.DEEPSEEK_API_KEY
   if (!apiKey) throw new Error('DEEPSEEK_API_KEY is required')
@@ -357,6 +417,19 @@ ${dedupeSection}
 
   if (!Array.isArray(data.opportunities) || data.opportunities.length === 0) {
     throw new Error('Response missing opportunities array')
+  }
+
+  // ── Pass 2: quality check ─────────────────────────────────────────────────
+  console.log('Running quality check (Pass 2)…')
+  const checkedOpportunities = await runQualityCheck(apiKey, data.opportunities, historyContext)
+
+  if (checkedOpportunities && checkedOpportunities.length >= 6) {
+    console.log(`  ✓ Pass 2: ${data.opportunities.length} → ${checkedOpportunities.length} opportunities`)
+    data.opportunities = checkedOpportunities
+  } else if (checkedOpportunities && checkedOpportunities.length < 6) {
+    console.warn(`  ⚠ Pass 2 filtered too aggressively (${checkedOpportunities.length} left), using Pass 1`)
+  } else {
+    console.warn('  ⚠ Pass 2 failed, using Pass 1 output')
   }
 
   // ── Write output ─────────────────────────────────────────────────────────
