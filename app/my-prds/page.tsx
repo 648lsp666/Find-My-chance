@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useUser, useClerk } from '@clerk/nextjs'
 import type { PrdEntry } from '@/lib/prd'
 import { DAILY_LIMIT } from '@/lib/prd'
@@ -20,6 +20,8 @@ export default function MyPrdsPage() {
   const [loading, setLoading] = useState(true)
   const [expandedId, setExpandedId] = useState<string | null>(null)
   const [copied, setCopied] = useState<string | null>(null)
+  const [fetchError, setFetchError] = useState(false)
+  const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     if (!isLoaded) return
@@ -31,13 +33,20 @@ export default function MyPrdsPage() {
     ]).then(([hist, quota]) => {
       setItems(hist.items ?? [])
       setRemaining(quota.remaining ?? 0)
-    }).catch(() => {}).finally(() => setLoading(false))
+    }).catch(() => { setFetchError(true) }).finally(() => setLoading(false))
   }, [isSignedIn, isLoaded])
 
+  useEffect(() => () => { if (copyTimerRef.current) clearTimeout(copyTimerRef.current) }, [])
+
   async function handleCopy(item: PrdEntry) {
-    await navigator.clipboard.writeText(item.content)
-    setCopied(item.id)
-    setTimeout(() => setCopied(null), 2000)
+    try {
+      await navigator.clipboard.writeText(item.content)
+      setCopied(item.id)
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current)
+      copyTimerRef.current = setTimeout(() => setCopied(null), 2000)
+    } catch {
+      // clipboard unavailable — no-op
+    }
   }
 
   if (!isLoaded || loading) {
@@ -85,6 +94,12 @@ export default function MyPrdsPage() {
             </div>
           )}
         </div>
+
+        {fetchError && (
+          <div className="rounded-xl px-4 py-3 mb-6" style={{ background: 'rgba(220,38,38,0.08)', border: '1px solid rgba(220,38,38,0.2)' }}>
+            <p className="font-sans text-[14px]" style={{ color: '#DC2626' }}>加载失败，请刷新重试</p>
+          </div>
+        )}
 
         {/* Empty state */}
         {items.length === 0 && (
