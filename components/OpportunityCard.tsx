@@ -1,5 +1,6 @@
 import type { Opportunity } from '@/lib/opportunities'
 import VoteBar from './VoteBar'
+import GeneratePrdButton from './GeneratePrdButton'
 import type { VoteCounts } from '@/hooks/useVotes'
 
 const SOURCE_MAP: Record<string, { label: string; icon: string; color: string }> = {
@@ -259,6 +260,7 @@ export default function OpportunityCard({
         )}
 
         <VoteBar date={date} opportunityId={o.id} initialCounts={initialCounts} />
+        <GeneratePrdButton opportunity={o} />
       </div>
     </article>
   )
