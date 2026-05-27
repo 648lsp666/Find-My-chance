@@ -39,6 +39,40 @@
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+
+  @keyframes radarPing {
+    0%   { transform: scale(0.4); opacity: 0.7; }
+    100% { transform: scale(2.8); opacity: 0; }
+  }
+
+  @keyframes radarSweep {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  @keyframes signalBlink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .radar-ring {
+    animation: radarPing 3s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  .radar-ring:nth-child(2) { animation-delay: 0.75s; }
+  .radar-ring:nth-child(3) { animation-delay: 1.5s; }
+  .radar-ring:nth-child(4) { animation-delay: 2.25s; }
+
+  .hero-slide-1 { animation: slideUp 0.7s 0.1s ease-out both; }
+  .hero-slide-2 { animation: slideUp 0.7s 0.25s ease-out both; }
+  .hero-slide-3 { animation: slideUp 0.7s 0.4s ease-out both; }
+  .hero-slide-4 { animation: slideUp 0.7s 0.55s ease-out both; }
+
+  .signal-dot { animation: signalBlink 2s ease-in-out infinite; }
 }
 
 @media print {
