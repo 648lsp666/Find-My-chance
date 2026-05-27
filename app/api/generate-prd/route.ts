@@ -44,6 +44,10 @@ ${customPrompt ? `\n## 开发者背景偏好\n${customPrompt}\n\n请根据以上
 只输出 Markdown 内容，不要有任何额外说明。`
 }
 
+interface DeepSeekResponse {
+  choices: Array<{ message: { content: string } }>
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { userId } = await auth()
@@ -51,25 +55,31 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: '请先登录' }, { status: 401 })
     }
 
-    const body = await req.json()
-    const {
-      opportunity,
-      customPrompt,
-      userApiKey,
-    }: { opportunity: Opportunity; customPrompt?: string; userApiKey?: string } = body
+    let body: { opportunity: Opportunity; customPrompt?: string; userApiKey?: string }
+    try {
+      body = await req.json()
+    } catch {
+      return NextResponse.json({ error: '请求格式错误' }, { status: 400 })
+    }
+    const { opportunity, customPrompt, userApiKey } = body
 
     if (!opportunity || typeof opportunity.id !== 'number') {
       return NextResponse.json({ error: '参数错误' }, { status: 400 })
     }
 
-    // Quota check
+    // Atomic quota check — incr first, then check
     const countKey = quotaKey(userId)
-    const used = (await kv.get<number>(countKey)) ?? 0
-    if (used >= DAILY_LIMIT) {
+    const newCount = await kv.incr(countKey)
+    if (newCount > DAILY_LIMIT) {
+      await kv.decr(countKey) // put it back
       return NextResponse.json(
         { error: `今日生成次数已用完（${DAILY_LIMIT}/${DAILY_LIMIT}），明日重置` },
         { status: 429 },
       )
+    }
+    // Set TTL only on first use today
+    if (newCount === 1) {
+      await kv.expire(countKey, 48 * 3600)
     }
 
     // Choose API key
@@ -79,18 +89,31 @@ export async function POST(req: NextRequest) {
     }
 
     // Call DeepSeek
-    const dsRes = await fetch('https://api.deepseek.com/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: 'deepseek-v4-flash',
-        max_tokens: 2048,
-        messages: [{ role: 'user', content: buildPrompt(opportunity, customPrompt) }],
-      }),
-    })
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 20000)
+    let dsRes: Response
+    try {
+      dsRes = await fetch('https://api.deepseek.com/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: 'deepseek-v4-flash',
+          max_tokens: 2048,
+          messages: [{ role: 'user', content: buildPrompt(opportunity, customPrompt) }],
+        }),
+        signal: controller.signal,
+      })
+    } catch (fetchErr: unknown) {
+      if ((fetchErr as { name?: string })?.name === 'AbortError') {
+        return NextResponse.json({ error: 'AI 生成超时，请稍后重试' }, { status: 504 })
+      }
+      throw fetchErr
+    } finally {
+      clearTimeout(timeoutId)
+    }
 
     if (!dsRes.ok) {
       const errText = await dsRes.text().catch(() => '')
@@ -98,15 +121,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'AI 生成失败，请稍后重试' }, { status: 502 })
     }
 
-    const dsJson: any = await dsRes.json()
+    const dsJson = await dsRes.json() as DeepSeekResponse
     const content: string = dsJson.choices?.[0]?.message?.content ?? ''
     if (!content) {
       return NextResponse.json({ error: 'AI 返回内容为空' }, { status: 502 })
     }
-
-    // Increment quota (set with 48h TTL on first use today, otherwise just overwrite)
-    const newCount = used + 1
-    await kv.set(countKey, newCount, { ex: 48 * 3600 })
 
     // Save to history (prepend, keep latest 50)
     const hKey = historyKey(userId)
