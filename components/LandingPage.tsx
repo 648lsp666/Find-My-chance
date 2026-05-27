@@ -174,10 +174,10 @@ export default function LandingPage({ latestDate }: Props) {
 
         <div className="relative z-10 max-w-3xl">
           {/* Eyebrow */}
-          <div className="hero-slide-1 flex items-center justify-center gap-2 mb-4">
+          <div className="hero-slide-1 flex items-center justify-center gap-2 mb-5">
             <span
-              className="font-mono text-[11px] tracking-[0.3em] uppercase px-3 py-1 rounded-full"
-              style={{ background: 'rgba(124,58,237,0.2)', color: '#A78BFA', border: '1px solid rgba(124,58,237,0.3)' }}
+              className="font-mono font-bold tracking-wide px-4 py-1.5 rounded-full"
+              style={{ background: 'rgba(124,58,237,0.25)', color: '#C4B5FD', border: '1px solid rgba(124,58,237,0.4)', fontSize: '15px' }}
             >
               AI 每日机会雷达
             </span>
@@ -257,11 +257,10 @@ export default function LandingPage({ latestDate }: Props) {
       <section id="how" className="py-20 px-6 bg-r-bg">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-r-accent mb-2">工作流程</p>
-            <h2 className="font-display font-bold text-r-text" style={{ fontSize: 'clamp(28px, 4vw, 42px)' }}>
-              每天自动运行
+            <h2 className="font-display font-extrabold text-r-text mb-3" style={{ fontSize: 'clamp(40px, 6vw, 64px)', letterSpacing: '-0.02em' }}>
+              工作流程
             </h2>
-            <p className="font-sans text-r-muted mt-3 text-[15px]">无需任何操作，凌晨采集，中午准时上线</p>
+            <p className="font-sans text-r-muted text-[16px]">无需任何操作，凌晨采集，中午准时上线</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 relative">
@@ -312,10 +311,10 @@ export default function LandingPage({ latestDate }: Props) {
       <section className="py-20 px-6" style={{ background: '#FAFAFE' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-r-accent mb-2">产品功能</p>
-            <h2 className="font-display font-bold text-r-text" style={{ fontSize: 'clamp(28px, 4vw, 42px)' }}>
+            <h2 className="font-display font-extrabold text-r-text mb-3" style={{ fontSize: 'clamp(40px, 6vw, 64px)', letterSpacing: '-0.02em' }}>
               每天你会看到什么
             </h2>
+            <p className="font-sans text-r-muted text-[16px]">三个核心模块，覆盖机会发现的全链路</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-5">
@@ -361,8 +360,8 @@ export default function LandingPage({ latestDate }: Props) {
             {latestDate ? `最新简报 · ${latestDate}` : '每日更新'}
           </p>
           <h2
-            className="font-display font-bold text-white mb-4"
-            style={{ fontSize: 'clamp(28px, 5vw, 52px)', letterSpacing: '-0.02em' }}
+            className="font-display font-extrabold text-white mb-4"
+            style={{ fontSize: 'clamp(40px, 6vw, 64px)', letterSpacing: '-0.02em' }}
           >
             今天有哪些机会？
           </h2>

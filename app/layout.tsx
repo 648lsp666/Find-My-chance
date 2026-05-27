@@ -3,7 +3,7 @@ import { Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import { zhCN } from '@clerk/localizations'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import Header from '@/components/Header'
+import ConditionalHeader from '@/components/ConditionalHeader'
 import './globals.css'
 
 const syne = Plus_Jakarta_Sans({
@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <html lang="zh-CN" className={`${syne.variable} ${mono.variable}`}>
         <body>
-          <Header />
+          <ConditionalHeader />
           {children}
           <SpeedInsights />
         </body>
