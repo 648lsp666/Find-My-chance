@@ -64,8 +64,8 @@ export default function PrdModal({ opportunity, onClose }: Props) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           opportunity,
-          customPrompt: customPrompt.trim() || undefined,
-          userApiKey: userApiKey.trim() || undefined,
+          customPrompt: showByok ? customPrompt.trim() || undefined : undefined,
+          userApiKey: showByok ? userApiKey.trim() || undefined : undefined,
         }),
       })
       const data = await res.json()
@@ -244,8 +244,8 @@ export default function PrdModal({ opportunity, onClose }: Props) {
                 {generating ? '生成中…' : '生成 PRD'}
               </button>
               <span className="font-mono text-[12px] text-r-muted">
-                {userApiKey ? '使用自带 Key' : '使用免费次数'}
-                {customPrompt ? ' · 已设偏好' : ''}
+                {showByok && userApiKey ? '使用自带 Key' : '使用免费次数'}
+                {showByok && customPrompt ? ' · 已设偏好' : ''}
               </span>
             </>
           )}
