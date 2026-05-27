@@ -2,6 +2,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import type { Opportunity } from '@/lib/opportunities'
 import { DAILY_LIMIT } from '@/lib/prd'
 
@@ -37,10 +38,11 @@ export default function PrdModal({ opportunity, onClose }: Props) {
       .catch(() => setRemaining(0))
   }, [])
 
-  // Lock body scroll
+  // Lock body scroll; restore exact original value on unmount
   useEffect(() => {
+    const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    return () => { document.body.style.overflow = '' }
+    return () => { document.body.style.overflow = prev }
   }, [])
 
   function handleByokChange(key: string, value: string) {
@@ -226,12 +228,13 @@ export default function PrdModal({ opportunity, onClose }: Props) {
               >
                 重新生成
               </button>
-              <a
+              <Link
                 href="/my-prds"
+                onClick={onClose}
                 className="font-mono text-[12px] text-r-accent ml-auto hover:underline"
               >
                 查看历史 →
-              </a>
+              </Link>
             </>
           ) : (
             <>
