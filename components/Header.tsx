@@ -11,6 +11,7 @@ import { useSubscription } from '@/hooks/useSubscription'
 const NAV_ITEMS = [
   { href: '/', label: '每日机会', match: (p: string) => /^\/\d{4}-\d{2}-\d{2}/.test(p) || p === '/' },
   { href: '/trends', label: '技术风口', match: (p: string) => p.startsWith('/trends') },
+  { href: '/my-prds', label: '我的PRD', match: (p: string) => p === '/my-prds' },
 ]
 
 export default function Header() {
