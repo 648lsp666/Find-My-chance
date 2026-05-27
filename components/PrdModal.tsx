@@ -140,9 +140,9 @@ export default function PrdModal({ opportunity, onClose }: Props) {
               >
                 📄
               </div>
-              <p className="font-display font-bold text-r-text text-[20px] mb-2">AI 定制 PRD</p>
+              <p className="font-display font-bold text-r-text text-[20px] mb-2">一键生成 PRD，开启产品创建之旅</p>
               <p className="font-sans text-r-muted text-[14px] leading-relaxed max-w-sm">
-                基于该机会生成结构化产品需求文档，包含目标用户、核心功能、技术建议和商业化思路
+                AI 为你定制结构化产品需求文档，涵盖目标用户、核心功能、技术建议与商业化路径
               </p>
               {remaining === 0 && (
                 <p className="font-mono text-[12px] mt-4 px-3 py-1.5 rounded-full" style={{ background: 'rgba(220,38,38,0.08)', color: '#DC2626' }}>
