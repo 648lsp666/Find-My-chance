@@ -10,7 +10,8 @@ export interface PrdEntry {
 }
 
 export function quotaKey(userId: string): string {
-  const today = new Date().toISOString().slice(0, 10)
+  // UTC+8 so quota resets at midnight China time (matches "明日00:00重置" UI copy)
+  const today = new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10)
   return `prd:count:${userId}:${today}`
 }
 

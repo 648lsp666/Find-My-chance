@@ -85,68 +85,76 @@ export async function POST(req: NextRequest) {
     // Choose API key
     const apiKey = userApiKey?.trim() || process.env.DEEPSEEK_API_KEY
     if (!apiKey) {
+      await kv.decr(countKey)
       return NextResponse.json({ error: '缺少 API Key' }, { status: 500 })
     }
 
-    // Call DeepSeek
-    const controller = new AbortController()
-    const timeoutId = setTimeout(() => controller.abort(), 20000)
-    let dsRes: Response
+    // Call DeepSeek — roll back quota on any downstream failure
+    let content: string
     try {
-      dsRes = await fetch('https://api.deepseek.com/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          model: 'deepseek-v4-flash',
-          max_tokens: 2048,
-          messages: [{ role: 'user', content: buildPrompt(opportunity, customPrompt) }],
-        }),
-        signal: controller.signal,
-      })
-    } catch (fetchErr: unknown) {
-      if ((fetchErr as { name?: string })?.name === 'AbortError') {
-        return NextResponse.json({ error: 'AI 生成超时，请稍后重试' }, { status: 504 })
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 20000)
+      let dsRes: Response
+      try {
+        dsRes = await fetch('https://api.deepseek.com/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${apiKey}`,
+          },
+          body: JSON.stringify({
+            model: 'deepseek-v4-flash',
+            max_tokens: 2048,
+            messages: [{ role: 'user', content: buildPrompt(opportunity, customPrompt) }],
+          }),
+          signal: controller.signal,
+        })
+      } catch (fetchErr: unknown) {
+        if ((fetchErr as { name?: string })?.name === 'AbortError') {
+          return NextResponse.json({ error: 'AI 生成超时，请稍后重试' }, { status: 504 })
+        }
+        throw fetchErr
+      } finally {
+        clearTimeout(timeoutId)
       }
-      throw fetchErr
-    } finally {
-      clearTimeout(timeoutId)
-    }
 
-    if (!dsRes.ok) {
-      const errText = await dsRes.text().catch(() => '')
-      console.error('DeepSeek error:', dsRes.status, errText)
-      return NextResponse.json({ error: 'AI 生成失败，请稍后重试' }, { status: 502 })
-    }
+      if (!dsRes.ok) {
+        // Do not log errText — it may contain auth context from DeepSeek's response
+        console.error('DeepSeek error status:', dsRes.status)
+        return NextResponse.json({ error: 'AI 生成失败，请稍后重试' }, { status: 502 })
+      }
 
-    const dsJson = await dsRes.json() as DeepSeekResponse
-    const content: string = dsJson.choices?.[0]?.message?.content ?? ''
-    if (!content) {
-      return NextResponse.json({ error: 'AI 返回内容为空' }, { status: 502 })
-    }
+      const dsJson = await dsRes.json() as DeepSeekResponse
+      content = dsJson.choices?.[0]?.message?.content ?? ''
+      if (!content) {
+        return NextResponse.json({ error: 'AI 返回内容为空' }, { status: 502 })
+      }
 
-    // Save to history (prepend, keep latest 50)
-    const hKey = historyKey(userId)
-    const existingHistory = (await kv.get<PrdEntry[]>(hKey)) ?? []
-    const entry: PrdEntry = {
-      id: Date.now().toString(),
-      opportunityId: opportunity.id,
-      opportunityTitle: opportunity.title,
-      createdAt: new Date().toISOString(),
-      content,
-      isCustom: !!userApiKey?.trim(),
+      // Save to history (prepend, keep latest 50)
+      const hKey = historyKey(userId)
+      const existingHistory = (await kv.get<PrdEntry[]>(hKey)) ?? []
+      const entry: PrdEntry = {
+        id: Date.now().toString(),
+        opportunityId: opportunity.id,
+        opportunityTitle: opportunity.title,
+        createdAt: new Date().toISOString(),
+        content,
+        isCustom: !!userApiKey?.trim(),
+      }
+      await kv.set(hKey, [entry, ...existingHistory].slice(0, 50))
+    } catch (err) {
+      // Roll back the quota slot so the user is not charged for a failed generation
+      await kv.decr(countKey)
+      console.error('generate-prd downstream error:', (err as Error)?.message ?? 'unknown')
+      return NextResponse.json({ error: '服务器错误' }, { status: 500 })
     }
-    const updatedHistory = [entry, ...existingHistory].slice(0, 50)
-    await kv.set(hKey, updatedHistory)
 
     return NextResponse.json({
       content,
       remaining: Math.max(0, DAILY_LIMIT - newCount),
     })
   } catch (err) {
-    console.error('generate-prd error:', err)
+    console.error('generate-prd error:', (err as Error)?.message ?? 'unknown')
     return NextResponse.json({ error: '服务器错误' }, { status: 500 })
   }
 }
