@@ -38,25 +38,6 @@ export default function PrdModal({ opportunity, onClose }: Props) {
       .catch(() => setRemaining(0))
   }, [])
 
-  // Lock scroll using position:fixed on body — works across all browsers.
-  // overflow:hidden on html/body alone is unreliable because the scroll
-  // container differs by browser. Saving scrollY and restoring it on
-  // cleanup guarantees the user returns to the same spot after closing.
-  useEffect(() => {
-    const scrollY = window.scrollY
-    document.body.style.overflow = 'hidden'
-    document.body.style.position = 'fixed'
-    document.body.style.top = `-${scrollY}px`
-    document.body.style.width = '100%'
-    return () => {
-      document.body.style.overflow = ''
-      document.body.style.position = ''
-      document.body.style.top = ''
-      document.body.style.width = ''
-      window.scrollTo(0, scrollY)
-    }
-  }, [])
-
   function handleByokChange(key: string, value: string) {
     if (key === 'apiKey') {
       setUserApiKey(value)
