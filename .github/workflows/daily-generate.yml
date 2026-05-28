@@ -2,8 +2,8 @@ name: Daily Opportunity Generation
 
 on:
   schedule:
-    # 04:00 UTC = 12:00 CST
-    - cron: '0 4 * * *'
+    # 03:23 UTC = 11:23 CST
+    - cron: '23 3 * * *'
   workflow_dispatch:
     inputs:
       force:
