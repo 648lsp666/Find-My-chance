@@ -10,7 +10,7 @@ interface Props {
 
 export default function DateNav({ dates, currentDate, basePath = '' }: Props) {
   return (
-    <div className="bg-white border-b border-r-border">
+    <div className="bg-r-card border-b border-r-border transition-colors">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex overflow-x-auto no-scrollbar">
           {dates.slice(0, 20).map((date, i) => {

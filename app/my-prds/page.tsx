@@ -148,7 +148,7 @@ export default function MyPrdsPage() {
                   <pre className="px-5 py-4 font-sans text-[13px] text-r-text leading-[1.8] whitespace-pre-wrap break-words overflow-auto max-h-[60vh]">
                     {item.content}
                   </pre>
-                  <div className="px-5 py-3 border-t border-r-border flex items-center gap-3" style={{ background: '#FAFAFE' }}>
+                  <div className="px-5 py-3 border-t border-r-border flex items-center gap-3" style={{ background: 'var(--r-panel-bg)' }}>
                     <button
                       onClick={() => handleCopy(item)}
                       className="font-mono text-[12px] font-bold px-4 py-2 rounded-full text-white transition-colors"

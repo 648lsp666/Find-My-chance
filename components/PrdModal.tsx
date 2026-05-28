@@ -38,11 +38,18 @@ export default function PrdModal({ opportunity, onClose }: Props) {
       .catch(() => setRemaining(0))
   }, [])
 
-  // Lock body scroll; restore exact original value on unmount
+  // Lock scroll on documentElement (more reliable than body in modern browsers).
+  // Compensate for scrollbar disappearance to prevent layout shift.
   useEffect(() => {
-    const prev = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => { document.body.style.overflow = prev }
+    const el = document.documentElement
+    const prevOverflow = el.style.overflow
+    const scrollbarW = window.innerWidth - el.clientWidth
+    el.style.overflow = 'hidden'
+    if (scrollbarW > 0) el.style.paddingRight = `${scrollbarW}px`
+    return () => {
+      el.style.overflow = prevOverflow
+      el.style.paddingRight = ''
+    }
   }, [])
 
   function handleByokChange(key: string, value: string) {
@@ -101,12 +108,12 @@ export default function PrdModal({ opportunity, onClose }: Props) {
     >
       <div
         className="relative w-full max-w-2xl max-h-[88vh] flex flex-col rounded-2xl overflow-hidden"
-        style={{ background: '#FFFFFF', boxShadow: '0 24px 80px rgba(0,0,0,0.2)' }}
+        style={{ background: 'var(--r-card-hex)', boxShadow: '0 24px 80px rgba(0,0,0,0.3)' }}
       >
         {/* Header */}
         <div
           className="flex items-center justify-between px-6 py-4 border-b border-r-border flex-shrink-0"
-          style={{ background: 'linear-gradient(90deg, #EDE9FE, #F5F4FF)' }}
+          style={{ background: 'var(--r-modal-gradient)' }}
         >
           <div>
             <p className="font-mono text-[11px] text-r-accent tracking-widest uppercase mb-0.5">生成 PRD</p>
@@ -141,7 +148,7 @@ export default function PrdModal({ opportunity, onClose }: Props) {
                 📄
               </div>
               <p className="font-display font-bold text-r-text text-[20px] mb-2">一键生成 PRD，开启产品创建之旅</p>
-              <p className="font-sans text-r-muted text-[14px] leading-relaxed max-w-sm">
+              <p className="font-sans text-r-body text-[14px] leading-relaxed max-w-sm">
                 AI 为你定制结构化产品需求文档，涵盖目标用户、核心功能、技术建议与商业化路径
               </p>
               {remaining === 0 && (
@@ -169,7 +176,7 @@ export default function PrdModal({ opportunity, onClose }: Props) {
 
           {/* Result */}
           {content && (
-            <pre className="font-sans text-[14px] text-r-text leading-[1.8] whitespace-pre-wrap break-words">
+            <pre className="font-sans text-[14px] text-r-body leading-[1.8] whitespace-pre-wrap break-words">
               {content}
             </pre>
           )}
@@ -185,7 +192,7 @@ export default function PrdModal({ opportunity, onClose }: Props) {
             <span style={{ transform: showByok ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>▾</span>
           </button>
           {showByok && (
-            <div className="px-6 pb-4 space-y-3" style={{ background: '#FAFAFE' }}>
+            <div className="px-6 pb-4 space-y-3" style={{ background: 'var(--r-panel-bg)' }}>
               <div>
                 <label className="font-mono text-[11px] text-r-muted block mb-1">DeepSeek API Key（存于本地，不上传服务器）</label>
                 <input
@@ -193,7 +200,7 @@ export default function PrdModal({ opportunity, onClose }: Props) {
                   value={userApiKey}
                   onChange={e => handleByokChange('apiKey', e.target.value)}
                   placeholder="sk-..."
-                  className="w-full font-mono text-[13px] px-3 py-2 rounded-lg border border-r-border focus:outline-none focus:border-r-accent"
+                  className="w-full font-mono text-[13px] px-3 py-2 rounded-lg border border-r-border bg-r-card text-r-text focus:outline-none focus:border-r-accent"
                 />
               </div>
               <div>
@@ -203,7 +210,7 @@ export default function PrdModal({ opportunity, onClose }: Props) {
                   onChange={e => handleByokChange('customPrompt', e.target.value)}
                   placeholder="描述你的技术背景和市场偏好，AI 将据此定制 PRD…"
                   rows={2}
-                  className="w-full font-sans text-[13px] px-3 py-2 rounded-lg border border-r-border focus:outline-none focus:border-r-accent resize-none"
+                  className="w-full font-sans text-[13px] px-3 py-2 rounded-lg border border-r-border bg-r-card text-r-text focus:outline-none focus:border-r-accent resize-none"
                 />
               </div>
             </div>
@@ -211,7 +218,7 @@ export default function PrdModal({ opportunity, onClose }: Props) {
         </div>
 
         {/* Footer actions */}
-        <div className="flex-shrink-0 flex items-center gap-3 px-6 py-4 border-t border-r-border" style={{ background: '#FAFAFE' }}>
+        <div className="flex-shrink-0 flex items-center gap-3 px-6 py-4 border-t border-r-border" style={{ background: 'var(--r-panel-bg)' }}>
           {content ? (
             <>
               <button

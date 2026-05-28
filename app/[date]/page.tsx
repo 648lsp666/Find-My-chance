@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { getAllDates, getOpportunities } from '@/lib/opportunities'
 import DateNav from '@/components/DateNav'
 import DailyContent from '@/components/DailyContent'
-import SharePdfButtons from '@/components/SharePdfButtons'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export async function generateStaticParams() {
   return getAllDates().map(date => ({ date }))
@@ -54,7 +54,7 @@ export default function DatePage({ params }: { params: { date: string } }) {
         {/* Daily brief + word cloud + opportunity list */}
         <DailyContent data={data} date={params.date} />
 
-        <SharePdfButtons date={params.date} />
+        <ScrollToTop />
 
         <p className="font-mono text-[10px] text-r-muted/40 text-center mt-12 tracking-[0.2em] uppercase">
           见微 Prowl · 由 Claude AI 每日自动生成 · 仅供参考

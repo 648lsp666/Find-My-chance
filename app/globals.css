@@ -3,18 +3,76 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Space-separated RGB tuples — lets Tailwind inject opacity modifiers */
+    --r-bg:     245 244 255;
+    --r-card:   255 255 255;
+    --r-border: 229 227 245;
+    --r-text:   30 27 75;
+    --r-body:   55 65 81;
+    --r-muted:  107 114 128;
+    --r-faint:  156 163 175;
+    --r-dim:    196 181 253;
+    --r-accent: 124 58 237;
+    --r-time:   13 148 136;
+
+    /* Hex values for use in inline style={{ }} props */
+    --r-card-hex:    #FFFFFF;
+    --r-bg-hex:      #F5F4FF;
+    --r-border-hex:  #E5E3F5;
+    --r-text-hex:    #1E1B4B;
+    --r-body-hex:    #374151;
+    --r-muted-hex:   #6B7280;
+    --r-accent-hex:  #7C3AED;
+
+    /* Component tokens */
+    --r-pain-bg:        #FFFBEB;
+    --r-pain-border:    #F59E0B;
+    --r-pain-label:     #B45309;
+    --r-panel-bg:       #FAFAFE;
+    --r-modal-gradient: linear-gradient(90deg, #EDE9FE, #F5F4FF);
+  }
+
+  .dark {
+    --r-bg:     13 11 26;
+    --r-card:   22 18 40;
+    --r-border: 45 34 72;
+    --r-text:   237 233 254;
+    --r-body:   196 181 253;
+    --r-muted:  139 135 168;
+    --r-faint:  92 88 128;
+    --r-dim:    109 40 217;
+    --r-accent: 139 92 246;
+    --r-time:   20 184 166;
+
+    --r-card-hex:    #161228;
+    --r-bg-hex:      #0D0B1A;
+    --r-border-hex:  #2D2248;
+    --r-text-hex:    #EDE9FE;
+    --r-body-hex:    #C4B5FD;
+    --r-muted-hex:   #8B87A8;
+    --r-accent-hex:  #8B5CF6;
+
+    --r-pain-bg:        rgba(180, 83, 9, 0.15);
+    --r-pain-border:    #92400E;
+    --r-pain-label:     #FCD34D;
+    --r-panel-bg:       #1A1530;
+    --r-modal-gradient: linear-gradient(90deg, rgba(109,40,217,0.25), rgba(45,34,72,0.45));
+  }
+
   * { box-sizing: border-box; }
 
   body {
-    background-color: #F5F4FF;
-    color: #1E1B4B;
+    background-color: rgb(var(--r-bg));
+    color: rgb(var(--r-text));
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   ::selection {
     background: rgba(124, 58, 237, 0.2);
-    color: #1E1B4B;
+    color: rgb(var(--r-text));
   }
 }
 
@@ -28,7 +86,10 @@
   .card-lift:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(124, 58, 237, 0.12);
-    border-color: #C4B5FD !important;
+    border-color: rgb(var(--r-dim)) !important;
+  }
+  .dark .card-lift:hover {
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.22);
   }
 
   .fade-in {
@@ -73,6 +134,14 @@
   .hero-slide-4 { animation: slideUp 0.7s 0.55s ease-out both; }
 
   .signal-dot { animation: signalBlink 2s ease-in-out infinite; }
+
+  /* Dark mode overrides for elements that use inline style={{ }} */
+  .dark .signal-hdr {
+    background: rgba(255, 255, 255, 0.05) !important;
+  }
+  .dark .cat-hdr {
+    background: rgba(139, 92, 246, 0.10) !important;
+  }
 }
 
 @media print {

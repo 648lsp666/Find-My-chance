@@ -5,6 +5,7 @@ const config: Config = {
     './app/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -14,15 +15,16 @@ const config: Config = {
       },
       colors: {
         r: {
-          bg:     '#F5F4FF',
-          card:   '#FFFFFF',
-          border: '#E5E3F5',
-          dim:    '#C4B5FD',
-          muted:  '#6B7280',
-          faint:  '#9CA3AF',
-          text:   '#1E1B4B',
-          accent: '#7C3AED',
-          time:   '#0D9488',
+          bg:     'rgb(var(--r-bg) / <alpha-value>)',
+          card:   'rgb(var(--r-card) / <alpha-value>)',
+          border: 'rgb(var(--r-border) / <alpha-value>)',
+          dim:    'rgb(var(--r-dim) / <alpha-value>)',
+          muted:  'rgb(var(--r-muted) / <alpha-value>)',
+          faint:  'rgb(var(--r-faint) / <alpha-value>)',
+          text:   'rgb(var(--r-text) / <alpha-value>)',
+          body:   'rgb(var(--r-body) / <alpha-value>)',
+          accent: 'rgb(var(--r-accent) / <alpha-value>)',
+          time:   'rgb(var(--r-time) / <alpha-value>)',
         },
       },
       keyframes: {

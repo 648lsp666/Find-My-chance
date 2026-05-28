@@ -60,7 +60,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       localization={zhCN}
       appearance={{ variables: { colorPrimary: '#7C3AED', borderRadius: '12px' } }}
     >
-      <html lang="zh-CN" className={`${syne.variable} ${mono.variable}`}>
+      <html lang="zh-CN" className={`${syne.variable} ${mono.variable}`} suppressHydrationWarning>
+        <head>
+          {/* Inject theme before first paint to prevent flash */}
+          <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(t===null&&p))document.documentElement.classList.add('dark');})();` }} />
+        </head>
         <body>
           <ConditionalHeader />
           {children}

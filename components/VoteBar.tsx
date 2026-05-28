@@ -66,14 +66,14 @@ export default function VoteBar({ date, opportunityId, initialCounts }: Props) {
     const isOther = voted !== null && voted !== type
     return {
       background: isVoted
-        ? type === 'up' ? '#f0fdf4' : '#fef2f2'
+        ? type === 'up' ? 'rgba(22,163,74,0.12)' : 'rgba(220,38,38,0.12)'
         : isOther
-          ? '#f9fafb'
-          : type === 'up' ? '#f0fdf4' : '#fef2f2',
+          ? 'rgba(156,163,175,0.10)'
+          : type === 'up' ? 'rgba(22,163,74,0.08)' : 'rgba(220,38,38,0.08)',
       color: isVoted
         ? type === 'up' ? '#16a34a' : '#dc2626'
         : isOther
-          ? '#9ca3af'
+          ? 'rgb(var(--r-faint))'
           : type === 'up' ? '#16a34a' : '#dc2626',
       borderRadius: '20px',
       padding: '7px 16px',
