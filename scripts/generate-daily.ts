@@ -472,6 +472,7 @@ ${dedupeSection}
 4. category 只能从以下选择：AI应用、SaaS工具、自媒体、整活玩具、本地服务、内容创作
 5. ${historyContext ? 'category 相同且主题高度相似的机会不得重复出现（参考近14天历史）' : '避免生成过于相似的机会'}
 6. evidence 必须引用上方信号列表中的真实数据（具体数字、用户量、涨幅等），不允许使用模糊表达如"市场需求旺盛"
+7. 所有文本字段（description、evidence、painPoint 等）中，禁止使用 [数字] 格式（如 [55]、[12]）引用信号编号，直接用文字描述内容即可
 
 只返回如下格式的 JSON，不要有任何其他文字或 markdown 代码块：
 
@@ -543,6 +544,18 @@ ${dedupeSection}
   }
 
   const data = JSON.parse(stripped.slice(jsonStart, jsonEnd + 1))
+
+  // Strip citation-style [number] references from text fields (e.g. "Signal[55]" artifacts)
+  const stripCitations = (text: string) => text.replace(/\s*\[\d+\]/g, '')
+  if (Array.isArray(data.opportunities)) {
+    data.opportunities = data.opportunities.map((opp: any) => ({
+      ...opp,
+      description: opp.description ? stripCitations(opp.description) : opp.description,
+      evidence: opp.evidence ? stripCitations(opp.evidence) : opp.evidence,
+      painPoint: opp.painPoint ? stripCitations(opp.painPoint) : opp.painPoint,
+      summary: opp.summary ? stripCitations(opp.summary) : opp.summary,
+    }))
+  }
 
   if (!Array.isArray(data.opportunities) || data.opportunities.length === 0) {
     throw new Error('Response missing opportunities array')
