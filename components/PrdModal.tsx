@@ -38,17 +38,22 @@ export default function PrdModal({ opportunity, onClose }: Props) {
       .catch(() => setRemaining(0))
   }, [])
 
-  // Lock scroll on documentElement (more reliable than body in modern browsers).
-  // Compensate for scrollbar disappearance to prevent layout shift.
+  // Lock scroll using position:fixed on body — works across all browsers.
+  // overflow:hidden on html/body alone is unreliable because the scroll
+  // container differs by browser. Saving scrollY and restoring it on
+  // cleanup guarantees the user returns to the same spot after closing.
   useEffect(() => {
-    const el = document.documentElement
-    const prevOverflow = el.style.overflow
-    const scrollbarW = window.innerWidth - el.clientWidth
-    el.style.overflow = 'hidden'
-    if (scrollbarW > 0) el.style.paddingRight = `${scrollbarW}px`
+    const scrollY = window.scrollY
+    document.body.style.overflow = 'hidden'
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${scrollY}px`
+    document.body.style.width = '100%'
     return () => {
-      el.style.overflow = prevOverflow
-      el.style.paddingRight = ''
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
+      window.scrollTo(0, scrollY)
     }
   }, [])
 
