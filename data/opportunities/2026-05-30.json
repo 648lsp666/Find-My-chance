@@ -1,0 +1,545 @@
+{
+  "date": "2026-05-30",
+  "generatedAt": "2026-05-30T06:32:47.141Z",
+  "summary": "今日信号显示AI Agent工具链持续爆发，但开发者对AI生成代码质量、估值准确性以及过度依赖AI的反思加剧；同时国内用户对门禁卡、燃气灶选择、夏日补水等生活痛点有强烈讨论，为小工具和轻服务创造了机会。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "AI代码气味检测SaaS",
+      "category": "AI应用",
+      "market": "海外为主",
+      "tags": [
+        "代码质量",
+        "AI检测",
+        "CLI工具"
+      ],
+      "summary": "基于AISlop思路，做跨语言AI代码气味检测服务",
+      "description": "Hacker News上AISlop（一个CLI工具，用于捕捉AI生成的代码异味）获得72分热度，开发者Kanny分享了其使用Claude Code后遇到代码质量问题的经历。说明市面上缺乏专门检测AI生成代码中常见模式（幻觉、冗余、不匹配）的工具。可SaaS化：支持GitHub PR自动检测、CI集成，并提供Web Dashboard。对标竞品如CodeRabbit但聚焦AI特有气味。初期专注Python/JS/TS，后续扩展。",
+      "painPoint": "AI辅助编码后，代码中常残留无意义注释、重复逻辑、幻觉API调用，人工审查效率低",
+      "path": [
+        "基于AISlop开源代码，封装成SaaS API和GitHub App",
+        "增加主流语言支持（Python、TypeScript、Go、Rust）",
+        "设计免费层：每月100次检测；付费层：按仓库数量或检测次数",
+        "在Product Hunt和Hacker News推广，联系AI编程工具生态"
+      ],
+      "revenueModel": "SaaS订阅，基础版$19/月（5个仓库），专业版$79/月；预估月收入$2000+",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 5000元",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "Hacker News上AISlop获得72分热度，作者声明是基于使用Claude Code、Codex后观察到的常见问题；同类工具极少",
+      "sources": [
+        {
+          "title": "AISlop - CLI for catching AI generated code smells",
+          "url": "https://github.com/scanaislop/aislop"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "日语读后PWA",
+      "category": "内容创作",
+      "market": "海外为主",
+      "tags": [
+        "日语学习",
+        "PWA",
+        "读后工具"
+      ],
+      "summary": "为日语学习者打造读后PWA，替代已关停的Pocket",
+      "description": "IndieHackers上一位开发者分享了在Mozilla关闭Pocket后，为日语用户构建读后PWA的经历。日本国内Pocket替代品稀缺，且日语文本处理（振假名、分词）有特殊需求。该项目信号虽来自个人经历，但反映日语阅读市场空白。可构建一个支持日语文章保存、离线阅读、AI生成摘要和振假名的PWA，盈利模式为订阅制。",
+      "painPoint": "Pocket关停后，日语用户缺乏支持日语分词和振假名的读后保存工具",
+      "path": [
+        "收集100篇日语文章，测试Sudachi分词和ModernBERT模型（参考HN上ezfurigana项目）",
+        "使用Service Worker构建PWA，支持离线缓存",
+        "集成AI摘要和振假名切换功能",
+        "在日语开发者社区（Qiita、Twitter）推广，提供30天免费试用"
+      ],
+      "revenueModel": "月订阅$4.99；预估月收入$500+",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "IndieHackers上开发者因Pocket关停而自建日语读后PWA，反映真实需求；同时HN上ezfurigana项目展示了Sudachi+ModernBERT的可行性",
+      "sources": [
+        {
+          "title": "Building a Japanese-First Read-Later PWA from Pocket Shutdown to Launch",
+          "url": "https://dev.to/ktg0215/building-a-japanese-first-read-later-pwa-from-pocket-shutdown-to-launch-4lcm"
+        },
+        {
+          "title": "Context-aware Japanese furigana using Sudachi and ModernBERT",
+          "url": "https://www.ezfurigana.com/"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "iPhone门禁卡贴片",
+      "category": "整活玩具",
+      "market": "国内为主",
+      "tags": [
+        "门禁卡",
+        "iPhone附件",
+        "NFC"
+      ],
+      "summary": "物理NFC贴片+App管理，解决iPhone门禁卡痛",
+      "description": "V2EX上58条回复讨论iPhone门禁卡方案，用户普遍面临无法复制门禁卡、需要额外卡片或手表的问题。现有方案如小米手环、门禁卡贴纸（需安卓）或iPhone Wallet仅支持部分NFC。可设计一款薄型NFC贴片（粘贴在手机壳内）+ 配套App（支持读取、写入、模拟频率），同时提供云同步和分享功能。注意合规性，仅用于用户自有门禁卡。",
+      "painPoint": "iPhone无法直接模拟大部分门禁卡，需带实体卡或专用手表",
+      "path": [
+        "调研常见门禁卡频率（125kHz低频、13.56MHz高频），设计兼容贴片",
+        "开发iOS快捷指令+轻量App，实现一键切换卡模拟",
+        "在淘宝/闲鱼预售100个，测试用户反馈",
+        "优化破解率，增加教程视频在抖音/B站传播"
+      ],
+      "revenueModel": "硬件销售，单个贴片+App授权¥39元，成本约¥10；预估月收入¥3000+",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 5000元（首批贴片采购）",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "V2EX帖子标题‘使用iPhone的同学，是如何解决门禁卡方案的呢？’获得58条回复，大量用户分享经验并表达无奈",
+      "sources": [
+        {
+          "title": "V2EX: 使用 iPhone 的同学，是如何解决门禁卡方案的呢？",
+          "url": "https://www.v2ex.com/t/1216457"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "AI估值校准器",
+      "category": "AI应用",
+      "market": "海外为主",
+      "tags": [
+        "定价",
+        "二手交易",
+        "市场数据"
+      ],
+      "summary": "用真实市场数据修正AI价格估算偏差",
+      "description": "IndieHackers上一位开发者分享其二手交易工具用户反馈‘估值不准’，指出AI价格估算缺乏真实市场数据支撑。许多AI估值工具（如二手商品定价）仅使用训练数据，未锚定实时市场。可做一款SaaS：对接eBay、Mercari、闲鱼等平台实时交易数据，通过回归模型给出可信区间，并标注置信度。差异化：透明显示数据来源和最近10条成交记录。",
+      "painPoint": "AI价格估算往往偏离实际成交价，用户不信任",
+      "path": [
+        "爬取eBay已完成拍卖数据（限时免费API），构建初始基准",
+        "实现可配置锚定：用户上传商品照片/描述，返回价格区间+数据来源",
+        "提供Chrome插件，在商品页面直接嵌入估值",
+        "在IndieHackers和Reddit r/Flipping推广，前100名免费体验"
+      ],
+      "revenueModel": "月度订阅$9.99或按查询次数计费；预估月收入$1000+",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "IndieHackers文章标题‘Why AI price estimates lie (and how to anchor them to real market data)’获得0分但内容被用户实际反馈触发，痛点明确",
+      "sources": [
+        {
+          "title": "Why AI price estimates lie (and how to anchor them to real market data)",
+          "url": "https://dev.to/weston_thomas_4472566c0ec/why-ai-price-estimates-lie-and-how-to-anchor-them-to-real-market-data-1253"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "自托管LLM API网关",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "LLM",
+        "API网关",
+        "成本控制"
+      ],
+      "summary": "LiteLLM的轻量托管版，聚焦成本追踪和负载均衡",
+      "description": "GitHub上BerriAI/litellm获48732 star，说明开发者对统一LLM API代理需求极大。但LiteLLM偏SDK和自部署，中小企业需要更简单的托管服务。可提供一键部署版（Docker Compose），支持多模型路由、成本追踪、速率限制、日志审计。差异化：可自定义规则（例如：当OpenAI繁忙时回退到Claude），并提供明确定价。",
+      "painPoint": "企业使用多个LLM API时，管理密钥、成本、负载均衡复杂",
+      "path": [
+        "基于LiteLLM源码，封装成Docker镜像+WebUI（Vue3）",
+        "增加用户管理、团队协作、用量报表",
+        "在Vercel/Railway上提供一键部署模板",
+        "发布到Product Hunt和Hacker News，主打‘5分钟搭建私有AI网关’"
+      ],
+      "revenueModel": "SaaS托管版基础$29/月；自托管版永久授权$499；预估月收入$2000+",
+      "timeToRevenue": "1.5个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "LiteLLM在GitHub上获得48732 star，持续增长，大量开发者用于生产环境；Hacker News上MCP Bridge等信号也说明API集成需求",
+      "sources": [
+        {
+          "title": "BerriAI/litellm - Python SDK, Proxy Server for 100+ LLM APIs",
+          "url": "https://github.com/BerriAI/litellm"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "开源项目管理部署器",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "开源部署",
+        "项目管理",
+        "企业服务"
+      ],
+      "summary": "为中小企业提供Plane等开源项目管理器的一键部署服务",
+      "description": "GitHub上makeplane/plane获49920 star，作为Jira/Linear开源替代极受欢迎。但国内中小企业不熟悉Docker/K8s，且需要定制（企业微信登录、数据审计）。可提供部署+运维托管服务：帮客户在阿里云/腾讯云上部署Plane，集成企业微信/钉钉登录，提供备份和安全加固。每月收维护费。竞品少，国内版OnlyOffice等已有类似模式。",
+      "painPoint": "中小企业想要开源项目管理工具但缺乏部署运维能力",
+      "path": [
+        "撰写Plane + Docker Compose + Nginx反向代理标准化部署脚本",
+        "对接企业微信/钉钉OAuth，打包成一键部署包",
+        "在知乎/B站发教程，引流到官网提供付费部署服务",
+        "提供3种套餐：基础部署（¥499）、定制部署（¥1999）、年度维护（¥199/月）"
+      ],
+      "revenueModel": "一次性部署+年度维护，预估首月收入¥5000+",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Plane在GitHub上49920 star，是国内开源项目管理器中star极高的一款，但其官方文档主要面向自部署，缺少面向国内企业的服务商",
+      "sources": [
+        {
+          "title": "makeplane/plane - Open-source Jira, Linear alternative",
+          "url": "https://github.com/makeplane/plane"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "中国独立开发者展馆",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "独立开发者",
+        "展示平台",
+        "社区"
+      ],
+      "summary": "搭建独立开发者项目展示+资源聚合站",
+      "description": "GitHub上1c7/chinese-independent-developer获48686 star，收录众多中国独立开发者项目。但GitHub列表形式被动，缺乏搜索、分类、案例故事。可以建一个Web目录站（类似curated list），允许提交项目、按类别/技术栈筛选，内置社交媒体分享和变现线索。差异化：增加‘技术栈’、‘盈利模式’标签，并提供优质项目访谈。适合通过SEO和社交媒体引流。",
+      "painPoint": "中国独立开发者缺乏被发现的垂直展示平台，GitHub列表难以被用户检索",
+      "path": [
+        "基于现有GitHub列表，抓取项目信息构建数据库（200+项目）",
+        "开发基于Next.js的SSR目录站，支持分类、搜索、收藏",
+        "联系前100个项目的作者邀请入驻，提供展示页面",
+        "在V2EX/即刻/少数派推广，通过广告或赞助盈利"
+      ],
+      "revenueModel": "广告位+项目置顶推广¥99/月；预估月收入¥2000+",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "GitHub上1c7/chinese-independent-developer仓库获得48686 star，持续有新项目收录，但缺乏结构化展示",
+      "sources": [
+        {
+          "title": "1c7/chinese-independent-developer",
+          "url": "https://github.com/1c7/chinese-independent-developer"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "AI SEO内容反直觉器",
+      "category": "AI应用",
+      "market": "海外为主",
+      "tags": [
+        "AI SEO",
+        "内容工厂",
+        "工具站"
+      ],
+      "summary": "避免AI SEO内容无效的辅助工具，监控真实点击",
+      "description": "IndieHackers上一位开发者分享‘643篇文章，11个Google点击’的经历，说明AI生成SEO内容常无效果。痛点在于缺乏内容质量评估和关键词精准度。可做一款分析工具：输入目标关键词，AI生成内容大纲，然后模拟用户搜索行为（使用谷歌搜索模拟器）给出预估点击可能性，并对比竞争对手的权威度。同时提供CSV报告，帮助优化。",
+      "painPoint": "大量AI-SEO内容写完后没有自然流量，浪费时间和成本",
+      "path": [
+        "开发Chrome插件，抓取目标关键词前10名页面数据（标题、权重、内容长度）",
+        "调用LLM生成内容，同时用轻量模型评估‘搜索意图匹配度’",
+        "输出‘可行性评分’和‘改进建议’，避免盲目生产",
+        "在IndieHackers和黑帽SEO论坛推广，免费版每月评估10个关键词"
+      ],
+      "revenueModel": "按月订阅$14.99，或按评估次数计费；预估月收入$1500+",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "IndieHackers文章‘643 articles, 11 Google clicks: my 4-month AI SEO experiment’详细记录了AI内容SEO的失败结果，引发共鸣",
+      "sources": [
+        {
+          "title": "643 articles, 11 Google clicks: my 4-month AI SEO experiment",
+          "url": "https://dev.to/szp2005/643-articles-11-google-clicks-my-4-month-ai-seo-experiment-4ami"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "电磁炉省钱计算器",
+      "category": "整活玩具",
+      "market": "国内为主",
+      "tags": [
+        "燃气灶",
+        "电磁炉",
+        "生活成本"
+      ],
+      "summary": "基于本地气价电价，帮你算用电磁炉还是燃气灶划算",
+      "description": "V2EX上83条回复讨论燃气灶vs电磁炉哪个省钱，用户真实纠结。可做一款微信小程序或网页工具：输入当地燃气价格（元/立方米）、电价（元/度），以及常用做饭方式（蒸煮、炒菜），综合计算每月成本，并给出可视化对比。同时集成节能建议。赢利点：小程序内的购物返利链接（推荐节能电磁炉/高压锅）。",
+      "painPoint": "用户不清楚当地燃气和电费差异，难以理性选择灶具",
+      "path": [
+        "爬取全国主要城市燃气和居民电价（公开数据）",
+        "开发一次性页面（React单页），支持地域选择",
+        "嵌入京东/淘宝联盟电磁炉推荐链接",
+        "在V2EX/知乎答题时推广，靠自然搜索和口碑传播"
+      ],
+      "revenueModel": "CPS电商佣金，预估月收入¥500+（被动收入）",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 1,
+      "potential": 4,
+      "competition": "低",
+      "evidence": "V2EX帖子‘燃气灶 vs 电磁炉，到底哪个更省钱？’获得83条回复，大量用户深入讨论具体数据",
+      "sources": [
+        {
+          "title": "V2EX: 燃气灶 vs 电磁炉，到底哪个更省钱？",
+          "url": "https://www.v2ex.com/t/1216454"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "开源电视UI增强器",
+      "category": "内容创作",
+      "market": "海外为主",
+      "tags": [
+        "免费电视",
+        "UI优化",
+        "网络电视"
+      ],
+      "summary": "为全球免费在线电视频道提供高级UI和节目指南",
+      "description": "Hacker News上TV Explorer（Show HN）获得137分热度，该项目为免费在线电视添加高级UI，说明用户对传统电视体验有美化需求。可基于此思路，做一个PWA或桌面应用：聚合互联网免费频道（利用开源频道列表），提供电子节目指南（EPG）、录制功能、多语言字幕。差异化：集成AI推荐引擎，根据观看历史推荐频道。",
+      "painPoint": "免费在线电视频道列表杂乱，缺少统一导航和节目预告",
+      "path": [
+        "fork TV Explorer项目，增加IP TV频道支持和EPG数据源（如iptv-org）",
+        "开发Electron桌面版，支持后台播放和录制",
+        "添加AI推荐（基于用户观看偏好，使用轻量模型）",
+        "在Hacker News二次发布，在Reddit r/cordcutters推广"
+      ],
+      "revenueModel": "捐赠或高级功能订阅（如录制云存储）$3.99/月；预估月收入$200+",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "TV Explorer在Hacker News获得137分热度，用户积极反馈；免费电视聚合需求长期存在",
+      "sources": [
+        {
+          "title": "Show HN: TV Explorer - Adding advanced UI to free online TV",
+          "url": "https://tvexplorer.live"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "家庭安防加密系统",
+      "category": "AI应用",
+      "market": "海外为主",
+      "tags": [
+        "家庭安防",
+        "端到端加密",
+        "开源"
+      ],
+      "summary": "基于开源MLS协议的家庭摄像头加密监控系统配置服务",
+      "description": "GitHub上secluso/core是一个开源家庭安防摄像头系统，使用OpenMLS实现端到端加密，在Hacker News上也获得43分热度。但普通用户难以自行编译和配置。可提供付费配置服务：将系统预装到树莓派或旧手机上，提供SD卡镜像+教程。同时可增加AI功能：用tiny-vllm（HN上126分热度）做本地人形检测，而不依赖云端。",
+      "painPoint": "开源安防方案功能强大但部署门槛高，用户担心隐私但又希望本地端到端加密",
+      "path": [
+        "将secluso/core打包为树莓派镜像，集成本地AI检测模型",
+        "编写Step-by-step图文教程，提供三档服务：仅镜像下载（¥49）、含SD卡（¥129）、含硬件套装（¥399）",
+        "在Hacker News上评论推广，在Reddit r/homesecurity发帖",
+        "与二手树莓派卖家合作捆绑销售"
+      ],
+      "revenueModel": "产品销售+技术服务，预估月收入¥5000+",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 3000元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "secluso/core在GitHub上开源且获HN 43分热度；tinv-vllm在HN上126分热度，证明轻量AI推理关注度高",
+      "sources": [
+        {
+          "title": "secluso/core - Open-source private home security camera",
+          "url": "https://github.com/secluso/core"
+        },
+        {
+          "title": "Show HN: tiny-vLLM – high performance LLM inference engine",
+          "url": "https://github.com/jmaczan/tiny-vllm"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "AI驱动开发模板集",
+      "category": "内容创作",
+      "market": "海外为主",
+      "tags": [
+        "AI开发",
+        "模板",
+        "脚手架"
+      ],
+      "summary": "BMAD方法催生的AI驱动开发最佳实践模板集合",
+      "description": "GitHub上bmad-code-org/BMAD-METHOD获得48297 star，提出‘突破性AI驱动敏捷开发方法’，但只是一个方法指南，缺少可直接使用的项目模板。可创建一系列脚手架模板（Next.js+AI、Flutter+AI、Rails+AI），集成常见的AI组件（RAG、Agent、流式响应），并包含CI/CD、测试、监控。用户可通过CLI一键生成项目。",
+      "painPoint": "AI开发缺乏成熟的项目结构和最佳实践，开发者重复造轮子",
+      "path": [
+        "分析BMAD方法的核心概念，设计模板结构",
+        "开发CLI工具（Node.js），支持选择语言和AI功能",
+        "生成完整的Demo项目，包含Readme和部署脚本",
+        "在GitHub开源免费版，高级模板（含企业级日志和成本控制）收费"
+      ],
+      "revenueModel": "开源社区版 + 付费Pro版$39/次下载；预估月收入$1000+",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "BMAD-METHOD在GitHub上48297 star，社区需求旺盛，但缺少具体模板实现",
+      "sources": [
+        {
+          "title": "bmad-code-org/BMAD-METHOD - Breakthrough Method for Agile Ai Driven Development",
+          "url": "https://github.com/bmad-code-org/BMAD-METHOD"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "鸿蒙开发模板库",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "鸿蒙",
+        "模板",
+        "快速开发"
+      ],
+      "summary": "为鸿蒙生态开发者提供开箱即用的UI和功能模板",
+      "description": "少数派信号显示鸿蒙智行发布新车，鸿蒙生态持续扩大。虽然鸿蒙开发者数量在增长，但官方文档较复杂，缺少类似Tailwind UI的现成组件模板。可制作一套ArkTS+ Dekorator的组件模板，包含登录页面、数据图表、AI对话界面等，并提供详细教程。盈利模式：在少数派/掘金发布付费模板，或卖知识星球。",
+      "painPoint": "鸿蒙开发者需要高质量现成UI模板来加快开发速度",
+      "path": [
+        "学习ArkTS和鸿蒙设计规范，制作10套常用页面模板",
+        "打包成HarmonyOS Library，提供npm安装",
+        "在华为开发者社区、掘金、少数派发布文章引流",
+        "免费发布精简版，完整版¥99买断"
+      ],
+      "revenueModel": "模板销售+咨询，预估月收入¥3000+",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 4,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "少数派早报提及鸿蒙智行新品，鸿蒙生态持续活跃；国内模板市场空缺",
+      "sources": [
+        {
+          "title": "派早报：鸿蒙智行发布新一代问界 M9、蔚来正式推出 ES9 等",
+          "url": "https://sspai.com/post/110368"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "夏日补水助手",
+      "category": "整活玩具",
+      "market": "国内为主",
+      "tags": [
+        "健康",
+        "天气",
+        "饮水提醒"
+      ],
+      "summary": "根据当地气温湿度，智能推荐补水量和电解质方案",
+      "description": "V2EX上‘热死人了，你们都喝什么保命？’获得34条回复，用户讨论淡盐水、绿豆汤等。可做一款微信小程序：获取用户位置天气，根据温湿度计算推荐饮水量，并提供个性化补水食谱（如淡盐水配比）。同时集成倒计时提醒。变现：接入健康食品广告或卖电解质冲剂代购。",
+      "painPoint": "炎热天气下不知道喝什么、喝多少才能有效补水",
+      "path": [
+        "对接和风天气API，获取实时温湿度",
+        "基于WHO补水公式，计算每日推荐补水量",
+        "设计3种默认方案（轻度/中度/重度脱水）",
+        "部署为微信小程序，在V2EX/小红书分享推广"
+      ],
+      "revenueModel": "广告+电解质冲剂CPS佣金，预估月收入¥500+",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 1,
+      "potential": 4,
+      "competition": "低",
+      "evidence": "V2EX帖子‘热死人了，你们都喝什么保命’有34条回复，用户认真讨论淡盐水、绿豆汤等方案",
+      "sources": [
+        {
+          "title": "V2EX: 热死人了，你们都喝什么保命",
+          "url": "https://www.v2ex.com/t/1216505"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "mastodon",
+      "repo": "mastodon",
+      "description": "Your self-hosted, globally interconnected microblogging community",
+      "url": "https://github.com/mastodon/mastodon",
+      "starsToday": 49979,
+      "language": "Ruby",
+      "insight": "学习联邦式社交架构，注意合规风险",
+      "opportunityType": "学习",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "makeplane",
+      "repo": "plane",
+      "description": "🔥🔥🔥 Open-source Jira, Linear, Monday, and ClickUp alternative. Plane is a modern project management platform to manage tasks, sprints, docs, and triage.",
+      "url": "https://github.com/makeplane/plane",
+      "starsToday": 49920,
+      "language": "TypeScript",
+      "insight": "开源项目管理，可定制为企业服务",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "run-llama",
+      "repo": "llama_index",
+      "description": "LlamaIndex is the leading document agent and OCR platform",
+      "url": "https://github.com/run-llama/llama_index",
+      "starsToday": 49764,
+      "language": "Python",
+      "insight": "构建文档问答系统，适合AI创业",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "expo",
+      "repo": "expo",
+      "description": "An open-source framework for making universal native apps with React. Expo runs on Android, iOS, and the web.",
+      "url": "https://github.com/expo/expo",
+      "starsToday": 49763,
+      "language": "TypeScript",
+      "insight": "快速开发跨平台APP，降低开发成本",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "cypress-io",
+      "repo": "cypress",
+      "description": "Fast, easy and reliable testing for anything that runs in a browser.",
+      "url": "https://github.com/cypress-io/cypress",
+      "starsToday": 49656,
+      "language": "TypeScript",
+      "insight": "前端自动化测试利器，提升质量效率",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "AlistGo",
+      "repo": "alist",
+      "description": "🗂️A file list/WebDAV program that supports multiple storages, powered by Gin and Solidjs. / 一个支持多存储的文件列表/WebDAV程序，使用 Gin 和 Solidjs。",
+      "url": "https://github.com/AlistGo/alist",
+      "starsToday": 49568,
+      "language": "Go",
+      "insight": "自建多存储文件管理，适合云盘服务",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    }
+  ]
+}
