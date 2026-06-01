@@ -1,0 +1,405 @@
+{
+  "date": "2026-06-01",
+  "generatedAt": "2026-06-01T08:47:45.165Z",
+  "summary": "今日信号集中在AI应用落地、隐私安全、开发者工具和垂直行业实用工具上。高星项目如Pake、Ruff、Litellm等显示对高效工具和AI集成需求强劲；Product Hunt上的本地AI搜索、持久记忆、零服务器工具箱等新品热度高，预示个人隐私优先的AI工具市场机会。IndieHackers上多个低成本垂直工具成功案例验证了“小而美”路径的可行性。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "本地媒体AI搜索",
+      "category": "AI应用",
+      "market": "国内外均可",
+      "tags": [
+        "自然语言搜索",
+        "本地隐私",
+        "媒体管理"
+      ],
+      "summary": "本地化、离线可用的多模态媒体语义搜索工具。",
+      "description": "基于Clipto（在Product Hunt上获得425个赞）的思路，为个人用户提供一款完全本地运行的媒体搜索工具，支持照片、视频、音频的自然语言查询（如“去年夏天的海滩照片”或“钢琴曲demo”）。利用轻量级嵌入模型和向量数据库，数据不离开设备，解决用户对云服务隐私的担忧。差异化在于支持NAS、外置硬盘等多种本地存储源，并提供智能相册分类、人脸识别和场景聚类。国内类似产品较少，用户对手机相册外的大容量媒体搜索需求旺盛。",
+      "painPoint": "电脑和NAS里堆积的数TB媒体文件无法像手机相册一样快速用自然语言查找。",
+      "path": [
+        "选定嵌入模型（如CLIP变体）和本地向量数据库（Chroma/LanceDB），搭建原型",
+        "实现文件系统扫描、缩略图生成和向量索引的增量更新机制",
+        "开发跨平台桌面应用（Electron/Tauri）或Web界面，集成搜索和预览",
+        "发布免费基础版，付费版增加OCR、人脸聚类、高级过滤等功能"
+      ],
+      "revenueModel": "免费版限制索引文件数（如1000个），Pro版月费19元/年费169元，预估首月收入1000-3000元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "Product Hunt上的Clipto获得了425个赞，说明用户对本地自然语言搜索媒体有强烈需求。同时，主流云相册（如谷歌相册）的隐私争议也推动了本地化选择。",
+      "sources": [
+        {
+          "title": "Product Hunt: Clipto - Fully local, natural language search over terabytes of media",
+          "url": "https://www.producthunt.com/products/clipto-ai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "零服务器隐私工具箱",
+      "category": "整活玩具",
+      "market": "国内外均可",
+      "tags": [
+        "隐私保护",
+        "本地工具",
+        "浏览器扩展"
+      ],
+      "summary": "一个集合高频日常工具的全离线浏览器扩展/客户端。",
+      "description": "TabTasker（在Product Hunt上获得218个赞）提出“零服务器、完全隐私”的概念，但功能较泛。更具体的方案：开发一个浏览器扩展或PWA，集合图片压缩、文件格式转换、二维码生成、临时邮件、密码生成、隐私笔记等10-15个常用小工具，所有处理在本地完成，不上传任何数据。类似已有在线工具站但全部离线可用，并内置暗黑模式、批量处理。可与本地文件系统交互（通过File API）。国内用户对隐私敏感且常使用在线工具站，但担心数据安全，此产品可填补空白。",
+      "painPoint": "日常使用在线工具站处理敏感文件时常担心隐私泄露，且广告多、加载慢。",
+      "path": [
+        "梳理最高频的20个本地工具需求（图片压缩、PDF合并、二维码生成等）",
+        "用纯前端技术（HTML+JS+WebAssembly）实现每个工具核心功能",
+        "打包为浏览器扩展和PWA，支持离线运行，设计统一清爽UI",
+        "发布至Chrome/Edge商店和GitHub，收集反馈后增加自定义工具集"
+      ],
+      "revenueModel": "免费使用，可捐赠或Pro版增加批量导出、高级编辑器、主题皮肤，预估月收入0-500元（初期靠捐赠）。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Product Hunt上TabTasker获得218个赞，说明“零服务器、隐私优先”的工具箱概念颇受欢迎。国内类似工具（如u.tools）偏门且非全离线。",
+      "sources": [
+        {
+          "title": "Product Hunt: TabTasker - Zero servers. Total privacy. Your new favorite toolbox.",
+          "url": "https://www.producthunt.com/products/tabtasker?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "AI智能书签管理",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "书签管理",
+        "AI分类",
+        "自动摘要"
+      ],
+      "summary": "用AI自动整理和搜索浏览器书签，支持语义搜索。",
+      "description": "Marqly（在Product Hunt上获得172个赞）是AI驱动书签管理器，但主要面向海外市场。国内用户浏览器书签散乱无章，收藏夹沦为“垃圾堆”。本项目可作为浏览器扩展，自动为书签生成摘要、标签、分类，并提供自然语言搜索（如“找上周收藏的那篇关于Rust的文章”）。利用轻量级AI模型（如通过浏览器端ONNX）实现离线处理，保护隐私。附加功能：书签快照（保存网页标题和简介防失效）、重复检测、定期整理提醒。",
+      "painPoint": "浏览器书签越来越多，手动分类耗时，想找某个旧书签时根本找不到。",
+      "path": [
+        "开发浏览器扩展，读取所有书签并调用轻量AI API（或本地模型）生成摘要和标签",
+        "实现基于向量嵌入的语义搜索，支持模糊匹配和时间筛选",
+        "设计书签整理看板，按主题自动归类，用户可拖拽微调",
+        "增加书签失效检测和快照功能，提供导出分享"
+      ],
+      "revenueModel": "免费版限制500个书签，Pro版月费9元/年费69元，目标用户为知识工作者，3个月可达月入1500元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Product Hunt上Marqly 5.0获得172个赞，说明用户对AI助力书签管理有明确需求。国内极少有同类产品（少数派曾推荐过Raindrop但非AI）。",
+      "sources": [
+        {
+          "title": "Product Hunt: Marqly 5.0 - Your AI-powered bookmark manager",
+          "url": "https://www.producthunt.com/products/marqly?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "网页剪藏AI摘要插件",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "网页剪藏",
+        "AI摘要",
+        "知识管理"
+      ],
+      "summary": "为飞书/Notion等提供带AI摘要的网页剪藏工具。",
+      "description": "Web Clipper for NotebookLM（在Product Hunt上获得134个赞）是专为NotebookLM设计的剪藏扩展。国内用户常用飞书文档、语雀、为知笔记等知识管理工具，但缺乏好用的剪藏+AI摘要插件。本项目作为浏览器扩展，支持一键将网页内容保存到用户指定的笔记平台（通过API），同时自动用AI（调用国产大模型API）提取摘要、关键数据和标签。支持剪藏PDF、B站视频简介、微信公众号文章等常见来源。差异化在于本地优先处理，摘要模型可选择开源/付费。",
+      "painPoint": "保存网页到笔记时需手动复制粘贴、整理摘要，费时费力。",
+      "path": [
+        "开发浏览器扩展，实现右键菜单和快捷键剪藏，支持选择正文或区域",
+        "接入多个国产大模型API（如DeepSeek、月之暗面）进行摘要和标签生成",
+        "对接飞书/语雀/Notion API，自动或手动写入指定笔记本",
+        "增加剪藏历史管理、全文搜索、标签过滤功能"
+      ],
+      "revenueModel": "免费版每月50次剪藏，付费版月费15元/年费129元，预计3个月内月入2000-4000元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Product Hunt上Web Clipper for NotebookLM获得134个赞，说明用户对剪藏+AI组合感兴趣。国内知识管理用户基数大（飞书文档活跃用户超千万），但缺乏优秀AI剪藏插件。",
+      "sources": [
+        {
+          "title": "Product Hunt: Web Clipper for NotebookLM - Your ultimate NotebookLM's Chrome Extension",
+          "url": "https://www.producthunt.com/products/web-clipper-for-notebooklm?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "AI系统级自动补全",
+      "category": "AI应用",
+      "market": "国内外均可",
+      "tags": [
+        "输入效率",
+        "AI补全",
+        "macOS"
+      ],
+      "summary": "在任意应用中提供基于AI的文本自动补全和预测。",
+      "description": "Typeahead（在Product Hunt上刚发布，热度0但功能新颖）是为Mac开发的AI自动补全工具。模仿其思路，为Windows和macOS开发一款系统级输入增强工具：监听全局键盘输入，在用户打字的任何地方（浏览器、IDE、邮件客户端）弹出智能建议窗口，基于上下文预测下一个单词或短语。可采用本地小模型（如GPT-2变体）降低延迟，或者调用低成本API。无需切换应用，适配中文输入尤其有价值。还可自定义短语库、学习用户写作风格。",
+      "painPoint": "经常重复输入相同内容（如邮件结尾、地址、代码片段），现有片段扩展工具不智能。",
+      "path": [
+        "学习系统输入挂钩技术（Windows Hook / macOS Input Monitoring API），实现全局监听",
+        "集成小型语言模型（如TinyGPT）或云端API，实现逐词预测",
+        "开发候选窗口UI，支持上下键选择，回车补全",
+        "加入用户自定义短语管理，支持导入导出，实现隐私模式（不上传数据）"
+      ],
+      "revenueModel": "免费版每日100次补全，Pro版月费20元/年费168元，主打提高写作效率，预计1个月可达到月入800元。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 2000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "Product Hunt上Typeahead刚刚发布，其描述“AI autocomplete for every app on your Mac”精准点出痛点。国内尚无类似系统级AI补全产品（现有如TextExpander不智能）。",
+      "sources": [
+        {
+          "title": "Product Hunt: Typeahead - AI autocomplete for every app on your Mac",
+          "url": "https://www.producthunt.com/products/typeahead?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "会议AI现场助手",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "办公会议",
+        "AI助手",
+        "自动响应"
+      ],
+      "summary": "在视频会议中实时记录、总结并代表用户回应问题。",
+      "description": "Mina Meeting Assistant（在Product Hunt上热度0但描述突出“responds and executes during your calls”）引入了AI可主动参与会议的能力。针对国内主流会议软件（腾讯会议、钉钉、飞书），开发一款桌面应用，以虚拟参会者身份加入会议：实时转写、生成摘要、提取待办，并可基于用户预设的“代表规则”（如回答常见问题、报告项目进度）自动发言或发送文字消息。特别适合需要频繁开会的项目经理和销售，能解放双手。隐私方面数据仅本地处理，不向外发送音频流。",
+      "painPoint": "会议太多，经常记不住讨论要点，而且很多时候只是在听，AI可以自动记录并代表我回应。",
+      "path": [
+        "接入腾讯会议/钉钉的机器人或RPA接口，实现自动入会与音频流获取",
+        "集成本地语音转文字（Whisper）和摘要LLM（通过API），实时生成会议记录",
+        "设计“代表规则”配置界面，用户可定义自动回答的条件和内容模板",
+        "提供会后完整记录导出，并集成待办事项到Todoist/飞书任务"
+      ],
+      "revenueModel": "免费版每月30分钟会议，付费版月费49元/年费399元，目标为中小企业管理者，3个月可达月入3000-6000元。",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 5,
+      "potential": 9,
+      "competition": "中",
+      "evidence": "Product Hunt上Mina Meeting Assistant以“responds and executes”为特色，反映市场对主动式会议AI的期待。国内同类产品（如讯飞听见）只有转写，缺乏主动参与能力。",
+      "sources": [
+        {
+          "title": "Product Hunt: Mina - Meeting Assistant: Your AI Teammate now responds and executes during your calls",
+          "url": "https://www.producthunt.com/products/mina-meeting-assistant?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "AI自动化UX测试",
+      "category": "AI应用",
+      "market": "国内外均可",
+      "tags": [
+        "用户测试",
+        "UX优化",
+        "自动化"
+      ],
+      "summary": "用AI模拟真实用户在网站上进行可用性测试并报告问题。",
+      "description": "FuguUX（在Hacker News上获得5分）定位“science-backed, AI user testing”。开发一个独立服务，让开发者输入网页URL，AI自动以多种角色（如新手、老人、视障用户）浏览关键流程（注册、下单、搜索），记录每一步的滞停点、点击误区和文案不清晰处，生成改进建议报告。利用计算机视觉和LLM分析截图与DOM元素，模拟任务完成路径。国内中小企业网站和独立App缺乏易用性测试预算，此服务按次或包月收费，可替代昂贵的用户实验室。",
+      "painPoint": "中小团队没有资源和预算做专业可用性测试，导致转化率低、用户流失。",
+      "path": [
+        "搭建基于Playwright的自动化浏览器引擎，模拟多维度用户行为",
+        "集成LLM接口分析页面内容，判断任务是否顺利完成及问题所在",
+        "开发美观的报告页面，展示热力图、问题分类和修复建议",
+        "以SaaS形式上线，提供免费测试1次，Pro版月费199元/单次99元"
+      ],
+      "revenueModel": "单次测试99元，包月199元（限10次），预计3个月后月销售额达到5000-10000元。",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 5,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Hacker News上FuguUX获得5分，且明确“science-backed, AI user testing”点明方向。国内类似服务几乎空白（只有一些人工众测平台如TestBird）。",
+      "sources": [
+        {
+          "title": "Hacker News: FuguUX – science-backed, AI user testing to identify key web UX issues",
+          "url": "https://www.fuguux.com"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Mac效率快捷面板",
+      "category": "整活玩具",
+      "market": "国内外均可",
+      "tags": [
+        "macOS",
+        "快捷操作",
+        "AI快捷键"
+      ],
+      "summary": "可编程的键盘面板，一键执行AI操作或系统命令。",
+      "description": "Dune Keypad（在Product Hunt上热度0，但概念“Context-aware Mac keypad, w/ Claude + community extensions”很前卫）是一个实体键盘，硬件门槛高。软件替代方案：开发一款Mac菜单栏应用或漂浮面板，提供一组可自定义的按钮，每个按钮可以绑定一条系统命令、快捷键组合或AI请求（如“用Claude总结当前选中文本并复制到剪贴板”）。支持情景感知（根据当前活跃应用自动切换面板按钮集）。社区可分享按钮配置。满足追求效率的Mac用户。",
+      "painPoint": "Mac上很多常用操作（打开特定文件夹、发送预设消息、运行脚本）需要多步点击，效率低下。",
+      "path": [
+        "用Swift开发Mac状态栏应用，实现浮动面板和全局快捷键呼出",
+        "设计可视化按钮编辑器，支持拖拽添加“动作”，包括运行脚本、打开URL、发送AI指令",
+        "集成Claude/OpenAI API实现“AI动作”（如翻译、摘要、改写）",
+        "构建社区共享面板配置的网站，用户一键导入"
+      ],
+      "revenueModel": "免费版限制5个按钮和1个情景；付费版月费19元/年费129元，预计首月可吸引100名付费用户。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元（Mac开发者证书等）",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Product Hunt上Dune Keypad虽然刚发布热度低，但概念独特，结合AI与物理键盘的思路受关注。纯软件版本尚无成熟竞品（类似BetterTouchTool但无AI集成）。",
+      "sources": [
+        {
+          "title": "Product Hunt: Dune Keypad - Context-aware Mac keypad, w/ Claude + community extensions",
+          "url": "https://www.producthunt.com/products/dune-4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "数据泄露检测插件",
+      "category": "SaaS工具",
+      "market": "国内外均可",
+      "tags": [
+        "数据安全",
+        "Google Sheets",
+        "AI检测"
+      ],
+      "summary": "监测Google Sheets中敏感数据通过AI插件被外泄的风险。",
+      "description": "Hacker News上“ChatGPT for Google Sheets exfiltrates workbooks”以208分引发热议，揭示AI插件可通过公式调用将表格数据发送到外部API。开发一款Chrome扩展或Google Workspace插件，监控与Google Sheets交互的第三方API调用，识别异常数据发送（如大量整页内容、包含关键词“密码”“身份证”等）。提供实时告警和审计日志，帮助安全团队发现泄露。切入点：仅作为安全分析工具，不干预用户正常使用，而是事后报告可疑行为。",
+      "painPoint": "使用AI插件（如GPT for Sheets）时，内含敏感数据的表格可能在用户不知情下外泄。",
+      "path": [
+        "研究Google Sheets插件通信机制，监控URL请求模式和内容大小",
+        "开发扩展在用户授权下扫描与AI插件相关的API调用，构建风险模型",
+        "实现告警系统：当检测到大量数据外发或包含敏感信息时弹出警告",
+        "提供历史审计日志和管理报表，支持白名单规则"
+      ],
+      "revenueModel": "面向企业的SaaS版本，按检测的表单数量收费，基础版199元/月（限10张表），预估3个月后企业客户50家，月入1万元。",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 8000元（含安全审计工具和服务器）",
+      "difficulty": 5,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "Hacker News上该问题获得208分，超过200条讨论表明社区对AI插件数据泄露高度担忧。企业级数据安全市场持续增长，类似方案尚属空白。",
+      "sources": [
+        {
+          "title": "Hacker News: ChatGPT for Google Sheets exfiltrates workbooks",
+          "url": "https://www.promptarmor.com/resources/gpt-for-google-sheets-data-exfiltration"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "AI桌面小组件工坊",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "小组件",
+        "无代码",
+        "iPhone"
+      ],
+      "summary": "可视化拖拽平台，让普通人5分钟创建自己的iPhone小组件。",
+      "description": "少数派介绍的Await应用（来源：sspai.com）概念是把点子变成小组件。灵感放大：做一个Web+客户端服务，用户无需编程，通过拖拽布局块（文本、图片、时钟、日历、进度条、URL）就能生成iOS/Android小组件（Widget）。内置多种模板（倒计时、纪念日、待办列表、汇率监控）。生成后通过扫码或配置文件一键应用到手机。内置数据源可对接API（如天气、股票）。面向追求个性化的年轻用户，类似过去的“锁屏美化”但更功能化。",
+      "painPoint": "想要定制手机桌面小组件，但不会编程，现有小组件APP模板太少且不可自定义。",
+      "path": [
+        "开发前端拖拽编辑器（React+Vue），支持添加文本、图片、图表等元素",
+        "后端生成符合iOS WidgetKit/Android AppWidget规范的XML/JSON描述",
+        "开发配套的手机App（或利用配置文件）实现小组件的安装与刷新",
+        "上线模板市场，用户可分享自己制作的小组件，增加社区氛围"
+      ],
+      "revenueModel": "免费创建3个小组件，Pro版月费12元/年费99元解锁无限和动态数据源。预估3个月内月活跃用户5000，付费转化5%，月入2500元。",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 10000元（含iOS开发者账号和服务器）",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "少数派文章“Await：五分钟，把点子变成iPhone小组件”获得了较高关注，说明国内用户对简单快捷的小组件创建工具有兴趣。目前App Store上类似产品（如Widgetsmith）仅提供固定模板，自定义能力弱。",
+      "sources": [
+        {
+          "title": "少数派: Await：五分钟，把点子变成iPhone小组件",
+          "url": "https://sspai.com/post/110106"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "mastodon",
+      "repo": "mastodon",
+      "description": "Your self-hosted, globally interconnected microblogging community",
+      "url": "https://github.com/mastodon/mastodon",
+      "starsToday": 49982,
+      "language": "Ruby",
+      "insight": "自建去中心化社交平台，可选衍生服务",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "expo",
+      "repo": "expo",
+      "description": "An open-source framework for making universal native apps with React. Expo runs on Android, iOS, and the web.",
+      "url": "https://github.com/expo/expo",
+      "starsToday": 49795,
+      "language": "TypeScript",
+      "insight": "跨平台应用开发框架，降低移动端门槛",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "cypress-io",
+      "repo": "cypress",
+      "description": "Fast, easy and reliable testing for anything that runs in a browser.",
+      "url": "https://github.com/cypress-io/cypress",
+      "starsToday": 49654,
+      "language": "TypeScript",
+      "insight": "前端测试工具，保障产品质量",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "tw93",
+      "repo": "Pake",
+      "description": "🤱🏻 Turn any webpage into a desktop app with one command.",
+      "url": "https://github.com/tw93/Pake",
+      "starsToday": 49621,
+      "language": "Rust",
+      "insight": "网页一键打包桌面应用，快速变现",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "VoltAgent",
+      "repo": "awesome-openclaw-skills",
+      "description": "The awesome collection of OpenClaw skills. 5,400+ skills filtered and categorized from the official OpenClaw Skills Registry.🦞",
+      "url": "https://github.com/VoltAgent/awesome-openclaw-skills",
+      "starsToday": 49620,
+      "language": "",
+      "insight": "收集技能库，可学习或二次开发",
+      "opportunityType": "学习",
+      "chinaFit": "low"
+    },
+    {
+      "owner": "AlistGo",
+      "repo": "alist",
+      "description": "🗂️A file list/WebDAV program that supports multiple storages, powered by Gin and Solidjs. / 一个支持多存储的文件列表/WebDAV程序，使用 Gin 和 Solidjs。",
+      "url": "https://github.com/AlistGo/alist",
+      "starsToday": 49579,
+      "language": "Go",
+      "insight": "多存储文件管理，搭建私有云盘",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    }
+  ]
+}
