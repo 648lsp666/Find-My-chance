@@ -1,0 +1,474 @@
+{
+  "date": "2026-06-02",
+  "generatedAt": "2026-06-02T08:10:59.196Z",
+  "summary": "今日信号集中在 AI Agent 安全与滥用、开发者效率工具、本地化 AI 搜索以及小众实用计算器方向。Hacker News 上 Instagram 利用 Meta AI 客服劫持账户的热帖（1712 分）和佛罗里达起诉 OpenAI 显示 AI 安全紧迫性；GitHub 上开源项目持续活跃（如 Remotion、Penpot、Huginn），Product Hunt 上多个 Mac 效率工具（Dune Keypad、Typeahead）提示桌面端 AI 集成机会。独立开发者可优先选择安全审计、教育辅助、垂直计算器等轻量方向。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "AI Agent 安全审计",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "AI安全",
+        "Agent审计",
+        "合规"
+      ],
+      "summary": "为企业AI Agent提供安全评估与加固服务",
+      "description": "随着企业大量接入 AI Agent（客服、自动化流程），Agent 被劫持、数据泄露事件频发。目前市场缺乏面向中小企业的轻量安全审计工具。可做一款 SaaS，扫描 Agent 的权限配置、输入输出过滤、提示注入风险，并提供加固建议。对标国外产品但适配国内（微信生态、钉钉等）。初期瞄准 50-200 人规模的 SaaS 公司和电商客服团队，国内约 10 万家潜在客户。",
+      "painPoint": "企业部署 AI Agent 后无法低成本验证其安全性，担心被恶意利用导致声誉或资产损失。",
+      "path": [
+        "开发核心扫描引擎（可基于开源提示注入检测库）",
+        "搭建 SaaS 控制台，支持 API 接入和报告生成",
+        "与 3-5 家中小电商或客服公司合作进行 Beta 测试",
+        "定价为每月 199 元/Agent，通过知乎、公众号及企业服务社群推广"
+      ],
+      "revenueModel": "按月订阅，首年目标 30 个客户，月收入约 6000 元",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "Hacker News 上关于黑客利用 Meta AI 支持机器人接管 Instagram 账号的帖子获得 1712 分热度，说明 AI Agent 漏洞已是公众焦点；佛罗里达州总检察长起诉 OpenAI 的报道显示法律风险正在形成，企业迫切需求安全检测。",
+      "sources": [
+        {
+          "title": "Hacker News: The newest Instagram exploit via Meta AI bot",
+          "url": "https://www.0xsid.com/blog/meta-account-takeover-fiasco"
+        },
+        {
+          "title": "Hacker News: Florida sues OpenAI over AI risks",
+          "url": "https://www.politico.com/news/2026/06/01/openai-hit-with-florida-lawsuit-00944215"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "AI 学习知识图谱工具",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "学习工具",
+        "知识图谱",
+        "代码教育"
+      ],
+      "summary": "将任意代码/文档转化为可交互知识图谱",
+      "description": "斯坦福 CS336 课程《从头构建语言模型》以及配套 AI Agent 指南表明，AI 教学正从理论转向动手实践。GitHub 上 Understand-Anything 项目（49,353 star）展示了对代码生成知识图谱的强烈需求。国内大量程序员和 AI 学习者需要将复杂代码库或论文可视化的工具。可做一个轻量 Web 应用，上传代码/文档即可自动生成关系图并支持问答。面向自学 AI 的开发者和高校学生，国内潜在用户超 50 万。",
+      "painPoint": "学习 AI 代码或论文时，无法快速理解整体结构和依赖关系。",
+      "path": [
+        "基于开源图谱库（如 vis-network）搭建前端交互界面",
+        "开发解析器支持 Python、Jupyter Notebook 和 Markdown",
+        "集成 OpenAI 或本地 LLM 生成节点摘要和关联解释",
+        "发布到少数派、V2EX 和掘金，前期免费引流，后续推出 Pro 版（导出、团队协作）"
+      ],
+      "revenueModel": "Freemium，Pro 版月费 29 元，首年目标 500 付费用户，月收入约 1.45 万元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "斯坦福 CS336 课程及 AI Agent 指南在 Hacker News 分别获得 445 和 398 分，说明高质量 AI 教育资源需求旺盛；GitHub 上 Understand-Anything 项目 49,353 star 证明开发社区对知识图谱工具的高度认可。",
+      "sources": [
+        {
+          "title": "Hacker News: CS336 Language Modeling from Scratch",
+          "url": "https://cs336.stanford.edu/"
+        },
+        {
+          "title": "Hacker News: AI Agent Guidelines for CS336",
+          "url": "https://github.com/stanford-cs336/assignment1-basics/blob/main/CLAUDE.md"
+        },
+        {
+          "title": "GitHub: Understand-Anything",
+          "url": "https://github.com/Lum1104/Understand-Anything"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Mac 窗口布局+AI 助手",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "Mac效率",
+        "窗口管理",
+        "AI自动补全"
+      ],
+      "summary": "为 macOS 提供智能网格窗口布局与 AI 快捷操作",
+      "description": "HN 上一篇文章《macOS needs its grid back》获得 223 分，说明用户对 Windows 式窗口分屏功能强烈渴望；同时 Product Hunt 上 Dune Keypad（315 分）和 Typeahead（266 分）展示了 Mac 用户对上下文感知工具和 AI 自动补全的付费意愿。可以开发一款 App，结合网格布局（类似 Fancy Zones）与系统级 AI 自动补全（输入任意文字时弹出建议），并集成 Claude/OpenAI 插件市场。定价 5 美元/月，面向 Mac 效率工作者。",
+      "painPoint": "macOS 原生窗口管理弱，且缺乏系统级 AI 辅助输入工具。",
+      "path": [
+        "用 SwiftUI 开发窗口网格布局功能（参考 Magnet 但更灵活）",
+        "集成 Mac 输入监听，调用 LLM API 实现文本自动补全",
+        "在 Product Hunt 和 Hacker News 发布，并联系独立开发者博客推广",
+        "免费版限 3 个网格，Pro 版解锁无限布局+AI 功能"
+      ],
+      "revenueModel": "Pro 版 $5/月，首年目标 1000 用户，月收入约 $5000",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 10000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "HN 上《macOS needs its grid back》获得 223 分，验证了 Mac 用户对窗口管理的痛点；Dune Keypad 在 Product Hunt 获 315 分，Typeahead 获 266 分，说明 Mac 效率工具市场活跃且用户愿意付费。",
+      "sources": [
+        {
+          "title": "Hacker News: macOS needs its grid back",
+          "url": "https://blog.hopefullyuseful.com/blog/macos-needs-its-grid-back/"
+        },
+        {
+          "title": "Product Hunt: Dune Keypad",
+          "url": "https://www.producthunt.com/products/dune-4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        },
+        {
+          "title": "Product Hunt: Typeahead",
+          "url": "https://www.producthunt.com/products/typeahead?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "社交媒体内容合规 AI 检测",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "内容审核",
+        "合规",
+        "Mastodon"
+      ],
+      "summary": "帮助中小运营团队快速检测社交内容违规风险",
+      "description": "Hacker News 上 Mullvad 关于年龄验证的文章（231 分）揭示全球社交媒体监管趋严；GitHub 上 Mastodon（49,983 star）作为去中心化平台，其内容审核需求更突出。国内小红书、抖音等平台对敏感词、图片及 AI 生成内容审核日益严格，中小运营团队常因违规被限流。可开发一款浏览器插件 + API，实时检测文案和图片的合规风险（涉政、色情、广告法），并给出修改建议。定价 19 元/月，目标群：自媒体工作室、电商运营。",
+      "painPoint": "中小运营团队缺乏专业的审核工具，经常因违规内容被限流或封号。",
+      "path": [
+        "整理国内主流平台违规词库和图片模型（基于开源 NSFW 模型）",
+        "开发 Chrome 插件，支持在后台自动检测文案和图片",
+        "与 10 个小规模运营团队合作内测",
+        "通过微信群、运营垂直社区推广，采用免费试用 7 天策略"
+      ],
+      "revenueModel": "月订阅，首年目标 200 付费用户，月收入约 3800 元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 5000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Hacker News 上关于年龄验证的文章获得 231 分，表明社交媒体监管是热门话题；Mastodon 以 49,983 star 成为 GitHub 最火社交项目之一，其社区对内容审核工具的需求为佐证。",
+      "sources": [
+        {
+          "title": "Hacker News: Age verification for social media",
+          "url": "https://mullvad.net/en/blog/age-verification-for-social-media-the-beginning-of-the-end-for-a-free-internet"
+        },
+        {
+          "title": "GitHub: mastodon/mastodon",
+          "url": "https://github.com/mastodon/mastodon"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "React 动画短片生成器",
+      "category": "AI应用",
+      "market": "海外为主",
+      "tags": [
+        "视频生成",
+        "React",
+        "动画"
+      ],
+      "summary": "用 React 组件快速生成动画短视频",
+      "description": "GitHub 上 Remotion（48,705 star）允许用 React 编程式制作视频，但技术门槛较高。可基于 Remotion 封装一套面向设计师/营销人员的可视化编辑器，支持拖拽组件、AI 生成脚本和语音。Product Hunt 上 Presentify（189 分）显示演示视频需求。国内短视频创作者超 2 亿，但专业工具（如 AE）学习成本高。通过模板市场（节日祝福、产品宣传等）变现，可对标国外 Typito 但更轻量。",
+      "painPoint": "非技术人员无法用编程方式批量生成视频，而传统视频编辑效率低。",
+      "path": [
+        "基于 Remotion 搭建云渲染服务，用户通过 Web UI 组合组件",
+        "设计 20 套行业常用模板（电商、教育、活动）",
+        "集成 TTS 和 AI 文案生成（调用 OpenAI）",
+        "在 Product Hunt 和 IndieHackers 发布，免费版带水印，Pro 版 9 美元/月"
+      ],
+      "revenueModel": "月订阅，首年目标 500 付费用户，月收入约 $4500",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 8000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "Remotion 在 GitHub 获得 48,705 star，说明程序化视频制作需求强劲；Product Hunt 上 Presentify 获 189 分，进一步验证人们对演示/视频制作工具的兴趣。",
+      "sources": [
+        {
+          "title": "GitHub: remotion-dev/remotion",
+          "url": "https://github.com/remotion-dev/remotion"
+        },
+        {
+          "title": "Product Hunt: Presentify",
+          "url": "https://www.producthunt.com/products/presentify?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "透明外卖聚合平台",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "外卖",
+        "独立商家",
+        "低佣金"
+      ],
+      "summary": "为小商家提供低佣、透明的线上点单系统",
+      "description": "V2EX 上帖子《能不能有一个不以盈利为目的的外卖平台》获得 218 分，评论区大量用户抱怨美团饿了么佣金高、规则复杂。许多独立餐厅和咖啡店希望脱离大平台。可做一个轻量 SaaS，为商家提供自主品牌的点单小程序 + 配送对接（蜂鸟、达达），只收取固定月费（如 299 元/月）而非抽佣。初期聚焦一个城市（如成都、杭州），通过地推和店主微信群推广。",
+      "painPoint": "小商家被大外卖平台高佣金和流量绑架，利润微薄且缺乏自主权。",
+      "path": [
+        "开发可自定义的小程序点单系统（基于 uni-app）",
+        "接入聚合配送 API，实现自动派单",
+        "寻找 5-10 家试点商家免费使用 3 个月换取反馈",
+        "通过本地生活公众号、商家联盟推广，收取月费"
+      ],
+      "revenueModel": "月费 299 元，首年目标 100 家商户，月收入约 3 万元",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 20000元",
+      "difficulty": 5,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "V2EX 上该帖子获得 218 分，是当日最高热度之一，评论区超过 200 条讨论，大量用户表达对现有外卖平台的不满。",
+      "sources": [
+        {
+          "title": "V2EX: 能不能有一个不以盈利为目的的外卖平台",
+          "url": "https://www.v2ex.com/t/1217106"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "本地文件自然语言搜索",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "本地搜索",
+        "隐私",
+        "AI"
+      ],
+      "summary": "无需上传，在本地用自然语言搜索所有文件",
+      "description": "Product Hunt 上 Stella（101 分）是一款本地自然语言搜索工具，支持搜索 PDF、Word、图片等。用户担心隐私不愿上传文件到云端，本地方案正受欢迎。可开发跨平台（Windows/Mac/Linux）开源替代品，基于向量数据库（如 Chroma）进行本地索引，支持中文语义搜索。通过 GitHub 发布，免费版限制索引数量，Pro 版 5 美元/月解锁无限索引 + 实时同步。",
+      "painPoint": "系统自带搜索只能匹配文件名或内容关键词，无法按语义查找。",
+      "path": [
+        "使用 Rust/Tauri 构建桌面应用，集成本地嵌入模型（如 bge-small）",
+        "实现主流文件格式解析（PDF、DOCX、Markdown、图片 OCR）",
+        "在 GitHub 开源，并通过 Hacker News 和 Product Hunt 发布",
+        "Pro 版通过 Buy Me a Coffee 或 Gumroad 销售"
+      ],
+      "revenueModel": "Pro 版 $5/月，首年目标 2000 付费用户，月收入约 $10000",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 5,
+      "potential": 9,
+      "competition": "中",
+      "evidence": "Stella 在 Product Hunt 获得 101 分，说明用户对本地语义搜索有真实需求；Product Hunt 评论区大量用户询问中文支持和离线能力，为中文优化提供了差异化空间。",
+      "sources": [
+        {
+          "title": "Product Hunt: Stella – Local natural language search",
+          "url": "https://www.producthunt.com/products/stella-4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "TUI 服务器管理面板",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "TUI",
+        "服务器",
+        "运维"
+      ],
+      "summary": "终端界面为主的服务器监控与管理工具",
+      "description": "Jane Street 的博客文章《Strace-ui, Bonsai_term, and the TUI renaissance》（28 分）指出终端 UI 正在复兴。许多开发者更喜欢用终端管理服务器，但现有工具（如 htop）功能单一。可做一个 TUI 面板，集中展示 CPU/内存/磁盘/网络、日志查看、进程管理，并支持插件扩展（如数据库连接、Docker 管理）。用 Go 语言开发，通过 GitHub 开源，赞助版支持自定义主题和高级告警。",
+      "painPoint": "现有终端监控工具各自独立，缺乏统一、可扩展的 TUI 面板。",
+      "path": [
+        "使用 Go 和 bubbletea 框架构建 TUI 核心",
+        "实现基础监控模块和日志查询",
+        "发布到 Hacker News、GitHub，吸引早期贡献者",
+        "通过 GitHub Sponsors 获取赞助，并提供企业版（团队协同）"
+      ],
+      "revenueModel": "赞助 + 企业版订阅（$20/月），首年目标 50 个企业客户，月收入约 $1000",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Jane Street 博客文章在 Hacker News 获得 28 分，虽然分数不高，但来自知名金融科技公司，且 TUI 主题在小圈子内讨论热烈，存在 niche 机会。",
+      "sources": [
+        {
+          "title": "Hacker News: Strace-ui, Bonsai_term, and the TUI renaissance",
+          "url": "https://blog.janestreet.com/strace-ui-bonsai-term-and-the-tui-renaissance/"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "AI 食谱与营养计算器",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "健康",
+        "食谱",
+        "AI生成"
+      ],
+      "summary": "根据健康目标智能生成食谱并计算营养",
+      "description": "IndieHackers 上一位开发者仅用一天就做了一个卡车司机滞留费计算器（获 1 分但讨论热烈），证明了“丑 niche”的价值。国内健身人群超 8000 万，但市面上的食谱 App 多为固定模板，无法根据个人体脂、过敏原、食材库存动态调整。可做一个微信小程序，用户输入目标和可用食材，AI 生成食谱并自动计算热量和营养元素。通过健身教练、减脂营分销。",
+      "painPoint": "现有食谱工具不能个性化适应食材和健康数据，导致用户无法坚持。",
+      "path": [
+        "开发小程序前端，对接开源营养数据库（如 USDA）",
+        "集成 GPT 生成食谱，并加入卡路里计算逻辑",
+        "在 Keep、小红书等平台找 3-5 个健身达人合作推广",
+        "免费版每日 3 次生成，Pro 版 19.9 元/月无限生成"
+      ],
+      "revenueModel": "月订阅，首年目标 300 付费用户，月收入约 6000 元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "IndieHackers 上滞留费计算器的案例虽只有 1 分，但评论区高度认可“小众 niche + 快速实现”的模式；国内健身人群巨大，该需求尚未被 AI 食谱类产品很好满足。",
+      "sources": [
+        {
+          "title": "IndieHackers: detention-pay calculator for truckers",
+          "url": "https://dev.to/itsevilduck/i-built-a-detention-pay-calculator-for-truckers-in-a-day-unglamourous-niches-beat-another-ai-1e9d"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "开源设计工具中文服务",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "设计工具",
+        "Penpot",
+        "本地化"
+      ],
+      "summary": "为 Penpot 提供中文模板、插件和部署服务",
+      "description": "GitHub 上 Penpot（48,780 star）是开源设计工具，对标 Figma。国内设计师因 Figma 被封禁风险而寻找替代方案，但 Penpot 中文社区薄弱，缺乏本地化模板和插件。可围绕 Penpot 提供增值服务：一键部署到国内容器 / 服务器、中文 UI 翻译、电商/海报等行业专属模板库、以及接入国内字体和素材平台。服务形式：部署费 + 模板订阅。",
+      "painPoint": "设计师想迁移到开源设计工具但缺乏中文支持、模板和稳定部署方案。",
+      "path": [
+        "深入使用 Penpot，制作 50 套中文设计模板（电商、Banner、PPT）",
+        "编写一键部署脚本（支持阿里云 /腾讯云 /Docker）",
+        "在 UI 中国、优设网等设计社区分享教程和模板",
+        "推出 499 元/次的部署服务 + 99 元/月的模板库订阅"
+      ],
+      "revenueModel": "部署服务 + 模板订阅，首年目标 50 次部署 + 100 个订阅用户，月收入约 1.5 万元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Penpot 在 GitHub 有 48,780 star，是所有开源设计工具中最高的之一，说明社区认可度极强；其官网有大量英文模板而缺少中文，存在明显本地化缺口。",
+      "sources": [
+        {
+          "title": "GitHub: penpot/penpot",
+          "url": "https://github.com/penpot/penpot"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "低代码 AI Agent 构建平台",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "Agent",
+        "低代码",
+        "自动化"
+      ],
+      "summary": "拖拽式搭建 AI Agent，支持多模型和工具调用",
+      "description": "GitHub 上 Huginn（49,391 star）是开源的 Agent 框架，Twenty（48,920 star）是 AI 驱动的 CRM，Litellm（49,003 star）是多模型网关，三者均显示企业需要灵活构建 Agent 的工具。可以做一个可视化平台，用户拖拽节点（触发条件、LLM 调用、API 工具）即可生成 AI Agent，并支持一键部署到云端。初期瞄准中小电商的客服和客服引流场景。定价 29 美元/月起步。",
+      "painPoint": "企业想用 AI Agent 但缺乏技术团队，现有的框架使用门槛高。",
+      "path": [
+        "基于 react-flow 搭建可视化编辑器，集成 Litellm 实现多模型切换",
+        "封装常见工具节点（邮件、Slack、数据库查询、网页抓取）",
+        "在 Product Hunt 和 GitHub 开源基础版，企业版提供私有部署",
+        "与 5 家跨境电商合作打磨场景，按需定制模板"
+      ],
+      "revenueModel": "SaaS 订阅，首年目标 300 付费用户，月收入约 $8700",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 15000元",
+      "difficulty": 5,
+      "potential": 9,
+      "competition": "高",
+      "evidence": "Huginn（49,391 star）、Litellm（49,003 star）和 Twenty（48,920 star）均位列 GitHub 热门项目前十，表明开发者对 Agent 和自动化框架的热情居高不下，低代码包装版有明确市场空间。",
+      "sources": [
+        {
+          "title": "GitHub: huginn/huginn",
+          "url": "https://github.com/huginn/huginn"
+        },
+        {
+          "title": "GitHub: BerriAI/litellm",
+          "url": "https://github.com/BerriAI/litellm"
+        },
+        {
+          "title": "GitHub: twentyhq/twenty",
+          "url": "https://github.com/twentyhq/twenty"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "mastodon",
+      "repo": "mastodon",
+      "description": "Your self-hosted, globally interconnected microblogging community",
+      "url": "https://github.com/mastodon/mastodon",
+      "starsToday": 49983,
+      "language": "Ruby",
+      "insight": "自建去中心化社交平台，避开监管风险",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "expo",
+      "repo": "expo",
+      "description": "An open-source framework for making universal native apps with React. Expo runs on Android, iOS, and the web.",
+      "url": "https://github.com/expo/expo",
+      "starsToday": 49820,
+      "language": "TypeScript",
+      "insight": "快速开发跨平台App，降低创业门槛",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "tw93",
+      "repo": "Pake",
+      "description": "🤱🏻 Turn any webpage into a desktop app with one command.",
+      "url": "https://github.com/tw93/Pake",
+      "starsToday": 49692,
+      "language": "Rust",
+      "insight": "一键打包网页成桌面应用，工具变现",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "VoltAgent",
+      "repo": "awesome-openclaw-skills",
+      "description": "The awesome collection of OpenClaw skills. 5,400+ skills filtered and categorized from the official OpenClaw Skills Registry.🦞",
+      "url": "https://github.com/VoltAgent/awesome-openclaw-skills",
+      "starsToday": 49676,
+      "language": "",
+      "insight": "游戏技能库可做工具或内容聚合",
+      "opportunityType": "学习",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "cypress-io",
+      "repo": "cypress",
+      "description": "Fast, easy and reliable testing for anything that runs in a browser.",
+      "url": "https://github.com/cypress-io/cypress",
+      "starsToday": 49650,
+      "language": "TypeScript",
+      "insight": "前端测试工具，提高开发效率与质量",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "AlistGo",
+      "repo": "alist",
+      "description": "🗂️A file list/WebDAV program that supports multiple storages, powered by Gin and Solidjs. / 一个支持多存储的文件列表/WebDAV程序，使用 Gin 和 Solidjs。",
+      "url": "https://github.com/AlistGo/alist",
+      "starsToday": 49577,
+      "language": "Go",
+      "insight": "自建私有云盘，满足个人/企业需求",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    }
+  ]
+}
