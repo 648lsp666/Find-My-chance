@@ -1,0 +1,380 @@
+{
+  "date": "2026-06-03",
+  "generatedAt": "2026-06-03T08:31:54.173Z",
+  "summary": "今日信号显示AI法律、健康监测、短视频创作、代码安全等方向热度高，同时独立开发者分享的niche工具（如政府照片工具、行业计算器）已获得真实用户验证。垂直行业AI应用和实用小工具仍是最适合单人起步的副业方向。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "AI法律咨询助手",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "法律AI",
+        "知识库",
+        "对话式工具"
+      ],
+      "summary": "面向普通人的AI法律问答工具",
+      "description": "斯坦福大学最新研究显示AI在法律考试中已超越人类教授（HN热度213），法律咨询市场需求巨大。国内普通民众面临劳动纠纷、婚姻财产、租房合同等高频法律问题，付费咨询门槛高。可基于GPT-5等模型，整合中国法律法规、裁判文书数据库，打造垂直对话助手。竞品有“法天使”等，但多为律师端工具。差异化：聚焦C端用户，提供极简输入、专业输出，按次付费或包月。初期成本主要为大模型API调用和少量服务器，单人可完成开发。",
+      "painPoint": "遇到法律问题找律师太贵太慢，网上信息真假难辨。",
+      "path": [
+        "第一步：整理高频法律场景（劳动纠纷、婚姻、租房等），收集中国法律法规和典型案例作为知识库",
+        "第二步：基于LlamaIndex或LangChain搭建RAG系统，选择国内合规的LLM API（如DeepSeek、通义千问）",
+        "第三步：开发Web端或微信小程序，支持文字/语音输入，输出结构化法律意见",
+        "第四步：上线后在知乎、小红书、抖音发布案例解读引流，前100次咨询免费，后续按次收费"
+      ],
+      "revenueModel": "单次咨询9.9元，包月29.9元，预估月收入3000-8000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "斯坦福大学研究（HN 213分）表明AI在法律考试中超越教授，验证了AI法律咨询的技术可行性；国内法律咨询市场年规模超千亿，个人用户付费意愿强。",
+      "sources": [
+        {
+          "title": "Hacker News: AI outperforms law professors in Stanford Law study",
+          "url": "https://law.stanford.edu/press/ai-outperforms-law-professors-in-stanford-law-study/"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "代码安全审查插件",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "代码安全",
+        "VSCode扩展",
+        "AI审计"
+      ],
+      "summary": "VSCode中实时检测令牌泄露等漏洞",
+      "description": "近期爆出的VSCode漏洞可一键窃取GitHub Token（HN热度346），开发者对代码安全关注度飙升。同时GitHub上addyosmani/agent-skills项目（47874星）展示AI agent编码能力，说明AI可辅助代码审查。制作VSCode插件，在开发者编码时自动检测硬编码密钥、token泄露、SQL注入等常见安全问题，并给出修复建议。竞品有Snyk、SonarQube，但过于重量级。差异化：轻量、实时、AI驱动，支持国内常用语言（Java、Python、Go）。单人可开发，利用开源安全规则库+GPT API。",
+      "painPoint": "开发者容易无意间将API密钥或Token提交到GitHub，造成安全隐患。",
+      "path": [
+        "第一步：定义常见安全规则（密钥正则、token模式、敏感文件名），整合开源引擎（如truffleHog）",
+        "第二步：开发VSCode扩展，支持Git提交前Hook和实时编辑检查",
+        "第三步：集成轻量LLM（如GPT-4o-mini）对检测结果进行智能排序和修复建议",
+        "第四步：发布到VSCode市场，在掘金、V2EX发文推广，提供免费基础版和付费专业版（高级规则+团队管理）"
+      ],
+      "revenueModel": "免费版有限制，专业版19.9元/月，预计月收入2000-5000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Hacker News上“1-Click GitHub Token Stealing via a VSCode Bug”获得346分，彰显开发者对Token安全的恐惧；agent-skills GitHub仓库47874星说明AI赋能代码能力备受认可。",
+      "sources": [
+        {
+          "title": "Hacker News: 1-Click GitHub Token Stealing via a VSCode Bug",
+          "url": "https://blog.ammaraskar.com/github-token-stealing/"
+        },
+        {
+          "title": "GitHub: addyosmani/agent-skills",
+          "url": "https://github.com/addyosmani/agent-skills"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "自托管会话回放服务",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "用户行为分析",
+        "自托管",
+        "Session Replay"
+      ],
+      "summary": "为中小企业提供私有化用户操作回放工具",
+      "description": "HN上RePlaya项目（43分）展示了自托管浏览器会话回放能力，核心是记录用户鼠标移动、点击等行为用于调试和优化。国内中小企业对用户行为分析需求强烈，但FullStory、Hotjar等境外服务价格高且数据出境合规风险大。可基于开源组件二次开发，提供一键docker部署版本，面向SaaS产品团队。差异化：完全私有化、数据不出境、价格仅为海外服务的1/5。单人即可完成封装和文档。",
+      "painPoint": "海外session replay工具太贵，且国内数据合规要求严格，中小企业需要低价私有化方案。",
+      "path": [
+        "第一步：fork RePlaya或基于rrweb等开源库，封装为Docker Compose一键部署包",
+        "第二步：添加中文UI和文档，适配国内主流浏览器",
+        "第三步：开发后台管理面板，支持用户权限、数据存储时长配置",
+        "第四步：在掘金、InfoQ发技术文章，提供14天免费试用，按站点/月收费"
+      ],
+      "revenueModel": "按站点收费，基础版199元/月，预估月收入3000-8000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Hacker News上RePlaya项目获43分，说明开发者对自托管会话回放有兴趣；国内尚无类似开源私有化服务，市场空白。",
+      "sources": [
+        {
+          "title": "Hacker News: Show HN: RePlaya – self-hosted browser session replay with live tailing",
+          "url": "https://github.com/s2-streamstore/replaya"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "AI短视频初剪助手",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "视频剪辑",
+        "AI生成",
+        "短视频工具"
+      ],
+      "summary": "输入文案自动生成短视频初稿",
+      "description": "Product Hunt上Rodeo by TwelveLabs（热度131）实现“描述镜头，Rodeo帮你生成初剪”。国内短视频创作者超2亿，但剪辑门槛高。可基于多模态模型（如GPT-4V或国产GLM-4V）将用户输入的文案/脚本自动匹配素材库、添加字幕和转场，生成可编辑的初稿。竞品有剪映智能剪辑、一帧秒创等，但差异化：专注脚本到初剪，用户仅需提供文案和素材链接，AI自动选镜头。单人可借助现有API快速搭建。",
+      "painPoint": "短视频创作者有创意但不会剪辑，外包成本高且沟通成本大。",
+      "path": [
+        "第一步：接入视频生成/剪辑API（如Runway、Pika或阿里视频云），训练素材匹配模型",
+        "第二步：开发Web应用，用户输入脚本、选择风格，AI生成初剪视频（可导出为ProRes等格式）",
+        "第三步：加入人工审核环节，避免低质量输出",
+        "第四步：在抖音、小红书、B站投放小广告，免费生成1条，后续按条收费"
+      ],
+      "revenueModel": "按条收费，9.9元/条，包月99元，预估月收入5000-15000元",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 2000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "Product Hunt上Rodeo产品获得131热度，验证了“文本→初剪”的市场需求；国内短视频创作者超2亿，工具化需求旺盛。",
+      "sources": [
+        {
+          "title": "Product Hunt: Rodeo by TwelveLabs",
+          "url": "https://www.producthunt.com/products/twelvelabs?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "手机呼吸健康监测",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "健康",
+        "生物反馈",
+        "手机传感器"
+      ],
+      "summary": "利用手机麦克风检测呼吸并引导冥想",
+      "description": "HN上“Live breath detection and biofeedback from a phone microphone”（热度46）项目由家庭医生开发，展示通过手机麦克风分析呼吸模式。国内有大量压力大、失眠人群，冥想类应用（如潮汐、小睡眠）用户数千万。可基于该开源方案开发一款轻量APP，实时监测呼吸频率、深度，并给出声音引导。差异化：完全离线、隐私安全、免费基础版+付费高级分析报告。单人可结合开源代码快速上线。",
+      "painPoint": "冥想时不知道自己呼吸是否在正确节奏，无法量化进步。",
+      "path": [
+        "第一步：fork GitHub项目shiihaa-breath-detection，优化算法降低误判",
+        "第二步：开发iOS/Android APP，集成呼吸引导动画和音效",
+        "第三步：添加数据分析功能，生成呼吸健康日报",
+        "第四步：在App Store和各大应用商店上线，配合小红书KOL推广，免费版限制每日使用时长"
+      ],
+      "revenueModel": "免费+订阅，高级版19.9元/月，预估月收入2000-5000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Hacker News上呼吸检测项目获46分，且由家庭医生发起，技术可行性高；国内冥想类APP下载量超千万，付费转化率约5%。",
+      "sources": [
+        {
+          "title": "Hacker News: Show HN: Live breath detection and biofeedback from a phone microphone",
+          "url": "https://github.com/shiihaa-app/shiihaa-breath-detection"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "AI品牌生成器",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "品牌设计",
+        "创业工具",
+        "AI创意"
+      ],
+      "summary": "为小商家自动生成品牌名称和Logo",
+      "description": "Product Hunt上Branda（热度117）提供品牌创建管理全新方式。国内有大量小微创业者和个体户需要低成本创建品牌形象。可开发AI工具，输入业务描述，自动生成品牌名称、Slogan、Logo设计方案。竞品有“标小智”、“LogoSC”等，但差异化：更强调AI故事化生成，提供一整套品牌文案和视觉风格建议。单人可借助DALL·E或通义万相生成Logo，GPT生成文案。初期在淘宝、闲鱼上提供服务。",
+      "painPoint": "初创小团队没有钱请设计公司，自己起名和设计Logo痛苦且不专业。",
+      "path": [
+        "第一步：整合大模型API，设计prompt模板生成品牌名称、Slogan及解释",
+        "第二步：接图像生成API，基于品牌关键词生成多个Logo方案",
+        "第三步：开发简单Web应用，支持一键打包下载品牌指南（包含配色、字体）",
+        "第四步：在淘宝开店提供品牌设计服务，9.9元/套，同时通过SEO吸引自然流量"
+      ],
+      "revenueModel": "按次收费，基础版9.9元，高级版49.9元（含VI手册），预估月收入2000-4000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Product Hunt上Branda获得117热度，表明品牌生成工具有需求；国内个体工商户超1亿，品牌化需求潜力大。",
+      "sources": [
+        {
+          "title": "Product Hunt: Branda",
+          "url": "https://www.producthunt.com/products/branda?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "iPhone控制Mac自动化",
+      "category": "整活玩具",
+      "market": "海外为主",
+      "tags": [
+        "跨设备",
+        "Shortcuts",
+        "效率工具"
+      ],
+      "summary": "用iPhone快捷启动Mac应用和操作",
+      "description": "Product Hunt上choclift（热度120）实现用iPhone打开Mac应用、执行Shortcuts和访问网站。苹果生态用户对跨设备自动化有强烈需求（如远程唤醒、快速启动）。可开发类似工具，但专注于国内用户常用的场景：远程解锁Mac、发送文件、启动会议软件。竞品有“远程桌面”、“TeamViewer”，但差异化：轻量级、基于iCloud同步、无需外部服务器。单人可利用Apple Script和Swift开发。",
+      "painPoint": "人离开电脑后想远程执行简单操作（如让电脑下载文件、打开会议）只能手忙脚乱地跑回去。",
+      "path": [
+        "第一步：研究macOS远程控制API（如SSH、Apple Events），构建本地HTTP服务",
+        "第二步：开发iOS快捷指令配置应用，支持用户自定义操作列表",
+        "第三步：通过iCloud进行设备配对，确保安全性",
+        "第四步：在App Store和Product Hunt发布，免费基础版+付费Pro版（支持更多操作和定时任务）"
+      ],
+      "revenueModel": "免费+Pro版14.99美元买断，预估月收入1000-3000美元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Product Hunt上choclift获得120热度，说明用户对iPhone控制Mac有浓厚兴趣；苹果用户付费意愿高，海外市场广阔。",
+      "sources": [
+        {
+          "title": "Product Hunt: choclift",
+          "url": "https://www.producthunt.com/products/choclift-workflow-sweetener?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "隐私旅行规划工具",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "旅行",
+        "隐私",
+        "离线"
+      ],
+      "summary": "不联网也能规划和管理行程",
+      "description": "Product Hunt上Trovelo（热度98）强调“plan and track your trips privately”。国内也有不少注重隐私的用户，但更广阔的是海外市场（如欧洲GDPR敏感用户）。可开发一款PWA或原生APP，所有数据存储在本地iCloud/Google Drive，不经过服务端。支持行程规划、预算管理、日记记录。竞品有“行程助手”、“TripIt”，但差异化：零服务器、端到端加密、离线可用。单人可基于React Native开发。",
+      "painPoint": "现有旅行APP都要求注册账号、收集数据，用户担心隐私泄露。",
+      "path": [
+        "第一步：设计本地优先的数据模型（使用SQLite或IndexedDB），实现iCloud/Google Drive同步",
+        "第二步：开发PWA核心功能：添加行程、地图标注、备忘录、费用记录",
+        "第三步：添加端到端加密（用户持有密钥）",
+        "第四步：在Twitter、Reddit的r/privacy等社区推广，免费基础版+付费Pro（无限行程、高级地图）"
+      ],
+      "revenueModel": "Pro版3.99美元/月，买断19.99美元，预估月收入500-2000美元",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 1000元",
+      "difficulty": 4,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Product Hunt上Trovelo获得98热度，说明隐私旅行市场有真实需求；海外用户愿为隐私付费，类似产品（如Standard Notes）已验证模式。",
+      "sources": [
+        {
+          "title": "Product Hunt: Trovelo",
+          "url": "https://www.producthunt.com/products/trovelo-private-trip-planner?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "测试人员AI求职助手",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "求职",
+        "测试",
+        "AI简历"
+      ],
+      "summary": "针对大龄测试工程师的AI求职工具",
+      "description": "V2EX上帖子“大龄女测试被裁好难啊”（热度73）引发热议，反映测试行业转型痛点。同时GitHub上career-ops项目（48446星）展示了AI驱动的求职系统。可开发专注测试岗位的AI求职助手：自动将测试经验转化为简历亮点、匹配最新测试招聘职位、模拟测试面试。差异化：领域垂直，内置测试专业词汇和面试题库。单人可基于LLM API构建，整合BOSS直聘等公开数据。",
+      "painPoint": "大龄测试工程师简历投出去没有回音，缺乏面试机会，不知道如何突出自身优势。",
+      "path": [
+        "第一步：收集测试岗位常见JD和面试题，构建领域专属知识库",
+        "第二步：开发AI简历优化模块，输入原始经历自动生成量化成果描述",
+        "第三步：开发AI模拟面试，针对测试场景（功能测试、自动化测试、性能测试）",
+        "第四步：在V2EX、TesterHome、知乎推广，免费使用3次，后续按次收费或包月"
+      ],
+      "revenueModel": "单次简历优化9.9元，模拟面试19.9元/次，包月49.9元，预估月收入2000-5000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "V2EX帖子热度73，评论中多人感同身受，说明测试求职痛点广泛；GitHub上career-ops获48446星，证明AI求职工具商业化已被验证。",
+      "sources": [
+        {
+          "title": "V2EX: 大龄女测试被裁好难啊，求出路建议",
+          "url": "https://www.v2ex.com/t/1217561"
+        },
+        {
+          "title": "GitHub: santifer/career-ops",
+          "url": "https://github.com/santifer/career-ops"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "mastodon",
+      "repo": "mastodon",
+      "description": "Your self-hosted, globally interconnected microblogging community",
+      "url": "https://github.com/mastodon/mastodon",
+      "starsToday": 49982,
+      "language": "Ruby",
+      "insight": "搭建去中心化社交平台，适合小众社区",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "nlohmann",
+      "repo": "json",
+      "description": "JSON for Modern C++",
+      "url": "https://github.com/nlohmann/json",
+      "starsToday": 49847,
+      "language": "C++",
+      "insight": "学习高质量C++ JSON库设计与实现",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "expo",
+      "repo": "expo",
+      "description": "An open-source framework for making universal native apps with React. Expo runs on Android, iOS, and the web.",
+      "url": "https://github.com/expo/expo",
+      "starsToday": 49842,
+      "language": "TypeScript",
+      "insight": "快速开发跨平台移动应用，降低门槛",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "cypress-io",
+      "repo": "cypress",
+      "description": "Fast, easy and reliable testing for anything that runs in a browser.",
+      "url": "https://github.com/cypress-io/cypress",
+      "starsToday": 49649,
+      "language": "TypeScript",
+      "insight": "提供浏览器自动化测试服务或工具",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "AlistGo",
+      "repo": "alist",
+      "description": "🗂️A file list/WebDAV program that supports multiple storages, powered by Gin and Solidjs. / 一个支持多存储的文件列表/WebDAV程序，使用 Gin 和 Solidjs。",
+      "url": "https://github.com/AlistGo/alist",
+      "starsToday": 49580,
+      "language": "Go",
+      "insight": "搭建私有云盘，整合多种存储服务",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49562,
+      "language": "TypeScript",
+      "insight": "掌握现代前端异步状态管理技术",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    }
+  ]
+}
