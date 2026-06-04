@@ -1,0 +1,413 @@
+{
+  "date": "2026-06-04",
+  "generatedAt": "2026-06-04T08:03:15.993Z",
+  "summary": "今日信号显示AI成本控制、蓝领工具、食品营养数据、团队协作工具、本地AI记忆等方向存在明确机会。Uber设定$1500/月AI限额与V2EX用户34亿token消费形成呼应，蓝领计算器意外走红，Nutrepedia多语言营养查询站获得120分热度，Composer多人markdown工具在Product Hunt获117分，Mnemo本地AI记忆层虽小众但技术新颖。这些信号为个人创业者提供了低成本、高验证度的切入路径。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "AI编码额度管家",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "AI成本",
+        "API监控",
+        "开发者工具"
+      ],
+      "summary": "为开发者实时监控AI API消费与配额",
+      "description": "Uber已开始限制员工每月$1500的AI工具使用额度，而V2EX用户晒出单月消耗34亿token。国内开发者使用DeepSeek、豆包、通义等API时同样面临预算失控问题。本工具通过浏览器插件+后台Dashboard，实时追踪各模型调用次数、token消耗、花费，并支持自定义预警。差异化在于适配中国主流API（如DeepSeek v4 pro），提供多项目分组与月报。初期可做成CLI+Web轻量SaaS，月费19-39元，目标用户为独立开发者和小团队。",
+      "painPoint": "开发者使用多个AI API后，难以实时感知花费，月底账单超支才后悔。",
+      "path": [
+        "第一步：开发浏览器插件，拦截并解析各AI平台（DeepSeek、豆包等）的请求响应，提取token和费用",
+        "第二步：搭建后端Dashboard，用户注册后绑定插件，数据实时同步，支持图表和预警",
+        "第三步：上线Product Hunt/V2EX发帖宣传，提供7天免费试用",
+        "第四步：迭代增加多用户协作、月报导出、预算模板功能"
+      ],
+      "revenueModel": "月订阅19元（个人） / 49元（团队），预估首月100付费用户，月收入约3000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 5000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Bloomberg报道Uber正式将AI工具月上限设为1500美元以控制成本，V2EX用户展示个人34亿token消费截图，说明开发者对成本敏感且缺乏管理工具。",
+      "sources": [
+        {
+          "title": "Uber's $1,500/month AI limit is a useful signal",
+          "url": "https://simonwillison.net/2026/Jun/3/uber-caps-usage/"
+        },
+        {
+          "title": "V2EX - 5月总计用了多少token？我用了34亿",
+          "url": "https://www.v2ex.com/t/1217791"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "蓝领行业专用计算器",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "蓝领",
+        "工具站",
+        "SEO"
+      ],
+      "summary": "为卡车司机/外卖骑手等蓝领人群做垂直计算器",
+      "description": "IndieHackers上一位开发者用一天时间搭建了卡车司机拘留费计算器，因解决真实痛点获得关注。国内蓝领市场更大，外卖骑手需要收入预估计算器（含惩罚规则），快递员需要罚款计算器，网约车司机需要成本计算器。每个计算器用纯前端HTML/CSS/JS实现，SEO优化关键词（如‘外卖骑手一天能赚多少’），通过广告和付费去广告盈利。初期可做5-10个计算器组成工具站，独立开发者每天2小时即可维护。",
+      "painPoint": "蓝领工人缺乏简单实用的小工具来计算收入、罚款等实际数字，依赖口算或求助他人。",
+      "path": [
+        "第一步：选取5个蓝领方向（外卖骑手、快递员、网约车司机、卡车司机、装修工），调研常见计算需求",
+        "第二步：使用纯前端实现计算器，每个页面做SEO标题和meta描述",
+        "第三步：部署到GitHub Pages或低成本服务器，通过百度站长工具提交",
+        "第四步：在贴吧、微信群分享，积累自然流量后接入广告联盟"
+      ],
+      "revenueModel": "流量广告（百度联盟） + 付费去广告（9.9元/永久），月流量5万UV时预计收入2000-5000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 100元",
+      "difficulty": 1,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "IndieHackers上卡车司机拘留费计算器获1分热度（该平台分数较低），作者称一天内完成且获得真实用户反馈，证明蓝领工具存在未被满足的空白。",
+      "sources": [
+        {
+          "title": "I built a detention-pay calculator for truckers in a day",
+          "url": "https://dev.to/itsevilduck/i-built-a-detention-pay-calculator-for-truckers-in-a-day-unglamourous-niches-beat-another-ai-1e9d"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "AI品牌内容合规检测",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "品牌合规",
+        "内容审核",
+        "AI SaaS"
+      ],
+      "summary": "输入品牌手册，AI检测文案是否一致",
+      "description": "Product Hunt上Brand Context API获106分，核心理念是让AI输出符合品牌调性。国内中小企业（尤其电商、新媒体）经常因文案风格不统一、广告法违规被罚款。本工具支持上传品牌色值、语气、禁用词，AI扫描新生成的文案或社交媒体内容，给出合规评分和修改建议。可做成Web应用+浏览器插件，免费版检测5次，付费版月卡29元。1人独立开发可行，主要成本为LLM API调用（使用DeepSeek等低价模型）。",
+      "painPoint": "品牌内容（公众号、抖音文案）经常风格跑偏或触碰广告法红线，企业主没有工具自动校验。",
+      "path": [
+        "第一步：设计品牌配置界面，支持输入色号、语气（正式/亲切）、禁用词列表",
+        "第二步：接入DeepSeek API，构建prompt模板，实现文案检测与建议生成",
+        "第三步：开发浏览器插件，用户选中文字右键即可检测",
+        "第四步：在创业社群、电商论坛推广，提供免费试用"
+      ],
+      "revenueModel": "29元/月（100次检测）、99元/月（不限次），预计首月50付费用户，月收入约2500元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Brand Context API在Product Hunt获106分，说明品牌一致性检测是明确需求。国内广告法合规压力大，中小企业付费意愿强。",
+      "sources": [
+        {
+          "title": "Brand Context API: Ship AI that stays on-brand",
+          "url": "https://www.producthunt.com/products/brandfetch?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "中国食品营养查询API",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "营养数据",
+        "API",
+        "健康"
+      ],
+      "summary": "提供中国常见食品营养成分查询API",
+      "description": "Hacker News上Nutrepedia项目获120分，用Clojure+Htmx构建了多语言营养信息站点。国内缺乏类似的开源或免费API服务，减肥、健身、慢性病人群需要查常见食物（米饭、炒菜、零食）的热量、蛋白质、碳水等。可以采集中国食品成分表（开放数据）和常见包装食品信息，构建RESTful API，免费版每天50次调用，付费版0.01元/次或月卡39元。1人可通过脚本爬取+手动整理完成初始数据。",
+      "painPoint": "中国用户微信小程序或健身App查询食物营养时，数据不全、更新慢、API贵。",
+      "path": [
+        "第一步：获取中国食物成分表官方数据（CNFDC），整理为结构化JSON",
+        "第二步：补充超市常见包装食品数据（扫描条形码信息）",
+        "第三步：用Node.js+PostgreSQL构建API，提供搜索、条形码查询、营养对比接口",
+        "第四步：在健身社区、开发者社区推广，提供免费额度吸引集成"
+      ],
+      "revenueModel": "按量计费（0.01元/次） + 月卡39元，预计首月30个付费开发者，月收入约1500元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "Nutrepedia在Hacker News获120分，证明营养信息查询需求强烈。国内开发者和App对本土化营养API有明确需求，但现有服务（如薄荷健康）不开放API。",
+      "sources": [
+        {
+          "title": "Show HN: Nutrepedia – Nutrition info in 29 locales",
+          "url": "https://nutrepedia.com/en-us/"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "团队多人Markdown协作",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "Markdown",
+        "团队协作",
+        "实时编辑"
+      ],
+      "summary": "轻量级实时多人Markdown文档协作工具",
+      "description": "Product Hunt上Composer获117分，核心是多人在线Markdown协作并与AI Agent集成。国内技术团队、产品经理、写作团队常使用Notion或飞书，但存在过度复杂、加载慢的问题。可以做一个极简版：实时同步（CRDT）、支持图片粘贴、代码块高亮、版本历史。差异化在于轻量（无需数据库，纯内存+本地存储）、支持导出PDF/HTML。独立开发者可用Yjs+CodeMirror 6快速实现，售价49元/月或399元终身。",
+      "painPoint": "团队写技术文档或产品需求时，现有工具要么太重（Notion）、要么不支持实时协作（Typora+云盘）。",
+      "path": [
+        "第一步：使用Yjs (CRDT) + CodeMirror 6搭建实时协作Markdown编辑器原型",
+        "第二步：添加在线协作房间功能（通过WebSocket），支持URL分享",
+        "第三步：部署到Vercel/阿里云，集成GitHub/GitLab登录",
+        "第四步：在V2EX、少数派发帖宣传，提供免费3人以下房间"
+      ],
+      "revenueModel": "49元/月（无限房间）、399元终身，预计首月20付费用户，月收入约1000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 4,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Composer在Product Hunt获117分，说明多人Markdown协作需求被验证。国内团队协作工具市场大，但轻量极简方案仍有空间。",
+      "sources": [
+        {
+          "title": "Composer: Multiplayer markdown for you, your team, and your agents.",
+          "url": "https://www.producthunt.com/products/composer-3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "邮件预热工具",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "邮件营销",
+        "预热",
+        "送达率"
+      ],
+      "summary": "提升企业邮件送达率的自动预热服务",
+      "description": "Product Hunt上Mailwarm 2.0（YC S20）发布，虽零分但属于成熟产品类别。国内企业使用QQ邮箱、163邮箱进行营销，新域名或新IP容易被判垃圾邮件，需要邮件预热。本工具模拟正常收发行为，逐步提升域名信誉。差异化：针对中国邮箱服务商（QQ、网易、阿里云）优化。提供简单API集成，用户指定每天发送量和目标邮箱域（如gmail、qq），系统自动进行循环发送+回复。1人开发，使用Python+SMTP库，成本仅为服务器和邮箱池。",
+      "painPoint": "企业邮件营销新手期送达率极低，手动预热费时费力，没有针对中国邮箱的自动化工具。",
+      "path": [
+        "第一步：注册多个邮箱账号（QQ、163、126），搭建邮箱池管理模块",
+        "第二步：实现预热算法：逐步增加发送量、控制回复率、随机间隔",
+        "第三步：开发Web Dashboard，用户输入自建邮箱配置，选择预热周期",
+        "第四步：在百度SEM、CSDN论坛推广，提供7天免费试用"
+      ],
+      "revenueModel": "99元/月（预热1个域名）、199元/月（3个域名），预计首月20付费用户，月收入约2000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Mailwarm 2.0在Product Hunt发布（背靠YC背景），邮件预热是成熟市场。国内缺乏针对本土邮箱的预热工具，企业付费意愿高。",
+      "sources": [
+        {
+          "title": "Mailwarm 2.0 (YC S20): The email warmup tool, upgraded for deliverability.",
+          "url": "https://www.producthunt.com/products/mailwarm?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "后量子证书检测工具",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "PQC",
+        "SSL/TLS",
+        "安全"
+      ],
+      "summary": "扫描域名检测证书是否支持后量子加密",
+      "description": "Let's Encrypt宣布后量子证书计划（Hacker News 254分），未来所有证书都要迁移。企业突然需要了解当前证书是否兼容新标准。可以做一个在线工具，输入域名，自动检测TLS握手是否支持ML-KEM、Hybrid Key Exchange等后量子算法，并报告兼容性。1人开发，用Go扫描TLS连接，解析证书扩展。可以做成免费工具+白标版按月收费。海外市场为主，但国内也有外企需求。",
+      "painPoint": "Let's Encrypt即将推行后量子证书，运维人员不知道当前服务器是否兼容，手动检查复杂。",
+      "path": [
+        "第一步：研究后量子TLS扩展（ML-KEM、X25519MLKEM768等），编写Go扫描器",
+        "第二步：部署Web服务，用户输入域名即可扫描，生成兼容性报告",
+        "第三步：在Hacker News、Security社区发布，吸引关注",
+        "第四步：推出付费API（批量扫描、历史记录），9美元/月"
+      ],
+      "revenueModel": "免费单次扫描，付费API 9美元/月（100次），预计首月50付费用户，月收入约3000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 4,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Let's Encrypt后量子证书声明在Hacker News获254分，说明安全社区高度关注。未来一年内企业将面临迁移需求，检测工具是刚需入口。",
+      "sources": [
+        {
+          "title": "A Post-Quantum Future for Let's Encrypt",
+          "url": "https://letsencrypt.org/2026/06/03/pq-certs"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Web性能优化顾问",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "性能优化",
+        "前端",
+        "工具"
+      ],
+      "summary": "自动分析网页并提供字节级优化建议",
+      "description": "Hacker News文章《Every Byte Matters》获245分，强调极致优化。国内很多中小网站页面体积大、加载慢，但开发者缺少专业优化工具。可以做一个在线审计工具，输入URL自动分析HTML/CSS/JS/图片，给出具体优化建议：去除无用CSS、压缩HTML、延迟加载脚本、使用WebP/JPEG XL等。参考Lighthouse但更专注体积优化。独立开发者用Node.js+Puppeteer实现，免费版单次扫描，付费版49元/月（批量扫描、定时监测）。",
+      "painPoint": "网站加载速度影响SEO和转化率，但中小企业不知道从何优化，专业工具（Lighthouse）对非技术人员不友好。",
+      "path": [
+        "第一步：编写核心分析引擎，使用Puppeteer抓取页面资源，统计各类型体积",
+        "第二步：实现常见优化建议规则（如图片格式转换、CSS精简、Gzip）",
+        "第三步：开发友好的前端展示，给出改进前后预计体积对比",
+        "第四步：在站长论坛、淘宝卖家群推广，提供免费试用"
+      ],
+      "revenueModel": "免费单次，付费49元/月（100次），预计首月30付费用户，月收入约1500元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "《Every Byte Matters》在Hacker News获245分，说明性能优化是开发者持续关注的话题。国内中小网站普遍体积大，优化工具有市场。",
+      "sources": [
+        {
+          "title": "Every Byte Matters",
+          "url": "https://fzakaria.com/2026/06/01/every-byte-matters"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Zig UI模板市场",
+      "category": "内容创作",
+      "market": "海外为主",
+      "tags": [
+        "Zig",
+        "UI框架",
+        "开源"
+      ],
+      "summary": "售卖基于Gooey框架的Zig UI组件模板",
+      "description": "GitHub上Gooey项目（GPU加速Zig UI框架）获170分热度，但Zig生态缺乏现成UI组件。可以开发一套常用UI模板（按钮、表格、图表、布局），基于Gooey实现，打包出售。国内Zig用户极少，目标为海外Zig爱好者。1人使用Gooey的API编写组件，每个模板定价5-15美元。在Gumroad售卖。0成本启动，只需时间。",
+      "painPoint": "Zig开发者想用Gooey做GUI但缺乏现成组件，从头造轮子耗时。",
+      "path": [
+        "第一步：学习Gooey框架API，编写示例应用",
+        "第二步：开发10个常用组件（表格、卡片、导航栏、图表）并适配主题",
+        "第三步：录制演示视频，在Zig社区（Zig Showtime）和Twitter推广",
+        "第四步：上架Gumroad，持续更新"
+      ],
+      "revenueModel": "单卖5-15美元/个，打包39美元，预计首月售出20份，月收入约600美元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 3,
+      "competition": "低",
+      "evidence": "Gooey项目在Hacker News获170分，Figma/GPU加速UI是热点。Zig社区虽小但购买力强，缺乏现成模板。",
+      "sources": [
+        {
+          "title": "Gooey: A GPU-accelerated UI framework for Zig",
+          "url": "https://github.com/duanebester/gooey"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "数学作业AI辅助检测",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "教育",
+        "数学",
+        "AI检测"
+      ],
+      "summary": "检测学生数学作业是否依赖AI作弊",
+      "description": "Berkeley CS课程因AI使用导致挂科率飙升（Hacker News 235分），数学家也发出警告（Science 224分）。国内高校同样面临学生用AI完成数学作业的问题。可以开发一个AI检测工具，专门针对数学解题步骤，分析解题逻辑是否符合人类思维（有无跳步、非常规公式）。免费版上传PDF/图片检测，付费版5元/次或月卡49元。1人可用Python+OCR+LLM构建，关键算法是检查步骤连贯性和人脑合理性。",
+      "painPoint": "教师无法分辨学生数学作业是否由AI（如GPT-5、DeepSeek）代写，手工判断耗时。",
+      "path": [
+        "第一步：收集AI生成的数学解题样本和人类学生样本，训练分类模型或制定规则",
+        "第二步：开发Web上传界面，支持图片/PDF，调用OCR提取文本后分析",
+        "第三步：输出作弊可能性评分和可疑步骤标注",
+        "第四步：联系高校教师、教育机构试用，免费推广积累口碑"
+      ],
+      "revenueModel": "按次5元（单题）或月卡49元（100次），预计首月50教师付费，月收入约2500元",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Berkeley CS课程因AI使用挂科率激增（Hacker News 235分），Science杂志文章数学家警告AI威胁（224分），教育界对AI作弊检测需求迫切。",
+      "sources": [
+        {
+          "title": "Failing grades soar with AI usage in Berkeley CS classes",
+          "url": "https://www.dailycal.org/news/campus/academics/failing-grades-soar-as-professors-see-greater-ai-usage-dwindling-math-skills-in-uc-berkeley/article_16fad0bf-02cb-4b8c-8d88-888ffd9f8608.html"
+        },
+        {
+          "title": "Mathematicians issue warning as AI rapidly gains ground",
+          "url": "https://www.science.org/content/article/mathematicians-issue-warning-ai-rapidly-gains-ground"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "mastodon",
+      "repo": "mastodon",
+      "description": "Your self-hosted, globally interconnected microblogging community",
+      "url": "https://github.com/mastodon/mastodon",
+      "starsToday": 49989,
+      "language": "Ruby",
+      "insight": "搭建去中心化社交产品",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "run-llama",
+      "repo": "llama_index",
+      "description": "LlamaIndex is the leading document agent and OCR platform",
+      "url": "https://github.com/run-llama/llama_index",
+      "starsToday": 49902,
+      "language": "Python",
+      "insight": "开发AI文档处理应用",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "expo",
+      "repo": "expo",
+      "description": "An open-source framework for making universal native apps with React. Expo runs on Android, iOS, and the web.",
+      "url": "https://github.com/expo/expo",
+      "starsToday": 49864,
+      "language": "TypeScript",
+      "insight": "快速构建跨平台原生App",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "VoltAgent",
+      "repo": "awesome-openclaw-skills",
+      "description": "The awesome collection of OpenClaw skills. 5,400+ skills filtered and categorized from the official OpenClaw Skills Registry.🦞",
+      "url": "https://github.com/VoltAgent/awesome-openclaw-skills",
+      "starsToday": 49778,
+      "language": "",
+      "insight": "探索游戏技能模组资源",
+      "opportunityType": "学习",
+      "chinaFit": "low"
+    },
+    {
+      "owner": "cypress-io",
+      "repo": "cypress",
+      "description": "Fast, easy and reliable testing for anything that runs in a browser.",
+      "url": "https://github.com/cypress-io/cypress",
+      "starsToday": 49651,
+      "language": "TypeScript",
+      "insight": "提升前端自动化测试能力",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49585,
+      "language": "TypeScript",
+      "insight": "优化前端数据状态管理",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    }
+  ]
+}
