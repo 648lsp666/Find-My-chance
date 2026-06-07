@@ -1,0 +1,475 @@
+{
+  "date": "2026-06-07",
+  "generatedAt": "2026-06-07T07:15:32.726Z",
+  "summary": "今日信号显示AI agent技能生态快速爆发（agent-skills星数达48.7k），同时域名管理、落地页评审、响度标准化等细分痛点出现机会。安全事件（Meta Instagram被黑）提示AI安全检测需求。独立开发者适合从工具型SaaS、内容目录、AI细分辅导切入，成本低、见效快。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "AI Agent技能模板商店",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "AI Agent",
+        "技能市场",
+        "OpenClaw"
+      ],
+      "summary": "中文AI agent技能模板交易平台",
+      "description": "GitHub上agent-skills仓库已达48.7k星，awesome-openclaw-skills拥有5400+技能且星数49.9k，说明开发者对AI agent能力扩展需求极高。但国内缺乏中文技能商店，开发者查找和使用成本高。可建一个网站，让开发者上传、评分、购买中文Agent技能（如淘宝比价、天气查询、股票分析），平台抽佣20%。初期聚焦OpenClaw/Claude兼容技能，后续支持其他框架。",
+      "painPoint": "国内AI Agent用户找不到高质量中文技能，社区分散，无统一市场。",
+      "path": [
+        "第一步：搭建技能上传与浏览页面（Next.js + 数据库），实现技能元数据管理",
+        "第二步：开发OpenClaw/Claude技能模板生成器，降低上传门槛",
+        "第三步：在V2EX、少数派发布邀请内测，首批征集50个技能",
+        "第四步：接入微信支付，上线交易功能，社区推广"
+      ],
+      "revenueModel": "技能交易抽佣20%，免费技能可捐赠鼓励。预估月收入0.5-2万元（社区初期）。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "GitHub上agent-skills仓库达48.7k星（信号35），awesome-openclaw-skills拥有5400+技能且星数49.9k（信号25），反映社区强烈需求。",
+      "sources": [
+        {
+          "title": "GitHub: addyosmani/agent-skills - Production-grade engineering skills for AI coding agents",
+          "url": "https://github.com/addyosmani/agent-skills"
+        },
+        {
+          "title": "GitHub: VoltAgent/awesome-openclaw-skills - 5400+ skills",
+          "url": "https://github.com/VoltAgent/awesome-openclaw-skills"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "域名到期提醒小程序",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "域名管理",
+        "提醒服务",
+        "小程序"
+      ],
+      "summary": "微信小程序域名到期与续费提醒工具",
+      "description": "HN上DomainTasker获得17分，核心是避免域名丢失和意外续费。国内域名用户超千万，但大多依赖注册商邮件提醒，易遗漏。可开发微信小程序，用户批量导入域名，设置微信/短信提前提醒，支持域名商折扣监控。免费版提醒3个域名，Pro版不限并增加WHOIS变化推送。市场竞品少，轻量易推广。",
+      "painPoint": "域名到期忘记续费导致被抢注或停止服务，邮件提醒易被忽略。",
+      "path": [
+        "第一步：开发微信小程序UI与域名列表功能，集成WHOIS查询API",
+        "第二步：实现微信模板消息推送提醒，测试10个常用域名后缀",
+        "第三步：在V2EX、站长社区发帖内测，收集反馈",
+        "第四步：上线会员付费，添加批量导入、域名估价等增值功能"
+      ],
+      "revenueModel": "免费版3个域名，Pro版9.9元/月或99元/年不限。预估月收入0.3-1万元。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 2000元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "HN上DomainTasker获17分，其核心功能“避免域名丢失和意外续费”击中用户痛点（信号21）。",
+      "sources": [
+        {
+          "title": "Show HN: DomainTasker – avoid losing domains and surprise renewals",
+          "url": "https://domaintasker.com/"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "落地页AI+人工评审",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "Landing Page",
+        "转化优化",
+        "设计评审"
+      ],
+      "summary": "个人开发者落地页付费评审服务",
+      "description": "Product Hunt上Landing Page Roast获16分，说明开发者对落地页反馈有需求。国内个人开发者上线产品时，落地页往往粗犷，影响转化。可提供“199元/次”的落地页评审服务，先由AI自动检测10项常见问题（加载速度、CTA、配色），再由资深设计师给出3条改进建议。通过知乎/小红书发案例引流，积累口碑后推出年包。",
+      "painPoint": "独立开发者不懂设计/文案，落地页转化差，但无力聘请专业团队。",
+      "path": [
+        "第一步：准备评审标准清单，搭建AI预检工具（Lighthouse+颜色分析）",
+        "第二步：在个人博客/知识星球发布免费试用，收集案例",
+        "第三步：运营小红书/知乎账号，发布“4个常见落地页错误”等内容",
+        "第四步：推出付费服务，99元基础版/199元专家版"
+      ],
+      "revenueModel": "单次评审99-199元，月服务20-50单。预估月收入0.3-1万元。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Product Hunt上Landing Page Roast获16分，其功能“获取可行动反馈、设计批评”直接对应需求（信号58）。",
+      "sources": [
+        {
+          "title": "Product Hunt: Landing Page Roast",
+          "url": "https://www.producthunt.com/products/landing-page-roast?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "多平台一键同步工具",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "社交发布",
+        "跨平台",
+        "内容分发"
+      ],
+      "summary": "本地/云端内容一键发布多平台",
+      "description": "Product Hunt上Crossposter获12分，是一款开源的本地社交发布工具。国内创作者需同时发到公众号、头条、小红书、B站等，但官方API限制多。可开发浏览器插件+桌面端，支持图文草稿统一管理，自动适配各平台格式（如话题标签、水印），接入AI标题重写。定价29元/月。市场有同类但支持平台不全，可差异化。",
+      "painPoint": "创作者重复登录各平台手动发布，浪费时间且容易出错。",
+      "path": [
+        "第一步：调研国内主流平台开放接口（支持程度），选定最常用的5个",
+        "第二步：开发插件核心功能——草稿箱、格式转换、发布队列",
+        "第三步：在少数派、即刻发布内测，邀请内容创作者试用",
+        "第四步：上线定价，免费版限制2个平台，付费版全平台"
+      ],
+      "revenueModel": "29元/月或299元/年。预估月收入0.5-2万元（假设100-500付费用户）。",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Product Hunt上Crossposter获12分，其“免费开源社交发布工具”定位获得关注（信号59）。",
+      "sources": [
+        {
+          "title": "Product Hunt: Crossposter",
+          "url": "https://www.producthunt.com/products/crossposter-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "音频响度标准化工具",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "响度",
+        "音频",
+        "标准化"
+      ],
+      "summary": "一键音频响度标准化浏览器插件",
+      "description": "少数派文章“再谈响度战争”指出视频音频越来越吵（信号89）。视频创作者、播客制作者常遇到输出音频响度不统一导致体验差。可开发浏览器插件/桌面应用，自动检测并调整音频轨至标准LUFS值（如-14 LUFS），支持批量处理。免费试用10次，付费版无限。技术基于ffmpeg wasm，纯前端处理，成本极低。",
+      "painPoint": "视频/播客音频响度忽大忽小，听众体验差且平台标准不一。",
+      "path": [
+        "第一步：基于ffmpeg.wasm实现响度分析+自动调整算法",
+        "第二步：开发Chrome插件，嵌入视频编辑页面或本地文件处理",
+        "第三步：在少数派、知乎分享“音频响度自检教程”引流",
+        "第四步：上线订阅付费，29元/月或99元终身"
+      ],
+      "revenueModel": "29元/月订阅或99元终身。预估月收入0.2-1万元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "少数派文章“再谈响度战争”从技术角度分析视频音频变响的问题，引发用户共鸣（信号89）。",
+      "sources": [
+        {
+          "title": "少数派: 再谈响度战争",
+          "url": "https://sspai.com/post/109483"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "AI雅思口语陪练",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "雅思",
+        "口语",
+        "AI模拟"
+      ],
+      "summary": "AI驱动的雅思口语模拟考官",
+      "description": "IndieHackers文章作者为突破IELTS Band 6.5瓶颈用AI构建模拟引擎（信号71）。国内雅思考生每年超60万，口语练习需求大。可开发微信小程序，接入语音转文字+AI评分（发音、语法、流利度），模拟真实考试流程。免费试练1次，付费9.9元/次或99元无限次。竞品有流利说等，但专注雅思细分。",
+      "painPoint": "雅思口语练习缺乏真实考官反馈，找外教昂贵且不方便。",
+      "path": [
+        "第一步：调用免费语音识别API（如阿里云）和LLM构建评分逻辑",
+        "第二步：开发微信小程序UI，设计模拟考试流程与题库",
+        "第三步：在雅思学习群、小红书分享免费试用码",
+        "第四步：上线付费，持续优化评分模型"
+      ],
+      "revenueModel": "按次或包月。预估月收入0.3-1万元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "IndieHackers文章详细描述了作者花数月构建AI仿真引擎攻克雅思口语瓶颈，证明市场需求（信号71）。",
+      "sources": [
+        {
+          "title": "IndieHackers: Why I spent months building an AI simulation engine to break the IELTS Band 6.5 bottleneck",
+          "url": "https://dev.to/m4cr0d0s3/why-i-spent-months-building-an-ai-simulation-engine-to-break-the-ielts-band-65-bottleneck-1jia"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "独立开发者人才市场",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "独立开发者",
+        "招聘",
+        "作品展示"
+      ],
+      "summary": "独立开发者作品展示与企业招聘平台",
+      "description": "GitHub上chinese-independent-developer仓库拥有48.8k星（信号34），大量开发者展示作品但缺乏商业化。可建立垂直平台，让独立开发者上传作品集和简介，企业可发布兼职/远程岗位，平台抽取15%服务费。初期邀请仓库中项目作者入驻，利用该仓库流量冷启动。区别于通用招聘网站，聚焦“一人开发”与“外包/远程”。",
+      "painPoint": "独立开发者缺曝光机会，企业难找到靠谱单人开发者。",
+      "path": [
+        "第一步：快速搭建前后端，实现作品集展示与搜索",
+        "第二步：联系仓库中前100个项目作者邀请入驻",
+        "第三步：在V2EX、掘金发帖“独立开发者找工作”社区营销",
+        "第四步：上线招聘功能，企业端按发布职位收费"
+      ],
+      "revenueModel": "招聘职位发布费100元/条或年费会员。预估月收入0.3-0.8万元。",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "GitHub仓库chinese-independent-developer星数48.8k，列出大量独立开发者项目，反映社区活跃但缺少交易桥梁（信号34）。",
+      "sources": [
+        {
+          "title": "GitHub: 1c7/chinese-independent-developer - 中国独立开发者项目列表",
+          "url": "https://github.com/1c7/chinese-independent-developer"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "一键静态网站部署",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "静态网站",
+        "部署",
+        "Vercel替代"
+      ],
+      "summary": "GitHub仓库直接部署到国内CDN",
+      "description": "HN上Zeroserve（零配置eBPF脚本服务器）获221分，概念新颖。但面向开发者，可直接做国内替代Vercel的轻量服务：用户用GitHub登录，选择仓库分支，自动构建并部署到国内CDN（加速域名备案可选）。免费版提供子域名如xxx.dev.cn，付费版自定义域名和团队协作。国内大量个人博客、文档站需要简单部署。",
+      "painPoint": "国内开发者部署静态网站流程繁琐，国外服务（Vercel/Netlify）访问慢且容易被墙。",
+      "path": [
+        "第一步：搭建基于Serverless的构建与部署引擎，支持主流框架",
+        "第二步：开发GitHub App自动触发部署，绑定国内CDN（如又拍云）",
+        "第三步：在V2EX发表“零配置部署静态网站教程”引流",
+        "第四步：上线定价，免费版500MB流量，付费版按流量付费"
+      ],
+      "revenueModel": "按流量收费（0.1元/GB）或月费9.9元。预估月收入0.2-0.5万元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元（首月CDN费用）",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "HN上Zeroserve获221分，其“零配置web服务器”概念吸引大量开发者关注（信号6）。",
+      "sources": [
+        {
+          "title": "Hacker News: Zeroserve: A zero-config web server you can script with eBPF",
+          "url": "https://su3.io/posts/introducing-zeroserve"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Mac重复文件智能清理",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "macOS",
+        "清理工具",
+        "去重"
+      ],
+      "summary": "macOS重复文件/大文件扫描清理工具",
+      "description": "少数派文章“macOS存储去重”系统介绍了去重知识（信号87）。mac用户经常磁盘空间不足。可开发轻量应用，使用哈希比对扫描重复文件、大文件、临时缓存，支持安全删除与软链接替换。免费版扫描结果预览，付费版一键清理和文件夹排除。技术门槛低，可用Swift原生开发。市场有Gemini但价格高，此工具可免费+增值。",
+      "painPoint": "mac用户磁盘空间不够，手动查找重复文件麻烦且危险。",
+      "path": [
+        "第一步：用Swift开发核心扫描算法，基于SHA256比对",
+        "第二步：设计简洁UI，支持预览与批量操作",
+        "第三步：在少数派、MacTalk发布“macOS空间清理攻略”引流",
+        "第四步：上线Mac App Store，免费版限制处理数量，Pro版9.9元"
+      ],
+      "revenueModel": "App Store付费下载9.9元或内购。预估月收入0.2-0.8万元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元（Apple开发者账号）",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "少数派文章详细讲解macOS去重原理，阅读量高且评论活跃，反映用户对存储管理工具的迫切需求（信号87）。",
+      "sources": [
+        {
+          "title": "少数派: macOS 存储管理漫谈：去重是节约空间的最好方法",
+          "url": "https://sspai.com/prime/story/macos-storage-management-deduplication"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "AI工具目录导航站",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "AI工具",
+        "目录",
+        "SEO"
+      ],
+      "summary": "AI精选工具中文目录与评测",
+      "description": "IndieHackers多篇文章讨论“AI-curated directories vs Google AI Overviews”（信号60、64、67），表明AI目录有流量机会。国内AI工具爆发，但缺乏高质量中文筛选与评测。可建垂直目录站，人工+AI整理1000+AI工具，分类（图像、文案、编程等），每篇提供简短测评与购买链接（联盟营销）。通过SEO获流量，挂Google AdSense或国内广告联盟。",
+      "painPoint": "用户面对成千上万AI工具不知如何选择，英文评测多，中文优质资源少。",
+      "path": [
+        "第一步：确定10个热门AI类别，手动收集50个工具撰写测评",
+        "第二步：搭建静态目录站（Hugo/Next.js），优化SEO",
+        "第三步：每天发布2-3篇工具介绍，利用长尾关键词获取搜索流量",
+        "第四步：接入淘宝客/联盟广告，实现盈利"
+      ],
+      "revenueModel": "联盟佣金+广告。预估月收入0.1-0.5万元（前期）。",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 500元（域名+服务器）",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "IndieHackers作者分析AI目录在谷歌AI Overviews下的生存策略，引发多篇讨论（信号60、64、67），证明该方向仍有价值。",
+      "sources": [
+        {
+          "title": "Why I'm betting on AI-curated directories when Google AI Overviews answer the same queries",
+          "url": "https://dev.to/morinaga/why-im-betting-on-ai-curated-directories-when-google-ai-overviews-answer-the-same-queries-i5m"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "谷歌搜索个人资料优化",
+      "category": "本地服务",
+      "market": "海外为主",
+      "tags": [
+        "SEO",
+        "Google Search",
+        "个人品牌"
+      ],
+      "summary": "帮助创作者优化Google Search Profile",
+      "description": "Product Hunt上Google Search Profiles获338分（信号45），谷歌推出发布者/创作者个人资料功能。海外博主、独立开发者可用此增加搜索曝光，但多数人不知如何设置。可提供付费咨询服务，按小时/按套餐帮助客户完善个人资料、关联站点、优化简介与作者标记。通过Upwork或个人网站接单，单客收费$50-$200。",
+      "painPoint": "谷歌新功能发布者个人资料设置复杂，多数人错过曝光机会。",
+      "path": [
+        "第一步：深入研究Google Search Profiles设置最佳实践",
+        "第二步：在英文博客/Upwork发布服务介绍",
+        "第三步：用免费优化案例吸引客户",
+        "第四步：推出10人小班课程（$199/人）"
+      ],
+      "revenueModel": "按单次服务$50-$200，预估月收入$500-$2000。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元（仅时间成本）",
+      "difficulty": 2,
+      "potential": 4,
+      "competition": "低",
+      "evidence": "Product Hunt上Google Search Profiles获338分，是当日热门产品，说明该功能受广泛关注（信号45）。",
+      "sources": [
+        {
+          "title": "Product Hunt: Google Search Profiles",
+          "url": "https://www.producthunt.com/products/google?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "AI聊天机器人安全检测",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "AI安全",
+        "提示注入",
+        "检测"
+      ],
+      "summary": "AI聊天机器人安全漏洞扫描服务",
+      "description": "Meta确认数千Instagram账号因滥用AI聊天机器人被黑（信号1），暴露AI聊天机器人的安全风险。企业部署AI客服、助手类产品可能被提示注入、数据泄露。可开发在线检测工具，模拟攻击场景（prompt injection、越狱、敏感信息泄露）自动生成报告。免费扫描1次，付费按月订阅。技术基于开源工具如garak。",
+      "painPoint": "企业AI聊天机器人上线前缺乏安全评估，容易被恶意利用。",
+      "path": [
+        "第一步：封装garak等开源工具为SaaS API",
+        "第二步：开发用户上传API endpoint/聊天页面，自动运行攻击测试",
+        "第三步：在AI开发者社群（公众号、知乎）发布“AI安全指南”",
+        "第四步：上线订阅制，299元/月或2999元/年"
+      ],
+      "revenueModel": "299元/月，预估月收入0.3-1万元（10-30客户）。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元（服务器+API费用）",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "HN上Meta确认数千Instagram账号被滥用AI聊天机器人攻击获550分（信号1），凸显AI安全紧迫性。",
+      "sources": [
+        {
+          "title": "Hacker News: Meta confirms 1000s of Instagram accounts were hacked by abusing its AI chatbot",
+          "url": "https://this.weekinsecurity.com/meta-confirms-thousands-of-instagram-accounts-were-hacked-by-abusing-its-ai-chatbot/"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "VoltAgent",
+      "repo": "awesome-openclaw-skills",
+      "description": "The awesome collection of OpenClaw skills. 5,400+ skills filtered and categorized from the official OpenClaw Skills Registry.🦞",
+      "url": "https://github.com/VoltAgent/awesome-openclaw-skills",
+      "starsToday": 49940,
+      "language": "",
+      "insight": "OpenClaw技能集合，可参考或复用，但国内受众有限。",
+      "opportunityType": "学习",
+      "chinaFit": "low"
+    },
+    {
+      "owner": "expo",
+      "repo": "expo",
+      "description": "An open-source framework for making universal native apps with React. Expo runs on Android, iOS, and the web.",
+      "url": "https://github.com/expo/expo",
+      "starsToday": 49925,
+      "language": "TypeScript",
+      "insight": "用React轻松开发跨平台App，快速验证产品。",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "cypress-io",
+      "repo": "cypress",
+      "description": "Fast, easy and reliable testing for anything that runs in a browser.",
+      "url": "https://github.com/cypress-io/cypress",
+      "starsToday": 49684,
+      "language": "TypeScript",
+      "insight": "前端测试利器，提升应用质量和开发效率。",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49642,
+      "language": "TypeScript",
+      "insight": "高效管理异步数据，减少样板代码。",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "BerriAI",
+      "repo": "litellm",
+      "description": "Python SDK, Proxy Server (AI Gateway) to call 100+ LLM APIs in OpenAI (or native) format, with cost tracking, guardrails, loadbalancing and logging. [Bedrock, Azure, OpenAI, VertexAI, Cohere, Anthropic, Sagemaker, HuggingFace, VLLM, NVIDIA NIM]",
+      "url": "https://github.com/BerriAI/litellm",
+      "starsToday": 49523,
+      "language": "Python",
+      "insight": "统一调用百种LLM，快速构建AI应用。",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "huginn",
+      "repo": "huginn",
+      "description": "Create agents that monitor and act on your behalf.  Your agents are standing by!",
+      "url": "https://github.com/huginn/huginn",
+      "starsToday": 49430,
+      "language": "Ruby",
+      "insight": "自建自动化代理，实现信息监控与动作。",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
+    }
+  ]
+}
