@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Noto Sans SC"', 'Microsoft YaHei UI', 'PingFang SC', 'sans-serif'],
-        mono: ['var(--font-mono)', 'monospace'],
-        sans: ['"Noto Sans SC"', 'Microsoft YaHei UI', 'PingFang SC', 'sans-serif'],
+        display: ['"LXGW WenKai Screen"', '"Noto Sans SC"', 'HarmonyOS Sans SC', 'Microsoft YaHei UI', 'PingFang SC', 'sans-serif'],
+        mono: ['var(--font-mono)', '"Noto Sans SC"', 'HarmonyOS Sans SC', 'Microsoft YaHei UI', 'PingFang SC', 'ui-monospace', 'monospace'],
+        sans: ['"Noto Sans SC"', 'HarmonyOS Sans SC', 'Microsoft YaHei UI', 'PingFang SC', 'sans-serif'],
       },
       colors: {
         r: {

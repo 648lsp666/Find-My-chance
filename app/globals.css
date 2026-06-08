@@ -1,8 +1,9 @@
-@import '@fontsource/noto-sans-sc/400.css';
-@import '@fontsource/noto-sans-sc/500.css';
-@import '@fontsource/noto-sans-sc/600.css';
-@import '@fontsource/noto-sans-sc/700.css';
-@import '@fontsource/noto-sans-sc/800.css';
+@import '@fontsource/noto-sans-sc/chinese-simplified-400.css';
+@import '@fontsource/noto-sans-sc/chinese-simplified-500.css';
+@import '@fontsource/noto-sans-sc/chinese-simplified-600.css';
+@import '@fontsource/noto-sans-sc/chinese-simplified-700.css';
+@import '@fontsource/noto-sans-sc/chinese-simplified-800.css';
+@import 'cn-fontsource-lxgw-wen-kai-screen/font.css';
 
 @tailwind base;
 @tailwind components;
@@ -72,7 +73,7 @@
     background-color: rgb(var(--r-bg));
     color: rgb(var(--r-text));
     min-height: 100vh;
-    font-family: 'Noto Sans SC', 'Microsoft YaHei UI', 'PingFang SC', sans-serif;
+    font-family: 'Noto Sans SC', 'HarmonyOS Sans SC', 'Microsoft YaHei UI', 'PingFang SC', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     transition: background-color 0.25s ease, color 0.25s ease;
