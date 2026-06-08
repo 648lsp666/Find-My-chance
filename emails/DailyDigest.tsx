@@ -30,6 +30,8 @@ export default function DailyDigest({
   const CAT_COLORS: Record<string, string> = {
     'AI应用': '#5B9CF6', '自媒体': '#A78BFA', 'SaaS工具': '#34D399',
     '整活玩具': '#F87171', '本地服务': '#FBBF24', '内容创作': '#FB923C',
+    '开发工具': '#60A5FA', '数据服务': '#2DD4BF', '自动化流程': '#22D3EE',
+    '教育培训': '#C084FC', '企业服务': '#818CF8', '出海产品': '#F472B6',
   }
 
   return (

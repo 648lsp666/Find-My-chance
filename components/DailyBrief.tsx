@@ -19,6 +19,12 @@ const CATEGORY_COLORS: Record<string, string> = {
   '整活玩具': '#FCA5A5',
   '本地服务': '#FCD34D',
   '内容创作': '#FDBA74',
+  '开发工具': '#93C5FD',
+  '数据服务': '#5EEAD4',
+  '自动化流程': '#67E8F9',
+  '教育培训': '#D8B4FE',
+  '企业服务': '#A5B4FC',
+  '出海产品': '#F9A8D4',
 }
 
 interface ThemeGroup {

@@ -43,6 +43,12 @@ const CATS: Record<string, { color: string; bg: string; headerBg: string; label:
   '整活玩具': { color: '#DC2626', bg: 'rgba(220,38,38,0.08)',   headerBg: 'linear-gradient(90deg,#FEE2E2,#FFF5F5)', label: '整活' },
   '本地服务': { color: '#D97706', bg: 'rgba(217,119,6,0.08)',   headerBg: 'linear-gradient(90deg,#FEF3C7,#FFFBEB)', label: '本地' },
   '内容创作': { color: '#EA580C', bg: 'rgba(234,88,12,0.08)',   headerBg: 'linear-gradient(90deg,#FFEDD5,#FFF7ED)', label: '内容' },
+  '开发工具': { color: '#2563EB', bg: 'rgba(37,99,235,0.08)',    headerBg: 'linear-gradient(90deg,#DBEAFE,#F5F8FF)', label: '开发' },
+  '数据服务': { color: '#0D9488', bg: 'rgba(13,148,136,0.08)',   headerBg: 'linear-gradient(90deg,#CCFBF1,#F0FDFA)', label: '数据' },
+  '自动化流程': { color: '#0891B2', bg: 'rgba(8,145,178,0.08)', headerBg: 'linear-gradient(90deg,#CFFAFE,#ECFEFF)', label: '自动化' },
+  '教育培训': { color: '#9333EA', bg: 'rgba(147,51,234,0.08)',   headerBg: 'linear-gradient(90deg,#F3E8FF,#FAF5FF)', label: '教育' },
+  '企业服务': { color: '#4F46E5', bg: 'rgba(79,70,229,0.08)',    headerBg: 'linear-gradient(90deg,#E0E7FF,#F5F7FF)', label: '企业' },
+  '出海产品': { color: '#DB2777', bg: 'rgba(219,39,119,0.08)',   headerBg: 'linear-gradient(90deg,#FCE7F3,#FFF5FA)', label: '出海' },
 }
 
 function Dots({ value, max, color }: { value: number; max: number; color: string }) {

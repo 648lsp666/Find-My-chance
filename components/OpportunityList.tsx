@@ -5,7 +5,21 @@ import type { Opportunity } from '@/lib/opportunities'
 import OpportunityCard from './OpportunityCard'
 import { useVotes } from '@/hooks/useVotes'
 
-const ALL_CATS = ['AI应用', '自媒体', 'SaaS工具', '整活玩具', '本地服务', '内容创作', '其他']
+const ALL_CATS = [
+  'AI应用',
+  'SaaS工具',
+  '开发工具',
+  '数据服务',
+  '自动化流程',
+  '企业服务',
+  '教育培训',
+  '出海产品',
+  '自媒体',
+  '内容创作',
+  '本地服务',
+  '整活玩具',
+  '其他',
+]
 
 const CAT_COLORS: Record<string, string> = {
   'AI应用':   '#7C3AED',
@@ -14,6 +28,12 @@ const CAT_COLORS: Record<string, string> = {
   '整活玩具': '#DC2626',
   '本地服务': '#D97706',
   '内容创作': '#EA580C',
+  '开发工具': '#2563EB',
+  '数据服务': '#0D9488',
+  '自动化流程': '#0891B2',
+  '教育培训': '#9333EA',
+  '企业服务': '#4F46E5',
+  '出海产品': '#DB2777',
   '其他':     '#6B7280',
 }
 
