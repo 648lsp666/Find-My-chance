@@ -31,7 +31,7 @@ export default function GeneratePrdButton({ opportunity }: Props) {
         className="w-full mt-3 font-mono text-[13px] font-semibold tracking-wide py-2.5 rounded-xl text-white transition-all hover:opacity-90 active:scale-[0.98]"
         style={{ background: '#7C3AED', boxShadow: '0 2px 10px rgba(124,58,237,0.25)' }}
       >
-        {isSignedIn ? '📄 生成 PRD' : '📄 生成 PRD'}
+        📄 整理 PRD
       </button>
       {open && <PrdModal opportunity={opportunity} onClose={() => setOpen(false)} />}
     </>

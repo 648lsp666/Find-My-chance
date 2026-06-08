@@ -10,8 +10,8 @@ interface Props {
 
 export default function DateNav({ dates, currentDate, basePath = '' }: Props) {
   return (
-    <div className="bg-r-card border-b border-r-border transition-colors">
-      <div className="max-w-6xl mx-auto px-6">
+    <div className="bg-r-card border border-r-border rounded-2xl mb-5 transition-colors print:hidden">
+      <div className="px-1 sm:px-3">
         <div className="flex overflow-x-auto no-scrollbar">
           {dates.slice(0, 20).map((date, i) => {
             const [, m, d] = date.split('-')
@@ -21,7 +21,7 @@ export default function DateNav({ dates, currentDate, basePath = '' }: Props) {
               <Link
                 key={date}
                 href={`${basePath}/${date}`}
-                className={`flex-shrink-0 flex flex-col items-center gap-0.5 px-5 py-3 border-b-2 transition-all duration-200 ${
+                className={`flex-shrink-0 flex flex-col items-center gap-0.5 px-4 sm:px-5 py-3 border-b-2 transition-all duration-200 ${
                   active
                     ? 'border-r-accent text-r-accent'
                     : 'border-transparent text-r-muted hover:text-r-accent hover:bg-r-bg'

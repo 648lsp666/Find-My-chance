@@ -15,9 +15,9 @@ const STEPS = [
   {
     time: '04:00 UTC',
     icon: '🤖',
-    title: 'AI 深度解读',
-    desc: 'DeepSeek 分析每个信号的机会价值，标注类型（就业/产品/学习/趋势）和国内适配度',
-    tags: ['DeepSeek AI', '机会分类', '国内适配'],
+    title: '结构化研判',
+    desc: '研究模型评估每个信号的机会价值，标注类型（就业/产品/学习/趋势）和国内适配度',
+    tags: ['信号研判', '机会分类', '国内适配'],
   },
   {
     time: '12:00 CST',
@@ -34,14 +34,14 @@ const FEATURES = [
     label: '今日简报',
     color: 'from-violet-600 to-purple-900',
     textAccent: '#C4B5FD',
-    desc: '每日一段 AI 撰写的市场综述，提炼最重要的机会信号，附热词云标签',
+    desc: '每日一段结构化市场综述，提炼最重要的机会信号，附主题线索与可筛选标签',
     preview: (
       <div className="rounded-lg p-3 text-left" style={{ background: 'rgba(0,0,0,0.35)' }}>
         <div className="font-mono text-[9px] tracking-widest uppercase mb-2" style={{ color: 'rgba(196,181,253,0.6)' }}>
           见微 · 今日简报 · 2026-05-27
         </div>
         <div className="font-sans text-[11px] leading-relaxed mb-3" style={{ color: 'rgba(255,255,255,0.85)' }}>
-          今日 AI 基础设施迎来密集更新，多个向量数据库项目在 GitHub 冲上热门…
+          今日智能应用基础设施迎来密集更新，多个向量数据库项目在 GitHub 冲上热门…
         </div>
         <div className="flex flex-wrap gap-1">
           {['向量数据库', 'AI基建', '独立开发', 'LLM工具'].map(t => (
@@ -56,7 +56,7 @@ const FEATURES = [
     label: '技术风口',
     color: 'from-slate-800 to-slate-900',
     textAccent: '#6EE7B7',
-    desc: 'GitHub 热门仓库 + AI 机会解读，每个仓库都有就业/产品/学习标注和国内适配评级',
+    desc: 'GitHub 热门仓库 + 机会解读，每个仓库都有就业/产品/学习标注和国内适配评级',
     preview: (
       <div className="rounded-lg p-3 text-left space-y-2" style={{ background: 'rgba(0,0,0,0.35)' }}>
         {[
@@ -179,7 +179,7 @@ export default function LandingPage({ latestDate }: Props) {
               className="font-mono font-bold tracking-wide px-4 py-1.5 rounded-full"
               style={{ background: 'rgba(124,58,237,0.25)', color: '#C4B5FD', border: '1px solid rgba(124,58,237,0.4)', fontSize: '15px' }}
             >
-              AI 每日机会雷达
+              每日机会雷达
             </span>
           </div>
 
@@ -197,9 +197,9 @@ export default function LandingPage({ latestDate }: Props) {
             className="hero-slide-3 font-sans leading-relaxed mx-auto mb-8"
             style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(255,255,255,0.55)', maxWidth: '520px' }}
           >
-            AI 自动扫描 GitHub Trending 和市场热点，
+            持续追踪 GitHub Trending 和市场热点，
             <br className="hidden sm:block" />
-            每天生成一份为独立开发者定制的机会简报
+            每天整理一份为独立开发者定制的机会简报
           </p>
 
           {/* CTAs */}
@@ -234,7 +234,7 @@ export default function LandingPage({ latestDate }: Props) {
           >
             {[
               { v: '每日 12:00', l: 'CST 更新' },
-              { v: 'DeepSeek', l: 'AI 驱动' },
+              { v: '多源信号', l: '结构研判' },
               { v: '多源', l: '信号采集' },
               { v: '完全', l: '免费' },
             ].map(s => (
@@ -366,7 +366,7 @@ export default function LandingPage({ latestDate }: Props) {
             今天有哪些机会？
           </h2>
           <p className="font-sans mb-10" style={{ fontSize: '16px', color: 'rgba(255,255,255,0.5)' }}>
-            AI 已经扫描完毕，结果正在等你
+            今日信号已整理完毕，结果正在等你
           </p>
           <Link
             href={ctaHref}
@@ -380,7 +380,7 @@ export default function LandingPage({ latestDate }: Props) {
             进入今日简报 →
           </Link>
           <p className="font-mono text-[11px] mt-6" style={{ color: 'rgba(255,255,255,0.2)' }}>
-            见微 Prowl · 由 Claude & DeepSeek AI 每日自动生成 · 仅供参考
+            见微 Prowl · 多源信号研判 · 来源可追溯
           </p>
         </div>
       </section>

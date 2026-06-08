@@ -111,7 +111,7 @@ export async function POST(req: NextRequest) {
         })
       } catch (fetchErr: unknown) {
         if ((fetchErr as { name?: string })?.name === 'AbortError') {
-          return NextResponse.json({ error: 'AI 生成超时，请稍后重试' }, { status: 504 })
+          return NextResponse.json({ error: '文档整理超时，请稍后重试' }, { status: 504 })
         }
         throw fetchErr
       } finally {
@@ -121,13 +121,13 @@ export async function POST(req: NextRequest) {
       if (!dsRes.ok) {
         // Do not log errText — it may contain auth context from DeepSeek's response
         console.error('DeepSeek error status:', dsRes.status)
-        return NextResponse.json({ error: 'AI 生成失败，请稍后重试' }, { status: 502 })
+        return NextResponse.json({ error: '文档整理失败，请稍后重试' }, { status: 502 })
       }
 
       const dsJson = await dsRes.json() as DeepSeekResponse
       content = dsJson.choices?.[0]?.message?.content ?? ''
       if (!content) {
-        return NextResponse.json({ error: 'AI 返回内容为空' }, { status: 502 })
+        return NextResponse.json({ error: '返回内容为空，请稍后重试' }, { status: 502 })
       }
 
       // Save to history (prepend, keep latest 50)

@@ -104,7 +104,7 @@ export default function OpportunityCard({
             )}
           </>
         )
-        const cls = "signal-hdr flex items-center gap-2 px-5 py-2.5 border-b border-r-border group"
+        const cls = "signal-hdr flex items-center gap-2 px-4 sm:px-5 py-2.5 border-b border-r-border group"
         return hasLink ? (
           <a href={src.url} target="_blank" rel="noopener noreferrer" className={cls} style={{ background: `${sig.color}08` }}>
             {inner}
@@ -118,7 +118,7 @@ export default function OpportunityCard({
 
       {/* Category / meta header — .cat-hdr gets overridden in dark mode */}
       <div
-        className="cat-hdr flex items-center gap-2 px-5 py-2.5 border-b border-r-border flex-wrap"
+        className="cat-hdr flex items-center gap-2 px-4 sm:px-5 py-2.5 border-b border-r-border flex-wrap"
         style={{ background: cat.headerBg }}
       >
         <span
@@ -133,30 +133,30 @@ export default function OpportunityCard({
         >
           ⚡ {o.timeToRevenue}
         </span>
-        <div className="ml-auto flex items-center gap-2">
+        <div className="w-full sm:w-auto sm:ml-auto flex items-center gap-2">
           <span className="font-mono text-[13px] text-r-muted">潜力</span>
           <Dots value={Math.round(o.potential / 2)} max={5} color={cat.color} />
         </div>
       </div>
 
       {/* Body */}
-      <div className="px-5 pt-4 pb-5">
+      <div className="px-4 sm:px-5 pt-4 pb-5">
         {/* Index + Title */}
-        <div className="flex items-baseline gap-3 mb-2">
+        <div className="flex items-baseline gap-2 sm:gap-3 mb-2">
           <span className="font-mono text-[14px] text-r-dim flex-shrink-0 tabular-nums font-semibold">{num}</span>
-          <h2 className="font-display font-bold text-[20px] text-r-text leading-snug">
+          <h2 className="font-display font-bold text-[18px] sm:text-[20px] text-r-text leading-snug">
             {o.title}
           </h2>
         </div>
 
         {/* Summary — improved contrast vs opacity-based text */}
-        <p className="font-sans text-[15px] text-r-body leading-relaxed mb-3 pl-[26px]">
+        <p className="font-sans text-[14px] sm:text-[15px] text-r-body leading-relaxed mb-3 sm:pl-[26px]">
           {o.summary}
         </p>
 
         {/* Tags */}
         {o.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-3 pl-[26px]">
+          <div className="flex flex-wrap gap-2 mb-3 sm:pl-[26px]">
             {o.tags.map(t => (
               <span
                 key={t}
@@ -210,7 +210,7 @@ export default function OpportunityCard({
         <div className="border-t border-r-border my-4" />
 
         {/* Stats grid — use CSS vars so colors adapt in dark mode */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-3">
+        <div className="grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-3">
           {[
             { label: '回收周期', value: o.timeToRevenue, style: { color: 'var(--r-text-hex)' } },
             { label: '启动成本', value: o.startupCost,   style: { color: '#059669' } },

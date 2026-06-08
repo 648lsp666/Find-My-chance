@@ -111,7 +111,7 @@ export async function GET(req: NextRequest) {
             </span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#7C3AED' }} />
-              <span style={{ color: '#6B7280', fontSize: '11px', letterSpacing: '0.2em' }}>AI GENERATED</span>
+              <span style={{ color: '#6B7280', fontSize: '11px', letterSpacing: '0.2em' }}>SOURCE BACKED</span>
             </div>
           </div>
         </div>

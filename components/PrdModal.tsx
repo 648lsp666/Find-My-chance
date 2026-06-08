@@ -65,7 +65,7 @@ export default function PrdModal({ opportunity, onClose }: Props) {
       })
       const data = await res.json()
       if (!res.ok) {
-        setError(data.error ?? '生成失败，请稍后重试')
+        setError(data.error ?? '整理失败，请稍后重试')
         return
       }
       setContent(data.content)
@@ -102,7 +102,7 @@ export default function PrdModal({ opportunity, onClose }: Props) {
           style={{ background: 'var(--r-modal-gradient)' }}
         >
           <div>
-            <p className="font-mono text-[11px] text-r-accent tracking-widest uppercase mb-0.5">生成 PRD</p>
+            <p className="font-mono text-[11px] text-r-accent tracking-widest uppercase mb-0.5">整理 PRD</p>
             <h3 className="font-display font-bold text-r-text text-[16px] leading-snug line-clamp-1">
               {opportunity.title}
             </h3>
@@ -133,9 +133,9 @@ export default function PrdModal({ opportunity, onClose }: Props) {
               >
                 📄
               </div>
-              <p className="font-display font-bold text-r-text text-[20px] mb-2">一键生成 PRD，开启产品创建之旅</p>
+              <p className="font-display font-bold text-r-text text-[20px] mb-2">一键整理 PRD，开启产品创建之旅</p>
               <p className="font-sans text-r-body text-[14px] leading-relaxed max-w-sm">
-                AI 为你定制结构化产品需求文档，涵盖目标用户、核心功能、技术建议与商业化路径
+                基于机会信息整理结构化产品需求文档，涵盖目标用户、核心功能、技术建议与商业化路径
               </p>
               {remaining === 0 && (
                 <p className="font-mono text-[12px] mt-4 px-3 py-1.5 rounded-full" style={{ background: 'rgba(220,38,38,0.08)', color: '#DC2626' }}>
@@ -149,7 +149,7 @@ export default function PrdModal({ opportunity, onClose }: Props) {
           {generating && (
             <div className="flex flex-col items-center justify-center py-12">
               <div className="w-8 h-8 rounded-full border-2 border-r-accent border-t-transparent animate-spin mb-4" />
-              <p className="font-mono text-[13px] text-r-muted">AI 正在生成 PRD…</p>
+              <p className="font-mono text-[13px] text-r-muted">正在整理 PRD…</p>
             </div>
           )}
 
@@ -194,7 +194,7 @@ export default function PrdModal({ opportunity, onClose }: Props) {
                 <textarea
                   value={customPrompt}
                   onChange={e => handleByokChange('customPrompt', e.target.value)}
-                  placeholder="描述你的技术背景和市场偏好，AI 将据此定制 PRD…"
+                  placeholder="描述你的技术背景和市场偏好，文档将据此调整重点…"
                   rows={2}
                   className="w-full font-sans text-[13px] px-3 py-2 rounded-lg border border-r-border bg-r-card text-r-text focus:outline-none focus:border-r-accent resize-none"
                 />
@@ -219,7 +219,7 @@ export default function PrdModal({ opportunity, onClose }: Props) {
                 disabled={!canGenerate}
                 className="font-mono text-[13px] px-5 py-2.5 rounded-full border border-r-border text-r-muted hover:text-r-text disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
-                重新生成
+                重新整理
               </button>
               <Link
                 href="/my-prds"
@@ -237,7 +237,7 @@ export default function PrdModal({ opportunity, onClose }: Props) {
                 className="font-mono text-[14px] font-bold px-6 py-2.5 rounded-full text-white transition-all hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed"
                 style={{ background: '#7C3AED', boxShadow: canGenerate ? '0 4px 16px rgba(124,58,237,0.35)' : 'none' }}
               >
-                {generating ? '生成中…' : '生成 PRD'}
+                {generating ? '整理中…' : '整理 PRD'}
               </button>
               <span className="font-mono text-[12px] text-r-muted">
                 {showByok && userApiKey ? '使用自带 Key' : '使用免费次数'}

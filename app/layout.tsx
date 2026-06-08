@@ -1,17 +1,10 @@
 import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import { zhCN } from '@clerk/localizations'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import ConditionalHeader from '@/components/ConditionalHeader'
 import './globals.css'
-
-const syne = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-syne',
-  weight: ['600', '700', '800'],
-  display: 'swap',
-})
 
 const mono = JetBrains_Mono({
   subsets: ['latin'],
@@ -28,7 +21,7 @@ export const metadata: Metadata = {
     default: '见微 Prowl',
     template: '%s · 见微 Prowl',
   },
-  description: '见微知著 · AI 每天扫描 GitHub Trending 和市场热点，为你发现肉眼难见的副业机会。',
+  description: '见微知著 · 每日追踪 GitHub Trending 和市场热点，为你发现肉眼难见的副业机会。',
   icons: {
     icon: [
       { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
@@ -60,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       localization={zhCN}
       appearance={{ variables: { colorPrimary: '#7C3AED', borderRadius: '12px' } }}
     >
-      <html lang="zh-CN" className={`${syne.variable} ${mono.variable}`} suppressHydrationWarning>
+      <html lang="zh-CN" className={mono.variable} suppressHydrationWarning>
         <head>
           {/* Inject theme before first paint to prevent flash */}
           <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(t===null&&p))document.documentElement.classList.add('dark');})();` }} />

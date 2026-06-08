@@ -47,13 +47,13 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-r-border bg-white/95 dark:bg-[#161228]/95 backdrop-blur-md transition-colors duration-250">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="content-shell h-14 sm:h-16 flex items-center justify-between">
         {/* Left: brand */}
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0" style={{ boxShadow: '0 2px 8px rgba(124,58,237,0.35)' }}>
             <Image src="/logo.png" alt="见微 Prowl" width={32} height={32} className="w-full h-full object-cover" />
           </div>
-          <div>
+          <div className="hidden min-[380px]:block">
             <div className="font-mono text-[11px] text-r-accent tracking-[0.25em] uppercase leading-none mb-0.5">
               Prowl
             </div>
@@ -85,10 +85,10 @@ export default function Header() {
         </nav>
 
         {/* Right: clock + subscribe + theme + auth */}
-        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
           <div className="text-right hidden sm:block">
             <div className="font-mono text-[11px] text-r-muted tracking-[0.15em] uppercase leading-none mb-1">
-              CST · AI Powered
+              CST · Signal Desk
             </div>
             <div className="font-mono text-sm text-r-accent tabular-nums font-semibold">
               {time || '──:──:──'}
@@ -139,7 +139,7 @@ export default function Header() {
 
           {!isSignedIn && (
             <SignInButton mode="modal">
-              <button className="font-mono text-[13px] font-bold tracking-wide px-5 py-2 rounded-full bg-r-accent text-white hover:opacity-90 active:scale-95 transition-all shadow-sm">
+              <button className="font-mono text-[12px] sm:text-[13px] font-bold tracking-wide px-3 sm:px-5 py-2 rounded-full bg-r-accent text-white hover:opacity-90 active:scale-95 transition-all shadow-sm">
                 登录 / 注册
               </button>
             </SignInButton>
@@ -147,6 +147,22 @@ export default function Header() {
           {isSignedIn && <UserButton />}
         </div>
       </div>
+      <nav className="md:hidden content-shell flex items-center gap-1 overflow-x-auto no-scrollbar pb-2">
+        {NAV_ITEMS.map(item => {
+          const active = item.match(pathname)
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`flex-shrink-0 font-mono text-[12px] tracking-wide px-3 py-1.5 rounded-full transition-colors ${
+                active ? 'bg-r-accent text-white' : 'text-r-muted bg-r-bg'
+              }`}
+            >
+              {item.label}
+            </Link>
+          )
+        })}
+      </nav>
     </header>
   )
 }

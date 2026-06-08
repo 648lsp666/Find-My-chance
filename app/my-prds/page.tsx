@@ -62,7 +62,7 @@ export default function MyPrdsPage() {
       <div className="min-h-screen bg-r-bg flex flex-col items-center justify-center text-center px-6">
         <div className="text-4xl mb-4">📄</div>
         <h1 className="font-display font-bold text-r-text text-[28px] mb-3">我的 PRD</h1>
-        <p className="font-sans text-r-muted text-[15px] mb-6">登录后查看你生成的所有 PRD</p>
+        <p className="font-sans text-r-muted text-[15px] mb-6">登录后查看你整理过的所有 PRD</p>
         <button
           onClick={() => openSignIn()}
           className="font-mono font-bold text-[14px] px-6 py-3 rounded-full text-white"
@@ -83,7 +83,7 @@ export default function MyPrdsPage() {
             <h1 className="font-display font-extrabold text-r-text mb-1" style={{ fontSize: '42px', letterSpacing: '-0.02em' }}>
               我的 PRD
             </h1>
-            <p className="font-sans text-r-muted text-[15px]">共 {items.length} 份，AI 生成的产品需求文档</p>
+            <p className="font-sans text-r-muted text-[15px]">共 {items.length} 份，为你整理的产品需求文档</p>
           </div>
           {remaining !== null && (
             <div className="text-right">
@@ -105,9 +105,9 @@ export default function MyPrdsPage() {
         {items.length === 0 && (
           <div className="rounded-2xl border border-r-border bg-r-card p-12 text-center">
             <div className="text-5xl mb-4">📝</div>
-            <p className="font-display font-bold text-r-text text-[20px] mb-2">还没有生成过 PRD</p>
+            <p className="font-display font-bold text-r-text text-[20px] mb-2">还没有整理过 PRD</p>
             <p className="font-sans text-r-muted text-[14px]">
-              在机会卡片底部点击「生成 PRD」开始
+              在机会卡片底部点击「整理 PRD」开始
             </p>
           </div>
         )}

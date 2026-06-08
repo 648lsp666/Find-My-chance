@@ -19,10 +19,10 @@ export default function TrendsDatePage({ params }: { params: { date: string } })
 
   return (
     <div className="min-h-screen">
-      <main className="max-w-6xl mx-auto px-6 pb-20 pt-6">
+      <main className="content-shell pb-20 pt-5">
         <TechSignals staticRepos={data.trending} />
         <p className="font-mono text-[10px] text-r-muted/40 text-center mt-12 tracking-[0.2em] uppercase">
-          见微 Prowl · 由 Claude AI 每日自动生成 · 仅供参考
+          见微 Prowl · 技术信号追踪 · 每日更新
         </p>
       </main>
     </div>

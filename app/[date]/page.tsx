@@ -48,7 +48,7 @@ export default function DatePage({ params }: { params: { date: string } }) {
 
   return (
     <div className="min-h-screen">
-      <main className="max-w-6xl mx-auto px-6 pb-20">
+      <main className="content-shell pb-20">
         <DateNav dates={allDates} currentDate={params.date} />
 
         {/* Daily brief + word cloud + opportunity list */}
@@ -57,7 +57,7 @@ export default function DatePage({ params }: { params: { date: string } }) {
         <ScrollToTop />
 
         <p className="font-mono text-[10px] text-r-muted/40 text-center mt-12 tracking-[0.2em] uppercase">
-          见微 Prowl · 由 Claude AI 每日自动生成 · 仅供参考
+          见微 Prowl · 多源信号研判 · 来源可追溯
         </p>
       </main>
     </div>

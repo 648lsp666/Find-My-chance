@@ -104,7 +104,7 @@ export default function DailyDigest({
           {/* Footer */}
           <Section style={{ background: '#F9FAFB', borderRadius: '0 0 16px 16px', padding: '16px 32px', borderTop: '1px solid #E5E7EB' }}>
             <Text style={{ color: '#9CA3AF', fontSize: '11px', margin: '0 0 4px', textAlign: 'center' as const }}>
-              由 Claude AI Agent 每日 12:00 CST 自动生成 · 仅供参考
+              多源信号研判 · 每日 12:00 CST 更新 · 来源可追溯
             </Text>
             <Text style={{ color: '#D1D5DB', fontSize: '11px', margin: 0, textAlign: 'center' as const }}>
               <Link href={unsubscribeUrl} style={{ color: '#9CA3AF' }}>退订</Link>

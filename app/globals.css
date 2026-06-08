@@ -1,3 +1,9 @@
+@import '@fontsource/noto-sans-sc/400.css';
+@import '@fontsource/noto-sans-sc/500.css';
+@import '@fontsource/noto-sans-sc/600.css';
+@import '@fontsource/noto-sans-sc/700.css';
+@import '@fontsource/noto-sans-sc/800.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -66,7 +72,9 @@
     background-color: rgb(var(--r-bg));
     color: rgb(var(--r-text));
     min-height: 100vh;
+    font-family: 'Noto Sans SC', 'Microsoft YaHei UI', 'PingFang SC', sans-serif;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
     transition: background-color 0.25s ease, color 0.25s ease;
   }
 
@@ -134,6 +142,17 @@
   .hero-slide-4 { animation: slideUp 0.7s 0.55s ease-out both; }
 
   .signal-dot { animation: signalBlink 2s ease-in-out infinite; }
+
+  .content-shell {
+    width: min(100% - 32px, 1480px);
+    margin-inline: auto;
+  }
+
+  @media (min-width: 768px) {
+    .content-shell {
+      width: min(100% - 48px, 1480px);
+    }
+  }
 
   /* Dark mode overrides for elements that use inline style={{ }} */
   .dark .signal-hdr {
