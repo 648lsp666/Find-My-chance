@@ -1,0 +1,463 @@
+{
+  "date": "2026-06-09",
+  "generatedAt": "2026-06-09T07:01:14.682Z",
+  "summary": "今日信号聚焦 Apple WWDC26 全新 AI 架构（Core AI + Gemini 集成）、小米 1T 超快模型（1000tps）、以及开源 AI Agent 生态（Goose, Litellm）的爆发。V2EX 上低价 AI API 中转需求旺盛（5000 美元 key 被秒抢），Product Hunt 上自动化浏览器代理（Browse.sh）和 AI 配音工具（Vaani）获得高热度。少数派文章指出“代码描述成为新瓶颈”，指向自然语言编程辅助工具机会。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "Core AI 中文教程站",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "Apple",
+        "Core AI",
+        "教程",
+        "小开发者"
+      ],
+      "summary": "Apple Core AI 框架中文入门与实战指南",
+      "description": "Apple 在 WWDC26 发布了 Core AI 框架（信号11），并与 Google Gemini 深度集成（信号5），同时宣布降低 AI 使用成本吸引小开发者（信号21）。国内大量 iOS/macOS 开发者急需中文资料和示例代码。可制作一套从零到一的 Core AI 集成教程（图文+视频），包括 Siri 集成、本地模型调用、Gemini 桥接等。初期通过公众号/知乎引流，付费教程定价 99 元/套，预计首月可售 200 套。",
+      "painPoint": "国内开发者看不懂 Apple 官方英文文档，无法快速上手 Core AI 框架。",
+      "path": [
+        "第一步：申请 Apple Developer 账号，实际运行 Core AI 示例并截图",
+        "第二步：整理核心概念（Core AI vs Core ML）和 API 使用步骤，编写 10 篇图文教程",
+        "第三步：在 少数派、掘金、V2EX 发布免费试读，收集反馈并建立微信群",
+        "第四步：打包为 PDF + 视频课程，定价 99 元，通过小鹅通或爱发电销售"
+      ],
+      "revenueModel": "教程销售 99 元/套，预估首月 200 套 = 19,800 元；后续可推出企业培训服务",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Apple 发布 Core AI 框架（信号11）当天热度 261 分，同时 TechCrunch 报道 Apple 降低 AI 门槛吸引小开发者（信号21），显示市场急需教程。",
+      "sources": [
+        {
+          "title": "Apple Core AI Framework 官方文档",
+          "url": "https://developer.apple.com/documentation/coreai/"
+        },
+        {
+          "title": "Apple bets cheaper AI will woo small developers",
+          "url": "https://techcrunch.com/2026/06/08/apple-bets-cheaper-ai-will-woo-small-developers/"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "超快实时翻译器",
+      "category": "AI应用",
+      "market": "海外+国内",
+      "tags": [
+        "实时翻译",
+        "语音",
+        "MiMo",
+        "1000tps"
+      ],
+      "summary": "基于 1000tps 模型的实时语音翻译工具",
+      "description": "小米 MiMo 模型达到 1000  tokens/s 的推理速度（信号3），使得端侧实时语音翻译成为可能。目前市场上的翻译应用延迟较高，无法做到几乎无感的同声传译。可开发一款移动端 App（iOS/Android），利用 MiMo 或类似超快模型的 API，实现语音输入即显示翻译结果，延迟 < 200ms。初期面向商务会议、旅游场景，免费基础额度 + 订阅制（9.9 美元/月）。可按月获取约 500 名付费用户。",
+      "painPoint": "现有实时翻译 App 延迟高、卡顿，无法流畅对话。",
+      "path": [
+        "第一步：调研 MiMo API 的接入方式（信号3中 URL 含有 blog，可获取信息），注册小米开放平台",
+        "第二步：用 Flutter 快速开发跨平台 MVP，实现语音采集->流式翻译->显示",
+        "第三步：在 Product Hunt 和 Hacker News 发布 Show HN，突出 1000tps 低延迟卖点",
+        "第四步：上线 App Store/Google Play，设置免费 10 分钟/天，解锁订阅"
+      ],
+      "revenueModel": "订阅 9.9 美元/月，预估首月 500 用户 = 4,950 美元 ≈ 35,000 元人民币",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "小米 MiMo 模型以 1000 tokens/s 的速度在 Hacker News 获得 545 分（信号3），表明业界对超快推理的强烈关注。",
+      "sources": [
+        {
+          "title": "MiMo-v2.5-Pro-UltraSpeed: 1T model with 1000 tokens per second",
+          "url": "https://mimo.xiaomi.com/blog/mimo-tilert-1000tps"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "电商比价自动化",
+      "category": "自动化流程",
+      "market": "国内为主",
+      "tags": [
+        "浏览器自动化",
+        "比价",
+        "Browse.sh",
+        "电商"
+      ],
+      "summary": "用 Browse.sh 构建无人值守的电商比价机器人",
+      "description": "Product Hunt 上 Browse.sh（信号45）获得 414 分，它让 AI Agent 拥有“肌肉记忆”来自动化网页操作。国内主流电商平台（淘宝、京东、拼多多）经常有隐藏优惠券和跨店满减，手动比价耗时。可开发一个 SaaS 服务，用户输入商品链接，系统自动模拟人类浏览行为，抓取真实到手价和优惠信息，每日推送比价结果。按查询次数收费（0.1 元/次），面向普通消费者和代购群体。",
+      "painPoint": "电商平台优惠规则复杂，手动比价费时费力，且容易错过真实底价。",
+      "path": [
+        "第一步：购买 Browse.sh 的 API 套餐，编写 Python 脚本模拟登录、搜索、提取价格",
+        "第二步：封装为 Web 服务（FastAPI + Redis），支持用户提交商品链接",
+        "第三步：在 V2EX 和 什么值得买 社区分享，提供免费试用 10 次",
+        "第四步：设置收费套餐：10 元/50 次，50 元/300 次"
+      ],
+      "revenueModel": "按次计费，若日活 100 用户，平均每人使用 5 次/天，日收入 50 元，月收入 1,500 元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Browse.sh 在 Product Hunt 获得 414 分（信号45），说明市场对浏览器自动化 agent 有强烈需求；国内电商比价是成熟痛点。",
+      "sources": [
+        {
+          "title": "Browse.sh: Give your agents muscle memory for automating the web",
+          "url": "https://www.producthunt.com/products/browserbase?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "AI 多语言配音工坊",
+      "category": "AI应用",
+      "market": "海外为主",
+      "tags": [
+        "AI配音",
+        "Vaani",
+        "视频创作者",
+        "多语言"
+      ],
+      "summary": "面向视频创作者的自动唇形同步配音服务",
+      "description": "Vaani（信号46）在 Product Hunt 获得 317 分，提供唇形同步的 AI 配音。国内 B 站、抖音创作者经常需要将中文视频配成英文或日文以拓展海外市场。可搭建一个在线平台，用户上传视频 + 选择目标语言，系统自动生成唇形匹配的配音。技术上可以调用 Vaani API 或自研。收费按分钟计费（3 元/分钟），首月争取 100 个付费用户，平均每人制作 10 分钟视频。",
+      "painPoint": "视频创作者手动对口型耗时巨大，现有工具要么贵要么不准。",
+      "path": [
+        "第一步：申请 Vaani 的 API，测试其配音质量和延迟",
+        "第二步：用 Next.js 搭建用户上传界面，支持视频格式转换、预览",
+        "第三步：在 B 站、YouTube 发布教程视频，展示从上传到下载的完整流程",
+        "第四步：上线定价：免费试用 1 分钟，之后 3 元/分钟，支持包月 99 元/30 分钟"
+      ],
+      "revenueModel": "按分钟收费，预估月收入 = 100 用户 × 10 分钟 × 3 元 = 3,000 元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Vaani（Lip-synced AI dubbing）在 Product Hunt 获得 317 分（信号46），说明市场对高质量 AI 配音解决方案的追捧。",
+      "sources": [
+        {
+          "title": "Vaani: Lip-synced AI dubbing for creators, brands and studios",
+          "url": "https://www.producthunt.com/products/vaani-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "AI API 省钱管家",
+      "category": "开发工具",
+      "market": "国内为主",
+      "tags": [
+        "API中转",
+        "价格比较",
+        "V2EX",
+        "成本优化"
+      ],
+      "summary": "实时比价并自动切换最便宜的 AI API 服务",
+      "description": "V2EX 上两个高热度帖子（信号74、75）显示大量开发者疯狂抢低价 AI 中转 API，甚至有 5000 美元的 Key 被秒抢。目前国内多个中转站价格混乱（0.001 倍率 vs 0.05 倍率），用户难以手动比较。可开发一个浏览器插件或 Web 工具，实时抓取各大中转站的价格（通过公开 API 或爬虫），并提供一键切换和自动路由功能。用户只需配置一次可用 Key，插件自动选择最低价的 API 返回结果。免费增值模式：基础版管理 3 个 Key，高级版 19 元/月支持无限 Key 和自动切换。",
+      "painPoint": "AI API 中转站价格波动大，手动切换麻烦，容易错过更低价格。",
+      "path": [
+        "第一步：收集 V2EX 上分享的 10 个以上中转站地址，注册并记录价格",
+        "第二步：开发 Chrome 扩展，实现价格爬取 + 请求转发逻辑（使用 OpenAI SDK 兼容接口）",
+        "第三步：在 V2EX 发帖“我的 API 省钱插件”，附赠 50 个免费高级码",
+        "第四步：上线付费版本，支持微信/支付宝支付"
+      ],
+      "revenueModel": "高级版 19 元/月，预估首月 200 付费用户 = 3,800 元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "V2EX 上“稳定 AI 中转站”帖（信号75）获得 168 分，内含 5000 美元 Key 被秒抢；“好用 AI”帖（信号74）获得 223 分，赠送 20 美元额度引发争抢，证明用户对低价 API 极度敏感。",
+      "sources": [
+        {
+          "title": "好用 AI 来 V 站了，0.05 倍率 20 刀",
+          "url": "https://www.v2ex.com/t/1218770"
+        },
+        {
+          "title": "稳定 AI 中转站，5000 刀 key 直接蹬",
+          "url": "https://www.v2ex.com/t/1218855"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "AI CRM 即装即用",
+      "category": "企业服务",
+      "market": "国内为主",
+      "tags": [
+        "CRM",
+        "Twenty",
+        "AI",
+        "开源",
+        "定制"
+      ],
+      "summary": "为小微企业提供一键部署的 AI 增强 CRM",
+      "description": "Twenty（信号28）是 Salesforce 的开源替代，设计自始至终面向 AI，在 GitHub 获得 49,484 star。国内大量小微企业需要 CRM 但买不起 Salesforce 或无法承受 SAP 部署成本。可提供基于 Twenty 的“AI 增强版”一键部署服务，包括 Docker 镜像、中文汉化、自动抓取客户聊天记录并填充字段、AI 生成客户摘要。收费按年费 999 元/年，含部署、维护和 10 次 AI 咨询。",
+      "painPoint": "小微企业 CRM 部署成本高、配置复杂，缺乏 AI 能力。",
+      "path": [
+        "第一步：本地部署 Twenty 最新版，测试其 AI 集成接口（可调用 OpenAI/国内模型）",
+        "第二步：编写 Docker Compose 文件，集成中文翻译和微信消息自动录入插件",
+        "第三步：在 V2EX 和 企业服务社群 发布“五分钟拥有 AI 辅助的客户管理系统”",
+        "第四步：提供 7 天免费试用，后续收取年费"
+      ],
+      "revenueModel": "年费 999 元，首月卖出 30 套 = 29,970 元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "Twenty 在 GitHub 拥有 49,484 star（信号28），且被描述为“designed for AI”，说明市场对其 AI 原生 CRM 高度认可。",
+      "sources": [
+        {
+          "title": "twentyhq/twenty: The open alternative to Salesforce, designed for AI.",
+          "url": "https://github.com/twentyhq/twenty"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "FrontierCode 代码教练",
+      "category": "开发工具",
+      "market": "国内为主",
+      "tags": [
+        "代码生成",
+        "FrontierCode",
+        "Cognition",
+        "编程教育"
+      ],
+      "summary": "基于 FrontierCode 的交互式代码生成训练平台",
+      "description": "Cognition 发布 FrontierCode（信号13）在 Hacker News 获得 156 分，它是一个前沿代码生成模型。普通开发者使用 AI 写代码时常陷入“生成-粘贴-调试”循环，缺乏对代码的理解。可构建一个在线代码教练平台，用户输入需求后，系统不仅生成代码，还逐步解释每一步逻辑，并引导用户修改。类似可汗学院的编程课，但基于 AI 实时生成。免费基础功能，高级功能 29 元/月（含个性化学习路径）。",
+      "painPoint": "使用 AI 编程容易产生依赖，难以真正掌握编程能力。",
+      "path": [
+        "第一步：申请 FrontierCode API（或使用类似模型），构建“逐步解释”引擎",
+        "第二步：开发 Web 前端（React + Monaco Editor），支持用户输入需求并迭代",
+        "第三步：在掘金、V2EX 发布体验链接，邀请内测",
+        "第四步：上线定价，提供免费每日 3 次解释，高级版无限次数"
+      ],
+      "revenueModel": "高级订阅 29 元/月，首月 100 用户 = 2,900 元",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 2000元",
+      "difficulty": 5,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "FrontierCode 在 Hacker News 获得 156 分（信号13），且 Cognition 专注代码生成，说明开发者对更智能的编程辅助工具有持续需求。",
+      "sources": [
+        {
+          "title": "FrontierCode",
+          "url": "https://cognition.ai/blog/frontier-code"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "复古电视特效工坊",
+      "category": "整活玩具",
+      "market": "海外+国内",
+      "tags": [
+        "NTSC-RS",
+        "视频特效",
+        "复古",
+        "VHS"
+      ],
+      "summary": "在线将普通视频一键转为老电视/VHS 效果",
+      "description": "NTSC-RS（信号50）在 Product Hunt 获得 155 分，它是一个开源模拟老电视和 VHS 伪影的工具。短视频平台上复古风格（VHS 滤镜、雪花、彩色条纹）非常受欢迎。可搭建一个在线 Web 应用，上传视频后通过 NTSC-RS 或其他算法添加模拟信号干扰、色散、扫描线等效果，并一键导出。免费版加水印，付费 9.9 元/次高清无水印，或 29 元/月无限次。",
+      "painPoint": "短视频创作者希望制作复古效果，但专业软件（如 After Effects）操作复杂，且付费滤镜贵。",
+      "path": [
+        "第一步：本地运行 NTSC-RS（Rust 编写），测试其 API 或编译为 WASM 用于网页端",
+        "第二步：使用 FFmpeg + WASM 在浏览器端实现视频处理，无需后端转码",
+        "第三步：在 B 站发布“如何把视频变成 90 年代老电视效果”教程，嵌入网站链接",
+        "第四步：上线定价，前 100 名用户免费体验"
+      ],
+      "revenueModel": "按次 9.9 元，预计首月 500 次 = 4,950 元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "NTSC-RS 在 Product Hunt 获得 155 分（信号50），表明市场对复古视频效果有较大兴趣。",
+      "sources": [
+        {
+          "title": "NTSC-RS: Open-source video emulation of analog TV and VHS artifacts",
+          "url": "https://www.producthunt.com/products/ntsc-rs?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Claude Artifact 本地运行器",
+      "category": "开发工具",
+      "market": "海外为主",
+      "tags": [
+        "Claude",
+        "Artifact",
+        "本地运行",
+        "离线"
+      ],
+      "summary": "在本地桌面运行 Claude AI Artifacts 的工具",
+      "description": "Product Hunt 上的 Claude Artifact Player（信号52）获得 71 分，它允许在桌面本地运行 Claude 的 Artifacts，无需浏览器和云。但该工具可能只支持特定平台。可开发一个跨平台（Mac/Windows/Linux）桌面应用，使用 Tauri 或 Electron，支持直接从 Claude 导出 Artifact 并本地运行、调试和修改。面向 Claude Pro 用户群体，按一次性付费 19.9 美元或免费增值（有限制功能）。",
+      "painPoint": "Claude Artifacts 只能在浏览器中运行，离线无法使用，且调试不便。",
+      "path": [
+        "第一步：逆向分析 Claude Artifact 的导出格式（JSON+React 组件），建立本地运行引擎",
+        "第二步：使用 Tauri（Rust 后端 + Web 前端）构建桌面应用，支持一键导入",
+        "第三步：在 Hacker News 和 Twitter 上发布“Run Claude Artifacts natively”，附 GIF 演示",
+        "第四步：设置 Gumroad 支付链接，定价 19.9 美元"
+      ],
+      "revenueModel": "一次性付费 19.9 美元，首月预计 200 份 = 3,980 美元 ≈ 28,000 元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 5,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Claude Artifact Player 在 Product Hunt 获得 71 分（信号52），且描述“No browser. No cloud.”，显示用户对本地运行有明确需求。",
+      "sources": [
+        {
+          "title": "Claude Artifact Player: Run your Claude AI artifacts natively",
+          "url": "https://www.producthunt.com/products/claude-artifact-player?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Spec-to-Code 翻译器",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "自然语言编程",
+        "描述瓶颈",
+        "代码生成",
+        "规范"
+      ],
+      "summary": "将产品需求描述自动转化为技术规范和代码",
+      "description": "少数派文章《大语言模型正在变成大编程模型》（信号91）指出“代码描述成为新瓶颈”。结合 IndieHackers 上文章“Code Description Is Now the Bottleneck”（信号72）获得关注（Spec-Kit 7个月获90k star），说明开发者急需将自然语言需求转化为结构化规范的工具。可开发一款 VSCode 插件，用户用中文/英文描述功能，插件自动生成用户故事、API 文档、数据模型和伪代码，并可一键展开为可运行的代码骨架。",
+      "painPoint": "开发者描述需求比写代码本身更耗时，且容易遗漏细节。",
+      "path": [
+        "第一步：分析 Spec-Kit 的实现思路（信号72中提及），设计插件架构",
+        "第二步：使用 LLM 设计 prompt 链，将自然语言依次转化为需求、设计、代码",
+        "第三步：在 GitHub 发布 VSCode 插件，同时在掘金发布“我写了个把需求变成代码的插件”",
+        "第四步：免费使用，后续推出团队协作版（99 元/月）"
+      ],
+      "revenueModel": "团队协作订阅 99 元/月，首月 20 团队 = 1,980 元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "Spec-Kit 在 7 个月内获得 90,000 star（信号72），文章《Code Description Is Now the Bottleneck》在 IndieHackers 传播，表明这一痛点非常普遍。",
+      "sources": [
+        {
+          "title": "Code Description Is Now the Bottleneck (Not the Code)",
+          "url": "https://dev.to/theautomate/code-description-is-now-the-bottleneck-not-the-code-42dl"
+        },
+        {
+          "title": "大语言模型正在变成大编程模型",
+          "url": "https://sspai.com/post/110746"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Coreboot 刷机服务站",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "Coreboot",
+        "ThinkPad",
+        "X61",
+        "刷机",
+        "开源BIOS"
+      ],
+      "summary": "为老旧电脑提供 Coreboot 刷机服务",
+      "description": "Hacker News 上关于将 ThinkPad X61 移植到 Coreboot 的博客（信号23）获得 26 分，但技术难度较高。国内大量二手 ThinkPad 玩家希望刷入 Coreboot 去除 Intel ME 并提升性能，但缺乏操作指导且风险大。可提供远程或邮寄刷机服务，收取手工费 50-100 元/台，并提供刷机后定制化 BIOS 设置服务。同时销售预刷 Coreboot 的二手 ThinkPad X61/X220 等。",
+      "painPoint": "Coreboot 刷机步骤复杂，普通用户容易变砖，缺乏专业支持。",
+      "path": [
+        "第一步：购置 CH341A 编程器/夹子，实测 ThinkPad X61 等常见机型的 Coreboot 配置",
+        "第二步：在 51nb 论坛、Bilibili 发布刷机教程和成功案例，并标注提供付费代刷",
+        "第三步：闲鱼发布服务链接，支持客户邮寄主板或整机",
+        "第四步：积累口碑后推出“预刷 Coreboot 的 ThinkPad”整机销售"
+      ],
+      "revenueModel": "刷机服务 80 元/次，首月 30 台 = 2,400 元；整机利润每台 200 元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元（编程器+运费）",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "关于 ThinkPad X61 移植 Coreboot 的博客在 Hacker News 获得 26 分（信号23），说明硬核玩家对此有持续兴趣。",
+      "sources": [
+        {
+          "title": "Porting the ThinkPad X61 to Coreboot",
+          "url": "https://blog.aheymans.xyz/post/thinkpad_x61/"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "expo",
+      "repo": "expo",
+      "description": "An open-source framework for making universal native apps with React. Expo runs on Android, iOS, and the web.",
+      "url": "https://github.com/expo/expo",
+      "starsToday": 49962,
+      "language": "TypeScript",
+      "insight": "快速开发跨平台移动应用，降低成本",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "BerriAI",
+      "repo": "litellm",
+      "description": "Python SDK, Proxy Server (AI Gateway) to call 100+ LLM APIs in OpenAI (or native) format, with cost tracking, guardrails, loadbalancing and logging. [Bedrock, Azure, OpenAI, VertexAI, Cohere, Anthropic, Sagemaker, HuggingFace, VLLM, NVIDIA NIM]",
+      "url": "https://github.com/BerriAI/litellm",
+      "starsToday": 49733,
+      "language": "Python",
+      "insight": "一站式接入多种LLM，快速构建AI应用",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "cypress-io",
+      "repo": "cypress",
+      "description": "Fast, easy and reliable testing for anything that runs in a browser.",
+      "url": "https://github.com/cypress-io/cypress",
+      "starsToday": 49705,
+      "language": "TypeScript",
+      "insight": "高效的前端测试工具，保障产品质量",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49683,
+      "language": "TypeScript",
+      "insight": "简化数据状态管理，提升开发效率",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "twentyhq",
+      "repo": "twenty",
+      "description": "The open alternative to Salesforce, designed for AI.",
+      "url": "https://github.com/twentyhq/twenty",
+      "starsToday": 49484,
+      "language": "TypeScript",
+      "insight": "开源CRM替代方案，可定制化开发",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "remotion-dev",
+      "repo": "remotion",
+      "description": "🎥      Make videos programmatically with React",
+      "url": "https://github.com/remotion-dev/remotion",
+      "starsToday": 49467,
+      "language": "TypeScript",
+      "insight": "用React编程生成视频，自动化内容创作",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    }
+  ]
+}
