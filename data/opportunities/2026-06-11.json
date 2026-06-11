@@ -1,0 +1,438 @@
+{
+  "date": "2026-06-11",
+  "generatedAt": "2026-06-11T08:18:43.299Z",
+  "summary": "今日信号涌现出两大趋势：一是AI代理（Agent）的安全与监控需求激增（HN 366分事件、IH LLM Evals讨论），二是内容创作与数据可视化工具向轻量化、HTML-first演化（HN 1103分、HN 235分）。同时，开源项目如Twenty CRM、Remotion、Ruff的高关注度表明开发者生态中工具链和模板市场仍有缺口。独立开发者可围绕Agent运维、自媒体发布、本地AI推理等方向快速切入。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "播客嘉宾监控器",
+      "category": "AI应用",
+      "market": "海外为主",
+      "tags": [
+        "播客",
+        "监控",
+        "Chrome扩展"
+      ],
+      "summary": "自动追踪播客嘉宾出现的工具",
+      "description": "播客听众常因喜欢某位嘉宾而追看其他节目，但手动搜索效率低。该工具通过AI识别播客描述中的人名，结合模糊匹配（解决“John Smith”问题），在嘉宾出现时推送通知。海外播客生态成熟，类似产品极少。可先做Chrome扩展，后期付费解锁高级过滤和跨平台提醒。",
+      "painPoint": "无法高效追踪喜欢的播客嘉宾出现在哪些节目中",
+      "path": [
+        "第一步：调研现有播客API（如Spotify、Apple Podcasts）获取内容数据",
+        "第二步：开发人名识别与模糊匹配算法，测试误报率",
+        "第三步：构建Chrome扩展实现网页播客页面自动扫描与通知",
+        "第四步：上线Product Hunt推广，收集前1000用户反馈"
+      ],
+      "revenueModel": "免费试用10次/月，Pro版$3/月（无限监控+跨平台）。预估月收入$500-$1500",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "IndieHackers文章指出“John Smith问题”是真实痛点，检测播客嘉宾很难避免误报，说明该场景尚未有成熟解决方案。",
+      "sources": [
+        {
+          "title": "The 'John Smith' problem: detecting podcast guest appearances without false positives",
+          "url": "https://dev.to/paul_reaney_c6c80b43a48b2/the-john-smith-problem-detecting-podcast-guest-appearances-without-false-positives-125p"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "树莓派5 AI推理包",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "Raspberry Pi",
+        "本地AI",
+        "开源硬件"
+      ],
+      "summary": "为树莓派5 16GB定制AI推理镜像",
+      "description": "Raspberry Pi 5 推出16GB版本（HN 246分），适合运行本地AI模型如Llama-3、Whisper。但普通用户配置环境复杂。提供预装好推理框架（llama.cpp、whisper.cpp）的SD卡镜像，附带Web管理界面和模型下载脚本。可额外提供中文优化模型和教程。适合极客、教育机构、边缘计算场景。",
+      "painPoint": "树莓派上部署本地AI门槛高，官方文档零散",
+      "path": [
+        "第一步：基于Raspberry Pi OS lite定制镜像，集成llama.cpp等",
+        "第二步：开发Web UI（Flask/Node）实现模型下载、推理参数调整",
+        "第三步：编写中文使用文档和视频教程",
+        "第四步：在闲鱼、淘宝、树莓派论坛销售镜像+教程包"
+      ],
+      "revenueModel": "镜像+教程一次性收费¥49/套，后续模型包订阅¥9.9/月。预估月收入¥2000-¥6000",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 2000元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Adafruit上架Raspberry Pi 5 16GB获得246分热度，表明社区对更大内存的树莓派有极高期待，本地AI应用是主要驱动力。",
+      "sources": [
+        {
+          "title": "Raspberry Pi 5 – 16GB RAM",
+          "url": "https://www.adafruit.com/product/6125?src=raspberrypi"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Apache Burr中文工坊",
+      "category": "开发工具",
+      "market": "国内为主",
+      "tags": [
+        "Apache Burr",
+        "AI Agent",
+        "中文教程"
+      ],
+      "summary": "Apache Burr的入门教程与模板库",
+      "description": "Apache Burr（HN 209分）是构建可靠AI Agent的框架，但文档全英文，国内开发者上手困难。提供中文翻译的教程、最佳实践、以及20+个可直接运行的Agent模板（如自动客服、文档摘要）。通过付费会员制提供持续更新的模板和疑难解答。",
+      "painPoint": "Apache Burr缺乏中文文档和可复用的Agent模板",
+      "path": [
+        "第一步：通读Burr官方文档，整理核心概念和API的中文翻译",
+        "第二步：开发5个常见Agent模板并编写配套教程",
+        "第三步：建立微信社群，收集用户需求并迭代模板",
+        "第四步：在掘金、CSDN发布教程引流，会员定价¥99/年"
+      ],
+      "revenueModel": "会员订阅¥99/年，包含全部模板和群答疑。预估月收入¥2000-¥5000",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Apache Burr项目在HN上获得209分，表明开发者对构建可靠AI Agent框架有强烈兴趣。",
+      "sources": [
+        {
+          "title": "Apache Burr: Build reliable AI agents and applications",
+          "url": "https://burr.apache.org/"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "文档预览标注组件",
+      "category": "SaaS工具",
+      "market": "国内外均可",
+      "tags": [
+        "PDF",
+        "文档UI",
+        "开源组件"
+      ],
+      "summary": "基于Extend UI构建的文档协作SaaS",
+      "description": "Extend UI（HN 203分）开源了PDF、DOCX、XLSX预览组件，但缺乏好用的标注、签名、分享功能。在其基础上封装SaaS服务，提供在线文档标注、电子签名、版本对比等。面向中小企业和自由职业者，支持微信、邮件分享。采用免费查看+付费标注/签名模式。",
+      "painPoint": "现有文档预览组件功能零散，缺少一体化的标注协作服务",
+      "path": [
+        "第一步：Fork Extend UI并集成PDF.js、tui.editor等实现标注功能",
+        "第二步：部署后端（Node.js）实现文档存储、分享链接、签名功能",
+        "第三步：开发微信小程序版本，方便移动端查看和标注",
+        "第四步：在Product Hunt和国内各大平台冷启动"
+      ],
+      "revenueModel": "免费版每天10次标注；Pro版¥29/月不限量。预估月收入¥3000-¥8000",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Extend UI在HN上获得203分，并开源14个组件，说明文档预览和编辑需求旺盛，但缺少商业化的协作层。",
+      "sources": [
+        {
+          "title": "Show HN: Extend UI – open-source UI kit for modern document apps",
+          "url": "https://www.extend.ai/ui"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "LLM评估自动化平台",
+      "category": "开发工具",
+      "market": "国内外均可",
+      "tags": [
+        "LLM",
+        "Eval",
+        "CI/CD"
+      ],
+      "summary": "将LLM评测集成到开发流水线",
+      "description": "开发者越来越多地使用LLM，但模型输出质量难以保障。IH文章将LLM Evals比作单元测试，说明需要自动化框架。提供SaaS平台，允许开发者编写评测用例（如事实性、格式合规），每次提交代码时自动运行评测集并输出报告。支持主流LLM API和自托管模型。",
+      "painPoint": "LLM应用上线后频繁发生回归，缺乏系统化的评测流程",
+      "path": [
+        "第一步：定义评测用例格式（YAML/JSON），实现评测引擎",
+        "第二步：开发GitHub Actions插件、CLI工具和Web Dashboard",
+        "第三步：内置50+预置评测用例（如毒性检测、输出长度）",
+        "第四步：在开发者社区推广，前1000次评测免费"
+      ],
+      "revenueModel": "免费额度每月100次评测；团队版$29/月5000次。预估月收入$1000-$4000",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "IndieHackers文章强调LLM Evals是AI Agent工作的单元测试，引用“after the third production regression”说明实际痛点。",
+      "sources": [
+        {
+          "title": "LLM Evals Are the Unit Tests of AI Agent Work",
+          "url": "https://dev.to/theautomate/llm-evals-are-the-unit-tests-of-ai-agent-work-295j"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Twenty CRM中文插件",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "Twenty CRM",
+        "开源CRM",
+        "插件市场"
+      ],
+      "summary": "为开源CRM Twenty开发中文插件",
+      "description": "Twenty（GitHub 49654星）是开源的AI优先CRM替代Salesforce。国内企业用CRM常需对接微信、企业微信、钉钉等。开发一系列中文插件：微信消息同步、企业微信联系人导入、发票识别录入等。提供付费插件商店和定制服务。",
+      "painPoint": "开源CRM Twenty缺乏国内企业需要的本地化集成",
+      "path": [
+        "第一步：熟悉Twenty扩展机制（API、Webhook、自定义字段）",
+        "第二步：开发微信/企业微信联系人同步插件",
+        "第三步：在插件市场发布，定价¥99/个",
+        "第四步：在B站和知乎发布Twenty中文教程，吸引企业客户"
+      ],
+      "revenueModel": "插件按次购买¥99-¥299，定制开发¥2000起。预估月收入¥3000-¥8000",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Twenty在GitHub上有49654星，是增长最快的开源CRM之一，社区对其本地化有大量需求。",
+      "sources": [
+        {
+          "title": "twentyhq/twenty: The open alternative to Salesforce, designed for AI.",
+          "url": "https://github.com/twentyhq/twenty"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Remotion视频模板店",
+      "category": "内容创作",
+      "market": "海外为主",
+      "tags": [
+        "Remotion",
+        "视频生成",
+        "模板商店"
+      ],
+      "summary": "出售程序化视频模板给创作者",
+      "description": "Remotion（GitHub 49729星）可用React代码生成视频。开发一套精美好看的视频模板（如企业宣传片、产品测评、个人Vlog开场），打包成npm包或在线服务。买家只需修改JSON配置即可生成高质量视频。面向YouTube创作者、营销团队。",
+      "painPoint": "非开发者想用Remotion但不会写React代码",
+      "path": [
+        "第一步：设计10个热门视频场景模板（带音乐、动画）",
+        "第二步：封装为配置驱动的npm包，提供在线预览",
+        "第三步：在Gumroad和Remotion社区销售，$19/模板",
+        "第四步：收集反馈持续更新，每月推出新模板"
+      ],
+      "revenueModel": "单个模板$19，全集优惠$99。预估月收入$500-$2000",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "Remotion在GitHub拥有49729星，社区活跃，但高质量商业模板稀缺。",
+      "sources": [
+        {
+          "title": "remotion-dev/remotion: 🎥      Make videos programmatically with React",
+          "url": "https://github.com/remotion-dev/remotion"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Expo模板交易市场",
+      "category": "开发工具",
+      "market": "国内外均可",
+      "tags": [
+        "Expo",
+        "React Native",
+        "模板"
+      ],
+      "summary": "Expo项目模板与组件市场",
+      "description": "Expo（GitHub 49998星）是React Native最流行的框架，开发者常需要快速搭建项目骨架。提供针对不同场景（电商、社交、IM、工具）的完整Expo模板，包含UI组件、状态管理、API对接。买家可下载源码并直接修改。采用Gumroad售卖。",
+      "painPoint": "Expo项目从零搭建费时，缺少高质量的预置模板",
+      "path": [
+        "第一步：使用Expo Router开发5个场景模板（含后端模拟）",
+        "第二步：编写清晰文档和视频演示",
+        "第三步：在Gumroad、Expo论坛和GitHub Marketplace出售",
+        "第四步：每季度更新基础模板适配最新Expo版本"
+      ],
+      "revenueModel": "每个模板$29-$79，套餐$149。预估月收入$800-$3000",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Expo在GitHub上拥有49998星，是构建跨平台应用的首选框架，模板需求旺盛。",
+      "sources": [
+        {
+          "title": "expo/expo: An open-source framework for making universal native apps with React. Expo runs on Android, iOS, and the web.",
+          "url": "https://github.com/expo/expo"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Embedding升级助手",
+      "category": "AI应用",
+      "market": "海外为主",
+      "tags": [
+        "向量数据库",
+        "Embedding",
+        "迁移工具"
+      ],
+      "summary": "无痛升级嵌入模型的迁移工具",
+      "description": "HN上的Drift项目（6分）提出嵌入模型升级应该是一次旋转而非重索引。目前切换embedding模型需要全量重算所有向量，成本高昂。开发一个SaaS工具，通过旋转正交变换映射新旧向量空间，实现零重索引迁移。面向使用Pinecone、Weaviate等向量数据库的团队。",
+      "painPoint": "升级embedding模型需要大量时间和算力重新索引",
+      "path": [
+        "第一步：基于论文实现旋转映射算法，支持主流embedding模型",
+        "第二步：开发Python SDK和API Server",
+        "第三步：提供免费在线试用（限制10条向量）",
+        "第四步：在Hacker News和Twitter推广，定价按向量量计费"
+      ],
+      "revenueModel": "免费额度1000条；付费$0.001/条向量。预估月收入$500-$2000",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 3000元",
+      "difficulty": 4,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Drift项目在HN上展示时指出“embedding-model upgrade should be a rotation, not a reindex”，该观点获得开发者共鸣。",
+      "sources": [
+        {
+          "title": "Show HN: Drift – an embedding-model upgrade should be a rotation, not a reindex",
+          "url": "https://github.com/aayush4vedi/drift-spark"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Ruff规则定制商店",
+      "category": "开发工具",
+      "market": "国内外均可",
+      "tags": [
+        "Ruff",
+        "Python",
+        "Lint规则"
+      ],
+      "summary": "Ruff linter的第三方规则市场",
+      "description": "Ruff（GitHub 47919星）是极快的Python linter，内置数百条规则但用户自定义需求增长。提供一个在线商店，开发者可以购买/出售自定义规则包（如公司编码规范、特定框架检查）。通过GitHub Action自动安装规则包。",
+      "painPoint": "Ruff内置规则不够覆盖特定场景，自定义规则编写门槛高",
+      "path": [
+        "第一步：调研Ruff自定义规则API，编写开发文档",
+        "第二步：开发规则包管理系统（Rust+SQLite）",
+        "第三步：自建10个规则包作为首批商品（如Django最佳实践）",
+        "第四步：在PyCon、Ruff Discord推广，采用分成模式"
+      ],
+      "revenueModel": "规则包定价$5-$20，平台抽成30%。预估月收入$300-$1000",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 4,
+      "competition": "低",
+      "evidence": "Ruff在GitHub拥有47919星，是增长最快的Python工具之一，社区对扩展规则有持续需求。",
+      "sources": [
+        {
+          "title": "astral-sh/ruff: An extremely fast Python linter and code formatter, written in Rust.",
+          "url": "https://github.com/astral-sh/ruff"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Huginn自动化模板库",
+      "category": "自动化流程",
+      "market": "国内外均可",
+      "tags": [
+        "Huginn",
+        "自动化",
+        "Agent模板"
+      ],
+      "summary": "Huginn代理模板出售与定制",
+      "description": "Huginn（GitHub 49455星）允许创建自动化代理，但配置复杂。开发一系列现成Agent模板：如自动爬取竞争产品价格、监控社交媒体提及、定时备份GitHub仓库等。每个模板含完整配置导出文件和说明。通过Gumroad销售。",
+      "painPoint": "Huginn配置门槛高，缺少即开即用的自动化方案",
+      "path": [
+        "第一步：在Huginn上调试20个常用自动化场景",
+        "第二步：编写模板导出文件、环境变量说明",
+        "第三步：录制视频教程，展示模板效果",
+        "第四步：在Huginn论坛、Reddit推广，$9/模板"
+      ],
+      "revenueModel": "单个模板$9，全集15个$49。预估月收入$300-$1200",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "Huginn在GitHub有49455星，是流行的开源自动化平台，但高质量模板稀缺。",
+      "sources": [
+        {
+          "title": "huginn/huginn: Create agents that monitor and act on your behalf.  Your agents are standing by!",
+          "url": "https://github.com/huginn/huginn"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "BerriAI",
+      "repo": "litellm",
+      "description": "Python SDK, Proxy Server (AI Gateway) to call 100+ LLM APIs in OpenAI (or native) format, with cost tracking, guardrails, loadbalancing and logging. [Bedrock, Azure, OpenAI, VertexAI, Cohere, Anthropic, Sagemaker, HuggingFace, VLLM, NVIDIA NIM]",
+      "url": "https://github.com/BerriAI/litellm",
+      "starsToday": 50000,
+      "language": "Python",
+      "insight": "快速集成多种大模型，降低AI应用开发门槛",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "expo",
+      "repo": "expo",
+      "description": "An open-source framework for making universal native apps with React. Expo runs on Android, iOS, and the web.",
+      "url": "https://github.com/expo/expo",
+      "starsToday": 49998,
+      "language": "TypeScript",
+      "insight": "用React快速开发跨平台原生App，效率高",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "nlohmann",
+      "repo": "json",
+      "description": "JSON for Modern C++",
+      "url": "https://github.com/nlohmann/json",
+      "starsToday": 49909,
+      "language": "C++",
+      "insight": "现代C++处理JSON的必备库，提升开发效率",
+      "opportunityType": "学习",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "remotion-dev",
+      "repo": "remotion",
+      "description": "🎥      Make videos programmatically with React",
+      "url": "https://github.com/remotion-dev/remotion",
+      "starsToday": 49729,
+      "language": "TypeScript",
+      "insight": "用React编程生成视频，适合自动化内容创作",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "cypress-io",
+      "repo": "cypress",
+      "description": "Fast, easy and reliable testing for anything that runs in a browser.",
+      "url": "https://github.com/cypress-io/cypress",
+      "starsToday": 49713,
+      "language": "TypeScript",
+      "insight": "前端自动化测试利器，提升项目质量与效率",
+      "opportunityType": "就业",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49706,
+      "language": "TypeScript",
+      "insight": "前端数据请求与状态管理方案，必学工具",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    }
+  ]
+}
