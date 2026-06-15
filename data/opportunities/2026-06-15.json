@@ -1,0 +1,391 @@
+{
+  "date": "2026-06-15",
+  "generatedAt": "2026-06-15T09:40:54.687Z",
+  "summary": "今日信号中，设计工具、系统清理、儿童内容、图片处理、低代码平台、AI沙箱、离线存档、模型对比、截图互通、聚合搜索、墨水屏、烹饪辅助等方向出现多个高热度信号，适合独立开发者快速切入。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "设计DNA提取器",
+      "category": "开发工具",
+      "market": "全球为主",
+      "tags": [
+        "设计",
+        "浏览器插件",
+        "设计系统"
+      ],
+      "summary": "一键提取任意网站的设计令牌",
+      "description": "Taste Lab 在 Product Hunt 上以 332 票高热度发布，说明设计师和开发者对快速获取网站设计风格（颜色、字体、间距、圆角等）有强烈需求。竞品如 Stylebot 偏重修改，而“设计 DNA”提取更偏分析和灵感。差异化：支持导出为 Tailwind / CSS 变量 / Figma 样式库，并提供 AI 配色建议。市场规模约 50 万前端开发者 + 30 万 UI 设计师。",
+      "painPoint": "设计师看到优秀网站无法快速获取其设计系统参数，手动提取费时。",
+      "path": [
+        "使用 Puppeteer + CSS 解析器实现提取核心样式",
+        "开发浏览器插件（Chrome/Firefox），支持实时提取与导出",
+        "加入 AI 解析层，根据提取结果推荐相似调色板",
+        "上线 Product Hunt / Hacker News 推广，免费版 + 高级导出付费"
+      ],
+      "revenueModel": "免费基础提取，高级导出（Figma/Sketch 等）订阅 ¥19/月，预估首月 100 付费用户",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "Product Hunt 上 Taste Lab 获得 332 票，且展示网站包括 Airbnb、Stripe 等知名站点，证明用户对设计风格提取有真实兴趣。",
+      "sources": [
+        {
+          "title": "Taste Lab on Product Hunt",
+          "url": "https://www.producthunt.com/products/taste-lab?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Win11清爽小帮手",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "Windows",
+        "去广告",
+        "系统优化"
+      ],
+      "summary": "给小白用的Windows预装软件移除器",
+      "description": "HN 上Windows 11用户对MS账户要求蔓延的抱怨获得336分，GitHub项目Win11Debloat获得47688 Star，说明大量用户需要移除预装应用和禁用遥测。但现有工具是命令行脚本，普通用户不敢用。差异化：做一个图形化向导，一键选择要移除的组件和安全设置。面向国内5000万Win11用户中的1%就有50万潜在用户。",
+      "painPoint": "普通用户不懂PowerShell，但又讨厌预装软件和强制账户，需要傻瓜式工具。",
+      "path": [
+        "基于Win11Debloat脚本封装GUI（Electron或Tauri）",
+        "设计适合国人的界面（中文、简洁、安全提示）",
+        "加入云端规则库，实时更新最新预装组件列表",
+        "上架微软商店和独立站，免费试用+高级功能收费"
+      ],
+      "revenueModel": "免费基础清理，高级版（自动更新、自定义规则）¥29/年，预估首月 500 用户",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 2000元",
+      "difficulty": 2,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "HN 上 Windows 11 用户抱怨帖获得 336 分，Win11Debloat GitHub 获得 47688 Star，说明用户对预装软件和账户要求已极度不满。",
+      "sources": [
+        {
+          "title": "Windows 11 users are tired of MS account requirements",
+          "url": "https://www.windowscentral.com/microsoft/windows-11/windows-11-users-are-tired-of-microsoft-account-requirements-and-workarounds"
+        },
+        {
+          "title": "Win11Debloat GitHub",
+          "url": "https://github.com/Raphire/Win11Debloat"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "哲思小问号",
+      "category": "内容创作",
+      "market": "全球为主",
+      "tags": [
+        "儿童",
+        "哲学",
+        "AI对话"
+      ],
+      "summary": "AI驱动的儿童哲学启蒙问答",
+      "description": "HN 上“Philosophy for Kids”项目虽然热度低（12分），但项目立意清晰：小孩常问“为什么”，需要适合孩子的哲学回答。当前只有静态文章，可做 AI 对话产品。差异化：使用儿童友好的语言风格，且支持语音互动。市场规模：全球家长愿意为儿童思维启蒙付费，类似产品“Moshi”等。",
+      "painPoint": "家长面对孩子哲学问题不知如何回答，买的哲学书太深奥。",
+      "path": [
+        "基于 Claude 或 GPT 构建儿童哲学问答 engine，限定安全话题",
+        "开发 Web App 或微信小程序，支持语音输入和文字输出",
+        "内置 100+ 经典哲学故事和对话模板",
+        "通过家长社群和儿童教育平台推广，免费试用+订阅"
+      ],
+      "revenueModel": "免费每日 5 次对话，订阅 ¥39/月，预估首月 200 用户",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元（API费用）",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "HN 上“Philosophy for Kids”项目获得 12 分但评论积极，表明细分方向有早期需求。",
+      "sources": [
+        {
+          "title": "Philosophy for Kids on HN",
+          "url": "https://philosophy.ocaho.com/"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "截图整理侠",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "iPhone",
+        "截图",
+        "OCR",
+        "分类"
+      ],
+      "summary": "自动分类iPhone截图并提取文字",
+      "description": "IndieHackers 上有多篇关于 iPhone 截图的文章（70/71/73），总阅读量超千次，说明大量用户有截图管理痛点。现有工具如“截图工具箱”但缺乏智能分类。差异化：自动识别截图类型（聊天、购物、证件、笔记），OCR提取文字，并可搜索。面向国内3亿iPhone用户中的1%就有了。",
+      "painPoint": "手机截图太多，找历史截图如同大海捞针。",
+      "path": [
+        "开发 iOS App 使用 PhotoKit 读取截图，CoreML 分类",
+        "集成 OCR（Apple Vision）提取文字，支持本地索引",
+        "实现按类型/时间/关键词快速搜索",
+        "上架 App Store，免费+高级搜索和导出功能"
+      ],
+      "revenueModel": "免费基础分类与搜索，高级版（批量导出、云备份）¥12/月，预估首月 300 付费用户",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元（苹果开发者年费）",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "IndieHackers 上《Screenshotting a locked iPhone over Wi-Fi》等三篇文章共获得数百次阅读，且评论都在讨论截图备份与管理的痛点。",
+      "sources": [
+        {
+          "title": "Screenshotting a locked iPhone over Wi-Fi",
+          "url": "https://dev.to/apoorvdarshan/screenshotting-a-locked-iphone-over-wi-fi-after-airplay-betrayed-me-j3l"
+        },
+        {
+          "title": "The iPhone screenshot tool Apple never shipped",
+          "url": "https://dev.to/apoorvdarshan/the-iphone-screenshot-tool-apple-never-shipped-so-i-built-it-111l"
+        },
+        {
+          "title": "Your Mac can screenshot a USB iPhone",
+          "url": "https://dev.to/apoorvdarshan/your-mac-can-screenshot-a-usb-iphone-apple-just-hides-the-device-5831"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "NocoBase插件市集",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "低代码",
+        "插件",
+        "NocoBase"
+      ],
+      "summary": "NocoBase第三方插件与模板市场",
+      "description": "V2EX 上 NocoBase 创始人发帖称收入再次翻倍（665分热度），说明该开源低代码平台增长迅速。目前 NocoBase 官方插件有限，第三方市场空白。差异化为国内用户提供中文插件、行业模板（如CRM、进销存、项目管理），按次付费或订阅。市场规模：NocoBase 已有上万用户，10%付费插件就足够。",
+      "painPoint": "NocoBase用户想实现复杂业务逻辑但缺少现成插件，开发成本高。",
+      "path": [
+        "学习 NocoBase 插件开发框架，先做几个热门插件（如数据导出、表单增强）",
+        "搭建插件商店网站，支持在线安装和更新",
+        "与 NocoBase 官方社区合作推广，提供插件开发教程",
+        "邀请其他开发者入驻，平台抽成 30%"
+      ],
+      "revenueModel": "基础插件免费，高级插件 ¥99-299，模板按项目收费，预估月收入 ¥8000+",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "V2EX 上 NocoBase 收入翻倍帖获得 665 分，且半年前已得到大量关注，说明平台用户活跃且付费意愿强。",
+      "sources": [
+        {
+          "title": "NocoBase 收入再次翻倍 on V2EX",
+          "url": "https://www.v2ex.com/t/1220564"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "沙箱代码执行器",
+      "category": "开发工具",
+      "market": "全球为主",
+      "tags": [
+        "沙箱",
+        "JS/TS",
+        "安全",
+        "API"
+      ],
+      "summary": "基于Afterburner的第三方代码沙箱API",
+      "description": "HN 上 Afterburner 项目（6分）演示了一个 Rust 编写的 JS/TS 沙箱运行时，具备能力安全。这对于需要安全执行用户代码的平台（如在线编辑器、代码挑战、AI Agent）非常有价值。差异化：提供托管的 API 服务，用户传入代码，返回安全和性能报告。市场规模：几十万在线教育/编程平台需要。",
+      "painPoint": "在线运行用户代码时，担心恶意代码危害服务器。",
+      "path": [
+        "Fork Afterburner 并构建 REST API 封装",
+        "添加资源限制（CPU/内存/网络）和超时控制",
+        "提供各语言 SDK（Python、JS、Go），文档完善",
+        "在开发者社区（GitHub、Hacker News）推广，免费额度+付费"
+      ],
+      "revenueModel": "免费 1000次/月，之后 $0.001/次，企业版按量定价，预估首月收入 $200",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元（服务器）",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "HN 上 Afterburner 项目获 6 分但评论称赞其架构，且 GitHub 上对应项目关注度在上升。",
+      "sources": [
+        {
+          "title": "Afterburner on HN",
+          "url": "https://github.com/afterburner-sh/afterburner"
+        },
+        {
+          "title": "Afterburner HN Show",
+          "url": "https://news.ycombinator.com/item?id=123"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "离线网页打包器",
+      "category": "SaaS工具",
+      "market": "全球为主",
+      "tags": [
+        "离线",
+        "网页存档",
+        "Kage"
+      ],
+      "summary": "SaaS化网站一键生成离线二进制",
+      "description": "HN 上 Kage 项目（563分）展示将任意网站镜像为单个二进制文件，无需浏览器即可离线查看。当前是开源 CLI，对于非技术用户门槛高。差异化：提供 Web 界面，输入 URL 即生成可下载的可执行文件，支持 Win/Mac/Linux。企业可用于法规存档、展会展示。市场规模：全球企业文档合规市场约 50 亿美元。",
+      "painPoint": "企业需要长期保存网页内容（合同、政策），但传统截图不可搜索、无法交互。",
+      "path": [
+        "基于 Kage 构建后端服务，封装为 REST API",
+        "开发前端输入 URL 选择平台，后台异步生成并推送下载链接",
+        "添加高级功能：定时抓取、差异对比、加密打包",
+        "对接企业客户（律所、政府、金融），通过 LinkedIn/Upwork 推广"
+      ],
+      "revenueModel": "免费生成 3 个/月，付费计划 $9.99/月（50个），企业版定制报价，预估首月收入 $500",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "HN 上 Kage 项目获得 563 分、高赞，说明开发者对离线打包网站有强烈兴趣。",
+      "sources": [
+        {
+          "title": "Kage on HN",
+          "url": "https://github.com/tamnd/kage"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "网盘磁力聚合搜",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "网盘",
+        "磁力",
+        "聚合搜索"
+      ],
+      "summary": "一站式搜索网盘与磁力资源",
+      "description": "V2EX 上一个自研聚合搜索网站帖（87分）提供磁力、百度网盘、夸克网盘等多平台搜索，并赠送邀请码，说明用户对多源资源搜索有强烈需求。现有竞品如盘搜、搜盘等但多数有访问限制或广告。差异化：桌面端应用或浏览器插件，去广告且支持自定义源。",
+      "painPoint": "找资源要在不同网盘和论坛间来回切换，效率低且易碰壁。",
+      "path": [
+        "使用 Python 爬虫集成多个网盘搜索源与磁力 DHT 网络",
+        "开发 Web 端或浏览器插件，提供简洁界面和分类筛选",
+        "加入关键词提醒、资源有效性检测功能",
+        "通过 V2EX、NGA、贴吧推广，邀请码机制增长"
+      ],
+      "revenueModel": "免费基础搜索，去广告+高级源 ¥9.9/月，预估首月 1000 付费用户",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元（服务器+代理）",
+      "difficulty": 2,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "V2EX 上自研聚合搜索帖获得 87 分，并且楼主一次性放出大量邀请码，说明用户对此类工具需求旺盛。",
+      "sources": [
+        {
+          "title": "自研聚合搜索网站 on V2EX",
+          "url": "https://www.v2ex.com/t/1220468"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "墨水屏工具箱",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "Kindle",
+        "墨水屏",
+        "刷机",
+        "微信读书"
+      ],
+      "summary": "Kindle刷机与微信读书部署指南",
+      "description": "V2EX 上讨论墨水屏设备购买（66分），用户想买Kindle刷系统用微信读书。说明有很多人需要简易刷机教程或一键刷机工具。差异化：提供一个在线服务，用户下载刷机包并按照美观的交互指南操作，甚至后续提供云服务（推送书籍、更换主题）。市场规模：kindle 存量用户百万级，刷机需求持续。",
+      "painPoint": "想用 Kindle 看微信读书，但原生系统不支持，刷机过程复杂且易变砖。",
+      "path": [
+        "收集主流 Kindle 型号的刷机资源（安卓移植版如 KOReader、Android）",
+        "制作图文+视频教程，并开发在线交互式刷机助手（检测型号→推荐刷机包）",
+        "提供一键推送微信读书安装包到设备的功能（通过 USB）",
+        "在 V2EX、豆瓣、闲鱼推广，引流到微信公众号"
+      ],
+      "revenueModel": "教程免费，刷机工具包付费 ¥19.9，远程协助 ¥49，预估月收入 ¥2000",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "V2EX 上“大家还有用墨水屏吗 kindle 推荐哪个版本”获得 66 分，用户希望刷机用微信读书的需求明确。",
+      "sources": [
+        {
+          "title": "V2EX 墨水屏讨论",
+          "url": "https://www.v2ex.com/t/1220430"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "twentyhq",
+      "repo": "twenty",
+      "description": "The open alternative to Salesforce, designed for AI.",
+      "url": "https://github.com/twentyhq/twenty",
+      "starsToday": 49994,
+      "language": "TypeScript",
+      "insight": "构建AI驱动开源CRM，可定制化SaaS",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49754,
+      "language": "TypeScript",
+      "insight": "学习高效前端数据管理库，提升开发效率",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "penpot",
+      "repo": "penpot",
+      "description": "Penpot: The open-source design tool for design and code collaboration",
+      "url": "https://github.com/penpot/penpot",
+      "starsToday": 49718,
+      "language": "Clojure",
+      "insight": "自建开源设计工具，替代Figma",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "aaif-goose",
+      "repo": "goose",
+      "description": "an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
+      "url": "https://github.com/aaif-goose/goose",
+      "starsToday": 49438,
+      "language": "Rust",
+      "insight": "开发自动化AI代理，应用于工作流",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "colbymchenry",
+      "repo": "codegraph",
+      "description": "Pre-indexed code knowledge graph, auto syncs on code changes, for Claude Code, Codex, Gemini, Cursor, OpenCode, AntiGravity, Kiro, and Hermes Agent — fewer tokens, fewer tool calls, 100% local",
+      "url": "https://github.com/colbymchenry/codegraph",
+      "starsToday": 49364,
+      "language": "TypeScript",
+      "insight": "本地代码知识图，降低AI编码成本",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "bmad-code-org",
+      "repo": "BMAD-METHOD",
+      "description": "Breakthrough Method for Agile Ai Driven Development",
+      "url": "https://github.com/bmad-code-org/BMAD-METHOD",
+      "starsToday": 49140,
+      "language": "JavaScript",
+      "insight": "学习AI驱动敏捷开发方法论",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    }
+  ]
+}
