@@ -1,0 +1,471 @@
+{
+  "date": "2026-06-17",
+  "generatedAt": "2026-06-17T08:39:14.247Z",
+  "summary": "今日信号呈现三大趋势：本地AI模型运行重回热门（1281分），SpaceX巨资收购Cursor（1008分）凸显AI代码领域资本热度，Apple防晕车点阵（743分）开创移动端交互新思路。同时V2EX极客玩具（482分）和普通人配置讨论（100分）反映国内开发者对实用工具和数字生存指南的强烈需求。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "本地模型管家",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "本地推理",
+        "模型管理",
+        "隐私优先"
+      ],
+      "summary": "一键管理本地LLM的桌面应用",
+      "description": "随着Running local models is good now一文1281分的热度，本地模型已足够好用。但国内用户仍缺乏中文界面的模型管理器：像Ollama但带图形界面、中文模型推荐、一键下载和切换。市场规模：国内AI开发者和爱好者约200万人，假设10%付费（月10元），月收入可达200万。竞品Ollama无GUI，LM Studio英文为主。差异化：集成国内模型源（如Qwen、Yi），支持离线运行，一键分享模型配置。",
+      "painPoint": "下载、配置和切换本地模型过程繁琐，需多种命令行操作。",
+      "path": [
+        "使用Electron + Go后端开发基础管理器，支持Windows/Mac",
+        "接入国内模型镜像（ModelScope、HuggingFace国内镜像）",
+        "加入模型配置模板社区和评价系统",
+        "先免费获量，再推出高级功能（批量推理、API导出）订阅"
+      ],
+      "revenueModel": "基础免费，高级订阅¥19/月（批量推理、自定义API接口），预估月收入3万元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 5000元",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "Hacker News文章《Running local models is good now》获得1281分，社区反响强烈，证明本地模型体验已成熟，存在UI工具缺口。",
+      "sources": [
+        {
+          "title": "Running local models is good now - Hacker News 1281分",
+          "url": "https://vickiboykis.com/2026/06/15/running-local-models-is-good-now/"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Cursor提示词工坊",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "AI编码",
+        "提示词市场",
+        "Cursor生态"
+      ],
+      "summary": "Cursor用户共享提示词模板的社区",
+      "description": "SpaceX以600亿美元收购Cursor（Reuters报道1008分），Cursor成为顶级AI代码编辑工具。但用户常为如何写出高质量提示词苦恼。搭建一个提示词模板市场：用户上传/购买针对Cursor的代码生成、重构、测试提示词。市场规模：Cursor全球用户约500万，假设1%付费，年费$29，潜在收入约1450万美元。竞品Github Gist分散，无专门平台。差异化：集成Cursor插件一键应用，支持团队协作和版本管理。",
+      "painPoint": "Cursor用户难以系统化积累和复用有效的提示词。",
+      "path": [
+        "构建Web平台，支持提示词分类、搜索和评分",
+        "开发Cursor插件实现一键导入提示词",
+        "邀请KOL创作免费模板吸引流量",
+        "推出Pro会员（$5/月）解锁无限下载和高级筛选"
+      ],
+      "revenueModel": "免费+Pro订阅$5/月，预测上线3个月达2000付费用户，月收入$10000",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 8000元",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "Reuters报道SpaceX将600亿美元收购Cursor，Hacker News 1008分，确认Cursor的用户规模和资本认可度。",
+      "sources": [
+        {
+          "title": "SpaceX to buy Cursor for $60B - Reuters 1008分",
+          "url": "https://www.reuters.com/legal/transactional/spacex-buy-anysphere-60-billion-2026-06-16/"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "防晕车AR助手",
+      "category": "整活玩具",
+      "market": "国内为主",
+      "tags": [
+        "晕车",
+        "AR",
+        "移动应用"
+      ],
+      "summary": "利用手机传感器显示防晕点阵",
+      "description": "Apple的anti-nausea dots获得743分（The Verge），证明其实用性。但Apple仅限CarPlay，国内大量Android/低端iPhone用户无法使用。可开发独立App：利用手机摄像头或加速度计在屏幕边缘显示动态浮动点，模拟前庭刺激。市场规模：中国约2亿晕车人群，假设0.5%下载，付费6元，收入600万。竞品有各类晕车药但无硬件方案。差异化：支持所有手机型号，可调节点阵密度和颜色，支持抬头显示模式。",
+      "painPoint": "乘坐汽车时晕车严重，现有Apple方案仅限CarPlay。",
+      "path": [
+        "使用Flutter开发跨平台App，利用传感器实现动态点阵",
+        "结合AR Core/ARKit实现透明叠加显示",
+        "上线应用商店，通过短视频演示病毒传播",
+        "推出Pro版（解锁更多模式和自定义背景）一次性买断¥12"
+      ],
+      "revenueModel": "免费体验基础模式，高级版¥12买断，预估月收入2万元（淡季）",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 3000元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "The Verge文章在Hacker News获743分，Apple的Vehicle Motion Cues获得大量正面评价，验证用户对防晕车视觉方案的强烈需求。",
+      "sources": [
+        {
+          "title": "Apple's weird anti-nausea dots cured my car sickness - The Verge 743分",
+          "url": "https://www.theverge.com/tech/942854/apple-vehicle-motion-cues-review-really-work"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Android隐私雷达",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "隐私",
+        "Android",
+        "权限管理"
+      ],
+      "summary": "一键扫描设备隐私风险的App",
+      "description": "GrapheneOS移植到Android 17获722分（Hacker News），反映用户对Android隐私的高度关注。多数用户无法刷机，但希望提升手机隐私。开发轻量App：扫描已安装应用权限、后台行为、跟踪器，给出风险评分和改进建议。市场规模：中国Android用户超8亿，假设0.01%付费（¥12），潜在收入960万。竞品如App Ops但需root。差异化：无需root，利用Android 17已有API（如隐私沙盒），提供中文版报告和一键关闭风险权限。",
+      "painPoint": "用户不清楚哪些App在窃取隐私，但又不愿刷机。",
+      "path": [
+        "利用Android 17 Permission Controller API开发扫描引擎",
+        "实现风险评分算法和可视化报告",
+        "在酷安、应用宝等渠道推广，强调无root",
+        "高级版提供实时监控和自动拦截（¥18买断）"
+      ],
+      "revenueModel": "免费版基础扫描，高级版¥18买断，预估月收入1.5万元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 4000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "GrapheneOS已移植到Android 17并在Hacker News获722分，说明Android隐私增强需求极高，普通用户也需要低门槛方案。",
+      "sources": [
+        {
+          "title": "GrapheneOS has been ported to Android 17 - Hacker News 722分",
+          "url": "https://discuss.grapheneos.org/d/36469-grapheneos-has-been-ported-to-android-17-and-official-releases-are-coming-soon"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "PASETO认证工具包",
+      "category": "开发工具",
+      "market": "海外为主",
+      "tags": [
+        "JWT",
+        "PASETO",
+        "认证"
+      ],
+      "summary": "替代JWT的开源认证SDK",
+      "description": "《Stop Using JWTs》在Hacker News获368分，引发对JWT安全漏洞的广泛讨论。PASETO等替代方案逐渐成熟，但缺乏易用的库和文档。开发一套面向Node.js/Python/Go的PASETO封装库，带中文文档和示例。市场规模：全球数百万后端开发者，约1%会尝试替代方案，通过咨询/定制收费。竞品有node-paseto等但文档差。差异化：提供一站式迁移指南、从JWT到PASETO的转换工具，以及在线生成调试面板。",
+      "painPoint": "开发人员知道JWT有缺陷但迁移成本高，缺乏可靠替代库。",
+      "path": [
+        "实现各语言PASETO v4版本封装库",
+        "编写迁移工具（自动将JWT payload转换）",
+        "上线交互式Demo网站，提供在线生成/验证",
+        "推出企业级安全审计和定制服务"
+      ],
+      "revenueModel": "库开源免费，企业咨询/定制¥5000起，预计前三个月接2单",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 2000元",
+      "difficulty": 4,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "GitHub Gist《Stop Using JWTs》在Hacker News获368分，评论中大量开发者认可JWT问题，并寻求替代方案。",
+      "sources": [
+        {
+          "title": "Stop Using JWTs - Hacker News 368分",
+          "url": "https://gist.github.com/samsch/0d1f3d3b4745d778f78b230cf6061452"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "方言AI微调工坊",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "方言",
+        "LLM微调",
+        "中文AI"
+      ],
+      "summary": "为各地方言提供模型微调服务",
+      "description": "荷兰政府推出GPT-NL（205分）表明主权语言模型的重要趋势。中国有吴语、粤语、闽语等大量方言，但通用模型表现差。创建平台让用户上传方言语料，使用LoRA微调开源模型（如Qwen）。可针对特定场景（客服、方言配音）。市场规模：中国方言使用人口约8亿，企业对方言客服有强烈需求（如银行、保险）。竞品无专门方言微调平台。差异化：提供语料清洗增强、评价指标体系、一键部署API。",
+      "painPoint": "企业需要处理方言语音和文本，但通用AI模型对方言支持极差。",
+      "path": [
+        "收集公开方言语料（粤语、四川话等），清洗后构建微调数据集",
+        "基于LoRA实现快速微调pipeline，提供web操作界面",
+        "上线自助微调服务，按方言和模型规模收费",
+        "推出方言识别和转写API，按调用量计费"
+      ],
+      "revenueModel": "微调服务基础套餐¥299/次，API按¥0.01/次，预估月收入1万元（初期）",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 8000元（GPU云租用）",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "荷兰TNO发布GPT-NL获Hacker News 205分，证明区域性语言模型的关注度；中国方言市场更大，但目前空白。",
+      "sources": [
+        {
+          "title": "GPT‑NL: a sovereign language model for the Netherlands - Hacker News 205分",
+          "url": "https://www.tno.nl/en/digital/artificial-intelligence/gpt-nl/"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "游戏存档救星",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "游戏",
+        "备份",
+        "服务器关闭"
+      ],
+      "summary": "自动备份游戏存档和资产的工具",
+      "description": "《Stop Killing Games》请愿获1.3M签名但未通过欧盟法律（Hacker News 202分），说明玩家对游戏停服的焦虑。开发本地工具：自动识别游戏存档位置，备份到云盘或本地，并在游戏停服前提醒。中国市场更突出——多款手游停服后玩家数据消失。市场规模：中国游戏玩家约6亿，1%使用付费工具（¥9.9/年）即5940万。竞品如GameSave Manager但仅支持单机。差异化：支持手游（扫描Android文件夹），自动识别热门游戏存档，提供导出为通用格式。",
+      "painPoint": "心爱的游戏停服后，数年游戏记录和虚拟财产全部消失。",
+      "path": [
+        "编写核心引擎识别常见游戏存档路径（PC和Android）",
+        "支持多种备份目标（本地、百度云、WebDAV）",
+        "在B站/贴吧推广，与游戏社区合作",
+        "高级版提供自动定时备份和多设备同步（￥19.9/年）"
+      ],
+      "revenueModel": "免费基础备份（限5个游戏），高级版￥19.9/年，预估月收入5000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Hacker News报道Stop Killing Games获1.3M签名但未通过欧盟法律（202分），显示玩家对游戏停服数据丢失的强烈担忧。",
+      "sources": [
+        {
+          "title": "Stop Killing Games fails to secure EU law despite 1.3M signatures - Hacker News 202分",
+          "url": "https://www.dexerto.com/gaming/stop-killing-games-fails-to-secure-eu-law-despite-1-3m-signatures-3376431/"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "机器人仿真中文课",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "机器人",
+        "Qwen",
+        "仿真"
+      ],
+      "summary": "基于Qwen-Robot的机器人开发教程",
+      "description": "阿里Qwen-Robot Suite发布（Hacker News 172分）——物理世界智能基础模型。但国内多数机器人开发者缺乏中文教程和入门项目。创建系列视频+代码课程：从仿真环境搭建、感知控制到任务编排。市场规模：中国机器人开发者约50万，高校相关专业学生数十万，课程定价¥299。竞品如ROS教程偏传统，缺乏AI集成。差异化：基于最新Qwen-Robot，配套仿真平台（Gazebo/Isaac Sim）一键部署，结业项目可用来参赛。",
+      "painPoint": "机器人前沿AI教程匮乏，大部分文档为英文，门槛高。",
+      "path": [
+        "基于Qwen-Robot示例搭建完整仿真项目",
+        "录制中文字幕视频课程（10小时）",
+        "在慕课网、B站发布免费试看，知乎引流",
+        "课程打包销售，并推出1对1答疑VIP群"
+      ],
+      "revenueModel": "课程售价¥299，目标售出300份，收入约9万元",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元（录课设备）",
+      "difficulty": 4,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Qwen-Robot Suite在Hacker News获172分，代表物理世界智能模型的重要进展，目前中文教学资源极度匮乏。",
+      "sources": [
+        {
+          "title": "Qwen-Robot Suite: A Foundation Model Suite for Physical World Intelligence - Hacker News 172分",
+          "url": "https://qwen.ai/blog?id=qwen-robotsuite"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Wolfram中文工坊",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "Wolfram",
+        "Mathematica",
+        "AI"
+      ],
+      "summary": "Wolfram语言新特性中文教程",
+      "description": "Mathematica 15发布（Hacker News 159分），新增AI内核和大量核心功能。中国许多科研人员使用Mathematica但缺乏系统中文教程。创建专栏或小报童：解读V15新特性并配套实操案例，如内置AI调用、符号计算优化。市场规模：国内Mathematica用户（科研院所、高校）约20万人，¥99/年订阅。竞品有官方文档但全英文。差异化：聚焦最新版本，对比Python/Matlab，展示AI集成玩法。",
+      "painPoint": "Mathematica新版发布后，中文用户急需快速了解新功能和迁移指南。",
+      "path": [
+        "阅读官方文档并提取V15核心变化，撰写系列文章",
+        "在知乎/公众号连载，积累粉丝",
+        "设计互动式笔记本（.nb）供下载",
+        "推出付费专栏（¥99/年），同步提供答疑社群"
+      ],
+      "revenueModel": "专栏订阅¥99/年，预估500订阅年收入4.95万元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Stephen Wolfram的文章宣布Mathematica 15发布，在Hacker News获159分，社区对新版本功能高度关注。",
+      "sources": [
+        {
+          "title": "Wolfram Language and Mathematica version 15 - Hacker News 159分",
+          "url": "https://writings.stephenwolfram.com/2026/06/launching-version-15-of-wolfram-language-mathematica-built-in-useful-ai-lots-of-new-core-functionality/"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Rust GPU实战营",
+      "category": "教育培训",
+      "market": "海外为主",
+      "tags": [
+        "Rust",
+        "GPU",
+        "cuTile"
+      ],
+      "summary": "基于cuTile的Rust GPU编程课程",
+      "description": "NVIDIA推出cuTile Rust（Hacker News 73分），实现安全、无数据竞争的GPU内核。但Rust+GPU领域文档极少。开设9周线上训练营：从Rust基础到cuTile高级模式。市场规模：全球Rust开发者约300万，对GPU计算感兴趣的约30万，课程定价$199。竞品如Udemy通用GPU课程。差异化：独家使用cuTile，侧重安全性和数据竞争预防，提供云GPU实验环境。",
+      "painPoint": "Rust开发者想编写GPU程序但缺乏安全且易学的框架和教程。",
+      "path": [
+        "学习cuTile-rs库并编写实战案例",
+        "录制视频课程（中英双语字幕），搭配代码仓库",
+        "在Hacker News、Reddit r/rust宣传",
+        "课程在Gumroad销售，提供一对一辅导附加选项"
+      ],
+      "revenueModel": "课程$199/份，预计销售200份，收入约$39800",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 10000元（GPU云租赁+录课）",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "NVIDIA cuTile-rs在Hacker News获73分，项目名称'cuTile Rust: Safe, data-race-free GPU kernels in Rust'体现了市场对安全GPU编程的兴趣。",
+      "sources": [
+        {
+          "title": "cuTile Rust: Safe, data-race-free GPU kernels in Rust - Hacker News 73分",
+          "url": "https://github.com/nvlabs/cutile-rs"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "系统设计语音图",
+      "category": "开发工具",
+      "market": "海外为主",
+      "tags": [
+        "语音",
+        "系统设计",
+        "面试"
+      ],
+      "summary": "用语音描述自动生成系统设计图",
+      "description": "VoiceDraw（Hacker News 41分）展示了语音转系统设计图的需求，但产品较初级。独立开发者可做更专业的版本：支持多语言（中英），识别UML、架构图元素，生成可编辑的Draw.io/Excalidraw文件。目标用户：准备系统设计面试的程序员（全球约200万），以及团队沟通场景。竞品有Excalidraw manual绘制。差异化：分层识别（先识别实体，再画连线），支持迭代修改，导出演讲稿。",
+      "painPoint": "画系统设计图费时费力，用嘴说比手画快10倍。",
+      "path": [
+        "使用Whisper+LLM解析系统设计语音描述",
+        "映射到常见架构组件（负载均衡、数据库等）",
+        "集成tldraw或Excalidraw渲染引擎",
+        "推出Chrome扩展和独立Web应用，按月订阅"
+      ],
+      "revenueModel": "免费每月10次，Pro ¥9.9/月，预估月收入1万元（早期）",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 5000元（API费用）",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "VoiceDraw在Hacker News Show HN获41分，用户评论反映希望它支持更多语言和导出格式，证明市场认可度。",
+      "sources": [
+        {
+          "title": "Show HN: VoiceDraw – Talk system design out loud, the diagrams draw themselves - Hacker News 41分",
+          "url": "https://voicedraw.com/"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "数字游民配置包",
+      "category": "出海产品",
+      "market": "国内为主",
+      "tags": [
+        "梯子",
+        "美股",
+        "香港卡"
+      ],
+      "summary": "一站式数字生存工具订阅服务",
+      "description": "V2EX帖子‘普通人2026年最顶尖的配置’（100分）列出梯子、美区Apple ID、香港银行卡、美股、BTC等，获上百回复。很多用户想配置却缺乏指导。可提供‘数字游民配置服务’：付费教程、翻墙工具合租、海外账号注册指导、银行开户陪同。市场规模：国内想出海/翻墙的年轻人约500万，客单价¥199-999。竞品有零散教程但无整合。差异化：提供VPN+AI订阅+美股开户组合套餐，并持续更新。",
+      "painPoint": "普通人想配置翻墙、美股、海外银行但信息零碎、门槛高。",
+      "path": [
+        "整理最简配置指南（图文+视频），评估各VPN/AI订阅性价比",
+        "开设Telegram群组提供实时答疑",
+        "提供VPN合租（共享账号）、美区礼品卡代购等服务",
+        "推出VIP会员（¥399/终身）获取持续更新和优先支持"
+      ],
+      "revenueModel": "VIP会员¥399，预计前三个月售500份，收入约20万",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "V2EX帖子‘普通人2026年最顶尖的配置’获100分和大量回复，说明国内用户对数字生存攻略的刚性需求。",
+      "sources": [
+        {
+          "title": "普通人2026年最顶尖的配置 - V2EX 100分",
+          "url": "https://www.v2ex.com/t/1220879"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "nlohmann",
+      "repo": "json",
+      "description": "JSON for Modern C++",
+      "url": "https://github.com/nlohmann/json",
+      "starsToday": 49950,
+      "language": "C++",
+      "insight": "高效C++ JSON解析库，提升项目开发效率",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "penpot",
+      "repo": "penpot",
+      "description": "Penpot: The open-source design tool for design and code collaboration",
+      "url": "https://github.com/penpot/penpot",
+      "starsToday": 49870,
+      "language": "Clojure",
+      "insight": "开源设计工具，可自部署替代Figma",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49769,
+      "language": "TypeScript",
+      "insight": "前端数据管理利器，助力高效开发",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "aaif-goose",
+      "repo": "goose",
+      "description": "an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
+      "url": "https://github.com/aaif-goose/goose",
+      "starsToday": 49642,
+      "language": "Rust",
+      "insight": "可扩展AI代理，自动化开发工作流",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "huginn",
+      "repo": "huginn",
+      "description": "Create agents that monitor and act on your behalf.  Your agents are standing by!",
+      "url": "https://github.com/huginn/huginn",
+      "starsToday": 49487,
+      "language": "Ruby",
+      "insight": "自托管自动化平台，实现个性化监控",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "bmad-code-org",
+      "repo": "BMAD-METHOD",
+      "description": "Breakthrough Method for Agile Ai Driven Development",
+      "url": "https://github.com/bmad-code-org/BMAD-METHOD",
+      "starsToday": 49237,
+      "language": "JavaScript",
+      "insight": "AI驱动开发新范式，值得探索学习",
+      "opportunityType": "趋势",
+      "chinaFit": "medium"
+    }
+  ]
+}
