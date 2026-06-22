@@ -1,0 +1,405 @@
+{
+  "date": "2026-06-22",
+  "generatedAt": "2026-06-22T09:25:39.725Z",
+  "summary": "今日信号集中在AI Agent工具、本地模型微调、结构化数据、桌面应用新框架以及创意小工具。独立开发者可抓住本地AI教育、JSON-LD自动化、Deno桌面生态、以及轻量级跨平台工具等方向快速变现。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "绝音教头",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "音乐教育",
+        "绝对音高",
+        "儿童陪练"
+      ],
+      "summary": "AI驱动的绝对音高训练应用",
+      "description": "基于HN上133分的开源项目Bsharp，开发一款面向家长和音乐初学者的AI绝对音高训练工具。国内钢琴/声乐考级市场庞大，家长愿意为孩子购买专业训练工具。差异化在于引入游戏化闯关和实时音准反馈，可打包成小程序或付费课程。竞品极少，启动成本低（前端+Web Audio API）。",
+      "painPoint": "孩子音准训练枯燥，专业陪练费用高，缺少趣味性工具",
+      "path": [
+        "用Python/React快速搭建音高识别引擎（利用Web Audio API + 简单ML模型）",
+        "设计3-5个游戏化训练关卡（听音→模仿→辨音）",
+        "上线微信小程序或H5，定价9.9元/月或99元永久",
+        "在小红书/抖音投儿童教育类KOC，引导购买"
+      ],
+      "revenueModel": "订阅制9.9元/月，预估首月用户500人，收入约5000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "该GitHub项目Bsharp在Hacker News获得133分，表明技术社区对绝对音高训练有浓厚兴趣；国内音乐教育市场年增速15%以上，但此类工具几乎空白。",
+      "sources": [
+        {
+          "title": "Hacker News: Show HN: Teach your kids perfect pitch",
+          "url": "https://github.com/paytonjjones/bsharp"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "JSON-LD小助手",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "SEO",
+        "结构化数据",
+        "Schema.org"
+      ],
+      "summary": "可视化JSON-LD生成器",
+      "description": "HN上213分文章详细介绍JSON-LD，说明开发者/站长对此有强烈需求。国内大量个人博客、企业站缺乏结构化数据，影响搜索引擎展现。本工具提供拖拽式表单生成JSON-LD代码，支持常见类型（文章、产品、FAQ等），并一键复制。可免费版+付费版（支持批量生成、多站点管理）。",
+      "painPoint": "站长不懂Schema标记，手动编写JSON-LD易出错且耗时",
+      "path": [
+        "用Vue+JSON表单库实现可视化编辑器，预设10种常用Schema类型",
+        "提供预览和验证功能，输出标准JSON-LD代码",
+        "上线独立站，免费版每日限5次，付费版19元/月无限次",
+        "在SEO社区、V2EX推广，联系个人博客主免费试用"
+      ],
+      "revenueModel": "Freemium，付费版19元/月，预估月付费用户200人，收入3800元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Hacker News上JSON-LD相关文章获得213分，反映社区关注度；目前国内无类似专注JSON-LD的可视化工具，对手多为英文复杂工具。",
+      "sources": [
+        {
+          "title": "Hacker News: JSON-LD explained for personal websites",
+          "url": "https://hawksley.dev/blog/json-ld-explained-for-personal-websites/"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Deno桌面工坊",
+      "category": "开发工具",
+      "market": "海外为主",
+      "tags": [
+        "Deno",
+        "桌面应用",
+        "模板市场"
+      ],
+      "summary": "Deno桌面应用模板与快速部署平台",
+      "description": "Deno官方发布Desktop功能（HN 328分），标志Deno进入桌面端。独立开发者可创建一套开箱即用的Deno桌面应用模板（如TODO、笔记、截图工具），并搭建简易模板市场。用户下载模板后一键运行。海外Deno社区活跃，可通过Product Hunt和GitHub推广。",
+      "painPoint": "Deno开发者缺乏现成的桌面应用参考和骨架，从零搭建成本高",
+      "path": [
+        "用Deno Desktop API开发3个基础模板（记事本、系统信息、剪贴板）",
+        "搭建GitHub Pages模板库，分类展示，附使用文档",
+        "在Deno官方Discord/HN发帖，提交到Product Hunt",
+        "推出付费高级模板（如结合AI的桌面助手），单价$9.9"
+      ],
+      "revenueModel": "免费模板引流，高级模板$9.9/个，预估首月售出100份，收入$990",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "Deno Desktop在Hacker News上获得328分，证明开发者对新能力高度期待；目前Deno桌面生态几乎空白，抢先布局模板市场有先发优势。",
+      "sources": [
+        {
+          "title": "Hacker News: Deno Desktop",
+          "url": "https://docs.deno.com/runtime/desktop/"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "小模型调参室",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "LLM微调",
+        "零代码",
+        "分类任务"
+      ],
+      "summary": "零代码本地小模型分类微调平台",
+      "description": "HN上127分教程展示微调Qwen 3:0.6B分类问题的效果，表明本地小模型微调门槛已大幅降低。面向中小企业和开发者，提供Web界面：上传CSV数据、选择基础模型（Qwen/Phi）、自动微调并生成API。无需GPU，利用云端按量计费或用户自有GPU。可解决小团队定制化分类需求（客服来意、内容审核等）。",
+      "painPoint": "没有深度学习经验的开发者想用本地模型做分类，但微调流程复杂、环境配置繁琐",
+      "path": [
+        "用FastAPI+Unsloth封装微调流水线，支持Qwen3-0.6B等模型",
+        "开发前端拖拽式配置（数据集、标签、训练参数）",
+        "部署到云服务器，按训练时长收费（如0.5元/次）或包月99元",
+        "在知乎/CSDN发教程，并在V2EX推广，对接独立开发者群体"
+      ],
+      "revenueModel": "按次收费0.5-2元/训练，或月费99元无限次，预估月收入3000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "Hacker News上微调教程获得127分，反映社区对低成本微调工具的需求；国内已有类似服务（如AutoTrain），但针对超小模型和低成本场景稀缺。",
+      "sources": [
+        {
+          "title": "Hacker News: Good results fine tuning a local LLM like Qwen 3:0.6B to categorize questions",
+          "url": "https://www.teachmecoolstuff.com/viewarticle/fine-tuning-a-local-llm-to-categorize-questions"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "PR价值榜",
+      "category": "开发工具",
+      "market": "海外为主",
+      "tags": [
+        "AI PR评审",
+        "打赏",
+        "开源经济"
+      ],
+      "summary": "AI生成的Pull Request质量评分与打赏平台",
+      "description": "HN上36分的CleverCrow项目尝试解决AI PR质量问题，提出代币激励。独立开发者可构建一个轻量平台：当AI提交PR后，自动运行代码审查+测试，给出质量分，并允许项目维护者打赏/代币奖励高质量AI PR。可集成GitHub App。面向开源项目和AI agent开发者，帮助建立PR信誉体系。",
+      "painPoint": "开源项目维护者难以评估AI生成的PR质量，且缺乏激励优质AI贡献的机制",
+      "path": [
+        "开发GitHub App监听PR事件，集成ESLint和单元测试自动打分",
+        "设计代币或积分系统（免费+付费积分包）",
+        "实现打赏功能（支持PayPal/支付宝）",
+        "在Product Hunt和开源社区发布，邀请热门项目试用"
+      ],
+      "revenueModel": "积分充值：10美元100积分（每次质量检查消耗1积分），预估月收入$500",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 5,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "CleverCrow项目在Hacker News获得36分关注，说明社区对该问题有共鸣；当前GitHub上无同类专注AI PR质量+激励的工具。",
+      "sources": [
+        {
+          "title": "Hacker News: Show HN: CleverCrow: give tokens to your favorite projects",
+          "url": "https://clevercrow.io"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "智能剪贴板Pro",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "剪贴板管理",
+        "AI搜索",
+        "跨平台"
+      ],
+      "summary": "AI增强的跨平台剪贴板管理器",
+      "description": "Product Hunt上oioi获得177分，证明剪贴板管理类工具热度高。本工具在历史记录基础上增加AI能力：智能搜索（语义理解）、自动分类（链接、图片、代码）、OCR识别图片文字。支持Windows/macOS/Linux。免费版基础功能，付费解锁AI搜索和同步。",
+      "painPoint": "传统剪贴板只能按文本匹配，无法语义搜索或识别图片内容",
+      "path": [
+        "用Electron或Tauri快速搭建跨平台框架，集成系统剪贴板监听",
+        "嵌入本地小型Embedding模型实现语义搜索（如all-MiniLM-L6-v2）",
+        "开发订阅制（9.9元/月）或买断制（49元）",
+        "在少数派、V2EX、知乎发评测文章，并与数码博主合作推广"
+      ],
+      "revenueModel": "订阅9.9元/月或买断49元，预估月付费用户300人，收入3000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "oioi在Product Hunt获得177分，表明用户对快速剪贴板工具感兴趣；加入AI语义搜索后差异化明显，国内尚无同类产品。",
+      "sources": [
+        {
+          "title": "Product Hunt: oioi – a fast, glassy clipboard manager",
+          "url": "https://www.producthunt.com/products/oioi?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "MCP组件库",
+      "category": "开发工具",
+      "market": "海外为主",
+      "tags": [
+        "MCP协议",
+        "React组件",
+        "AI集成"
+      ],
+      "summary": "即插即用的MCP React组件集合",
+      "description": "Product Hunt上Skybridge（0分但新颖）提出全栈React框架for MCP Apps。独立开发者可更聚焦：发布一套轻量级React组件库，封装MCP协议调用（聊天、文件操作、工具调用），让开发者10分钟集成MCP服务器。组件包括<MCPChat>、<MCPToolForm>等。免费版+付费版（含高级主题和模板）。",
+      "painPoint": "前端开发者想构建MCP应用但需要手动处理协议细节，开发效率低",
+      "path": [
+        "基于TypeScript和React开发核心组件，封装MCP客户端通信",
+        "编写详细文档和示例（ChatGPT插件式交互）",
+        "发布到npm，并在GitHub开源核心组件（非核心闭源）",
+        "在Product Hunt和Hacker News推广，提供付费支持包"
+      ],
+      "revenueModel": "付费组件包$29/年，预估首年销售200份，收入$5800",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Skybridge在Product Hunt发布（虽零热度）但代表了MCP应用框架趋势；MCP协议在AI社区关注度持续上升，尚未有成熟React组件库。",
+      "sources": [
+        {
+          "title": "Product Hunt: Skybridge – full-stack open source React framework for MCP Apps",
+          "url": "https://www.producthunt.com/products/skybridge?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "WPS AI写作伴侣",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "WPS插件",
+        "AI写作",
+        "办公效率"
+      ],
+      "summary": "WPS文档内嵌AI写作助手",
+      "description": "Product Hunt上Grok for Word获得200分，说明在办公软件内直接使用AI写作是强烈需求。国内WPS用户量巨大且缺少原生AI插件。本工具开发WPS加载项（JavaScript），提供改写、扩写、总结、翻译等功能。免费版每日10次，付费版19元/月。可调用国内大模型API（如通义千问）。",
+      "painPoint": "WPS用户需要在不离开文档的情况下快速使用AI辅助写作，现有工具需切窗口",
+      "path": [
+        "使用WPS加载项框架开发侧边栏，集成AI API",
+        "实现6个核心功能：改写、扩写、缩写、翻译、续写、总结",
+        "在WPS应用商店上架，定价19元/月或188元/年",
+        "在知乎/抖音发布WPS AI提效教程，引导下载"
+      ],
+      "revenueModel": "订阅19元/月，预估首月付费用户1000人，收入19000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 9,
+      "competition": "中",
+      "evidence": "Grok for Word在Product Hunt获200分，显示Office AI插件的市场需求；WPS国内月活过亿但AI插件极少，抢占先发优势。",
+      "sources": [
+        {
+          "title": "Product Hunt: Grok by SpaceXAI for Word",
+          "url": "https://www.producthunt.com/products/grok-by-spacexai-for-word?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "刘海小工具",
+      "category": "整活玩具",
+      "market": "国内为主",
+      "tags": [
+        "MacBook刘海",
+        "系统状态",
+        "趣味"
+      ],
+      "summary": "MacBook刘海区域状态信息小工具",
+      "description": "Product Hunt上Notchkin（131分）利用MacBook刘海显示笔记，证明刘海区域可以成为创新交互入口。开发类似工具：在刘海内显示时间、天气、CPU温度、网络速度等，支持自定义。免费版基本状态，付费版支持高级组件和主题。面向Mac用户，轻量、有趣。",
+      "painPoint": "MacBook刘海区域通常闲置，用户想利用它显示有用信息而无需额外显示器",
+      "path": [
+        "用Swift开发状态栏应用，利用刘海位置绘制自定义视图",
+        "内置5种小部件（时间、天气、系统监控、日历、摸鱼提示）",
+        "在Mac App Store上架，定价6元买断",
+        "在少数派、V2EX发帖，配合演示视频传播"
+      ],
+      "revenueModel": "买断6元，预估第一周下载2000次，收入12000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Notchkin在Product Hunt获131分，验证了用户对刘海区域应用的兴趣；目前Mac App Store上此类工具稀少，易获得早期用户。",
+      "sources": [
+        {
+          "title": "Product Hunt: Notchkin – a notes app that lives in your MacBook's notch",
+          "url": "https://www.producthunt.com/products/notchkin?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "网页Agent录制器",
+      "category": "自动化流程",
+      "market": "海外为主",
+      "tags": [
+        "AI Agent",
+        "网页自动化",
+        "录制回放"
+      ],
+      "summary": "录屏式生成网页Agent自动化脚本",
+      "description": "Product Hunt上Backgrind（186分）展示在任意应用上运行AI agent的能力。本工具为浏览器扩展，用户录制一次网页操作（点击、输入），AI将其转化为可复用的自动化脚本（支持Playwright/Puppeteer）。可定时运行或触发执行。免费版录制10步内，付费版无限制。",
+      "painPoint": "非程序员想自动化网页重复操作（抢购、填表、监控），但不会写脚本",
+      "path": [
+        "开发Chrome扩展，注入录制器UI，记录用户操作序列",
+        "后端将操作转换为Playwright脚本，提供下载/云端运行",
+        "免费版限制10步，付费版$9/月不限步数",
+        "在IndieHackers、V2EX、Product Hunt发布，联系电商卖家"
+      ],
+      "revenueModel": "订阅$9/月，预估首月付费用户50人，收入$450",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Backgrind在Product Hunt获186分，说明市场对任意应用上运行Agent有强烈兴趣；录制转脚本的工具可降低自动化门槛，目前类似产品（如ui.vision）多需付费。",
+      "sources": [
+        {
+          "title": "Product Hunt: Backgrind – Run your AI agents over any app, even games",
+          "url": "https://www.producthunt.com/products/backgrind?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "bmad-code-org",
+      "repo": "BMAD-METHOD",
+      "description": "Breakthrough Method for Agile Ai Driven Development",
+      "url": "https://github.com/bmad-code-org/BMAD-METHOD",
+      "starsToday": 49480,
+      "language": "JavaScript",
+      "insight": "敏捷AI开发方法，适合快速构建原型",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "Raphire",
+      "repo": "Win11Debloat",
+      "description": "A simple, lightweight PowerShell script that allows you to remove pre-installed apps, disable telemetry, as well as perform various other changes to declutter and customize your Windows experience. Win11Debloat works for both Windows 10 and Windows 11.",
+      "url": "https://github.com/Raphire/Win11Debloat",
+      "starsToday": 49280,
+      "language": "PowerShell",
+      "insight": "系统优化工具，可借鉴做Windows清理产品",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49034,
+      "language": "Python",
+      "insight": "数据分析核心库，学习数据产品开发基础",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "1c7",
+      "repo": "chinese-independent-developer",
+      "description": "👩🏿‍💻👨🏾‍💻👩🏼‍💻👨🏽‍💻👩🏻‍💻中国独立开发者项目列表 -- 分享大家都在做什么",
+      "url": "https://github.com/1c7/chinese-independent-developer",
+      "starsToday": 48936,
+      "language": "",
+      "insight": "国内独立开发者项目列表，找灵感与合作",
+      "opportunityType": "趋势",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "JuliaLang",
+      "repo": "julia",
+      "description": "The Julia Programming Language",
+      "url": "https://github.com/JuliaLang/julia",
+      "starsToday": 48876,
+      "language": "Julia",
+      "insight": "新兴高性能语言，科学计算领域新机会",
+      "opportunityType": "趋势",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "hashicorp",
+      "repo": "terraform",
+      "description": "Terraform enables you to safely and predictably create, change, and improve infrastructure. It is a source-available tool that codifies APIs into declarative configuration files that can be shared amongst team members, treated as code, edited, reviewed, and versioned.",
+      "url": "https://github.com/hashicorp/terraform",
+      "starsToday": 48759,
+      "language": "Go",
+      "insight": "基础设施即代码，提升云运维竞争力",
+      "opportunityType": "就业",
+      "chinaFit": "high"
+    }
+  ]
+}
