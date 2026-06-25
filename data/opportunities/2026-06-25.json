@@ -1,0 +1,450 @@
+{
+  "date": "2026-06-25",
+  "generatedAt": "2026-06-25T06:58:54.980Z",
+  "summary": "今日信号呈现三大趋势：AI Agent 能力爆发（Gemini 3.5 Flash 计算机使用、Tencent EdgeOne Makers）、开发者工具轻量化（Nub、Win11Debloat、LocalAI）、以及独立开发者生存策略（PR spam、IndieHackers 目录抗 AI Overview）。适合个人创业者从模板、教程、轻量服务切入。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "GitHub PR 垃圾检测 Action",
+      "category": "开发工具",
+      "market": "海外为主",
+      "tags": [
+        "GitHub Action",
+        "开源治理",
+        "反垃圾"
+      ],
+      "summary": "为开源项目自动识别并标记 AI 生成的垃圾 Pull Request",
+      "description": "随着 AI 工具普及，大量低质量、模板化的 PR 涌入开源仓库（如 OpenClaw 案例）。该 Action 基于规则+轻量模型分析 PR 内容、编辑历史、文案模式，输出风险评分。国内 Gitee 也有类似需求。可免费开源+企业授权收费。市场规模：GitHub 3.8 亿仓库，按 0.1% 付费即 3800 家。竞品：Greptile 已推出但收费高，且只针对特定平台。差异化：完全开源核心逻辑，商业版提供私有部署。",
+      "painPoint": "项目维护者每天被无意义的 AI 生成 PR 淹没，人工审核成本极高。",
+      "path": [
+        "先用 Python+OpenAI API 训练一个识别模型，在 OpenClaw 等 repo 上测试准确率",
+        "封装为 GitHub Action，免费发布到 Marketplace，同时写博客说明问题严重性",
+        "收集用户反馈，提供付费 Pro 版（自定义规则、额外平台支持）",
+        "扩展支持 GitLab、Gitee，以 API 形式提供云服务"
+      ],
+      "revenueModel": "免费 Action 引流，Pro 版 $19/月（支持 10 个仓库），企业版 $199/月。预估首月 50 个付费用户后月入 $950。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Hacker News 上 'PR spam today looks like email spam in the early 2000s' 获得 208 分，文章详细描述了 AI 生成垃圾 PR 的泛滥现状，说明这是一个真实且被社区高度关注的问题。",
+      "sources": [
+        {
+          "title": "PR spam today looks like email spam in the early 2000s",
+          "url": "https://www.greptile.com/blog/prs-on-openclaw"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "AI 论文查重与验证工具",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "学术诚信",
+        "AI检测",
+        "医学论文"
+      ],
+      "summary": "检测医学及其他学科论文中由 AI 生成的虚假数据与内容",
+      "description": "Science 文章揭露医学生用 AI 工具批量生产误导性研究（热度 26 分），国内高校、期刊社对论文 AI 造假防不胜防。可开发一款 SaaS 工具，分析论文中的统计异常、重复模式、以及疑似 AI 生成片段。市场规模：全球学术期刊超过 3 万种，国内大学 3000+所，每所每年需检测论文数千篇。竞品：Turnitin 等不支持中文医学论文，且价格高。差异化：专注中文医学+统计异常检测。",
+      "painPoint": "期刊编辑和导师无法快速识别哪些论文由 AI 编造。",
+      "path": [
+        "基于 Sci-Hub 和公开论文构建统计异常检测模型（如 p 值分布、数据小数点一致性）",
+        "开发网页版上传接口，一篇论文 1 分钟出报告",
+        "先免费服务 100 篇论文，积累口碑，联系国内医学期刊试用",
+        "推出按用量付费（¥5/篇）或机构年费模式"
+      ],
+      "revenueModel": "按篇 ¥5，机构年费 ¥5000（不限篇数）。预计前三个月检测 2000 篇，收入 ¥1 万。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Science 发文获得 26 分，指出医学学生使用 AI 工具（如 ChatGPT）快速生成误导性论文，说明学术界急需检测手段。",
+      "sources": [
+        {
+          "title": "Medical students are using popular research tool to pump out misleading studies",
+          "url": "https://www.science.org/content/article/medical-students-are-using-popular-research-tool-pump-out-misleading-studies"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "AI Agent 模板商店",
+      "category": "自动化流程",
+      "market": "国内为主",
+      "tags": [
+        "EdgeOne",
+        "低代码",
+        "Agent模板"
+      ],
+      "summary": "为腾讯 EdgeOne Makers 提供即用型 AI Agent 模板",
+      "description": "Tencent EdgeOne Makers 在 Product Hunt 获 529 分，主打“像发布 Web 应用一样发布 AI Agent”。但普通用户仍不会写 Prompt 和配置。可创建模板商店，提供各种场景（客服、CRM、数据查询、内容审核）的 Agent 配置一键安装。市场规模：国内 SaaS 用户超 2000 万，EdgeOne 用户快速增长。竞品：官方未提供模板市场。差异化：专注国内本土场景（如微信客服、淘宝数据）。",
+      "painPoint": "用户有了 EdgeOne 平台，但不知道构建什么 Agent、怎么写 Prompt 和配置。",
+      "path": [
+        "注册 EdgeOne Makers 账号，学习其模板格式与 API",
+        "开发 5 个热门场景模板（如“自动回复客服”、“小红书文案生成”）",
+        "在国内技术社区（V2EX、掘金）发帖推广，免费提供模板获取种子用户",
+        "逐步推出付费模板（¥49/个）和定制化服务（¥500/次）"
+      ],
+      "revenueModel": "模板销售+定制费。每月售卖 100 个付费模板，收入 ¥4900。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Tencent EdgeOne Makers 在 Product Hunt 获得 529 分（当日最高之一），说明平台热度极高，用户对“一键构建 AI Agent”有强烈需求。",
+      "sources": [
+        {
+          "title": "Tencent EdgeOne Makers: Ship AI agents like web apps, in minutes.",
+          "url": "https://www.producthunt.com/products/tencent-edgeone-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "AI 游泳教练（中文版）",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "Apple Watch",
+        "运动健康",
+        "AI语音"
+      ],
+      "summary": "基于 Apple Watch 的中文 AI 游泳教练与训练计划生成",
+      "description": "Swimio 在 Product Hunt 获 116 分，但只支持英文。国内游泳爱好者超 2 亿，Apple Watch 用户量大，但缺少中文语音指导和智能计划生成。可开发 iOS 应用，利用 Watch 传感器分析泳姿，AI 生成个性化训练计划并提供实时语音反馈。市场规模：国内 iOS 游泳健身 App 市场约 5 亿年收入。竞品：Swimio、MySwimPro 未做中文。差异化：泳姿识别优化、中文语音交互、集成华为/小米手环支持。",
+      "painPoint": "国内游泳爱好者想科学训练，但没有会中文、懂泳姿的 AI 教练。",
+      "path": [
+        "用 CoreMotion 和 Watch 数据训练泳姿分类模型（自由泳/蛙泳等）",
+        "SwiftUI 开发 iOS App，集成 LLM 生成每日训练计划",
+        "在 Reddit 游泳群、知乎、抖音发布 Demo 视频引流",
+        "推出订阅制（¥12/月）或买断 ¥68"
+      ],
+      "revenueModel": "订阅制，假设首年 2000 付费用户，月收入 ¥2.4 万。",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 8000元（需开发者账号+Watch 实机调试）",
+      "difficulty": 4,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Swimio 在 Product Hunt 获 116 分，证明用户对 AI 游泳教练的认可；而 FUTO Swipe（126 分）也说明 AI 在垂直场景应用受追捧。",
+      "sources": [
+        {
+          "title": "Swimio: AI swim coach with Apple Watch tracking & smart workouts",
+          "url": "https://www.producthunt.com/products/swimio?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "中文 AI 输入法皮肤与预测",
+      "category": "整活玩具",
+      "market": "国内为主",
+      "tags": [
+        "输入法",
+        "AI预测",
+        "隐私优先"
+      ],
+      "summary": "基于 FUTO 开源模型定制的本地 AI 中文输入法",
+      "description": "FUTO Swipe 在 Product Hunt 获 126 分，证明用户对本地 AI 滑动输入感兴趣。可惜只支持英文。可为国内用户打造一款基于同款模型的中文 AI 输入法，重点优化九宫格和笔画输入，所有模型本地运行不联网。市场规模：国内输入法用户 7 亿，但隐私意识用户寻求替代品。竞品：搜狗、百度输入法都联网且广告多。差异化：完全本地、无广告、滑动预测能力强。",
+      "painPoint": "想要隐私友好、无广告的 AI 预测输入法，但现有选择要么不智能要么窃取数据。",
+      "path": [
+        "下载 FUTO 开源模型，微调中文语料（拼音→汉字映射）",
+        "基于开源输入法框架（如 OpenBoard）集成模型，编译 APK",
+        "在酷安、少数派发布内测版，收集反馈",
+        "提供完全免费版+捐赠版（去掉启动广告）或定制皮肤收费"
+      ],
+      "revenueModel": "捐赠+定制皮肤 ¥6/套，预计首月下载 3000 次，10% 付费，月入 ¥1800。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "FUTO Swipe 在 Product Hunt 获得 126 分，说明对本地 AI 输入法的需求强劲；且项目为开源模型，技术门槛低。",
+      "sources": [
+        {
+          "title": "FUTO Swipe: Open models for on-device swipe typing",
+          "url": "https://www.producthunt.com/products/futo-swipe?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "AI 芯片行业分析自媒体",
+      "category": "自媒体",
+      "market": "国内为主",
+      "tags": [
+        "AI芯片",
+        "行业分析",
+        "科技评论"
+      ],
+      "summary": "深度解读 OpenAI/Broadcom 定制芯片等前沿动态",
+      "description": "OpenAI 与 Broadcom 推出首款自研芯片获 HN 652 分，Qualcomm 收购 Modular 获 186 分，AI 芯片赛道炙手可热。但中文科技媒体多搬运外电，缺乏深度解读。可做公众号/知乎专栏/视频号，分析芯片架构、性能对比、产业影响。市场规模：科技类大 V 年收入可达百万级。差异化：硬核技术结合商业视角，用图表和模拟数据展示。",
+      "painPoint": "国内读者希望了解 OpenAI 定制芯片的真正影响，但中文资料浅显且碎片化。",
+      "path": [
+        "阅读 OpenAI 和 Broadcom 官方资料，写一篇万字分析长文",
+        "在知乎、公众号、即刻同步发布，并制作成 B 站视频",
+        "建立付费社群（¥99/年），提供更深度的行业报告和每周简报",
+        "接芯片企业（如寒武纪、地平线）品牌合作"
+      ],
+      "revenueModel": "付费社群+品牌广告。首月吸引 200 付费会员 + 2 篇广告，月入 ¥1.5 万。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 2,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "OpenAI 定制芯片在 HN 以 652 分登顶，Qualcomm 收购 Modular 获 186 分，证明芯片领域关注度极高，内容创作机会充足。",
+      "sources": [
+        {
+          "title": "OpenAI unveils its first custom chip, built by Broadcom",
+          "url": "https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/"
+        },
+        {
+          "title": "Qualcomm to Acquire Modular",
+          "url": "https://www.reuters.com/business/qualcomm-buy-ai-startup-modular-2026-06-24/"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Node.js 兼容性测试平台",
+      "category": "开发工具",
+      "market": "海外为主",
+      "tags": [
+        "Node.js",
+        "Bun替代",
+        "兼容性"
+      ],
+      "summary": "检测 npm 包在 Bun/Node 下的兼容性问题",
+      "description": "Nub 是 Bun 风格的 Node.js 工具，获 HN 229 分，但迁移成本高。可为 npm 包提供自动化兼容性测试服务：运行包在不同运行时（Node 18/20/22、Bun、Deno）下的测试用例，输出兼容报告。市场规模：npm 生态 300 万包，每个包可能升级运行时。竞品：官方无此类服务。差异化：零配置、一键运行、免费开放社区包。",
+      "painPoint": "开发者想从 Node 切换到 Bun 或 Nub，但不清楚现有依赖是否兼容。",
+      "path": [
+        "使用 GitHub Actions + 多运行时 Docker 镜像搭建测试 CI",
+        "开发一个 Web 面板，输入 npm 包名即可触发测试",
+        "在 Hacker News 和 GitHub 上推广，免费给开源包使用",
+        "对私有包和企业用户收取 $9/月"
+      ],
+      "revenueModel": "免费开源包，企业私有包 $9/月。预计前三个月 200 个付费企业，月入 $1800。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元（服务器+CI 费用）",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Nub 在 HN 以 229 分受到关注，说明开发者对 Node.js 工具链的新选择（Bun-like）有强烈兴趣，同时兼容性测试成为痛点。",
+      "sources": [
+        {
+          "title": "Show HN: Nub – A Bun-like all-in-one toolkit for Node.js",
+          "url": "https://github.com/nubjs/nub"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "AI 辅助写作「显眼包」",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "爆款文案",
+        "标题生成",
+        "新媒体"
+      ],
+      "summary": "自动生成抓人眼球的标题和开头段落",
+      "description": "HN 上文章《Blogging can just be stating the obvious》获 176 分，说明内容创作困惑普遍。国内自媒体创作者更需要爆款标题和开头。可做一个微信小程序/网页，输入主题后 AI 生成 10 个不同风格的标题和开头段落，并模拟点击率预测。市场规模：国内自媒体创作者超 5000 万。竞品：写作猫、Jasper 等偏长文。差异化：专注标题+开头+点击预测。",
+      "painPoint": "写了干货内容但没人点开，因为标题不够抓人。",
+      "path": [
+        "用 GPT-4o-mini 微调中外爆款文章标题库",
+        "开发前端（小程序或 Web），支持输入主题和风格偏好",
+        "在知乎、即刻、小红书上免费分享“标题改稿”案例引流",
+        "推出付费版（¥29/月）无限制使用并附带点击率预测"
+      ],
+      "revenueModel": "月订阅 ¥29，假设首月 500 付费用户，月入 ¥1.45 万。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 2000元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "HN 上《Blogging can just be stating the obvious》获 176 分，说明创作者对内容选题存在焦虑，对辅助工具需求真实。",
+      "sources": [
+        {
+          "title": "Blogging can just be stating the obvious",
+          "url": "https://blog.jim-nielsen.com/2026/blogging-stating-the-obvious/"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Web 游戏合集站",
+      "category": "整活玩具",
+      "market": "海外为主",
+      "tags": [
+        "WebGame",
+        "Half-Life",
+        "怀旧"
+      ],
+      "summary": "收集并优化浏览器端可运行的老游戏",
+      "description": "《半条命2》在浏览器中运行（HN 66 分），证明了 WebAssembly 和 WebGPU 的潜力。可以做一个索引站，收录各类在浏览器直接运行的经典游戏（CS、Doom、Quake 等），并持续优化加载速度和控制器支持。市场规模：全球怀旧游戏玩家超 1 亿。竞品：Archive.org、BrowserQuest。差异化：专注 FPS 类、提供手柄适配和存档功能。",
+      "painPoint": "想重温经典 FPS 但不愿下载客户端或配置兼容环境。",
+      "path": [
+        "找到并测试已在浏览器编译运行的经典游戏（基于 emscripten 项目）",
+        "搭建一个 Vanilla JS 静态站点，每个游戏附带操作说明和截图",
+        "加入 Google AdSense 和联盟链接（游戏周边）",
+        "持续添加更多游戏，提供“游戏种子”众包方式"
+      ],
+      "revenueModel": "AdSense + 联盟佣金，月流量 10 万 PV 约收入 $300。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元（域名+服务器）",
+      "difficulty": 2,
+      "potential": 4,
+      "competition": "中",
+      "evidence": "Half-Life 2 in a Browser 在 HN 获得 66 分，推文引发大量怀旧讨论，表明用户对浏览器玩经典游戏有强烈兴趣。",
+      "sources": [
+        {
+          "title": "Half-Life 2 in a Browser",
+          "url": "https://hl2.slqnt.dev/"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "LocalAI 一键部署包",
+      "category": "数据服务",
+      "market": "国内为主",
+      "tags": [
+        "LocalAI",
+        "私有部署",
+        "Docker"
+      ],
+      "summary": "为国内用户准备的 LocalAI 中文优化版 Docker 镜像",
+      "description": "LocalAI 在 GitHub 有 47127 星，但国内用户配置时面临模型下载慢、中文模型少、文档不熟悉等问题。可制作一个 Docker Compose 集合，内置常用中文模型（Qwen、ChatGLM 等），并提供一键启动脚本和管理面板。市场规模：国内企业私有 AI 部署市场年复合增长率 40%。竞品：Ollama 也有类似，但 LocalAI 支持更多硬件。差异化：中文向导、国内镜像加速、离线全版本。",
+      "painPoint": "国内企业想私有化部署开源 LLM，但下载模型失败、配置复杂。",
+      "path": [
+        "用 Docker 封装 LocalAI + 国内可访问的模型镜像（阿里云镜像加速）",
+        "写一份图文并茂的中文部署文档，包括企业级功能（认证、日志）",
+        "在 V2EX、知乎、开源中国发布，提供社区版免费",
+        "推出企业版（技术支持+定制模型）¥999/年起"
+      ],
+      "revenueModel": "社区版免费引流，企业版 ¥999/年。预计首年 100 家付费，收入 ¥10 万。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元（测试服务器+存储）",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "LocalAI 在 GitHub 拥有 47127 星，且持续活跃，证明开源社区对本地 AI 部署需求巨大，但缺少面向中文用户的一键化方案。",
+      "sources": [
+        {
+          "title": "LocalAI: the open-source AI engine",
+          "url": "https://github.com/mudler/LocalAI"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "A 股 AI 分析助手",
+      "category": "数据服务",
+      "market": "国内为主",
+      "tags": [
+        "股票分析",
+        "LLM",
+        "量化"
+      ],
+      "summary": "基于 LLM 的 A 股实时行情解读与决策提醒",
+      "description": "V2EX 上股票讨论火热（小米股票 96 分、佰维存储 72 分），GitHub 上 daily_stock_analysis 项目获得 48985 星，说明散户对 AI 分析股票强烈需求。可做一个微信公众号/企业微信群机器人，对接实时行情、财报和新闻，LLM 生成投资建议和风险提醒。市场规模：国内股民超 2 亿，付费工具市场数百亿。竞品：同花顺 iFind、雪球。差异化：自然语言交互、个性化持仓分析。",
+      "painPoint": "散户没有时间和能力分析海量数据，只能靠小道消息。",
+      "path": [
+        "用 Python 爬取 A 股实时数据（新浪/腾讯 API）和公告新闻",
+        "集成 LLM 分析看涨/看跌逻辑，生成每日简报",
+        "在 V2EX、雪球发帖邀请内测，前 500 名免费",
+        "推出月卡 ¥39/月，提供持仓诊断和自动提醒"
+      ],
+      "revenueModel": "月订阅 ¥39，预计首月 300 付费用户，月入 ¥1.17 万。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元（API + 服务器）",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "V2EX 上小米股票讨论获得 96 分，佰维储存翻倍帖 72 分；GitHub 上 daily_stock_analysis 有 48985 星，均反映出散户对智能化股票分析工具的强烈兴趣。",
+      "sources": [
+        {
+          "title": "什么时候能买小米的股票",
+          "url": "https://www.v2ex.com/t/1222590"
+        },
+        {
+          "title": "生平第一次拿住翻倍的股票",
+          "url": "https://www.v2ex.com/t/1222684"
+        },
+        {
+          "title": "LLM 驱动的多市场股票智能分析系统",
+          "url": "https://github.com/ZhuLinsen/daily_stock_analysis"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49833,
+      "language": "TypeScript",
+      "insight": "用前端数据管理库提升应用开发效率",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "bmad-code-org",
+      "repo": "BMAD-METHOD",
+      "description": "Breakthrough Method for Agile Ai Driven Development",
+      "url": "https://github.com/bmad-code-org/BMAD-METHOD",
+      "starsToday": 49639,
+      "language": "JavaScript",
+      "insight": "学习AI驱动敏捷开发方法，提升效率",
+      "opportunityType": "学习",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "Raphire",
+      "repo": "Win11Debloat",
+      "description": "A simple, lightweight PowerShell script that allows you to remove pre-installed apps, disable telemetry, as well as perform various other changes to declutter and customize your Windows experience. Win11Debloat works for both Windows 10 and Windows 11.",
+      "url": "https://github.com/Raphire/Win11Debloat",
+      "starsToday": 49538,
+      "language": "PowerShell",
+      "insight": "清理Windows环境，优化开发机性能",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49052,
+      "language": "Python",
+      "insight": "用强大数据处理库构建分析产品",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "ZhuLinsen",
+      "repo": "daily_stock_analysis",
+      "description": "LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。  LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.",
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "starsToday": 48985,
+      "language": "Python",
+      "insight": "借鉴LLM股票分析思路，开发量化工具",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "1c7",
+      "repo": "chinese-independent-developer",
+      "description": "👩🏿‍💻👨🏾‍💻👩🏼‍💻👨🏽‍💻👩🏻‍💻中国独立开发者项目列表 -- 分享大家都在做什么",
+      "url": "https://github.com/1c7/chinese-independent-developer",
+      "starsToday": 48959,
+      "language": "",
+      "insight": "了解独立开发者生态，寻找合作机会",
+      "opportunityType": "趋势",
+      "chinaFit": "high"
+    }
+  ]
+}
