@@ -1,0 +1,413 @@
+{
+  "date": "2026-06-28",
+  "generatedAt": "2026-06-28T07:12:27.049Z",
+  "summary": "今日信号集中在AI系统提示泄露、网站社交互动、游戏逆向工程、本地语义搜索等方向，GitHub上system_prompts_leaks仓库获得46692 star，TownSquare引发206 points讨论，反映开发者对AI透明度和网站社区化的强烈需求。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "AI系统提示词智库",
+      "category": "数据服务",
+      "market": "国内为主",
+      "tags": [
+        "AI",
+        "提示工程",
+        "数据订阅"
+      ],
+      "summary": "持续更新的AI系统提示词数据库与分析服务",
+      "description": "基于GitHub上system_prompts_leaks仓库（46692 star）提供的各大模型系统提示词，构建中文解读、版本对比、趋势分析的知识库。独立开发者可将数据清洗后包装为付费订阅服务（网站+API），面向提示工程师、AI应用开发者、安全研究人员。竞品仅有原始GitHub仓库，差异化在于结构化搜索、中文翻译、变更通知和历史比对。首年目标1000付费用户，每人99元/年。",
+      "painPoint": "开发者需要快速了解各大AI模型的系统提示设计，但原始泄露数据分散且无中文环境解读。",
+      "path": [
+        "第一步：Fork system_prompts_leaks仓库，建立自动化抓取和更新管道",
+        "第二步：开发Web端可视化检索界面，支持按公司、模型、日期筛选",
+        "第三步：逐条翻译并撰写分析笔记，形成付费专区",
+        "第四步：部署API接口，提供给第三方集成，按调用量付费"
+      ],
+      "revenueModel": "年费订阅99元/年 + API按次计费，预估月收入8000-15000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "GitHub上asgeirtj/system_prompts_leaks仓库已获46692 star，且持续更新Anthropic、OpenAI、Google、xAI等模型提示词，说明开发者对此类数据需求强烈。",
+      "sources": [
+        {
+          "title": "asgeirtj/system_prompts_leaks on GitHub",
+          "url": "https://github.com/asgeirtj/system_prompts_leaks"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "网站随机偶遇挂件",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "社交",
+        "社区",
+        "JavaScript"
+      ],
+      "summary": "轻量JS插件，让网站访客随机相遇聊天",
+      "description": "受TownSquare（HN 206 points）启发，开发一个可嵌入的JS挂件，让同一网站上的访客可以实时看到彼此并开启临时聊天。差异化：无需注册、支持暗号房间、可配置触发规则。面向独立博客、小众社区、电商直播页。基础版免费（限制同时在线人数），Pro版按月收费。国内市场尚无类似产品，需求来自站长提升用户粘性。",
+      "painPoint": "网站访客孤独浏览，缺乏实时互动随机性，用户留存低。",
+      "path": [
+        "第一步：用WebSocket + Redis实现轻量实时通信后端（单机可扛1000并发）",
+        "第二步：编写10KB以内JS SDK，支持自定义样式和触发条件",
+        "第三步：上线Landing页，提供Demo和免费试用",
+        "第四步：在V2EX、少数派等社区推广，收集反馈迭代"
+      ],
+      "revenueModel": "免费版（最多10同时在线）-> Pro版99元/月（无限在线+自定义品牌），预估月收入3000-8000元",
+      "timeToRevenue": "1.5个月",
+      "startupCost": "< 2000元（服务器+域名）",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Hacker News上TownSquare项目获206 points，作者博客详细说明其思路，Related链接显示相关讨论有16条评论，说明开发者对网站社交层有浓厚兴趣。",
+      "sources": [
+        {
+          "title": "Turn your site into a place people can bump into each other",
+          "url": "https://cauenapier.com/blog/townsquare_release/"
+        },
+        {
+          "title": "Show HN: TownSquare, a tiny presence layer for websites",
+          "url": "https://news.ycombinator.com/item?id=48608570"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "游戏逆向工程中文课",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "GameCube",
+        "逆向",
+        "付费课程"
+      ],
+      "summary": "教你把GameCube游戏反编译成可读C代码",
+      "description": "基于Decomp Academy（HN 102 points）的热度，制作中文版游戏反编译实战课程。聚焦GameCube经典游戏（如《风之杖》），从零教学匹配C代码、结构体重建、控制流分析。目标用户：怀旧游戏开发者、学习逆向工程的程序员、高校学生。采用录播+社群+直播答疑模式，定价299元/课程。国内竞品少，可结合B站免费引流。",
+      "painPoint": "想学习游戏反编译但缺乏结构化中文教程，英文资料门槛高。",
+      "path": [
+        "第一步：跟进Decomp Academy教程，提取核心知识点并翻译成中文",
+        "第二步：录制10节视频+配套练习，搭建专属社区（Discord/飞书）",
+        "第三步：发布免费入门视频到B站，引导至付费课程",
+        "第四步：与游戏破解社区合作推广，迭代课程内容"
+      ],
+      "revenueModel": "单课程299元，预计首月售出100份，月收入约3万元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元（录屏软件、服务器）",
+      "difficulty": 4,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Hacker News上Show HN: Decomp Academy获102 points，作者表示亲手反编译了童年爱游戏，社区反响积极，说明游戏逆向教学有明确受众。",
+      "sources": [
+        {
+          "title": "Show HN: Decomp Academy – Learn to decompile GameCube games into matching C",
+          "url": "https://decomp-academy.dev"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "本地语义搜索桌面工具",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "语义搜索",
+        "知识管理",
+        "离线"
+      ],
+      "summary": "本地文件语义搜索引擎，无需网络",
+      "description": "受Product Hunt上Dotient（本地语义搜索app）启发，开发一款跨平台（macOS/Windows/Linux）本地文件语义搜索工具。支持文档、代码、笔记的语义索引，使用轻量嵌入模型（如all-MiniLM），全部本地执行。竞品如Everything（仅文件名）和DocSearch（在线），差异化在于离线语义理解。面向程序员、研究员、知识工作者。免费版限制索引文件数，Pro版一次性买断。",
+      "painPoint": "本地文件越来越多，靠文件名和全文检索难以找到含义匹配的内容，且担心隐私上传云端。",
+      "path": [
+        "第一步：用Electron + Python后端（ONNX Runtime）构建原型，支持TXT、MD、PDF",
+        "第二步：集成中文分词和嵌入模型，优化索引速度",
+        "第三步：开发简洁UI，支持实时预览和标签过滤",
+        "第四步：在少数派、V2EX首发，开启内测和付费购买"
+      ],
+      "revenueModel": "免费版（1000个文档限制）-> Pro版99元终身买断，预估首月100份收入1万元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元（开发工具、签名证书）",
+      "difficulty": 5,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Product Hunt上Dotient虽当前热度为0，但概念新颖且切中本地语义搜索空白；类似产品如AnyTXT Searcher用户量可观。",
+      "sources": [
+        {
+          "title": "Dotient: Your local semantic search app",
+          "url": "https://www.producthunt.com/products/dotient?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "在线视频对比平台",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "视频",
+        "对比",
+        "A/B测试"
+      ],
+      "summary": "在线同步对比两段视频，用于审核和创作",
+      "description": "基于Product Hunt上Supra Player（128 points），构建一个网页端视频对比工具。支持同步播放、逐帧比较、A/B切换、标注评论。目标用户：视频剪辑师、质量检查员、自媒体创作者。免费版支持2个视频720p，Pro版支持4K+团队协作。国内尚无垂直工具，但需求明确（类似画面对比在影视后期很常见）。",
+      "painPoint": "视频审核与创意对比时需要手动切换播放器，无法同步逐帧比对，效率低。",
+      "path": [
+        "第一步：基于HTML5 Video API实现双播放器同步控制，支持上传与URL",
+        "第二步：添加帧步进、时间码同步、差分视图等核心功能",
+        "第三步：部署到国内云服务器，适配移动端",
+        "第四步：在B站、视频创作者社群免费推广，提供7天Pro试用"
+      ],
+      "revenueModel": "免费版限制画质/时长 -> Pro版39元/月（无限制+团队），预估月收入5000-10000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元（服务器带宽、CDN）",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Product Hunt上Supra Player获128 points，视频创作者社区对此类工具需求明显，且同类产品如Evercast价格高昂。",
+      "sources": [
+        {
+          "title": "Supra Player: Compare & Sync Videos Fast",
+          "url": "https://www.producthunt.com/products/supra-player?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "AI提示词增强插件",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "Prompt",
+        "浏览器插件",
+        "效率"
+      ],
+      "summary": "一键优化任意AI工具的提示词，带上下文",
+      "description": "受Velocity 2.0 Prompt Co-Pilot（PH 21 points）启发，开发一款浏览器插件，在ChatGPT、Kimi、文心一言等页面中自动提取上下文并优化提示词。功能包括：自动补全、风格改写、长度控制、多版本生成。免费版每月50次，Pro版无限次订阅。国内AI工具用户快速增长，但提示词优化仍是痛点。竞品较少，可快速占位。",
+      "painPoint": "用户写提示词常表述不清或缺少上下文，导致AI输出质量差，手动优化费时。",
+      "path": [
+        "第一步：开发Chrome/Edge扩展，注入到主流AI对话页面",
+        "第二步：对接大模型API（如DeepSeek V4）进行本地或云端优化",
+        "第三步：实现上下文感知（自动提取对话历史和用户输入）",
+        "第四步：上线Chrome商店，在V2EX、少数派、即刻推广"
+      ],
+      "revenueModel": "免费50次/月 -> Pro 19元/月，预估月收入1-2万元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 2000元（AI API预充值、开发者账号）",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "Product Hunt上Velocity 2.0 Prompt Co-Pilot获21 points，显示用户对提示词增强工具的兴趣；同时IndieHackers上有大量关于提示工程的需求讨论。",
+      "sources": [
+        {
+          "title": "Velocity 2.0 Prompt Co-Pilot: One click prompt enhancement for any AI tool, with context!",
+          "url": "https://www.producthunt.com/products/velocity-2-0-prompt-co-pilot?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "可嵌入AI聊天组件库",
+      "category": "开发工具",
+      "market": "国内为主",
+      "tags": [
+        "WebMCP",
+        "AI Chat",
+        "组件"
+      ],
+      "summary": "一行代码为网站添加WebMCP原生AI聊天",
+      "description": "基于Product Hunt上Persona.js（WebMCP-native AI chat）概念，开发一个针对国内大模型（DeepSeek、通义千问、GLM）的嵌入式聊天组件。支持流式输出、自定义UI、上下文记忆、MCP协议对接。免费版带水印，Pro版去水印+定制化。目标用户：SaaS产品经理、独立开发者、企业官网。",
+      "painPoint": "想在网站内集成AI问答助手，但对接大模型API和实现UI成本高，缺乏现成组件。",
+      "path": [
+        "第一步：封装国产大模型API，实现统一的流式接口",
+        "第二步：编写Web Component（无框架依赖），支持CDN引入",
+        "第三步：提供可视化配置界面（主题、角色、知识库）",
+        "第四步：在掘金、SegmentFault发布教程，提供免费体验"
+      ],
+      "revenueModel": "免费版（每天100次对话）-> Pro版99元/月（无限+自定义品牌），预估月收入8000-15000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元（API预充值、文档网站）",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "Product Hunt上Persona.js获0 points但概念先进，WebMCP协议正被行业关注；国内类似项目如ChatUI但定制性不足。",
+      "sources": [
+        {
+          "title": "Persona.js: Add WebMCP-native AI chat to any Frontend",
+          "url": "https://www.producthunt.com/products/persona-12?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "在线无损压缩工具",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "图片压缩",
+        "视频压缩",
+        "在线工具"
+      ],
+      "summary": "浏览器端无损压缩图片/视频，无需上传",
+      "description": "受GetCompress（PH 0分）启发，开发一个纯前端（WebAssembly）无损压缩工具。支持图片（PNG/JPEG/WebP/AVIF）和视频（MP4/WebM）压缩，所有处理在本地完成，不上传服务器。免费版有限制文件大小，Pro版批量处理和更高质量。国内用户对隐私敏感，纯本地处理是差异化。竞品如TinyPNG需上传，Squoosh开源但界面简陋。",
+      "painPoint": "需要压缩媒体文件但又不想上传到第三方服务器，担心隐私泄露。",
+      "path": [
+        "第一步：使用Squoosh等开源库编译WASM，支持常见格式",
+        "第二步：搭建PWA页面，支持拖拽和批量处理",
+        "第三步：添加对比预览、元数据保留等功能",
+        "第四步：在少数派、V2EX、Product Hunt中文站推广"
+      ],
+      "revenueModel": "免费版（单次≤10MB）-> Pro版29元/月（无限+批量），预估月收入3000-6000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元（域名、CDN）",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Product Hunt上GetCompress虽0分但概念清晰，用户评论期待无损本地压缩；国内类似需求在知乎有大量讨论。",
+      "sources": [
+        {
+          "title": "GetCompress: Lossless media compression without context switching",
+          "url": "https://www.producthunt.com/products/getcompress?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "独立开发者项目发现站",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "目录",
+        "发现",
+        "开源"
+      ],
+      "summary": "中国独立开发者项目精选与趋势追踪平台",
+      "description": "基于GitHub上1c7/chinese-independent-developer仓库（49024 star），此列表已收录大量国内独立开发者项目。可以将其升级为功能完善的发现站，支持分类筛选、排序、热度趋势、评论互动。盈利模式：广告位、招聘信息挂载、项目推广费。目标用户：独立开发者、投资人、技术招聘。国内尚无类似综合性发现平台。",
+      "painPoint": "中国独立开发者项目分散在各处，缺少一个集中展示、发现和讨论的社区平台。",
+      "path": [
+        "第一步：Fork原始仓库，用Astro或Next.js构建静态站点",
+        "第二步：补充项目描述、截图、技术栈标签，添加搜索和筛选",
+        "第三步：开放投稿和评论（需审核），建立社区",
+        "第四步：联系项目作者获取支持，开启商业化（广告/推荐位）"
+      ],
+      "revenueModel": "广告位+付费推荐（200元/次），预估月收入2000-5000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元（服务器+域名）",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "GitHub上1c7/chinese-independent-developer已获49024 star，说明国内独立开发者社区有巨大需求，但现有仓库仅为列表，缺乏交互和商业化。",
+      "sources": [
+        {
+          "title": "1c7/chinese-independent-developer on GitHub",
+          "url": "https://github.com/1c7/chinese-independent-developer"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "GPU算力实时比价站",
+      "category": "数据服务",
+      "market": "国内为主",
+      "tags": [
+        "GPU",
+        "比价",
+        "AI训练"
+      ],
+      "summary": "实时对比国内外GPU云算力价格与性能",
+      "description": "借鉴IndieHackers上《Three GPU affiliate programs I wired into an AI tool directory》的思路，构建一个GPU云算力比价平台。支持阿里云、腾讯云、华为云、RunPod、Vast.ai等，按机型、GPU型号、租用时长、区域展示实时价格与可用性。免费比价，通过affiliate链接跳转赚取佣金。目标用户：AI开发者、研究生、小团队。",
+      "painPoint": "AI训练需要大量GPU算力，但各家价格、配置、区域差异大，手动比价耗时且易选贵。",
+      "path": [
+        "第一步：爬取主要云厂商GPU实例价格（注意合规）",
+        "第二步：设计对比页面，支持筛选和价格预测",
+        "第三步：接入affiliate链接（RunPod、Vast.ai等支持）",
+        "第四步：在AI开发者社区（Hugging Face中文、知乎）推广"
+      ],
+      "revenueModel": "affiliate佣金+精选合作推荐费，预估月收入2000-10000元（取决于流量）",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元（服务器+代理IP）",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "IndieHackers文章详细介绍了GPU affiliate计划实现细节，显示RunPod、Vast.ai都有成熟佣金机制；同时Hacker News上AMD Strix Halo集群指南（105 points）说明GPU算力配置是热点。",
+      "sources": [
+        {
+          "title": "Three GPU affiliate programs I wired into an AI tool directory",
+          "url": "https://dev.to/morinaga/three-gpu-affiliate-programs-i-wired-into-an-ai-tool-directory-51an"
+        },
+        {
+          "title": "AMD Strix Halo RDMA Cluster Setup Guide",
+          "url": "https://github.com/kyuz0/amd-strix-halo-vllm-toolboxes/blob/main/rdma_cluster/setup_guide.md"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49849,
+      "language": "TypeScript",
+      "insight": "快速构建健壮前端数据管理应用",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "bmad-code-org",
+      "repo": "BMAD-METHOD",
+      "description": "Breakthrough Method for Agile Ai Driven Development",
+      "url": "https://github.com/bmad-code-org/BMAD-METHOD",
+      "starsToday": 49780,
+      "language": "JavaScript",
+      "insight": "探索AI驱动开发新范式提升效率",
+      "opportunityType": "趋势",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "huginn",
+      "repo": "huginn",
+      "description": "Create agents that monitor and act on your behalf.  Your agents are standing by!",
+      "url": "https://github.com/huginn/huginn",
+      "starsToday": 49536,
+      "language": "Ruby",
+      "insight": "搭建自动化代理实现个人工作流",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49121,
+      "language": "Python",
+      "insight": "掌握数据分析基础库拓宽就业面",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "1c7",
+      "repo": "chinese-independent-developer",
+      "description": "👩🏿‍💻👨🏾‍💻👩🏼‍💻👨🏽‍💻👩🏻‍💻中国独立开发者项目列表 -- 分享大家都在做什么",
+      "url": "https://github.com/1c7/chinese-independent-developer",
+      "starsToday": 49024,
+      "language": "",
+      "insight": "发掘国内独立开发者项目灵感与合作",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "JuliaLang",
+      "repo": "julia",
+      "description": "The Julia Programming Language",
+      "url": "https://github.com/JuliaLang/julia",
+      "starsToday": 48887,
+      "language": "Julia",
+      "insight": "学习高效科学计算语言开拓新领域",
+      "opportunityType": "学习",
+      "chinaFit": "medium"
+    }
+  ]
+}
