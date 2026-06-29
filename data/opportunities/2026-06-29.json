@@ -1,0 +1,446 @@
+{
+  "date": "2026-06-29",
+  "generatedAt": "2026-06-29T08:29:14.943Z",
+  "summary": "今日信号呈现三大趋势：AI模型竞赛白热化（GLM-5.2、DeepSeek V4轮番登场），个人开发者对AI工具成本敏感度激增（V2EX抱怨DeepSeek贵），以及内容质量与合规自动化需求崛起（IndieHackers多篇QC工具文章）。同时，硬件逆向（Librepods）、历史数据整理（纽约菜单）等长尾机会浮现。",
+  "opportunities": [
+    {
+      "id": 2,
+      "title": "年龄验证合规检查器",
+      "category": "出海产品",
+      "market": "海外为主",
+      "tags": [
+        "合规",
+        "年龄验证",
+        "KIDS Act"
+      ],
+      "summary": "帮助海外网站快速检查年龄验证合规性",
+      "description": "美国KIDS Act要求在线平台进行年龄验证，EFF站反对（463分），但合规已是刚需。中小网站/独立开发者如不遵守将面临高额罚款。可开发一个轻量SaaS：用户输入网站URL，自动扫描是否有年龄门、COPPA合规条款、隐私政策，输出合规报告和修复建议。定价按网站数量，免费版扫描1个，付费版每月扫描20个。仅需调用合规API和页面分析，一人可开发。",
+      "painPoint": "海外中小网站无法负担律师事务所的合规审查费用，且法规细节复杂。",
+      "path": [
+        "第一步：研究KIDS Act具体条款，整理合规检查清单",
+        "第二步：用Python+Playwright开发扫描脚本，检查网站元素（年龄输入框、同意弹窗等）",
+        "第三步：搭建SaaS后台（Node.js+Stripe），提供免费/付费套餐",
+        "第四步：在Product Hunt、Hacker News发布，并在EFF论坛推广"
+      ],
+      "revenueModel": "SaaS月费：19美元/月（20次扫描），预计首月10个付费用户，月收入190美元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "HN上KIDS Act相关两篇文章分别获得463分和385分，反映社会高度关注；EFF的呼吁页面有大量讨论，中小站长缺乏廉价工具。",
+      "sources": [
+        {
+          "title": "Hacker News: The KIDS Act would require age checks to get online",
+          "url": "https://www.eff.org/deeplinks/2026/06/kids-act-would-require-age-checks-get-online"
+        },
+        {
+          "title": "Hacker News: Age verification is just a precursor to automated attribution of speech",
+          "url": "https://nonogra.ph/age-verification-is-just-a-precursor-to-attribution-of-speech-06-29-2026"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "个人影像AI解读助手",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "医疗",
+        "报告解读",
+        "AI"
+      ],
+      "summary": "上传MRI/CT，AI生成通俗解读报告",
+      "description": "HN上有人用Claude Code分析自己的MRI（417分），说明个人对医学影像解读有强烈需求，但专业门槛高。开发一款本地优先的桌面工具（Electron）或PWA，用户上传DICOM或图片文件，调用多模态大模型（GPT-5.5视觉或开源模型）分析，输出结构化解读并提示“不构成诊断”。定价9.9元/次或月卡。需严格免责声明。",
+      "painPoint": "普通人拿到医学影像后看不懂，希望获得快速、通俗的解释。",
+      "path": [
+        "第一步：申请合规的API（如GPT-5.5视觉版），编写prompt测试解析能力",
+        "第二步：开发上传界面，添加DICOM/JPEG支持，限制文件大小",
+        "第三步：集成支付系统（微信支付），设置免费额度（1次）",
+        "第四步：在医疗相关社区、豆瓣小组推广，配合SEO"
+      ],
+      "revenueModel": "按次付费9.9元/次，预估月活跃300次，月收入2970元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 2000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "HN帖子‘I used Claude Code to get a second opinion on my MRI’获得417分，评论区大量用户询问如何实现，证明需求真实且未被满足。",
+      "sources": [
+        {
+          "title": "Hacker News: I used Claude Code to get a second opinion on my MRI",
+          "url": "https://antoine.fi/mri-analysis-using-claude-code-opus"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "AirPods桌面增强工具",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "AirPods",
+        "macOS",
+        "Windows"
+      ],
+      "summary": "非Apple设备上全方位管理AirPods",
+      "description": "Librepods项目在HN获369分，目标是解放AirPods的私有协议。基于此开源项目，开发一款跨平台桌面应用（Tauri/Tkinter），实现非Apple设备上的电量显示、自动连接、双击自定义、查找耳机等功能。目前市场上MagicPods等应用收费且功能有限。差异化：完全兼容Librepods开源栈，免费基础版+付费高级功能（如EQ调节）。",
+      "painPoint": "在Windows/Linux上使用AirPods时体验差，缺少系统级电量显示和设置。",
+      "path": [
+        "第一步：Fork Librepods并熟悉其蓝牙协议逆向成果",
+        "第二步：用Tauri封装UI，实现电量实时显示和双击动作配置",
+        "第三步：打包Windows/Mac安装包，上架GitHub Release和微软商店",
+        "第四步：在少数派、B站发布教程，引导下载付费版"
+      ],
+      "revenueModel": "免费增值：高级版19元买断，预计首月下载5000次，转化率5%，月收入4750元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Librepods在HN获得369分，GitHub仓库引起广泛关注（369分+大量star），说明AirPods非Apple平台用户痛点强烈。",
+      "sources": [
+        {
+          "title": "Hacker News: Librepods: AirPods liberated",
+          "url": "https://github.com/librepods-org/librepods"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "硬件价格历史查询站",
+      "category": "数据服务",
+      "market": "国内为主",
+      "tags": [
+        "二手硬件",
+        "比价",
+        "历史数据"
+      ],
+      "summary": "CPU/内存/硬盘价格走势图与低价提醒",
+      "description": "Stanford的内存价格页面（285分）展示了1960-2026年内存价格趋势，数据可视化非常吸引人。可以扩展为涵盖CPU、显卡、SSD等硬件的价格历史查询站，并加入闲鱼/淘宝实时抓取，提供“历史最低价”和降价提醒。国内缺少这样的工具，技术实现简单：定期爬取电商数据+整理公开历史数据。收入来自比价链接佣金和会员订阅。",
+      "painPoint": "DIY玩家和捡垃圾爱好者想知道当前价格是否处于历史低位，但缺少权威数据。",
+      "path": [
+        "第一步：收集各硬件型号的官方发行价及历史电商数据（公开API或爬虫）",
+        "第二步：用D3.js开发交互式价格曲线图，支持型号搜索",
+        "第三步：接入闲鱼/二手平台价格（需反爬），提供低价预警邮件",
+        "第四步：在CHH、NGA、V2EX等社区推广，加入京东/淘宝返佣链接"
+      ],
+      "revenueModel": "返佣佣金（预估月1000元）+ 会员订阅9.9元/月（预估200人），月收入2980元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "HN上《Historical memory prices 1960-2026》获得285分，评论中大量用户表示希望能看到CPU、SSD等的类似图表，说明需求存在。",
+      "sources": [
+        {
+          "title": "Hacker News: Historical memory prices 1960-2026",
+          "url": "https://dam.stanford.edu/memory-prices.html"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "汉字拼字闯关游戏",
+      "category": "整活玩具",
+      "market": "国内为主",
+      "tags": [
+        "文字游戏",
+        "教育",
+        "趣味"
+      ],
+      "summary": "类似Zanagrams的中文偏旁部首组合游戏",
+      "description": "Zanagrams（273分）是一款英文单词重新排列游戏，简洁有趣。开发中文版“拼字游戏”：给定一组偏旁和部件，组成正确汉字。可加入成语、古诗词闯关模式。无需复杂引擎，纯前端HTML5，一键部署。变现方式：付费解锁更多关卡、去除广告。适合在微信小游戏或网页上运营。",
+      "painPoint": "中文学习者和文字爱好者缺少轻量、有趣的汉字组合游戏。",
+      "path": [
+        "第一步：整理常用汉字偏旁组字表，设计关卡（约500关）",
+        "第二步：用Vue+Canvas开发游戏前端，适配移动端",
+        "第三步：接入微信登录和支付（或直接网页付费）",
+        "第四步：在知乎、小红书发帖推广，病毒传播"
+      ],
+      "revenueModel": "付费解锁6元/全套，预估下载10万次，转化率3%，月收入18000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 2000元",
+      "difficulty": 2,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "HN上Zanagrams获得273分，发布者是一个独立开发者，类似产品需求明确。中文市场尚无类似爆款。",
+      "sources": [
+        {
+          "title": "Hacker News: Show HN: Zanagrams",
+          "url": "https://zanagrams.com/"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "AI编码安全配置检查器",
+      "category": "开发工具",
+      "market": "国内为主",
+      "tags": [
+        "Codex",
+        "安全",
+        "配置"
+      ],
+      "summary": "检测AI编码工具是否可能泄露敏感文件",
+      "description": "OpenAI Codex issue #2847（202分）提出排除敏感文件的功能长期未关闭，很多开发者误传.env、SSH密钥。开发一个CLI工具 + VS Code扩展：扫描AI工具（Codex、Cursor、Claude Code）的工作目录配置，检查是否包含敏感文件，并自动生成.gitignore规则。独特性：不仅检查，还能实时监控AI读取的文件列表。定价：免费个人版，团队版29元/月。",
+      "painPoint": "使用AI编码助手时，开发者担心密钥或配置文件被上传到云端。",
+      "path": [
+        "第一步：研究各AI工具的文件访问机制（Codex、Cursor、Claude Code）",
+        "第二步：用Go开发CLI扫描工具，输出安全报告",
+        "第三步：开发VS Code扩展，嵌入编辑器侧边栏",
+        "第四步：在GitHub和V2EX发布，提供在线Demo"
+      ],
+      "revenueModel": "团队版月费29元，预计首月50个团队，月收入1450元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "HN上关于OpenAI Codex敏感文件问题的issue获得202分，评论区许多开发者分享自己误传凭证的经历，痛点明确。",
+      "sources": [
+        {
+          "title": "Hacker News: A way to exclude sensitive files issue still open for OpenAI Codex",
+          "url": "https://github.com/openai/codex/issues/2847"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Token优化中文社区",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "token",
+        "LLM",
+        "省钱"
+      ],
+      "summary": "AI Token节省技巧博客+在线计算器",
+      "description": "Tokenmaxxing文章（145分）详细讨论了各种节省Token的技巧。中文开发者同样有强烈的省钱需求（V2EX上有人抱怨DeepSeek思考模式花费145元）。建立一个中文博客+交互式Token成本计算器，覆盖所有主流模型（DeepSeek、GLM、GPT等）。内容上翻译和原创优化技巧，计算器输入prompt长度和模型，自动预估费用。广告+付费电子书变现。",
+      "painPoint": "开发者使用LLM API时无法准确预估成本，导致超支。",
+      "path": [
+        "第一步：整理主流模型的Token计价规则，开发计算器页面",
+        "第二步：撰写10篇Token优化文章，建立博客",
+        "第三步：申请百度联盟广告，发布在V2EX和知乎",
+        "第四步：推出迷你电子书《AI API省钱秘籍》19.9元"
+      ],
+      "revenueModel": "广告月收入约500元 + 电子书（预估月50本）约1000元，月收入1500元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 1,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "HN上《Tokenmaxxing is dead, long live tokenmaxxing》获得145分，V2EX用户“DeepSeek好贵”帖子获得81分，均反映对Token消耗和成本的高度关注。",
+      "sources": [
+        {
+          "title": "Hacker News: Tokenmaxxing is dead, long live tokenmaxxing",
+          "url": "https://12gramsofcarbon.com/p/agentics-tech-things-tokenmaxxing"
+        },
+        {
+          "title": "V2EX: DeepSeek 好贵啊",
+          "url": "https://www.v2ex.com/t/1223578"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "老旧硬件OS兼容数据库",
+      "category": "数据服务",
+      "market": "海外为主",
+      "tags": [
+        "Linux",
+        "OpenBSD",
+        "兼容性"
+      ],
+      "summary": "非主流硬件与开源OS兼容性查询平台",
+      "description": "HN上Lemote Yeeloong+OpenBSD的文章（110分）修复了古老硬件的兼容性问题，吸引了一批复古爱好者。可建立一个社区驱动的数据库，收录各种老旧/小众硬件（国产龙芯、PowerPC、MIPS等）在OpenBSD/Linux/FreeBSD下的兼容性报告。类似Linux Hardware Database但专注于复古和国产硬件。用户可提交报告，贡献者获得积分。",
+      "painPoint": "复古硬件玩家找不到可靠的OS兼容性信息，只能逐个论坛搜索。",
+      "path": [
+        "第一步：用Django+PostgreSQL搭建数据库网站，支持搜索和提交",
+        "第二步：手动录入100条Lemote、龙芯等已知兼容性记录作为种子",
+        "第三步：在Retro Computing论坛、HN、V2EX上宣传征集报告",
+        "第四步：提供捐赠和赞助商位，以及付费的硬件测试服务"
+      ],
+      "revenueModel": "捐赠+小额广告，预估月500-1000元",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 4,
+      "competition": "低",
+      "evidence": "HN上关于Lemote Yeeloong与OpenBSD的文章获得110分，评论区有大量用户分享自己手中的奇怪硬件，显示社区需求存在。",
+      "sources": [
+        {
+          "title": "Hacker News: Working around dragons with the Lemote Yeeloong laptop and OpenBSD",
+          "url": "http://oldvcr.blogspot.com/2026/06/working-around-dragons-with-lemote.html"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "从零实现GPT系列课程",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "AI",
+        "深度学习",
+        "教程"
+      ],
+      "summary": "中文视频教程：用C/CUDA实现GPT-2",
+      "description": "NanoEuler项目（46分）在HN发布，显示独立开发者用纯C/CUDA复现GPT-2，引发关注。目前国内多数AI课程偏理论或只使用框架，缺少从零动手实现的实战课程。可制作一系列视频：从理论基础到CUDA kernel编写，最终跑通一个迷你GPT-2。收费9.9元/单课或199元全套。一人可录制，工具使用OBS+画图软件。",
+      "painPoint": "AI学习者希望深入理解Transformer底层原理，但现有课程太黑盒。",
+      "path": [
+        "第一步：基于NanoEuler代码编写教学大纲（共15课时）",
+        "第二步：录制每节课视频，同步发布B站（免费前5节引流）",
+        "第三步：独立站售卖全套课程，使用知识星球或小鹅通",
+        "第四步：在HN和GitHub评论区引流，发送教程链接"
+      ],
+      "revenueModel": "课程卖199元，预计首月卖出200份，月收入39800元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "HN上NanoEuler项目获得46分，虽然分数不高但评论积极，许多用户请求教程；同时GitHub上类似项目（如karpathy/llama2.c）长期热门，证明需求真实。",
+      "sources": [
+        {
+          "title": "Hacker News: Show HN: NanoEuler – GPT-2 scale model in pure C/CUDA from scratch",
+          "url": "https://github.com/JustVugg/nanoeuler"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "AI API成本监控仪表盘",
+      "category": "自动化流程",
+      "market": "国内为主",
+      "tags": [
+        "成本",
+        "监控",
+        "API"
+      ],
+      "summary": "记录各模型调用费用，智能推荐省钱方案",
+      "description": "V2EX上用户抱怨DeepSeek思考模式花费145元（81分），说明AI API费用失控是普遍痛点。开发一款桌面端/Web工具：通过配置API密钥，自动拉取使用量，可视化每日/月消费，并设置预算告警。特色：基于历史数据推荐更便宜的模型或路由（如将简单任务切到GLM-5.2而非昂贵的DeepSeek V4）。支持OpenAI、DeepSeek、GLM等主流API。",
+      "painPoint": "开发者无法实时了解AI API花费，月底账单超支。",
+      "path": [
+        "第一步：对接各API的计费端点（需官方提供用量API），解析JSON",
+        "第二步：用React+Chart.js开发网页仪表盘，支持多模型对比",
+        "第三步：集成告警（企业微信/邮件），当费用超过阈值时通知",
+        "第四步：在V2EX、GitHub发布，免费版限制3个密钥，付费版无限"
+      ],
+      "revenueModel": "付费版19元/月，预估首月200个付费，月收入3800元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "V2EX帖子‘DeepSeek好贵’获得81分，评论区大量用户分享自己被高额账单震惊的经历，且已有API中转站提供折扣但缺少管理工具。",
+      "sources": [
+        {
+          "title": "V2EX: DeepSeek 好贵啊",
+          "url": "https://www.v2ex.com/t/1223578"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "开源DRM-Free电子书聚合",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "电子书",
+        "DRM-FREE",
+        "出版"
+      ],
+      "summary": "收集并推荐无DRM限制的正版电子书",
+      "description": "HN上DRM-Free Books项目（92分）展示了作者对DRM的抵制。国内正版电子书平台大多使用私有DRM，读者无法自由管理。可建立一个导航站/聚合站，收录支持DRM-Free的出版社、作者自出版、以及CC协议书籍，并通过分类、标签、用户评分帮助挑选。还可提供“如何购买DRM-Free版本”的攻略。变现：返佣（当当、京东）和打赏。",
+      "painPoint": "数字阅读爱好者渴望自由购买和备份电子书，却被DRM限制。",
+      "path": [
+        "第一步：手动收集国内外DRM-Free书籍资源，建立数据库",
+        "第二步：用静态站点生成器（如11ty）搭建搜索和分类页面",
+        "第三步：撰写系列文章《告别Kindle DRM：自由阅读指南》吸引流量",
+        "第四步：加入购买链接（返佣）和赞助按钮"
+      ],
+      "revenueModel": "返佣佣金（预估月500元）+ 赞助（预估200元），月收入700元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 1,
+      "potential": 4,
+      "competition": "中",
+      "evidence": "HN上DRM-Free Books项目获得92分，有作者多年经验分享，评论区大量用户感谢并分享更多无DRM资源，显示小众但忠诚的读者群。",
+      "sources": [
+        {
+          "title": "Hacker News: Show HN: DRM-Free Books",
+          "url": "https://frequal.com/Perspectives/DrmFreeAuthors.html"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49857,
+      "language": "TypeScript",
+      "insight": "学习前端状态管理，提升全栈开发效率",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "bmad-code-org",
+      "repo": "BMAD-METHOD",
+      "description": "Breakthrough Method for Agile Ai Driven Development",
+      "url": "https://github.com/bmad-code-org/BMAD-METHOD",
+      "starsToday": 49821,
+      "language": "JavaScript",
+      "insight": "掌握AI驱动开发方法，抓住技术红利",
+      "opportunityType": "趋势",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "Raphire",
+      "repo": "Win11Debloat",
+      "description": "A simple, lightweight PowerShell script that allows you to remove pre-installed apps, disable telemetry, as well as perform various other changes to declutter and customize your Windows experience. Win11Debloat works for both Windows 10 and Windows 11.",
+      "url": "https://github.com/Raphire/Win11Debloat",
+      "starsToday": 49802,
+      "language": "PowerShell",
+      "insight": "定制优化Windows开发环境，提高生产力",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49219,
+      "language": "Python",
+      "insight": "学习数据处理核心库，夯实数据技能",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "1c7",
+      "repo": "chinese-independent-developer",
+      "description": "👩🏿‍💻👨🏾‍💻👩🏼‍💻👨🏽‍💻👩🏻‍💻中国独立开发者项目列表 -- 分享大家都在做什么",
+      "url": "https://github.com/1c7/chinese-independent-developer",
+      "starsToday": 49039,
+      "language": "",
+      "insight": "参考同行项目，寻找独立开发灵感",
+      "opportunityType": "趋势",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "JuliaLang",
+      "repo": "julia",
+      "description": "The Julia Programming Language",
+      "url": "https://github.com/JuliaLang/julia",
+      "starsToday": 48887,
+      "language": "Julia",
+      "insight": "探索科学计算新语言，拓展技术视野",
+      "opportunityType": "学习",
+      "chinaFit": "medium"
+    }
+  ]
+}
