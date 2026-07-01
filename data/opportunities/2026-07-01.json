@@ -1,0 +1,474 @@
+{
+  "date": "2026-07-01",
+  "generatedAt": "2026-07-01T07:52:23.344Z",
+  "summary": "今日信号聚焦AI安全与工具链：Claude Code隐写标记引发热议（HN 1844分），system_prompts_leaks仓库爆发（47k星），同时LocalAI、Copybara等基础设施项目持续火热。独立开发者在V2EX上讨论小游戏零流量、封号等现实痛点，为针对性工具提供了明确方向。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "Claude隐写检测器",
+      "category": "开发工具",
+      "market": "海外为主",
+      "tags": [
+        "AI安全",
+        "提示词工程",
+        "浏览器插件"
+      ],
+      "summary": "检测Claude Code输出中的隐写水印",
+      "description": "Claude Code被曝在回复中嵌入隐写标记，可能泄露用户提示词。开发一款浏览器/IDE插件，实时扫描Claude Code生成内容中的可疑模式（如Unicode零宽字符、频率异常），并给出警告。对标已有隐写检测工具，但专为AI对话场景优化。初期面向英文社区，支持Chrome、VS Code。",
+      "painPoint": "使用Claude Code时无法察觉自己的提示词是否被隐写标记泄露。",
+      "path": [
+        "调研Claude Code隐写具体实现（参考HN讨论和逆向文章）",
+        "开发基于正则+Gzip频率检测的核心算法",
+        "封装为Chrome扩展和VS Code插件",
+        "在Hacker News和Twitter推广，收集反馈迭代"
+      ],
+      "revenueModel": "免费基础版 + 付费企业版（批量检测、日志报告），预估月收入$500-$2000",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 5000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "HN帖子“Claude Code is steganographically marking requests”获得1844分，说明开发者高度关注此安全问题。GitHub上“system_prompts_leaks”仓库拥有47k star，显示提示词泄露是广泛痛点。",
+      "sources": [
+        {
+          "title": "Hacker News: Claude Code is steganographically marking requests",
+          "url": "https://thereallo.dev/blog/claude-code-prompt-steganography"
+        },
+        {
+          "title": "GitHub: system_prompts_leaks",
+          "url": "https://github.com/asgeirtj/system_prompts_leaks"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "CPU推理性能优化站",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "大模型部署",
+        "本地推理",
+        "低配置"
+      ],
+      "summary": "面向低配PC的大模型推理优化教程与工具",
+      "description": "大量个人开发者希望在没有GPU的电脑上运行大模型，但缺乏系统性的优化指南。整理一套中文教程+自动配置脚本，覆盖Llama.cpp、LocalAI等方案，针对Intel/AMD CPU和集成显卡进行调优。参考Gemma-4 26B在CPU上跑124 tok/s的经验。搭配性能对比数据库。",
+      "painPoint": "想体验大模型但没钱买GPU，不知道如何优化CPU推理。",
+      "path": [
+        "收集主流CPU推理方案（LocalAI、Llama.cpp、Ollama）",
+        "撰写系列教程并录制视频，发布在B站/知乎",
+        "制作一键优化脚本（自动设置线程数、量化等级、批处理大小）",
+        "建立社区讨论群，持续更新硬件适配信息"
+      ],
+      "revenueModel": "教程免费 + 付费会员获取高级配置（如多卡策略）和一对一咨询，预估月收入3000-8000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "HN上“Running Gemma-4 26B at 124 tokens/SEC on a CPU”获得10分，说明用户对CPU推理性能有强烈兴趣。LocalAI在GitHub拥有47k star，证明本地部署需求巨大。",
+      "sources": [
+        {
+          "title": "Hacker News: Running Gemma-4 26B on a CPU",
+          "url": "https://apeg.dev/writing/running-gemma4-26b-on-a-cpu/"
+        },
+        {
+          "title": "GitHub: LocalAI",
+          "url": "https://github.com/mudler/LocalAI"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "脑机接口演示套件",
+      "category": "整活玩具",
+      "market": "国内外均可",
+      "tags": [
+        "脑机接口",
+        "科普",
+        "交互式Demo"
+      ],
+      "summary": "封装Meta Brain2Qwerty的Web演示版",
+      "description": "Meta开源了大脑信号转文字的模型Brain2Qwerty，但技术门槛高。利用其预训练模型，搭建一个网页端交互演示：用户通过EEG设备（如Muse）输入简单信号，即时显示解码效果。降低体验门槛，适合科普、教育。可收入少量硬件推荐佣金。",
+      "painPoint": "脑机接口技术听起来科幻，但普通人无法低成本体验。",
+      "path": [
+        "申请Meta Brain2Qwerty模型权限，梳理推理流程",
+        "搭建前端WebGL界面，对接开源EEG库（如BrainFlow）",
+        "编写简易教程，录制操作视频",
+        "在Product Hunt、少数派等渠道发布，获取首批用户"
+      ],
+      "revenueModel": "免费体验 + 付费高级模式（更多词汇量、实时翻译），预估月收入$100-500",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 10000元（EEG设备采购）",
+      "difficulty": 4,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Brain2Qwerty v2同时在HN（148分）和Product Hunt（140分）获得高关注，说明市场对脑机接口应用兴趣浓厚。Meta该博客被广泛引用。",
+      "sources": [
+        {
+          "title": "Hacker News: From brain waves to words",
+          "url": "https://ai.meta.com/blog/brain2qwerty-brain-ai-human-communication/?_fb_noscript=1"
+        },
+        {
+          "title": "Product Hunt: Brain2Qwerty v2",
+          "url": "https://www.producthunt.com/products/meta?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "小游戏冷启动工具箱",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "微信小游戏",
+        "流量运营",
+        "独立开发"
+      ],
+      "summary": "为微信小游戏开发者提供冷启动策略与工具",
+      "description": "独立开发者在V2EX吐槽“手搓消消乐发布后喜提0流量”，揭示小游戏推广难。整理一套冷启动方案：包括ASO关键词优化、裂变分享模板、激励视频配置、社群推广话术。制作成即用型文档+自动化脚本（如自动生成分享海报）。",
+      "painPoint": "小游戏开发容易，但上线后完全没自然流量。",
+      "path": [
+        "调研微信小游戏前端推广方法论，汇总成功案例",
+        "制作模板化运营文档和可配置裂变代码片段",
+        "打包成电子书+代码包，在V2EX、掘金推广",
+        "增加增值服务：代为执行推广（按效果付费）"
+      ],
+      "revenueModel": "电子书49元，代码包199元，代运营月费2000元，预估月收入3000-10000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "V2EX帖子“聊聊个人微信小游戏的‘窒息感’”获得59分，大量用户共鸣，回帖反映类似困境。该帖真实讲述了0流量问题。",
+      "sources": [
+        {
+          "title": "V2EX: 微信小游戏0流量",
+          "url": "https://www.v2ex.com/t/1224059"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "设计系统生成器",
+      "category": "开发工具",
+      "market": "国内外均可",
+      "tags": [
+        "前端",
+        "设计系统",
+        "React组件"
+      ],
+      "summary": "基于tldraw和v0的设计系统快速生成工具",
+      "description": "前端团队设计系统搭建繁琐，v0 Design Systems 2.0提供思路但闭源。基于tldraw开源画布，开发一款可视化设计系统生成器：用户拖拽定义颜色、字体、间距，自动输出React/Vue组件代码和Tailwind配置。对标v0但开源免费，吸引开发者贡献。",
+      "painPoint": "搭建设计系统需要设计师+前端协作，中小团队无力承担。",
+      "path": [
+        "fork tldraw，理解其无限画布API",
+        "实现组件生成逻辑（颜色、字体、按钮、表单）",
+        "输出可复用的代码包并发布npm",
+        "在GitHub开源，设置Sponsor按钮，通过咨询服务获利"
+      ],
+      "revenueModel": "开源+赞助 + 付费高级模板库，预估月收入$200-1000",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 2000元",
+      "difficulty": 4,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "v0 Design Systems 2.0在Product Hunt获得185分，表明设计师和开发者对此类工具需求大。tldraw拥有48k GitHub star，证明其画布能力被广泛认可。",
+      "sources": [
+        {
+          "title": "Product Hunt: v0 Design Systems 2.0",
+          "url": "https://www.producthunt.com/products/v0?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        },
+        {
+          "title": "GitHub: tldraw",
+          "url": "https://github.com/tldraw/tldraw"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "离线写作空间",
+      "category": "本地服务",
+      "market": "国内外均可",
+      "tags": [
+        "离线优先",
+        "写作工具",
+        "隐私"
+      ],
+      "summary": "轻量、私密、本地优先的写作应用",
+      "description": "受Justwrite和Oakamo启发，针对中文写作者开发一款离线优先的Markdown编辑器。支持本地存储、加密、纯文本导出，无云端同步。加入中文输入优化（如实时字数、拼音查词）。对标Notion但更轻量、更隐私。初期提供Windows/Mac/Linux桌面版。",
+      "painPoint": "现有写作工具要么太重（Notion），要么依赖网络（Google Docs），不满足隐私/专注需求。",
+      "path": [
+        "使用Electron或Tauri封装，实现本地文件读写",
+        "集成Markdown实时预览和中文拼写检查",
+        "增加“防干扰模式”和每日写作目标",
+        "在少数派、V2EX推广，提供免费版和付费Pro版（主题、导出格式）"
+      ],
+      "revenueModel": "免费版 + Pro版39元买断，预估月收入2000-6000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "Justwrite（120分）和Oakamo（119分）同时登上Product Hunt，说明离线写作工具有稳定需求。二者均获得数百支持。",
+      "sources": [
+        {
+          "title": "Product Hunt: Justwrite",
+          "url": "https://www.producthunt.com/products/justwrite?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        },
+        {
+          "title": "Product Hunt: Oakamo",
+          "url": "https://www.producthunt.com/products/oakamo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "AI提示词安全防火墙",
+      "category": "AI应用",
+      "market": "国内外均可",
+      "tags": [
+        "提示词安全",
+        "隐写检测",
+        "API网关"
+      ],
+      "summary": "SaaS化检测和防御提示词注入/泄露",
+      "description": "结合Claude隐写事件和system_prompts_leaks仓库，提供一套API网关：在用户发送提示词或收到回复时，扫描隐写标记、敏感信息泄露、指令注入。企业可将此网关部署在AI服务前面，保障安全。免费版支持基础检测，付费版支持自定义策略和日志审计。",
+      "painPoint": "企业使用AI API时无法确保提示词安全，担心商业机密通过隐写泄露。",
+      "path": [
+        "整理隐写检测算法（Unicode、频率分析）和提示词注入规则",
+        "开发为HTTP服务，提供Python/Node SDK",
+        "制作演示视频和文档，在HN、Twitter推广",
+        "对接企业客户提供私有化部署方案"
+      ],
+      "revenueModel": "免费1000次/月，付费$0.01/次检测，企业定制$200/月起，预估月收入$500-$3000",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 5000元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "HN上Claude Code隐写帖1844分，system_prompts_leaks 47k star，证明安全问题是当前AI领域最热话题之一。多个V2EX帖子讨论封号（如82分、81分）也反映用户对使用AI的安全担忧。",
+      "sources": [
+        {
+          "title": "Hacker News: Claude Code steganography",
+          "url": "https://thereallo.dev/blog/claude-code-prompt-steganography"
+        },
+        {
+          "title": "GitHub: system_prompts_leaks",
+          "url": "https://github.com/asgeirtj/system_prompts_leaks"
+        },
+        {
+          "title": "V2EX: Claude被封",
+          "url": "https://www.v2ex.com/t/1223958"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Atari编程学习平台",
+      "category": "教育培训",
+      "market": "国内外均可",
+      "tags": [
+        "复古计算机",
+        "Atari",
+        "编程教育"
+      ],
+      "summary": "基于Hatari模拟器的复古计算机编程课程",
+      "description": "Hatari在线模拟器免费且好用，但缺乏教学资源。制作一套从零开始学68000汇编的互动课程，在Hatari网页版中嵌入代码练习环境，让学生编写简单游戏（如乒乓、贪吃蛇）。课程面向计算机专业学生和复古爱好者。打包成付费课程。",
+      "painPoint": "汇编语言枯燥难学，但复古游戏开发场景能激发兴趣。",
+      "path": [
+        "基于Hatari开源项目，学习其WebAssembly版本",
+        "编写5-10节课程，从Hello World到完整游戏",
+        "搭建练习平台，自动评测代码",
+        "在Hacker News、Reddit复古游戏版块推广"
+      ],
+      "revenueModel": "免费前3节，完整课程$29，预估月收入$200-1000",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 2000元",
+      "difficulty": 4,
+      "potential": 4,
+      "competition": "低",
+      "evidence": "Hatari在线模拟器在HN获得61分，且支持在线运行，说明复古模拟器兴趣点。经典扫雷（12分）也显示经典游戏受关注。",
+      "sources": [
+        {
+          "title": "Hacker News: Hatari Online Emulator",
+          "url": "https://hatari.frama.io/hatari/online/hatari.html"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "代码仓库迁移服务",
+      "category": "SaaS工具",
+      "market": "国内外均可",
+      "tags": [
+        "Git迁移",
+        "DevOps",
+        "自动化"
+      ],
+      "summary": "一键从GitHub迁移到其他平台的SaaS工具",
+      "description": "Google开源了Copybara（186分），但使用需要学习复杂配置。开发一个网页工具，用户输入源仓库和目标平台（如自建GitLab、Gitee），自动生成Copybara配置并执行迁移。支持历史提交、分支、Issue、Wiki的完整迁移。提供SaaS免配置体验。",
+      "painPoint": "迁移Git仓库时担心丢失历史、分支混乱，手动操作非常繁琐。",
+      "path": [
+        "调研Copybara功能和常见迁移场景",
+        "封装为Web服务，前端配置界面，后端调用Copybara",
+        "支持GitHub->Gitee、GitHub->自建等常见路径",
+        "在V2EX、GitHub中文社区推广，按迁移仓库大小收费"
+      ],
+      "revenueModel": "免费迁移小型仓库（5个以下），付费$5/仓库或$20无限，预估月收入$300-1500",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Google Copybara在HN获得186分，说明开发者对代码迁移工具有强烈需求。GitHub上有大量用户询问迁移方案。",
+      "sources": [
+        {
+          "title": "Hacker News: Google copybara",
+          "url": "https://github.com/google/copybara"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "ClickHouse可视化仪表盘",
+      "category": "数据服务",
+      "market": "国内为主",
+      "tags": [
+        "ClickHouse",
+        "数据可视化",
+        "模板"
+      ],
+      "summary": "为ClickHouse用户提供开箱即用的监控仪表盘",
+      "description": "ClickHouse是实时分析数据库，但搭建可视化仪表盘需要额外工具（如Grafana）。制作一套预构建的仪表盘模板（Web流量、API性能、数据库健康），直接对接ClickHouse，使用Apache ECharts渲染。用户导入即用，无需配置。同时提供一键部署脚本。",
+      "painPoint": "想用ClickHouse做实时分析，但可视化搭建耗时，缺乏标准化模板。",
+      "path": [
+        "设计常见业务的SQL查询和图表组合",
+        "开发前端仪表盘组件库，支持拖拽布局",
+        "打包为Docker镜像，一键启动",
+        "在GitHub开源，通过赞助和付费模板（如电商分析）盈利"
+      ],
+      "revenueModel": "免费3个模板 + 付费模板包99元，预估月收入2000-6000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "ClickHouse在GitHub拥有48k star，是实时分析领域最流行的开源项目之一。HN上“Ported Kubernetes to browser”（245分）显示容器化部署趋势，但ClickHouse仪表盘需求更实际。",
+      "sources": [
+        {
+          "title": "GitHub: ClickHouse",
+          "url": "https://github.com/ClickHouse/ClickHouse"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "AI合规检测助手",
+      "category": "企业服务",
+      "market": "国内为主",
+      "tags": [
+        "AI合规",
+        "封号风险",
+        "跨境"
+      ],
+      "summary": "检测海外AI服务使用环境是否合规",
+      "description": "V2EX大量用户讨论Claude/OpenAI封号原因（时区、IP、邮件等）。开发一个桌面客户端或浏览器插件，检测当前网络环境、系统时区、浏览器指纹是否符合海外AI服务的合规要求，并给出优化建议。初期支持Claude、ChatGPT、Gemini。",
+      "painPoint": "付费使用海外AI但频繁被封号，不知道如何配置合规环境。",
+      "path": [
+        "总结各平台封号规则（时区、IP纯净度、支付方式等）",
+        "开发检测模块：IP归属地、DNS泄漏、系统时区、语言设置",
+        "打包为Electron应用和Chrome扩展",
+        "在V2EX、知乎推广，提供免费检测和付费一键修复"
+      ],
+      "revenueModel": "免费检测 + 付费一键优化（包月19元），预估月收入5000-15000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 2000元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "V2EX上三个相关帖子获得高分：封号讨论（82分）、“梯子都挂了”（87分）、“Claude被封”（81分），说明这是中文用户的普遍痛点。",
+      "sources": [
+        {
+          "title": "V2EX: 封号讨论",
+          "url": "https://www.v2ex.com/t/1224022"
+        },
+        {
+          "title": "V2EX: 梯子挂了",
+          "url": "https://www.v2ex.com/t/1224104"
+        },
+        {
+          "title": "V2EX: Claude被封",
+          "url": "https://www.v2ex.com/t/1223958"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "bmad-code-org",
+      "repo": "BMAD-METHOD",
+      "description": "Breakthrough Method for Agile Ai Driven Development",
+      "url": "https://github.com/bmad-code-org/BMAD-METHOD",
+      "starsToday": 49922,
+      "language": "JavaScript",
+      "insight": "快速构建AI驱动应用，提升开发效率",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49787,
+      "language": "TypeScript",
+      "insight": "前端状态管理利器，提升数据获取效率",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49099,
+      "language": "Python",
+      "insight": "Python数据处理标准库，适合数据分析产品",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "1c7",
+      "repo": "chinese-independent-developer",
+      "description": "👩🏿‍💻👨🏾‍💻👩🏼‍💻👨🏽‍💻👩🏻‍💻中国独立开发者项目列表 -- 分享大家都在做什么",
+      "url": "https://github.com/1c7/chinese-independent-developer",
+      "starsToday": 49053,
+      "language": "",
+      "insight": "发现中国独立开发者项目，拓展合作机会",
+      "opportunityType": "趋势",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "JuliaLang",
+      "repo": "julia",
+      "description": "The Julia Programming Language",
+      "url": "https://github.com/JuliaLang/julia",
+      "starsToday": 48832,
+      "language": "Julia",
+      "insight": "学习新兴科学计算语言，开拓高性能计算方向",
+      "opportunityType": "学习",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "hashicorp",
+      "repo": "terraform",
+      "description": "Terraform enables you to safely and predictably create, change, and improve infrastructure. It is a source-available tool that codifies APIs into declarative configuration files that can be shared amongst team members, treated as code, edited, reviewed, and versioned.",
+      "url": "https://github.com/hashicorp/terraform",
+      "starsToday": 48747,
+      "language": "Go",
+      "insight": "基础设施代码化工具，自动化云资源管理",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    }
+  ]
+}
