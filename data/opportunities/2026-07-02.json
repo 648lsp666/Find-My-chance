@@ -1,0 +1,405 @@
+{
+  "date": "2026-07-02",
+  "generatedAt": "2026-07-02T06:52:45.636Z",
+  "summary": "今日信号呈现三大亮点：Google 开源零知识证明技术、Chrome 发布 <usermedia> 新元素、Cloudflare 推出 x402 协议，为隐私保护、浏览器原生API和内容变现提供了新基础设施。同时，AI 编程工具（Kimi K2.7 集成 Copilot、Senior SWE-Bench）和本地推理（LocalAI、Qualcomm Linux）持续升温，独立开发者可围绕这些轻量级但差异化的切入点快速落地。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "高质量AAC转码站",
+      "category": "数据服务",
+      "market": "国内为主",
+      "tags": [
+        "音频转码",
+        "FFmpeg",
+        "内容创作"
+      ],
+      "summary": "基于FFmpeg 9.1新AAC编码器做在线转码服务",
+      "description": "FFmpeg 9.1 引入了全新 AAC 编码器，编码质量显著提升。面向播客、音频博主、视频创作者提供在线文件转码服务：上传 WAV/FLAC 等无损格式，输出优化后的 AAC。竞品（如 Online-Convert）多为通用转码，不强调编码器版本差异。差异化在于显式标注“FFmpeg 9.1 最新编码器”，并提供参数调优建议（如 CBR/VBR 选择）。市场规模：国内播客用户超 1.2 亿，音频创作者数百万。先做免费 3 次体验，后续按文件大小或包月（10 元/月无限转码）。",
+      "painPoint": "创作者需要最新编码器获得更小体积、更好音质，但本地配置 FFmpeg 门槛高。",
+      "path": [
+        "第一步：搭建 Web 服务，用 FFmpeg 9.1 编译 static binary，封装 REST API。",
+        "第二步：开发前端拖拽上传界面，支持批量处理。",
+        "第三步：接微信/支付宝支付，设置免费额度与付费套餐。",
+        "第四步：在知乎、B站发对比评测文章引流，注册域名 aacpro.cn。"
+      ],
+      "revenueModel": "按文件收费（3 元/首/小时以内），或包月 10 元/无限。首月预计 500-1000 元。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "FFmpeg 9.1 发布新 AAC 编码器，在 HN 获得 347 分热度，开发者对音频编码优化兴趣强烈。",
+      "sources": [
+        {
+          "title": "Hacker News: FFmpeg 9.1's new AAC encoder",
+          "url": "https://hydrogenaudio.org/index.php/topic,129691.0.html"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "付费API网关搭建器",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "x402",
+        "Cloudflare",
+        "内容变现"
+      ],
+      "summary": "基于x402协议一键搭建付费资源接口",
+      "description": "Cloudflare 推出了 Monetization Gateway，通过 x402 协议让任意资源（API、图片、视频）都能设置付费门槛。独立开发者可制作一个 SaaS 工具，帮助其他开发者快速将 Cloudflare Workers 后的资源转为付费模式。用户只需配置定价和资源 URL，系统自动生成 x402 验证中间件。竞品缺乏，因为 x402 是新协议。市场规模：全球数百万 Cloudflare 用户，其中 Workers 用户超 200 万。收费标准：月费 $9.9 起，支持 1000 次请求。",
+      "painPoint": "小团队想为 API 或内容收费，但搭建支付+验证+限流系统繁琐。",
+      "path": [
+        "第一步：研究 x402 协议文档，实现 Node.js SDK 和 Workers template。",
+        "第二步：开发 Web 控制台，让用户输入定价和资源端点，自动生成部署脚本。",
+        "第三步：集成 Stripe/Paddle 支付，提供无服务器部署教程。",
+        "第四步：在 HN、Product Hunt 发布，标注“Zero-config monetization with Cloudflare”。"
+      ],
+      "revenueModel": "SaaS 月费 $9.9（基础）/ $29.9（高级）。预计月入 $500-1500。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "Cloudflare 官方博客详细介绍了 Monetization Gateway，HN 获 279 分热度，表明开发者对内容变现新方式高度关注。",
+      "sources": [
+        {
+          "title": "Hacker News: Monetization Gateway: Charge for any resource behind Cloudflare via x402",
+          "url": "https://blog.cloudflare.com/monetization-gateway/"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "在线摄像头工具箱",
+      "category": "整活玩具",
+      "market": "国内为主",
+      "tags": [
+        "usermedia",
+        "浏览器",
+        "在线工具"
+      ],
+      "summary": "利用<usermedia>元素做在线摄像头特效站",
+      "description": "Chrome 新增 <usermedia> HTML 元素，使得网页获取用户摄像头/麦克风权限更简单、更安全。可以开发一个在线工具箱：包含虚拟背景、美颜、录像、拍照、GIF 录制等功能。用户无需安装任何软件，打开浏览器即可使用。竞品（如 Webcam Toy）多为 Flash 时代产物，或需要下载。差异化：纯前端、基于新 API、隐私友好（不上传服务器）。市场规模：国内在线会议、视频聊天用户超 5 亿，常需临时处理摄像头。流量变现：免费使用，极少数高级特效收费。或接广告。",
+      "painPoint": "临时需要摄像头特效/录像时，找不到无需下载、即开即用的工具。",
+      "path": [
+        "第一步：学习 <usermedia> 规范，实现基础视频流获取和画布输出。",
+        "第二步：实现虚化背景（使用 WebAssembly 的 body-pose 库）和简单滤镜。",
+        "第三步：部署到 Vercel，做好移动端适配。",
+        "第四步：在知乎、小红书发“5个在线摄像头神器”软文，引流至工具站。"
+      ],
+      "revenueModel": "广告收入+付费特效包（5元/个）。预计月入 1000-3000 元（日活 1000 时）。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 200元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Chrome 官方博客发布 <usermedia> 元素，HN 获 65 分热度，开发者对新 API 存在兴趣，且无成熟在线工具。",
+      "sources": [
+        {
+          "title": "Hacker News: The <Usermedia> HTML Element",
+          "url": "https://developer.chrome.com/blog/usermedia-html-element"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "AI高级工程师面试官",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "面试模拟",
+        "SWE-Bench",
+        "AI评估"
+      ],
+      "summary": "用Senior SWE-Bench基准做AI面试模拟器",
+      "description": "Senior SWE-Bench 是一个新基准，用于评估 AI Agent 能否完成高级工程师级别的编码任务。对标国内大厂面试场景，可以开发一个“AI 面试模拟器”：用户选择语言（Java/Go/Python），系统从 SWE-Bench 任务池中抽题，AI 自动生成代码并评判，同时给出改进建议。竞品（如 LeetCode 模拟面试）只测算法，不测工程能力。差异化：聚焦真实仓库级任务、多文件修改。市场规模：国内程序员超 800 万，求职辅导市场大。收费：单次模拟 9.9 元，包月 49 元。",
+      "painPoint": "准备大厂高级岗面试时，缺少反映真实工程能力的练习场景。",
+      "path": [
+        "第一步：下载 Senior SWE-Bench 数据集，解析任务（issue + repo + 正确 patch）。",
+        "第二步：搭建后端，用 Docker 隔离执行环境，调用 GPT-4/Claude 生成答案并与标注对比评分。",
+        "第三步：开发前端选择题和代码编辑器，支持代码提交。",
+        "第四步：在 V2EX、程序员圈推广“大厂 P7 面试题，AI 打分”。"
+      ],
+      "revenueModel": "按次收费 9.9 元，包月 49 元。预计月入 2000-5000 元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元（API 费用）",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Senior SWE-Bench 在 HN 获 61 分热度，开源基准可免费获取，且国内尚无类似面试模拟产品。",
+      "sources": [
+        {
+          "title": "Hacker News: Senior SWE-Bench: open-source benchmark that assesses agents as senior engineers",
+          "url": "https://senior-swe-bench.snorkel.ai/"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Kimi编程提示词工坊",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "Kimi",
+        "Copilot",
+        "提示词"
+      ],
+      "summary": "收集和售卖Kimi K2.7在Copilot中的最佳提示词",
+      "description": "Kimi K2.7 已集成到 GitHub Copilot，但很多开发者不知道如何最大化利用国产模型的中文能力。可以整理“Kimi 编程提示词库”，包含中文代码注释生成、API 文档翻译、单元测试生成等场景的提示词模板。以 PDF/Notion 页面形式售卖，或做成 Obsidian/VS Code 插件每日推送。竞品有通用提示词市场，但缺乏专门针对 Kimi + 编程的。市场规模：Kimi 用户超千万，Copilot 用户数百万。定价 19.9 元/份，或订阅会员 9.9 元/月。",
+      "painPoint": "Kimi K2.7 在 Copilot 中的中文能力未被充分发掘，缺少针对性提示词指南。",
+      "path": [
+        "第一步：在 Copilot 中测试 Kimi 在不同编程任务下的表现，记录有效提示词。",
+        "第二步：分类整理为 10 个模块（代码生成、重构、Debug 等），配示例。",
+        "第三步：在爱发电、小报童上架，同时制作免费版引流。",
+        "第四步：在掘金、CSDN 发“Kimi Copilot 实战指南”文章，嵌入购买链接。"
+      ],
+      "revenueModel": "数字产品 19.9 元/份。首月预计 300-800 元。",
+      "timeToRevenue": "1周",
+      "startupCost": "< 100元",
+      "difficulty": 1,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "GitHub 官方公告 Kimi K2.7 上线 Copilot，HN 获 43 分热度，中文开发者群体关注度高。",
+      "sources": [
+        {
+          "title": "Hacker News: Kimi K2.7 Code is generally available in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "极简中文在线白板",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "tldraw",
+        "协作白板",
+        "远程办公"
+      ],
+      "summary": "基于tldraw SDK做针对国内用户的在线白板",
+      "description": "tldraw 是 GitHub 上近 50K star 的无限画布 SDK，可以快速构建白板应用。国内远程办公普及，但主流白板工具（如 Miro、Excalidraw）加载慢或需翻墙。可以做一个轻量级、国内 CDN 加速的在线白板，支持多人实时协作、画笔、便签、导出图片。差异化：开箱即用无需注册，或微信扫码登录。规模：国内远程办公用户超 2000 万，白板是高频需求。收费：免费版 3 个画板，付费无限（9.9 元/月）。",
+      "painPoint": "国内用户访问海外白板工具时速度慢、功能冗余，需要轻量级替代品。",
+      "path": [
+        "第一步：参考 tldraw 示例，搭建基本的 React 白板应用，部署到国内服务器。",
+        "第二步：集成 Y.js 实现实时协作，支持加密房间。",
+        "第三步：接入微信登录和支付，设置免费/付费模式。",
+        "第四步：在少数派、微博大 V 发“国产平替 Miro”评测引流。"
+      ],
+      "revenueModel": "SaaS 月费 9.9 元/年费 99 元。预计月入 1000-3000 元。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元（服务器+域名）",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "tldraw 在 GitHub 有 48469 个 star（今日信号），社区活跃，SDK 成熟，可快速二次开发。",
+      "sources": [
+        {
+          "title": "GitHub: tldraw/tldraw",
+          "url": "https://github.com/tldraw/tldraw"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "中文AI输入法助手",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "AI键盘",
+        "输入法",
+        "搜索"
+      ],
+      "summary": "模仿Acti做浏览器端的AI命令输入法插件",
+      "description": "Product Hunt 上的 Acti 是一个 Agentic 键盘，可将键盘命令转化为 AI 搜索和操作。做一款浏览器插件（Chrome/Firefox），在任何输入框中按快捷键唤起 AI 卡片，可执行搜索、翻译、摘要、生成代码等。差异化：针对中文场景，集成百度/Google 搜索，支持拼音精确匹配。市场规模：国内浏览器插件用户超 1 亿，AI 搜索高频。收费：免费版每日 50 次，付费版 9.9 元/月无限。内接广告？",
+      "painPoint": "在浏览器中频繁切换 AI 对话窗口和当前页面，效率低下。",
+      "path": [
+        "第一步：开发 Chrome 插件，注册快捷键，创建弹出式 AI 卡片。",
+        "第二步：接入 Kimi/DeepSeek API，实现搜索和文本生成。",
+        "第三步：优化中文拼音模糊匹配，支持常用命令（翻译/总结/写邮件）。",
+        "第四步：在 ChatGPT 中文社区、V2EX 发布，获取种子用户。"
+      ],
+      "revenueModel": "订阅制 9.9 元/月。预计首月 500-1000 元。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 300元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Acti 在 Product Hunt 获 476 分热度，排名很高，说明用户对“AI+键盘”模式认可。",
+      "sources": [
+        {
+          "title": "Product Hunt: Acti: Agentic keyboard for mobile commands and search",
+          "url": "https://www.producthunt.com/products/acti-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "淘宝抢购脚本市场",
+      "category": "自动化流程",
+      "market": "国内为主",
+      "tags": [
+        "浏览器自动化",
+        "Tabstack",
+        "脚本"
+      ],
+      "summary": "基于Tabstack做淘宝/京东自动化脚本交易平台",
+      "description": "Tabstack 提供 Browser Automation 能力，无需托管浏览器即可自动化网页。可以做一个“自动化脚本市场”，专门售卖淘宝抢购、商品监控、价格对比、自动签到等脚本。用户购买脚本后，在 Tabstack 上执行，无需自己搭建环境。竞品有网页版的自动化工具，但缺乏现成脚本变现平台。差异化：一键运行、无代码、支持国内电商平台。市场规模：淘宝/京东用户数亿，抢购脚本需求长期存在。收费：脚本 5-15 元/个，月卡 29 元。",
+      "painPoint": "普通用户想自动化操作电商网站，但不会写代码，也不想搭建环境。",
+      "path": [
+        "第一步：研究 Tabstack API，测试其浏览器自动化能力。",
+        "第二步：编写 10 个电商自动化脚本（监控价格、定时抢购等）。",
+        "第三步：搭建前端商城，接入微信支付。",
+        "第四步：在淘宝客群、薅羊毛论坛推广。"
+      ],
+      "revenueModel": "脚本售价+订阅。预计月入 1000-5000 元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Tabstack 在 Product Hunt 获 360 分热度，表明开发者对无浏览器托管的自动化方案感兴趣。",
+      "sources": [
+        {
+          "title": "Product Hunt: Tabstack Browser Automation: Automate the web in your app or agent, no browser to host",
+          "url": "https://www.producthunt.com/products/tabstack?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Windows分屏增强工具",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "分屏",
+        "窗口管理",
+        "效率工具"
+      ],
+      "summary": "仿Wins的Windows悬浮分屏工具",
+      "description": "V2EX 上 Wins 3.4 发布引起 119 分热度，是一款 Mac 刘海分屏工具。Windows 用户没有刘海，但同样需要高效分屏功能。可以开发一个 Windows 悬浮分屏工具：拖动窗口到屏幕边缘触发悬浮分屏菜单，或快捷键快速排列窗口。差异化：支持自定义布局、虚拟桌面集成、全局快捷键。市场竞争：已有 PowerToys FancyZones，但功能分散、学习成本高。我们的工具更轻量、一键切换。定价 29.9 元买断，或免费+捐赠。",
+      "painPoint": "Windows 原生分屏功能弱（仅2x2），用户需要更灵活、可定制的窗口布局。",
+      "path": [
+        "第一步：使用 .NET WPF 开发窗口管理原型，实现边缘悬浮菜单。",
+        "第二步：实现布局模板（三栏、四象限等），接入全局热键。",
+        "第三步：打包为 MSI，上架 Steam 或个人网站，绑定微信支付。",
+        "第四步：在 V2EX、知乎“Windows 效率工具”话题下发帖。"
+      ],
+      "revenueModel": "买断制 29.9 元。预计首月 100-300 份，收入 3000-9000 元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 4,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "Wins 3.4 在 V2EX 获得 119 分热度，用户对分屏工具需求强烈，但该产品仅限 Mac，Windows 用户未被满足。",
+      "sources": [
+        {
+          "title": "V2EX: [送激活码] 🎉 Wins 3.4 发布！把 Mac 刘海变成悬浮分屏岛",
+          "url": "https://www.v2ex.com/t/1224253"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "科学上网IP检测器",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "V2EX",
+        "IP检测",
+        "代理工具"
+      ],
+      "summary": "检测代理IP是否被墙的小工具",
+      "description": "V2EX 帖子显示用户使用 reality 协议一年后被墙，引发 78 分技术讨论。可以做一个轻量级桌面/命令行工具，定时检测当前代理 IP 是否被墙。方法：将常用网站列表（Google、YouTube、TG）通过代理请求，分析响应是否符合预期。差异化：支持多协议（VLESS、Trojan、Shadowsocks）、通知推送（微信/邮件）。竞品如单独 IP 查询，但缺乏持续性监控。定价免费+捐赠，或高级版 9.9 元（多指纹+历史图表）。",
+      "painPoint": "用了很久的代理 IP 突然被墙，发现后才买新机器，期间断网。",
+      "path": [
+        "第一步：编写检测脚本，用 curl 通过代理请求测试网站，判断是否被污染。",
+        "第二步：打包为 EXE/DMG 应用，添加定时任务和通知。",
+        "第三步：在 V2EX、Telegram 群推广。",
+        "第四步：根据反馈增加多代理节点同时测速。"
+      ],
+      "revenueModel": "免费基础版+付费 Pro 版 9.9 元。预计月入 200-600 元。",
+      "timeToRevenue": "2周",
+      "startupCost": "< 100元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "V2EX 帖子“reality 使用一年被墙”获 78 分热度，跟帖讨论热烈，说明用户对此问题普遍关注且缺乏工具。",
+      "sources": [
+        {
+          "title": "V2EX: 最近使用 vless+xhttp+reality，网址用的苹果的，1 年多被墙了",
+          "url": "https://www.v2ex.com/t/1224405"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "bmad-code-org",
+      "repo": "BMAD-METHOD",
+      "description": "Breakthrough Method for Agile Ai Driven Development",
+      "url": "https://github.com/bmad-code-org/BMAD-METHOD",
+      "starsToday": 49969,
+      "language": "JavaScript",
+      "insight": "学习AI敏捷开发方法，提升效率",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "skylot",
+      "repo": "jadx",
+      "description": "Dex to Java decompiler",
+      "url": "https://github.com/skylot/jadx",
+      "starsToday": 49313,
+      "language": "Java",
+      "insight": "安卓逆向工具，可开发安全产品",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49108,
+      "language": "Python",
+      "insight": "处理数据，构建数据分析应用",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "1c7",
+      "repo": "chinese-independent-developer",
+      "description": "👩🏿‍💻👨🏾‍💻👩🏼‍💻👨🏽‍💻👩🏻‍💻中国独立开发者项目列表 -- 分享大家都在做什么",
+      "url": "https://github.com/1c7/chinese-independent-developer",
+      "starsToday": 49063,
+      "language": "",
+      "insight": "发现合作机会与灵感，融入社区",
+      "opportunityType": "趋势",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "JuliaLang",
+      "repo": "julia",
+      "description": "The Julia Programming Language",
+      "url": "https://github.com/JuliaLang/julia",
+      "starsToday": 48835,
+      "language": "Julia",
+      "insight": "学习高性能语言，开拓新领域",
+      "opportunityType": "学习",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "x64dbg",
+      "repo": "x64dbg",
+      "description": "An open-source user mode debugger for Windows. Optimized for reverse engineering and malware analysis.",
+      "url": "https://github.com/x64dbg/x64dbg",
+      "starsToday": 48780,
+      "language": "C++",
+      "insight": "开发安全或逆向分析工具",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    }
+  ]
+}
