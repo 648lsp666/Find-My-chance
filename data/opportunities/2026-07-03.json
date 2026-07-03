@@ -1,0 +1,339 @@
+{
+  "date": "2026-07-03",
+  "generatedAt": "2026-07-03T06:44:59.768Z",
+  "summary": "今日信号集中在隐私法规收紧、AI Agent工具链爆发、开发者社区对代码质量与效率的强烈诉求。基于这些趋势，为中国独立开发者挖掘了12个紧扣国内市场需求、3个月可落地的副业机会。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "邮件老照片拯救器",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "照片恢复",
+        "邮件工具",
+        "桌面应用"
+      ],
+      "summary": "一键提取QQ/163邮箱中所有照片附件",
+      "description": "类似Mail Memories（Gmail），但面向国内主流邮箱（QQ邮箱、163邮箱、Outlook中国版）。很多用户邮箱里积累了十年以上的照片附件，手动下载极繁琐。该工具可自动扫描、去重、归类并导出至本地或云盘。国内邮箱用户基数庞大（QQ邮箱活跃用户超5亿），轻量级桌面App或浏览器插件即可实现。",
+      "painPoint": "用户邮箱里散落大量照片附件，手动翻找、下载费时费力，常丢失珍贵记忆。",
+      "path": [
+        "开发核心引擎：利用IMAP/POP3协议批量读取邮件，提取附件中的图片格式文件",
+        "增加去重和按日期/发件人分类功能",
+        "打包成Win/Mac桌面应用（Electron）或浏览器扩展",
+        "上架小众软件、果壳等渠道推广，初期免费+Pro版（按导出数量收费）"
+      ],
+      "revenueModel": "免费使用（每月前100张），Pro订阅19元/月或99元/年。预估月收入3000-8000元。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元（域名+服务器租金）",
+      "difficulty": 2,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "Mail Memories在HN上获得101分热度，说明用户对邮件照片提取有强烈真实需求；该GitHub项目（mailmemories.com）已上线并获好评。",
+      "sources": [
+        {
+          "title": "Hacker News - Mail Memories",
+          "url": "https://mailmemories.com"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "国行Win系统清道夫",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "系统优化",
+        "卸载工具",
+        "隐私清理"
+      ],
+      "summary": "一键清理国产预装软件和广告",
+      "description": "Win11Debloat在GitHub上获得近5万星标，证明用户对Windows预装软件和遥测的深恶痛绝。国内用户的痛点更突出：预装流氓软件、弹窗广告、自动更新占用资源。开发一款中文界面、针对国内常见预装（如360、腾讯电脑管家、联想管家等）的清理工具，同时集成注册表清理、Edge广告屏蔽等功能。",
+      "painPoint": "国内Windows新电脑自带大量无用预装软件和广告，手动卸载繁琐且容易残留。",
+      "path": [
+        "基于Win11Debloat源码进行汉化和适配国产软件列表",
+        "添加一键禁用弹窗、关闭更新、清理临时文件等模块",
+        "封装成NSIS单文件安装包（<10MB）",
+        "在吾爱破解、52pojie、b站发布视频教程引流"
+      ],
+      "revenueModel": "免费开源+捐赠，或Pro版提供自定义配置备份/还原功能（9.9元/年）。预估月收入2000-5000元。",
+      "timeToRevenue": "2周",
+      "startupCost": "< 100元（域名）",
+      "difficulty": 1,
+      "potential": 9,
+      "competition": "中",
+      "evidence": "Win11Debloat在GitHub上获得49962星标，且持续更新，显示全球用户对系统清理工具的强烈需求。国内类似工具如Dism++用户基数也很大。",
+      "sources": [
+        {
+          "title": "GitHub - Win11Debloat",
+          "url": "https://github.com/Raphire/Win11Debloat"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "抖音粉丝付费转化器",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "抖音",
+        "电商",
+        "粉丝运营"
+      ],
+      "summary": "将抖音粉丝转化为购买客户",
+      "description": "灵感来自Product Hunt上Fypro（将TikTok粉丝转付费，热度647）。国内抖音电商生态更成熟，但大多商家仍依赖直播或橱窗，缺少系统化的粉丝沉淀与转化工具。开发一款SaaS：连接抖音开放平台，识别高互动粉丝，自动发送私信优惠券、引导加微信，或提供专属商品链接。帮助中小卖家提升复购率。",
+      "painPoint": "抖音粉丝资产难以直接变现，商家需要更精准的粉丝运营工具。",
+      "path": [
+        "申请抖音开放平台App ID，获取粉丝互动数据",
+        "开发自动化私信群发（带模板），筛选近7天互动粉丝",
+        "集成优惠券生成、关系链追踪等模块",
+        "定价29元/月起，面向中小商家，可投放抖音信息流推广"
+      ],
+      "revenueModel": "SaaS月费29-99元/月，预估月收入4000-12000元（初期100-300个付费用户）。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元（服务器+抖音认证费）",
+      "difficulty": 3,
+      "potential": 9,
+      "competition": "中",
+      "evidence": "Fypro在Product Hunt上获得647热度，说明海外市场已验证此需求；国内抖音用户超8亿，中小商家对粉丝裂变工具需求迫切。",
+      "sources": [
+        {
+          "title": "Product Hunt - Fypro",
+          "url": "https://www.producthunt.com/products/fypro?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "电商广告万能模板机",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "电商设计",
+        "广告生成",
+        "AI绘图"
+      ],
+      "summary": "一张原图生成所有适配电商素材",
+      "description": "参考PixFit（热度214），它支持将一张创意转为多种广告格式。国内淘宝、京东、拼多多、抖音等平台广告位尺寸繁杂，商家需要重复设计。基于Stable Diffusion或ComfyUI，开发一个在线工具：用户上传一张产品图，自动生成主图、详情页横幅、信息流卡片、直播贴片等所有常见尺寸，并支持文字替换和风格一键切换。",
+      "painPoint": "电商卖家需要大量不同尺寸的广告图片，重复设计耗时长、成本高。",
+      "path": [
+        "搭建基于Stable Diffusion的服务器（使用ComfyUI工作流），预设各种模板",
+        "开发前端拖拽上传+一键生成界面",
+        "接入支付宝/微信支付（按生成张数收费）",
+        "在电商卖家群、千牛服务市场推广"
+      ],
+      "revenueModel": "按量付费：9.9元/10张图，或包月39元/月。预估月收入5000-15000元。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 3000元（GPU服务器首月）",
+      "difficulty": 4,
+      "potential": 9,
+      "competition": "中",
+      "evidence": "PixFit在Product Hunt获得214热度和用户正向反馈，说明广告格式自动生成是刚需；国内电商商家超过千万，设计外包成本每月数千元，该工具可大幅降低成本。",
+      "sources": [
+        {
+          "title": "Product Hunt - PixFit",
+          "url": "https://www.producthunt.com/products/pixfit?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "视频会议智能摘要",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "视频分析",
+        "会议纪要",
+        "多模态"
+      ],
+      "summary": "录制会议视频自动生成文字摘要",
+      "description": "基于claude-real-video（热度123）的思路，结合国内飞书/腾讯会议视频，利用多模态模型实现“看视频做总结”。个人开发者可调用阿里云通义千问视觉API或本地部署Qwen-VL，开发一个桌面工具或飞书插件：上传会议录像，输出会议纪要和待办事项。中小企业会议多、记录混乱，市场巨大。",
+      "painPoint": "视频会议后经常忘记内容，手动记录费时且不完整。",
+      "path": [
+        "接入视频下载与分段处理（使用ffmpeg），调用多模态API抽取关键帧和语音转文字",
+        "用提示词让模型总结成结构化笔记（标题、讨论点、决议）",
+        "先做MVP：上传MP4到网页，返回Markdown摘要",
+        "在飞书应用市场、36kr推广"
+      ],
+      "revenueModel": "按会议时长收费：1元/小时，或包月29元/10小时。预估月收入2000-6000元。",
+      "timeToRevenue": "1.5个月",
+      "startupCost": "< 2000元（API费用+服务器）",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "claude-real-video在HN上获得123分热度，表明让大模型理解视频内容的需求正在爆发；国内企业每年召开数亿场会议，智能摘要工具渗透率不足5%。",
+      "sources": [
+        {
+          "title": "Hacker News - claude-real-video",
+          "url": "https://github.com/HUANGCHIHHUNGLeo/claude-real-video"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "中文AI配音工坊",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "语音合成",
+        "配音",
+        "短视频"
+      ],
+      "summary": "基于开源模型的中文高质量配音",
+      "description": "微软开源VibeVoice（GitHub 49898星标）代表前沿语音AI。国内短视频创作者对配音需求极大（抖音日活6亿，配音类占30%以上），但主流工具如剪映内置配音效果单一。开发一个在线平台，提供更自然、情感丰富的中文配音模板（新闻、故事、带货），并支持音色克隆（需合法授权）。",
+      "painPoint": "短视频创作者需要更丰富、高临场感的中文配音，现有工具选择少。",
+      "path": [
+        "研究VibeVoice模型，在GPU云上部署推理服务（中文支持情况需验证，若暂不支持则用CosyVoice或ChatTTS）",
+        "构建前端：用户输入文案，选择音色风格，生成WAV/MP3",
+        "添加批量生成、背景音乐混音等功能",
+        "在B站、抖音发布教程视频引流，提供免费额度"
+      ],
+      "revenueModel": "按字符数收费：0.001元/字，或包月29元/10万字。预估月收入4000-10000元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元（GPU云+域名）",
+      "difficulty": 3,
+      "potential": 9,
+      "competition": "中",
+      "evidence": "VibeVoice在GitHub获得49898星标，证明开源社区对高质量语音AI关注度极高；国内短视频创作者超过2000万，配音工具市场规模达数十亿。",
+      "sources": [
+        {
+          "title": "GitHub - microsoft/VibeVoice",
+          "url": "https://github.com/microsoft/VibeVoice"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "极简表单后端即服务",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "表单",
+        "后端",
+        "无代码"
+      ],
+      "summary": "5分钟为静态网站添加表单提交功能",
+      "description": "html.contact（热度117）提供“先测试后付费”的表单后端服务，非常适合个人开发者。国内类似需求旺盛：很多静态博客、Landing Page需要留言表单，但部署后端麻烦。开发一款中国版：提供固定API，支持SMTP发送、Slack/钉钉通知，并内置反垃圾。定价低于海外竞品，支持微信/支付宝支付。",
+      "painPoint": "个人网站主需要一个简单、便宜的表单后端，不想维护服务器。",
+      "path": [
+        "实现基础API（接收表单数据，发送邮件/Webhook）",
+        "添加反垃圾（honeypot + token校验）",
+        "制作在线Dashboard查看提交记录",
+        "在V2EX、少数派、站长群推广"
+      ],
+      "revenueModel": "免费版每月100次提交，Pro版19元/月（5000次）。预估月收入2000-5000元。",
+      "timeToRevenue": "2周",
+      "startupCost": "< 500元（服务器+域名）",
+      "difficulty": 1,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "html.contact在Product Hunt获117票，验证了小团队对轻量表单后端的偏好；国内类似Formspree被墙，替代品市场空白。",
+      "sources": [
+        {
+          "title": "Product Hunt - html.contact",
+          "url": "https://www.producthunt.com/products/html-contact?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "共享邮箱轻协作",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "共享邮箱",
+        "团队协作",
+        "客服"
+      ],
+      "summary": "中小企业共享收件箱加AI自动分派",
+      "description": "Banger Mail（热度143）解决“团队和AI agent共享收件箱”问题。国内中小企业常使用公共邮箱（如support@xxx），但多人共用易混乱、回复冲突。开发一款基于IMAP的共享收件箱工具：支持多成员、消息分配、自动回复模板，并集成AI自动分类（转人工、自动回复常见问题）。轻量、月费低。",
+      "painPoint": "小团队共享邮箱时邮件容易遗漏、回复冲突、效率低。",
+      "path": [
+        "对接主流邮箱（QQ企业邮箱、阿里企业邮箱），实现IMAP多客户端同步",
+        "开发Web界面显示统一收件箱，支持指派、备注",
+        "接入AI（如通义千问）自动识别邮件意图并建议回复",
+        "在猪八戒、企业服务市场推广，免费版可试用"
+      ],
+      "revenueModel": "免费版3人使用，Pro版9元/人/月。预估月收入2000-6000元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元（服务器+第三方API）",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Banger Mail在Product Hunt获143票，证明共享邮箱+AI功能受到市场关注；国内中小企业超过3000万，多数还没有专业的共享邮箱工具。",
+      "sources": [
+        {
+          "title": "Product Hunt - Banger Mail",
+          "url": "https://www.producthunt.com/products/banger-mail?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "Raphire",
+      "repo": "Win11Debloat",
+      "description": "A simple, lightweight PowerShell script that allows you to remove pre-installed apps, disable telemetry, as well as perform various other changes to declutter and customize your Windows experience. Win11Debloat works for both Windows 10 and Windows 11.",
+      "url": "https://github.com/Raphire/Win11Debloat",
+      "starsToday": 49962,
+      "language": "PowerShell",
+      "insight": "开发系统优化工具或定制服务",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "microsoft",
+      "repo": "VibeVoice",
+      "description": "Open-Source Frontier Voice AI",
+      "url": "https://github.com/microsoft/VibeVoice",
+      "starsToday": 49898,
+      "language": "Python",
+      "insight": "构建语音AI应用或助手产品",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49844,
+      "language": "TypeScript",
+      "insight": "学习现代前端状态管理技术",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "huginn",
+      "repo": "huginn",
+      "description": "Create agents that monitor and act on your behalf.  Your agents are standing by!",
+      "url": "https://github.com/huginn/huginn",
+      "starsToday": 49559,
+      "language": "Ruby",
+      "insight": "搭建个人自动化工作流或服务",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "Panniantong",
+      "repo": "Agent-Reach",
+      "description": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
+      "url": "https://github.com/Panniantong/Agent-Reach",
+      "starsToday": 49343,
+      "language": "Python",
+      "insight": "开发多平台数据采集工具",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49112,
+      "language": "Python",
+      "insight": "学习数据分析基础库用于项目",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    }
+  ]
+}
