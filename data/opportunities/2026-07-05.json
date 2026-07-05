@@ -1,0 +1,483 @@
+{
+  "date": "2026-07-05",
+  "generatedAt": "2026-07-05T06:52:42.384Z",
+  "summary": "今日信号呈现三大趋势：AI Agent安全与效率问题引发广泛关注（Claude Code缓存泄漏、GPT-5.5性能退化、系统提示词泄露），开源生态与UI框架变动频繁（Zig构建系统重构、shadcn/ui默认切换），以及独立开发者出海与怀旧IP孵化机会涌现（小浣熊水浒卡、Steam Machine、WordPress安全工具）。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "系统提示词泄露对比站",
+      "category": "数据服务",
+      "market": "全球",
+      "tags": [
+        "大模型",
+        "提示词",
+        "情报"
+      ],
+      "summary": "实时追踪并对比各大模型系统提示词变化",
+      "description": "GitHub上 system_prompts_leaks 仓库已获49121星，持续更新Anthropic、OpenAI、Google等公司模型系统提示词。国内开发者与安全研究人员对此类信息需求强烈，但目前缺乏结构化对比与历史追溯平台。可搭建一个中文/双语网站，自动抓取并diff显示每次更新，提供搜索、订阅通知和API接口。初期通过广告与付费API变现（如企业安全团队需监控提示词变更）。",
+      "painPoint": "安全研究人员和AI开发者无法高效追踪各大模型隐藏的系统提示词变更",
+      "path": [
+        "Fork并解析 system_prompts_leaks 仓库数据，建立结构化数据库",
+        "开发对比（diff）与版本历史展示前端，支持按模型/日期筛选",
+        "部署静态站点（Cloudflare Pages），配置定时任务自动更新",
+        "上线后通过 Twitter/知乎/V2EX 推广，收集反馈",
+        "推出付费API（月费99元起）供企业集成"
+      ],
+      "revenueModel": "展示广告 + API订阅，预估月收入2000-5000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 2,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "GitHub 仓库 system_prompts_leaks 获得 49121 星，信号在 GitHub 热度极高，且持续更新，说明社区对此类信息有旺盛需求。",
+      "sources": [
+        {
+          "title": "Extracted system prompts from major AI companies - GitHub",
+          "url": "https://github.com/asgeirtj/system_prompts_leaks"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Claude Code缓存泄漏检测器",
+      "category": "开发工具",
+      "market": "全球",
+      "tags": [
+        "安全",
+        "Claude",
+        "CI/CD"
+      ],
+      "summary": "扫描 Claude Code 工作区，防止会话/缓存泄漏",
+      "description": "Hacker News 上关于 Claude Code 潜在会话/缓存泄漏问题的讨论获得286分（信号），说明开发者高度关注。该问题可能导致多用户之间数据交叉。可以开发一款轻量 CLI 工具（Go/Rust），扫描项目中的 .claude 目录和其他缓存文件，检测是否存在包含敏感信息的 session token、临时文件权限错误等，并可集成到 pre-commit hook 或 CI。前期免费开源积累用户，后期推出企业版（审计报告+自动修复）。",
+      "painPoint": "团队使用 Claude Code 时担心多用户会话/缓存数据泄露",
+      "path": [
+        "分析 issue 中描述的攻击面，设计检测规则",
+        "用 Rust 编写 CLI 工具，支持扫描常见泄漏模式",
+        "发布到 Homebrew/cargo，并写文章在 V2EX/掘金推广",
+        "开源核心功能，企业版添加自动修复、报告导出",
+        "与 CI 工具（GitHub Actions）集成"
+      ],
+      "revenueModel": "开源免费 + 企业版年费，预估月收入1000-3000元",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Hacker News 上关于 Claude Code 缓存泄漏的 issue 获得286分，引发社区担忧，说明该痛点真实且急迫。",
+      "sources": [
+        {
+          "title": "Potential session/cache leakage between workspace instances or consumer accounts",
+          "url": "https://github.com/anthropics/claude-code/issues/74066"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Zig构建迁移实战课",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "Zig",
+        "构建系统",
+        "教程"
+      ],
+      "summary": "教开发者将 Zig 包管理从编译器迁移到构建系统",
+      "description": "Zig 官方宣布将所有包管理功能从编译器移至构建系统（信号），这一重大变更会让现有 Zig 开发者面临学习成本。国内 Zig 社区逐渐扩大，但中文教程稀缺。可以制作一套视频+图文课程，覆盖迁移动机、新构建脚本写法、包依赖管理最佳实践。定价99-199元，同时提供免费博文引流。目标用户：已有 Zig 基础的开发者、对系统编程感兴趣的国内程序员。",
+      "painPoint": "Zig 开发者面对包管理架构迁移，缺乏中文系统性指导",
+      "path": [
+        "深入阅读 Zig 官方 devlog 和 changelog，理解变更细节",
+        "搭建示例项目，展示迁移前后对比",
+        "录制10-15节视频课程，并撰写配套博客",
+        "在 B站/掘金/知乎发布引流内容，引导到付费课程",
+        "建立微信/Telegram 社群，答疑并迭代内容"
+      ],
+      "revenueModel": "课程销售 + 社群付费，预估月收入1500-4000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 4,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Zig 官方 devlog（信号）获得 Hacker News 177分，表明社区高度关注这一重大变更。",
+      "sources": [
+        {
+          "title": "Zig: All Package Management Functionality Moved from Compiler to Build System",
+          "url": "https://ziglang.org/devlog/2026/#2026-06-30"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "按钮UI一致性检查器",
+      "category": "整活玩具",
+      "market": "全球",
+      "tags": [
+        "UI",
+        "可访问性",
+        "设计"
+      ],
+      "summary": "一键检测网站中按钮行为是否符合用户预期",
+      "description": "Hacker News 文章'If you're a button, you have one job'（信号）获得122分，吐槽许多网站按钮交互奇葩：点击无反馈、链接伪装成按钮、多个主操作等。可以开发一个浏览器扩展，自动扫描当前页面所有按钮元素，检查 aria 属性、角色、交互反馈、点击区域等，生成简洁报告。同时提供规则编辑器供自定义。上线 Chrome/Firefox 商店，通过赞助或捐赠盈利。",
+      "painPoint": "网站按钮经常不符合用户预期，导致误操作或困惑",
+      "path": [
+        "阅读原文总结常见按钮问题模式",
+        "用 Manifest V3 开发浏览器扩展，集成 Axe-core 或自写规则",
+        "上传至 Chrome Web Store 和 Firefox Add-ons",
+        "在 Product Hunt / Hacker News 展示，联系设计社区推广",
+        "收集用户反馈增加自定义规则等高级功能"
+      ],
+      "revenueModel": "免费 + 可选赞助（GitHub Sponsors），预估月收入500-1500元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Hacker News 文章获得122分，评论区大量网友分享按钮反例，说明该问题普遍存在。",
+      "sources": [
+        {
+          "title": "If you're a button, you have one job",
+          "url": "https://unsung.aresluna.org/if-youre-a-button-you-have-one-job/"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "shadcn/ui迁移工具",
+      "category": "开发工具",
+      "market": "全球",
+      "tags": [
+        "React",
+        "UI组件",
+        "迁移"
+      ],
+      "summary": "帮助项目从 Radix 切换到 Base UI 的自动化工具",
+      "description": "shadcn/ui 默认后端从 Radix 切换为 Base UI（信号），现有大量项目需要迁移。可以开发一个 CLI 工具，自动扫描项目中的 shadcn/ui 组件，分析依赖关系，生成迁移补丁（替换 import 路径、适配新 API 差异）。同时提供交互式确认流程。开源免费，但可提供付费的托管迁移服务或企业定制。初期在 GitHub 发布，配合博客教程吸引流量。",
+      "painPoint": "shadcn/ui 下游项目需要手动迁移组件依赖，工作量大且易出错",
+      "path": [
+        "分析 shadcn/ui changelog 和 Base UI API，总结映射关系",
+        "用 TypeScript 编写 CLI，支持常见迁移场景",
+        "发布到 npm 并撰写 Medium/掘金文章",
+        "在 Hacker News / Reddit 的 shadcn 板块展示",
+        "后续提供付费的 UI 自动化测试服务"
+      ],
+      "revenueModel": "开源免费 + 托管迁移服务（按项目收费），预估月收入1000-3000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "shadcn/ui 官方 changelog（信号）获得 Hacker News 67分，社区出现大量迁移讨论。",
+      "sources": [
+        {
+          "title": "Shadcn/UI now defaults to Base UI instead of Radix",
+          "url": "https://ui.shadcn.com/docs/changelog"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "AI编码代理精准编辑工具",
+      "category": "AI应用",
+      "market": "全球",
+      "tags": [
+        "AI Agent",
+        "代码编辑",
+        "IDE"
+      ],
+      "summary": "为 AI 编码代理提供结构化代码编辑能力",
+      "description": "Hacker News 上展示的 Mouse 项目（信号）旨在为 AI 编码智能体提供精准编辑工具，获得16分。当前 AI 编码工具（如 Cursor、Claude Code）在生成修改代码时经常因定位不准导致混乱。可以开发一个 VS Code / Neovim 插件，将 AI 的 diff 输出解析为精准的语义化编辑操作（替代行、插入、重构），减少理解偏差。先专注 VS Code 生态，与现有 AI 助手整合。开源+付费 Pro 版支持更多仓库。",
+      "painPoint": "AI 生成的代码 patch 经常出现错误定位或冲突，需要人工二次修正",
+      "path": [
+        "研究 AI 编码 Agent 输出格式（如 Claude Code 的 edit 协议）",
+        "开发 VS Code 扩展，实现精确文本替换与结构化编辑",
+        "集成常见 AI 编码工具（如 Continue.dev、Claude Code）",
+        "发布到 VS Code Marketplace，在 GitHub 开源",
+        "推出 Pro 版支持多文件协同编辑"
+      ],
+      "revenueModel": "开源免费 + Pro 版订阅（$5/月），预估月收入2000-5000元",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 2000元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Mouse 项目（信号）在 Hacker News 获得16分，方向受认可，且同类项目稀少。",
+      "sources": [
+        {
+          "title": "Mouse: Precision Editing Tools for AI Coding Agents",
+          "url": "https://hic-ai.com"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "无人机自主巡航中文课",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "无人机",
+        "自主导航",
+        "ROS"
+      ],
+      "summary": "零基础入门无人机自主飞行开发",
+      "description": "Hacker News 上'Drone Autonomy Crash Course'（信号）获得36分，内容优质但为英文。国内消费级无人机市场巨大（大疆生态），但自主巡航开发教程几乎空白。可以翻译并改编该课程，增加国内常用硬件（如 PX4、ArduPilot、树莓派）适配，制作成中文视频+实验手册。定价199-299元，学期4周。目标用户：航拍爱好者、机器人/嵌入式学生、想转行无人机行业的开发者。",
+      "painPoint": "中文无人机自主巡航开发资料稀少，英文教程门槛高",
+      "path": [
+        "系统学习原课程内容，准备硬件验证环境",
+        "录制中文字幕视频，编写实验手册与代码仓库",
+        "在 B站/知乎/抖音发布前瞻内容引流",
+        "开设付费直播课程（小鹅通或腾讯课堂）",
+        "与无人机社区（如阿木实验室）合作推广"
+      ],
+      "revenueModel": "课程销售 + 硬件套件代销，预估月收入3000-8000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元（可租用硬件）",
+      "difficulty": 4,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Hacker News 上该课程获得36分，评论好评如潮，说明课程内容有市场认可度。",
+      "sources": [
+        {
+          "title": "Drone Autonomy Crash Course",
+          "url": "https://www.cggonzalez.com/blog/index.html"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "跨平台AI研究摘要工具",
+      "category": "自动化流程",
+      "market": "全球",
+      "tags": [
+        "社交媒体",
+        "研究",
+        "AI Agent"
+      ],
+      "summary": "一键聚合 Reddit/X/HN/YouTube 讨论并生成摘要",
+      "description": "GitHub 项目 last30days-skill（信号）获得48980星，它是一款 AI agent skill，可以跨平台搜索并总结某话题近期讨论。可以将其封装成独立 SaaS，用户输入关键词，自动抓取 Reddit、X、YouTube、HN、Polymarket 等平台内容，用 LLM 生成结构化摘要（要点、情感、分歧）。面向市场研究人员、产品经理、独立开发者。提供免费试用（每日5次），付费订阅（$15/月 无限次）。",
+      "painPoint": "跨平台追踪热点话题需要手动浏览多个源，耗时且容易遗漏",
+      "path": [
+        "Fork last30days-skill 并理解其架构",
+        "适配国内平台（微博、知乎、B站）作为差异化",
+        "搭建后端（Node.js + OpenAI API），开发前端",
+        "部署上线，在 IndieHackers / V2EX 推广",
+        "迭代增加定制报告下载功能"
+      ],
+      "revenueModel": "SaaS 订阅制，预估月收入3000-10000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元（API 费用）",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "GitHub 上 last30days-skill 获得48980星，证明社会对跨平台研究工具需求旺盛。",
+      "sources": [
+        {
+          "title": "last30days-skill: AI agent skill that researches any topic across platforms",
+          "url": "https://github.com/mvanhorn/last30days-skill"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "WordPress漏洞预警SaaS",
+      "category": "SaaS工具",
+      "market": "全球",
+      "tags": [
+        "WordPress",
+        "安全",
+        "监控"
+      ],
+      "summary": "自动扫描并通知 WordPress 站点潜在漏洞",
+      "description": "Product Hunt 产品 WP Triage（信号）获得12分，专注于 WordPress 安全预警。全球有超过40%的网站使用 WordPress，插件/主题漏洞层出不穷。可以开发一款更加轻量的 SaaS，提供每日扫描+邮件/钉钉/企业微信告警，支持常见漏洞库（WPScan、CVE）。定价 $9/月 起（按站点数）。差异化：支持中文界面和国内通知渠道。",
+      "painPoint": "WordPress 站长难以实时掌握自己站点的漏洞状态",
+      "path": [
+        "集成 WPScan API 和 NVD 数据库，开发扫描引擎",
+        "搭建用户注册/支付（Stripe）+ 告警系统",
+        "开发前端仪表盘（Vue+Tailwind）",
+        "在 WordPress 社区、Hosting 论坛、知乎推广",
+        "推出免费版（1个站点）引流"
+      ],
+      "revenueModel": "SaaS 订阅，预估月收入2000-5000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "WP Triage 在 Product Hunt 获得12分，且细分市场已有成功先例（如 Jetpack Scan）。",
+      "sources": [
+        {
+          "title": "WP Triage: Get alerted to vulnerable WordPress sites before they break",
+          "url": "https://www.producthunt.com/products/wp-triage?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "图RAG知识库引擎",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "RAG",
+        "知识图谱",
+        "企业搜索"
+      ],
+      "summary": "基于图数据库的智能问答知识库搭建服务",
+      "description": "Product Hunt 上 LinkingMem v0.3.0（信号）获得11分，是一款图原生 RAG 引擎。相比传统向量 RAG，图 RAG 在实体关联和多跳推理上更优。可以将其适配中文场景，提供一键部署方案，对接钉钉/飞书/微信文档，实现企业级智能问答。目标客户：中小企业、律所、医院。提供私有化部署（收费）或 SaaS 版（按文档量）。",
+      "painPoint": "企业知识库用传统 RAG 经常答非所问，缺乏逻辑推理能力",
+      "path": [
+        "研究 LinkingMem 开源实现，提取核心知识图谱引擎",
+        "开发中文分词与实体链接优化",
+        "构建 Docker 一键部署包，并提供文档",
+        "在独立开发者社区、企业微信群推广",
+        "提供定制化服务（按项目收费5k-20k）"
+      ],
+      "revenueModel": "开源免费 + 私有化部署授权/定制开发，预估月收入5000-20000元",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 5,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "LinkingMem 在 Product Hunt 上获得11分，图 RAG 理念被业界看好，且国内尚无成熟竞品。",
+      "sources": [
+        {
+          "title": "LinkingMem - v0.3.0: Graph-native RAG Engine",
+          "url": "https://www.producthunt.com/products/linkingmem-graph-native-rag-engine?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "海外Claude安全使用指南",
+      "category": "出海产品",
+      "market": "国内",
+      "tags": [
+        "Claude",
+        "翻墙",
+        "Mac mini"
+      ],
+      "summary": "一站式提供海外远程使用 Claude 的方案与服务",
+      "description": "V2EX 热帖（信号）获得66分，用户讨论如何在海外放一台 Mac mini 并通过远程桌面/代理使用 Claude。独立开发者/安全从业者对稳定低延迟的海外 Claude 访问有刚需。可以推出一个托管服务：在海外 VPS 或实体机上部署 Mac mini，用户远程使用，同时配置优化网络（WireGuard + tun2socks）。也可以只卖教程+脚本（99元），或提供月度托管（199元/月）。",
+      "painPoint": "国内开发者无法稳定使用 Claude，自建方案复杂且成本高",
+      "path": [
+        "测试多种远程桌面方案（Moonlight、Parsec）在网络受限环境的表现",
+        "编写自动化部署脚本（Docker + WireGuard + 代理）",
+        "提供详细图文教程，按需代购/租用海外设备",
+        "在 V2EX、少数派、独立开发社群推广",
+        "推出托管服务：用户付费连接预装 Mac mini"
+      ],
+      "revenueModel": "教程销售 + 托管月费，预估月收入3000-10000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 5000元（云服务器+设备租赁）",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "V2EX 帖子获得66分，评论区超过100条回复讨论技术细节，说明需求真实且迫切。",
+      "sources": [
+        {
+          "title": "[终极折腾] 走海外拿身份 + 境外友人家里放 Mac mini 远程使用 Claude",
+          "url": "https://www.v2ex.com/t/1224985"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "小浣熊水浒卡鉴赏平台",
+      "category": "内容创作",
+      "market": "国内",
+      "tags": [
+        "怀旧",
+        "收藏",
+        "IP"
+      ],
+      "summary": "卡片鉴赏、对比与交流的垂直社区",
+      "description": "V2EX 用户用 AI 生成了小浣熊水浒卡鉴赏网站（信号），获24分。小浣熊水浒卡是80/90后集体回忆，二手交易活跃。可以搭建一个更完整的平台：高清扫描图+多版本对比（普通/闪卡/3D）、卡片稀有度排名、市价参考、求购/置换信息板。通过广告、卡片拍卖抽成、周边推荐变现。先用静态展示站快速上线验证流量。",
+      "painPoint": "水浒卡爱好者缺乏统一的高清鉴赏与交易平台",
+      "path": [
+        "收集所有已知卡片高清扫描图，整理元数据",
+        "用 Next.js 搭建响应式展示网站（参考 V2EX 用户方案）",
+        "增加搜索、分类、版本对比功能",
+        "在贴吧、B站、小红书发布怀旧内容引流",
+        "逐步加入用户提交、二手交易板块"
+      ],
+      "revenueModel": "展示广告 + 交易抽佣（5%），预估月收入1000-3000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "V2EX 帖子获24分，许多人怀念并表示愿意分享卡片，证明有流量基础。",
+      "sources": [
+        {
+          "title": "用 AI 生成一个小浣熊水浒卡鉴赏网站",
+          "url": "https://www.v2ex.com/t/1225027"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49845,
+      "language": "TypeScript",
+      "insight": "加速前端数据管理，快速构建响应式应用",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "huginn",
+      "repo": "huginn",
+      "description": "Create agents that monitor and act on your behalf.  Your agents are standing by!",
+      "url": "https://github.com/huginn/huginn",
+      "starsToday": 49571,
+      "language": "Ruby",
+      "insight": "自建自动化监控代理，提升工作效率",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49125,
+      "language": "Python",
+      "insight": "掌握数据处理，驱动数据产品开发",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "asgeirtj",
+      "repo": "system_prompts_leaks",
+      "description": "Extracted system prompts from Anthropic - Claude Fable 5, Opus 4.8, Claude Code, Claude Design. OpenAI - ChatGPT 5.5 Thinking, GPT 5.5 Instant, Codex. Google - Gemini 3.5 Flash, 3.1 Pro, Antigravity. xAI - Grok, Cursor, Copilot, VS Code, Perplexity, and more. Updated regularly.",
+      "url": "https://github.com/asgeirtj/system_prompts_leaks",
+      "starsToday": 49121,
+      "language": "JavaScript",
+      "insight": "获取前沿AI提示词，打造智能应用",
+      "opportunityType": "趋势",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "1c7",
+      "repo": "chinese-independent-developer",
+      "description": "👩🏿‍💻👨🏾‍💻👩🏼‍💻👨🏽‍💻👩🏻‍💻中国独立开发者项目列表 -- 分享大家都在做什么",
+      "url": "https://github.com/1c7/chinese-independent-developer",
+      "starsToday": 49076,
+      "language": "",
+      "insight": "发现同行项目，融入独立开发者社区",
+      "opportunityType": "趋势",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "mvanhorn",
+      "repo": "last30days-skill",
+      "description": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "starsToday": 48980,
+      "language": "Python",
+      "insight": "开发信息聚合Agent，洞察网络热点",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
+    }
+  ]
+}
