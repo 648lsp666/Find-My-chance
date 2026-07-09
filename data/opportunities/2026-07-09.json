@@ -1,0 +1,460 @@
+{
+  "date": "2026-07-09",
+  "generatedAt": "2026-07-09T06:57:58.369Z",
+  "summary": "今日信号显示AI模型（Grok 4.5、GPT-Live）竞争白热化，语音/视频AI工具在Product Hunt密集发布（Willow、Cutrix、Bono AI），微软推出Agent可视化语言Flint，同时国内V2EX讨论AI赚钱与Claude禁用。独立开发者机会集中在AI视频翻译、语音转内容发布、Agent编排、数据API服务、AI代码审计等方向，国内市场可快速切入。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "AI视频翻译配音工具",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "视频翻译",
+        "原声保留",
+        "出海电商"
+      ],
+      "summary": "AI视频翻译保留原声，面向短视频创作者",
+      "description": "基于Cutrix（Product Hunt热度164）模式，针对国内抖音/TikTok创作者推出中文AI视频翻译工具，核心功能：保留说话人音色与语调进行多语言翻译，自动生成字幕。市场规模：2026年跨境短视频营销预计超500亿，现有工具（如HeyGen、Rask）月费昂贵且中文优化不足。差异化：免费试用前3分钟，按分钟付费（0.5元/分钟），集成抖音一键发布。竞品缺乏对中文口音、方言的适配。",
+      "painPoint": "视频创作者需手动配音或翻译，成本高、效果假，真人录制约200元/分钟。",
+      "path": [
+        "调用AssemblyAI（Universal-3.5 Pro）或自建Whisper+VC模型实现语音识别与音色迁移",
+        "开发Web应用，支持上传视频、选择目标语言、预览效果",
+        "集成抖音/小红书API实现一键发布",
+        "先通过免费试用积累种子用户，后按量付费"
+      ],
+      "revenueModel": "按分钟付费：0.5元/分钟，预估月收入：若100个创作者每人处理200分钟，月入1万元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "Product Hunt上Cutrix获得164热度，强调'preserves speaker's voice'，说明市场对保留原声的视频翻译需求强烈；AssemblyAI同时发布Universal-3.5 Pro（121热度），提供高精度STT模型",
+      "sources": [
+        {
+          "title": "Cutrix - AI-powered video translation",
+          "url": "https://www.producthunt.com/products/cutrix?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        },
+        {
+          "title": "Universal-3.5 Pro STT model",
+          "url": "https://www.producthunt.com/products/assemblyai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "语音转多平台发布站",
+      "category": "自动化流程",
+      "market": "国内为主",
+      "tags": [
+        "语音创作",
+        "多平台分发",
+        "自媒体"
+      ],
+      "summary": "说一句话自动生成多平台图文/视频",
+      "description": "受Bono AI（Product Hunt热度245）启发，开发中文版'Talk Once, Publish Everywhere'工具。用户用语音口述内容，AI自动生成公众号文章、微博、小红书图文、抖音口播文案，并适配各平台格式与语气。市场规模：中国自媒体创作者超5000万，每天花大量时间适配不同平台。现有竞品如Jasper、Copy.ai主要面向英文，且不支持语音输入。差异化：原生支持中文方言识别、热点自动融入。盈利：免费版每天3次，Pro版39元/月。",
+      "painPoint": "自媒体人需在不同平台重复创作同一内容，耗时且风格难统一。",
+      "path": [
+        "集成Willow Frontier Pro或Azure语音识别实现高准确度中文语音转文字",
+        "训练多平台风格模型（Prompt模板库），将口述内容转换为各平台格式",
+        "开发Web/小程序，支持录制或上传音频，一键分发",
+        "先通过自媒体社群内测，收取月费"
+      ],
+      "revenueModel": "39元/月订阅，预估月收入：500用户订阅，月入1.95万",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Bono AI在Product Hunt获得245热度，标语'Talk Once. Publish Everywhere.'直接验证需求；Willow Frontier Pro号称'fastest, most accurate dictation model'（269热度），可复用其语音能力",
+      "sources": [
+        {
+          "title": "Bono AI - Talk Once. Publish Everywhere.",
+          "url": "https://www.producthunt.com/products/bono-ai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        },
+        {
+          "title": "Willow Frontier Pro - fastest dictation model",
+          "url": "https://www.producthunt.com/products/willow-voice?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "中文快速语音输入桌面",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "语音输入",
+        "效率工具",
+        "Mac/Win"
+      ],
+      "summary": "本地极速语音转文字，离线可用",
+      "description": "借鉴Willow Frontier Pro（269热度）的概念，但面向中国普通用户，开发一个本地运行的桌面语音输入工具。核心特点：使用国产模型（如SenseVoice）或Whisper small，离线运行，延迟低于200ms，支持中英文混读、标点自动添加。对标讯飞输入法但更轻量、隐私安全（不上传服务器）。市场规模：中国PC用户超3亿，会议记录、写作、编程场景需求大。差异化：提供开发者API集成（付费）。盈利：基础版免费，Pro版（自定义词库+API）99元/年。",
+      "painPoint": "现有云语音输入依赖网络、延迟高、隐私敏感，讯飞PC版广告多。",
+      "path": [
+        "基于Whisper.cpp或SenseVoice编译轻量本地模型",
+        "开发Electron桌面应用，支持全局快捷键唤醒、实时转录",
+        "提供API服务供其他应用调用（按调用量付费）",
+        "先上架GitHub开源，通过Pro版盈利"
+      ],
+      "revenueModel": "API调用+Pro订阅，预估月收入：5000开发者调用API，月入1.5万",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Willow Frontier Pro在Product Hunt获得269分，强调'fastest, most accurate dictation'；国产AI输入法市场用户基数大但缺乏优质桌面离线方案",
+      "sources": [
+        {
+          "title": "Willow Frontier Pro - fastest dictation model",
+          "url": "https://www.producthunt.com/products/willow-voice?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "自然语言数据报告生成",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "可视化",
+        "商业智能",
+        "AI报告"
+      ],
+      "summary": "一句话生成可视化数据报告",
+      "description": "基于微软Flint可视化语言（HN热度253）的理念，开发一个面向国内中小企业的AI数据报告工具。用户用自然语言描述分析需求（如'展示近三个月各渠道销售额对比'），AI自动调用数据源、生成图表并输出可编辑报告。市场规模：国内BI工具市场超200亿，但Tableau/PowerBI学习成本高。差异化：无需SQL，直接对接Excel/API，报告可导出PPT/PDF。竞品如DataFocus偏英文。盈利：免费版限1个数据源，Pro版99元/月。",
+      "painPoint": "业务人员不会写SQL和做图表，数据分析门槛高。",
+      "path": [
+        "基于Flint语法构建中文自然语言到可视化配置的转译层",
+        "集成常见数据库（MySQL、PostgreSQL）及Excel上传",
+        "开发Web编辑器，支持拖拽微调报告",
+        "先服务小B客户，按年收费"
+      ],
+      "revenueModel": "99元/月订阅，预估月收入：100个企业用户，月入0.99万",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 5000元",
+      "difficulty": 5,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "微软Flint在HN上获得253分，简介强调'Data visualizations are the bridge between user and data'，说明构建可靠可视化Agent是行业痛点",
+      "sources": [
+        {
+          "title": "Microsoft Flint visualization language",
+          "url": "https://microsoft.github.io/flint-chart/#/"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Terraform风格Agent编排",
+      "category": "开发工具",
+      "market": "国内为主",
+      "tags": [
+        "AI Agent",
+        "基础设施即代码",
+        "YAML配置"
+      ],
+      "summary": "用YAML定义AI Agent工作流",
+      "description": "受Kastor（HN热度32）启发，开发一个轻量级的AI Agent编排平台，使用类似Terraform的声明式语法定义Agent行为、连接工具、触发条件。面向国内开发者，支持调用国内大模型（DeepSeek、通义千问等）。市场规模：AI Agent开发者群体快速增长（GitHub上huginn有49587 star）。差异化：中文文档、内置常用工具（飞书、钉钉、邮件）。盈利：开源社区版免费，企业版（私有部署+技术支持）1999元/年。",
+      "painPoint": "搭建多Agent协作系统需大量编码，缺乏统一配置管理。",
+      "path": [
+        "设计声明式YAML schema，定义Agent、工具、事件绑定",
+        "构建运行时引擎（Go或Rust编写），解析YAML并执行Agent",
+        "提供Web UI查看状态、日志",
+        "开源社区版积累用户，企业版收费"
+      ],
+      "revenueModel": "企业版1999元/年，预估月收入：10家小企业，月入1.66万",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 3000元",
+      "difficulty": 5,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Kastor在HN上获得32分，标题'Terraform-style specs for AI agents'直接点明需求；huginn仓库有49587星，表明开发者对Agent工具高度关注",
+      "sources": [
+        {
+          "title": "Kastor - Terraform-style specs for AI agents",
+          "url": "https://github.com/weirdGuy/kastor"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "国内创投公司数据API",
+      "category": "数据服务",
+      "market": "国内为主",
+      "tags": [
+        "YC数据",
+        "API服务",
+        "创业投资"
+      ],
+      "summary": "国内版ExploreYC，聚合企业/投资数据",
+      "description": "参考ExploreYC（Product Hunt热度399），但面向中国用户提供国内投资机构（红杉、高瓴、深创投等）及被投公司数据API。返回公司简介、融资轮次、团队成员、行业标签等。市场规模：国内有数百万创业者和投资者，企业数据查询需求大（企查查年费500+），但API服务少且贵。差异化：免费层每日100次调用，按调用次数付费（0.1元/次），数据来源公开爬取+合作。盈利：API调用费，月收入预测：5000次调用/天，月入1.5万。",
+      "painPoint": "开发者/创业者需要程序化获取创投数据，现有API昂贵或不开放。",
+      "path": [
+        "爬取公开数据源（IT桔子、36kr、企查查公开信息）并结构化",
+        "设计REST API，支持按公司名、领域、融资轮次查询",
+        "提供免费层吸引开发者，接入API文档",
+        "推广至独立开发者社群、投资研究工具"
+      ],
+      "revenueModel": "按API调用量付费，预估月入1.5万",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元（服务器+反爬）",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "ExploreYC在Product Hunt获得399热度，被评为'Open-source API for Y Combinator & a16z company data'，表明开发者对创投数据API有强烈需求",
+      "sources": [
+        {
+          "title": "ExploreYC - API for YC & a16z data",
+          "url": "https://www.producthunt.com/products/yc-company-explorer?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "AI远程物理控制桌面",
+      "category": "整活玩具",
+      "market": "国内为主",
+      "tags": [
+        "KVM",
+        "AI自动化",
+        "硬件控制"
+      ],
+      "summary": "让AI agent能操作任何屏幕",
+      "description": "受NanoKVM-Go（Product Hunt热度117）启发，开发一个基于软件+手机的AI物理控制方案：用手机摄像头+OTG模拟键鼠，让AI agent通过图像识别操作任何屏幕（电视、投影、老旧工业屏）。面向极客和开发者，用于自动化测试、家庭自动化。市场规模：KVM切换器市场全球20亿，但AI+物理控制是新兴需求。差异化：无需额外硬件，支持Android手机+Python脚本。盈利：卖教程/脚本库（99元），或与NanoKVM-Go合作分销。",
+      "painPoint": "AI agent无法直接操作物理设备（非数字接口），需要硬件KVM。",
+      "path": [
+        "开发手机客户端，通过ADB或HID模拟键鼠",
+        "集成OCR与目标检测模型，实现屏幕元素识别",
+        "提供脚本录制和回放功能",
+        "发布开源版+付费进阶教程"
+      ],
+      "revenueModel": "99元教程+脚本库，预估月入0.3万（初期小众）",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 4,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "NanoKVM-Go在Product Hunt获得117分，标语'Give your AI agent physical control over any screen'直接切入痛点；HN上Freeport（34分）亦涉及P2P硬件分享，表明AI+物理控制趋势",
+      "sources": [
+        {
+          "title": "NanoKVM-Go - physical control for AI agents",
+          "url": "https://www.producthunt.com/products/nanokvm-go?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "TypeScript 7升级实战课",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "TypeScript",
+        "Rust",
+        "迁移",
+        "教程"
+      ],
+      "summary": "教开发者快速迁移至TypeScript 7",
+      "description": "TypeScript 7发布（HN热度566），带来重大变更（如类型系统改进、性能提升），同时Bun重写为Rust（479热度）引发Rust+TS融合趋势。制作一套中文视频教程，涵盖从TS 5.x迁移到7.x的实战，以及如何在Bun的Rust运行时下优化TS项目。市场规模：TypeScript开发者超2000万，国内前端开发者占比大。差异化：免费录播课+付费1v1咨询（199元/次）。盈利：课程定价99元，预估售出200份，月入2万（首月集中推广）。",
+      "painPoint": "TypeScript大版本更新学习成本高，现有资料多为英文且碎片化。",
+      "path": [
+        "梳理TS 7新特性及与Bun/Rust的协同优势",
+        "录制5-8节短视频教程（每节15分钟），包含迁移案例",
+        "在B站/掘金发布免费部分引流，付费完整版",
+        "建立社群，提供答疑服务"
+      ],
+      "revenueModel": "99元课程+199元咨询，预估月入2万",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元（录音设备）",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "TypeScript 7公告在HN获得566分，热度极高；'Rewriting Bun in Rust' 获得479分，显示开发者对Rust+TS组合的强烈兴趣",
+      "sources": [
+        {
+          "title": "TypeScript 7 announcement",
+          "url": "https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/"
+        },
+        {
+          "title": "Bun rewriting in Rust",
+          "url": "https://bun.com/blog/bun-in-rust"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Claude替代方案聚合站",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "Claude",
+        "AI模型",
+        "替代方案",
+        "导航站"
+      ],
+      "summary": "国内可用AI模型聚合与评测指南",
+      "description": "V2EX上关于阿里全面禁用Claude的讨论（80分）引发焦虑，许多国内开发者需要替代方案。建立一个网站，聚合国内可用的AI模型（DeepSeek、通义千问、Kimi等），提供对比评测、价格、延迟、适用场景，并推荐接入方式（API、中转站）。市场规模：国内AI开发者/企业数百万，选择困惑。差异化：实时更新可用性、独立评测、社区评论。盈利：广告位（模型厂商投放）+ 付费内测报告。",
+      "painPoint": "国外模型被禁后无所适从，不知哪个国内模型替代最好。",
+      "path": [
+        "收集国内主流AI模型API信息，编写对比表格",
+        "开发简单静态站（Next.js+MDX），每日更新",
+        "撰写深度评测文章，吸引自然流量",
+        "与AI中转站合作（如V2EX上推广的gpt中转站），赚取佣金"
+      ],
+      "revenueModel": "广告+佣金，预估月入0.5万",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 300元（域名+服务器）",
+      "difficulty": 1,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "V2EX帖子'明后天阿里就全面禁用Claude了'获得80分，大量回复讨论替代方案；同时另一帖子'继续推广我的gpt中转站'获122分，说明中转站需求旺盛",
+      "sources": [
+        {
+          "title": "V2EX - 阿里禁用Claude讨论",
+          "url": "https://www.v2ex.com/t/1225928"
+        },
+        {
+          "title": "V2EX - GPT中转站推广",
+          "url": "https://www.v2ex.com/t/1225864"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "自托管聊天机器人即服务",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "Chatto",
+        "开源聊天",
+        "私有部署"
+      ],
+      "summary": "基于Chatto开源项目提供托管服务",
+      "description": "Chatto在HN开源获得920分，是一个现代聊天应用。针对国内中小团队需要内部聊天+AI助手的需求，提供基于Chatto的托管服务：一键部署在阿里云/腾讯云，集成国内大模型（通义千问、DeepSeek），支持文件传输、群聊、机器人等。市场规模：企业协作软件市场超千亿，但Slack被墙、飞书/钉钉功能太重。差异化：私有化部署、数据本地化、轻量级。盈利：按月收取托管费（99元/月/团队）。",
+      "painPoint": "中小企业需要私有化聊天工具，但自建成本高、维护复杂。",
+      "path": [
+        "Fork Chatto并添加中文UI、国内云镜像、一键部署脚本",
+        "集成主流国内LLM作为AI对话机器人",
+        "提供管理后台（用户管理、数据导出）",
+        "通过V2EX/开发者群推广，首月免费试用"
+      ],
+      "revenueModel": "99元/月/团队，预估月入0.3万（前30个团队）",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 2000元（服务器）",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Chatto开源在HN获得920分，极受欢迎；GitHub上大量聊天项目（如Mattermost）证明需求存在，但国内缺乏轻量托管",
+      "sources": [
+        {
+          "title": "Chatto is now open source",
+          "url": "https://www.hmans.dev/blog/chatto-is-open-source"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "通用网页自动化工作流",
+      "category": "自动化流程",
+      "market": "国内为主",
+      "tags": [
+        "RPA",
+        "自动化",
+        "LemonLime"
+      ],
+      "summary": "一句话启动复杂网页操作流程",
+      "description": "受LemonLime（Product Hunt热度160）启发，开发一个面向国内普通用户的网页自动化工具。用户用自然语言描述操作（如'每天上午10点登录邮箱，下载最新发票，发送到财务群'），工具自动转换为浏览器自动化脚本（基于Playwright）。市场规模：国内RPA市场超百亿，但传统RPA（Uibot）需要编程。差异化：自然语言驱动，支持定时触发、异常处理。盈利：免费版限2个流程，Pro版29元/月。",
+      "painPoint": "重复网页操作（数据录入、表单填写）耗时且易出错。",
+      "path": [
+        "使用Playwright+GPT-4o将自然语言转译成自动化脚本",
+        "开发Web界面，允许用户录制示例操作并修改",
+        "集成定时任务与通知（钉钉/飞书）",
+        "先面向电商运营、财务人员推广"
+      ],
+      "revenueModel": "29元/月Pro，预估月入0.58万（200用户）",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "LemonLime在Product Hunt获得160分，标语'Automates your existing workflows with a single prompt'验证需求；国内V2EX有人1个月AI赚1万，说明自动化工具能直接变现",
+      "sources": [
+        {
+          "title": "LemonLime - automate workflows via prompt",
+          "url": "https://www.producthunt.com/products/lemonlime?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        },
+        {
+          "title": "V2EX - AI时代月入1w",
+          "url": "https://www.v2ex.com/t/1225986"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49887,
+      "language": "TypeScript",
+      "insight": "学习React Query，提升前端数据管理效率",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "AlistGo",
+      "repo": "alist",
+      "description": "🗂️A file list/WebDAV program that supports multiple storages, powered by Gin and Solidjs. / 一个支持多存储的文件列表/WebDAV程序，使用 Gin 和 Solidjs。",
+      "url": "https://github.com/AlistGo/alist",
+      "starsToday": 49829,
+      "language": "Go",
+      "insight": "搭建多存储文件管理服务，满足个人或客户需求",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "huginn",
+      "repo": "huginn",
+      "description": "Create agents that monitor and act on your behalf.  Your agents are standing by!",
+      "url": "https://github.com/huginn/huginn",
+      "starsToday": 49587,
+      "language": "Ruby",
+      "insight": "构建自动化代理，实现个人工作流自动化",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "hesreallyhim",
+      "repo": "awesome-claude-code",
+      "description": "A hand-picked collection of the finest of resources for the most awesome of agents, Claude Code, the undisputed champion of coding companions, from the unstoppable team at Anthropic PBC. A delectable showcase of top tier skills, ambidextrous agents, scintillating status lines, top notch developer tooling, and also we have plugins",
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "starsToday": 49578,
+      "language": "Python",
+      "insight": "利用Claude Code资源，提升AI辅助编程效率",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49153,
+      "language": "Python",
+      "insight": "掌握Pandas，高效处理数据，支撑数据产品",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "1c7",
+      "repo": "chinese-independent-developer",
+      "description": "👩🏿‍💻👨🏾‍💻👩🏼‍💻👨🏽‍💻👩🏻‍💻中国独立开发者项目列表 -- 分享大家都在做什么",
+      "url": "https://github.com/1c7/chinese-independent-developer",
+      "starsToday": 49115,
+      "language": "",
+      "insight": "发现独立开发者项目，获取灵感与资源",
+      "opportunityType": "趋势",
+      "chinaFit": "high"
+    }
+  ]
+}
