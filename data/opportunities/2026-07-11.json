@@ -1,0 +1,466 @@
+{
+  "date": "2026-07-11",
+  "generatedAt": "2026-07-11T05:56:07.962Z",
+  "summary": "今日信号集中在AI能力跃迁（GPT-5.6证明数学难题）、Agent工作流工具爆发（Sim、Claude Code）、以及开发者对效率工具的强烈渴望（Flexbox拖拽推断、Chrome扩展生成）。国内V2EX上AI替代ERP和高期望落差的讨论，折射出中小企业对轻量AI管理工具的刚需。个人开发者机会在于将前沿AI能力封装为垂直小工具，或针对具体痛点的轻量SaaS。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "AI模型实时战力榜",
+      "category": "数据服务",
+      "market": "国内为主",
+      "tags": [
+        "AI评测",
+        "Benchmark",
+        "模型对比"
+      ],
+      "summary": "实时更新的中文AI模型性能对比站",
+      "description": "随着GPT-5.6、Claude Fable、Grok 4.5等模型密集发布，开发者和企业选型困难。目前缺乏一个面向中文场景、包含多维度得分（代码、数学、逻辑、翻译）且持续更新的对比平台。可设计为类‘CPU天梯图’形式，用户可提交测试题，自动跑分并展示RTF（实时反馈）。初期抓取公开评测数据+众包测试，后期接入API按次跑分。市场规模：国内AI开发者约300万，付费意愿强。差异化：聚焦中文benchmark，且允许用户自定义测试集。",
+      "painPoint": "模型太多，选型全靠看碎片化评测，缺乏统一、实时、可对比的参考。",
+      "path": [
+        "第一步：收集LeetCode、GSM8K、MMLU等常见benchmark的中文版数据，搭建评分引擎",
+        "第二步：开发前端展示页，支持按模型、按任务分类排序，接入GPT-5.6 API进行实时验证",
+        "第三步：开放用户自定义测试提交，众包丰富测试集，增加社区属性",
+        "第四步：上线付费API查询接口，供企业按需订阅比对报告"
+      ],
+      "revenueModel": "免费查看基础排行，高级API查询（月度套餐99-299元），预估月收入首月3000-8000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 5000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "V2EX帖子‘最近模型更新体验分享’（热度30）和Product Hunt上GPT-5.6发布获得288分，说明用户对模型对比有强烈需求。GitHub上awesome-claude-code获得49762 star，侧面证明AI工具选型热度极高。",
+      "sources": [
+        {
+          "title": "V2EX模型更新体验分享",
+          "url": "https://www.v2ex.com/t/1226389"
+        },
+        {
+          "title": "Product Hunt GPT-5.6",
+          "url": "https://www.producthunt.com/products/openai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        },
+        {
+          "title": "GitHub awesome-claude-code",
+          "url": "https://github.com/hesreallyhim/awesome-claude-code"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Chrome扩展安全卫士",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "Chrome扩展",
+        "安全扫描",
+        "代码审计"
+      ],
+      "summary": "自动检测Chrome扩展中的隐私泄露和恶意代码",
+      "description": "信号显示PlugThis（AI对话生成扩展）产品热度高达515分，大量非技术用户开始用AI创建Chrome扩展，但安全风险极高（键盘记录、数据窃取）。目前缺乏针对这类生成式扩展的自动化安全审计工具。可开发SaaS：用户上传扩展代码或链接，系统自动扫描静态分析（权限滥用、网络请求、动态注入），输出安全报告。目标用户：独立开发者、小团队。启动成本低，只需租用服务器和调用开源扫描引擎。差异化：专门针对AI生成的扩展案例库，检测模式持续更新。",
+      "painPoint": "AI随手生成的Chrome扩展有可能被植入恶意功能，普通用户无法识别安全风险。",
+      "path": [
+        "第一步：基于开源工具Chrome扩展分析器（如CRXcavator）构建检测规则库，增加AI生成扩展特有模式",
+        "第二步：开发Web上传入口，调用本地或服务器端扫描，返回可视化报告",
+        "第三步：提供免费抽查（限1个）和订阅制批量扫描（账户管理）",
+        "第四步：对接PlugThis等生成平台，提供API嵌入其创建流程"
+      ],
+      "revenueModel": "单次扫描19元，企业月卡199元/100次，预估月收入5000-15000元",
+      "timeToRevenue": "1.5个月",
+      "startupCost": "< 3000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "Product Hunt上PlugThis获得515分，表明AI创建扩展需求暴涨。而安全审计工具目前处于空白，官方Chrome Web Store审核不够严格，独立开发风险高。",
+      "sources": [
+        {
+          "title": "PlugThis – 通过聊天创建Chrome扩展",
+          "url": "https://www.producthunt.com/products/plugthis-chrome-extension-generator?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "抗衰老补剂成分百科",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "健康",
+        "补剂",
+        "抗衰老",
+        "科普"
+      ],
+      "summary": "带科学引用的补剂成分查询与对比站",
+      "description": "V2EX上关于抗衰老补剂锐拓龄的讨论热度34，多人询问是否智商税。国内用户对NMN、雷帕霉素、白藜芦醇等成分认知混乱，缺乏一个中立、可追溯科学文献的数据库。可搭建一个类似‘补剂维基’的站点，收录常见成分的机制、临床证据、副作用、价格区间。盈利靠联盟营销（亚马逊/淘宝返利）和内容付费（深度报告）。启动成本极低，只需域名+静态站+AI辅助整理内容。差异化：所有结论附带PubMed或DOI链接，增强可信度。",
+      "painPoint": "保健品市场鱼龙混杂，用户无法判断抗衰老补剂是否有效，花冤枉钱还可能伤身。",
+      "path": [
+        "第一步：梳理最常见20种抗衰老补剂成分（NMN、NAD+、白藜芦醇等），收集PubMed论文摘要",
+        "第二步：用Claude或GPT-5.6生成通俗解读并标注来源，结构化展示成分卡片",
+        "第三步：增加成分对比功能、用户评价和问答区，通过SEO获得自然流量",
+        "第四步：嵌入淘宝/亚马逊返利链接，推出付费《抗衰老补剂深度指南》电子书"
+      ],
+      "revenueModel": "电商返利（5-15%佣金）+ 电子书39元/份，预估月收入2000-6000元（6个月内）",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "V2EX热帖‘如何看最近很火的抗衰老补剂’（热度34）显示真实用户困惑，且提到‘AI科普说比以前科学很多’——说明AI可辅助生成可信内容。",
+      "sources": [
+        {
+          "title": "V2EX抗衰老补剂讨论",
+          "url": "https://www.v2ex.com/t/1226521"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "AI工作量评估器",
+      "category": "SaaS工具",
+      "market": "国内为主",
+      "tags": [
+        "AI项目管理",
+        "工作量评估",
+        "老板工具"
+      ],
+      "summary": "输入需求，AI自动评估开发工作量与风险",
+      "description": "V2EX帖子‘老板要求用AI几周完成一年的工作量’热度41，反映非技术老板对AI能力过度预期，导致开发者被压榨。该工具可解决此矛盾：用户粘贴需求描述，系统调用大模型分析功能点，参考同类项目历史数据，输出人天估算、技术风险、依赖项等，并给出建议（如‘该需求实际需要8周×3人’）。目标用户：开发者自保、项目管理者、外包接单者。启动成本：调用GPT-5.6 API + 简单Web界面。差异化：引入’悲观/乐观/一般’三档模型，并支持导出PDF。",
+      "painPoint": "老板/客户对AI能力不了解，要求不切实际的工期，导致团队加班或背锅。",
+      "path": [
+        "第一步：设计需求输入模板（功能点列表、技术栈、团队规模等），用GPT-5.6进行结构化解析",
+        "第二步：建立历史项目数据库（抓取开源项目Issue和PR数据作为参照）",
+        "第三步：开发量化评估算法，输出人天、风险等级、建议资源",
+        "第四步：上线免费试用3次，之后按次收费或包月"
+      ],
+      "revenueModel": "单次评估9.9元，月卡49元/10次，预计月收入3000-10000元",
+      "timeToRevenue": "1.5个月",
+      "startupCost": "< 5000元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "V2EX帖子‘老板要求用AI几周完成一年的工作量’获得41热度，评论区大量共鸣，说明这是普遍痛点。同时Product Hunt上GPT-5.6以288分发布，证明其推理能力可支撑该场景。",
+      "sources": [
+        {
+          "title": "V2EX后续: 老板要求用AI几周完成一年的工作量",
+          "url": "https://www.v2ex.com/t/1226380"
+        },
+        {
+          "title": "Product Hunt GPT-5.6",
+          "url": "https://www.producthunt.com/products/openai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "CSS布局拖拽生成器",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "CSS",
+        "Flexbox",
+        "学习工具",
+        "拖拽"
+      ],
+      "summary": "拖拽盒子实时生成Flexbox代码的学习工具",
+      "description": "HN上信号‘Drag boxes around and watch a layout engine infer the Flexbox (no AI)’热度5，虽不高但概念新颖。当前CSS布局对新手极不友好，许多在线教程交互弱。该工具可做成交互式教学平台：用户拖拽屏幕上的方块，系统自动推断出对应的Flexbox/Grid CSS代码，并实时展示布局变化。适用于前端初学者、在校学生。可加入游戏化（闯关找布局）提升留存。启动成本：纯前端，无需后端。差异化：突出‘反向推断’而非简单代码预览，类似‘CSS Diner’但更强大。",
+      "painPoint": "学习Flexbox和Grid时难以理解抽象属性与视觉结果的关系，缺乏直观反馈工具。",
+      "path": [
+        "第一步：实现核心拖拽引擎，监听盒子的位置和大小变化",
+        "第二步：编写逆推算法，将盒子的实际位置转换为flex-direction、justify-content等属性值",
+        "第三步：搭建教程页面，内置从易到难的布局挑战（如水平居中、圣杯布局）",
+        "第四步：部署为免费Web应用，通过赞助或Pro版（导出React组件）盈利"
+      ],
+      "revenueModel": "免费基础版，Pro会员（导出代码、无广告）19元/月，预估月收入2000-5000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "HN上该Show HN虽只有5分，但评论积极，且GitHub上htmx（48412 star）和tldraw（48693 star）代表前端工具需求旺盛。类似学习工具如‘Flexbox Froggy’依然很受欢迎。",
+      "sources": [
+        {
+          "title": "Show HN: 拖拽盒子推断Flexbox（无AI）",
+          "url": "https://wpconverters.com/playground/"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Agent工作流调试器",
+      "category": "自动化流程",
+      "market": "国内为主",
+      "tags": [
+        "AI Agent",
+        "工作流",
+        "调试",
+        "可视化"
+      ],
+      "summary": "可视化监控和调试AI Agent工作流执行过程",
+      "description": "Product Hunt上Sim（开源AI Agent工作空间）获591分，Huginn（49595 star）也用于构建代理。然而Agent工作流（多步推理、工具调用）很难调试，一旦出错难以定位是提示词问题还是工具问题。该工具可嵌入Agent运行时，记录每一步的输入输出、时间消耗、错误日志，并以时间线形式可视化展示。目标用户：使用LangChain、AutoGPT、Claude Code等的开发者。启动快，可作为VS Code插件或Web面板。差异化：支持分布式追踪和回放执行轨迹。",
+      "painPoint": "AI Agent执行过程像黑箱，出错后无法快速定位是计划错误、工具错误还是LLM幻觉。",
+      "path": [
+        "第一步：定义Agent执行事件的标准化日志格式（JSONL），与主流框架SDK集成",
+        "第二步：开发前端仪表盘，展示流程图、时间线、token消耗，支持按步骤搜索",
+        "第三步：集成LangChain、CrewAI等框架，作为插件提供一键安装",
+        "第四步：推出付费版（团队协作、历史审计、告警规则）"
+      ],
+      "revenueModel": "免费单人使用，Team版99元/月（5席位），预估月收入5000-15000元",
+      "timeToRevenue": "2.5个月",
+      "startupCost": "< 8000元",
+      "difficulty": 5,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "Product Hunt上Sim获得591分，Huginn在GitHub有49595 star，反映Agent工具热度极高。但现有工具侧重创建工作流，忽略后期调试，市场空白。",
+      "sources": [
+        {
+          "title": "Product Hunt Sim Studio",
+          "url": "https://www.producthunt.com/products/sim-studio?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        },
+        {
+          "title": "GitHub Huginn",
+          "url": "https://github.com/huginn/huginn"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "RF频谱可视化工具",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "无线电",
+        "RF",
+        "可视化",
+        "桌面工具"
+      ],
+      "summary": "低成本RF信号可视化与基础分析桌面应用",
+      "description": "HN上QuadRF项目（热度520）展示了通过硬件探测无人机和WiFi的能力，引起极大关注。个人开发者可开发一款支持RTL-SDR等平价接收器的RF频谱可视化桌面工具，提供瀑布图、信号识别（WiFi/蓝牙/无人机）、简单解调。适用于业余无线电爱好者、物联网开发者、安防入门者。启动成本：自己一台RTL-SDR（约100元）+ Electron + Python后端。可打包为跨平台应用。差异化：简洁UI，内置常见信号特征库，一键导出截图。",
+      "painPoint": "开源RF工具（如GQRX、rtl_power）界面复杂、学习曲线陡，新手难以上手。",
+      "path": [
+        "第一步：基于Python（pyrtlsdr、libhackrf）实现频谱数据采集和FFT处理",
+        "第二步：用Electron或Tauri构建跨平台GUI，绘制瀑布图和频谱图",
+        "第三步：集成简单信号分类器（频率、带宽匹配预设规则）",
+        "第四步：发布免费版+付费Pro（信号录制回放、频率扫描告警）"
+      ],
+      "revenueModel": "免费基础版，Pro版49元（永久），预估月收入1500-4000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 4,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "HN上QuadRF获得520高热度，说明RF技术话题吸引力强。国内业余无线电爱好者活跃，缺少现代易用的桌面工具。",
+      "sources": [
+        {
+          "title": "QuadRF 可探测无人机和WiFi",
+          "url": "https://www.jeffgeerling.com/blog/2026/quadrf-can-spot-drones-and-see-wifi-through-my-wall/"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "AI进销存助手",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "进销存",
+        "ERP",
+        "电商",
+        "语音"
+      ],
+      "summary": "面向小商家的AI语音进销存管理工具",
+      "description": "V2EX上‘用AI做了完整的ERP’帖子热度47，表明中小电商对廉价ERP的强烈需求。但传统ERP功能臃肿，独立开发者无法复刻。可聚焦最核心的进销存，以AI语音对话+截图交互方式降低使用门槛。用户通过微信小程序或网页说‘今天进了50件T恤’，系统自动更新库存、计算毛利、生成补货建议。目标用户：淘宝/拼多多/抖音小商家、实体店主。启动成本：调用语音转文字API + 简单数据库。差异化：重视‘说话就能管货’，且支持离线语音（预览版）。",
+      "painPoint": "小商家买不起商业ERP，Excel管理复杂易出错，AI却能通过自然语言直接记账。",
+      "path": [
+        "第一步：设计语音指令集（入库、出库、盘点、查询），用GPT-5.6解析意图和参数",
+        "第二步：开发小程序前端 + 后端数据库（如Supabase免费层）",
+        "第三步：实现核心库存逻辑：自动计算加权平均成本、安全库存提醒",
+        "第四步：上线免费试用30天，后续按订单量收费（月费19/49/99元）"
+      ],
+      "revenueModel": "按月订阅（基础版19元，专业版49元），预估月收入3000-12000元（拓客后）",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 5000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "V2EX帖子‘用AI做了完整的ERP’（热度47）和‘老板要求AI几周完成一年工作量’（热度41）均指向中小企业对AI管理工具的渴求。GitHub上AlistGo/alist（49843 star）也说明自建文件/工具管理需求大。",
+      "sources": [
+        {
+          "title": "V2EX用AI做了完整ERP",
+          "url": "https://www.v2ex.com/t/1226505"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "多模态API聚合平台",
+      "category": "数据服务",
+      "market": "国内为主",
+      "tags": [
+        "多模态",
+        "API",
+        "聚合",
+        "模型"
+      ],
+      "summary": "统一接口调用多模态模型（图像、视频、音频）",
+      "description": "Product Hunt上Meta Muse Spark 1.1（热度123）展示多模态推理能力。目前OpenAI、Anthropic、Google等多模态API分散，各自格式不同，开发者在切换使用时成本高。可搭建一个中转层：将所有多模态API标准化为OpenAI兼容格式，提供负载均衡、fallback、成本优化。目标用户：AI应用开发者、独立产品经理。启动需注册各平台API和服务器。差异化：针对多模态（图片+文本、视频+音频）的场景优化，而非纯文本。且支持国内可用的模型（如通义千问视觉）。",
+      "painPoint": "为了测试不同多模态模型，需要分别阅读文档、注册账号、支付，集成成本高。",
+      "path": [
+        "第一步：梳理主流多模态API（GPT-5.6 Vision、Claude Vision、Gemini、通义千问等），创建转发服务",
+        "第二步：采用与One API类似的架构，但专门处理图像、音频编码和响应格式",
+        "第三步：增加缓存层（相同图片/文本命中缓存不再重复请求）",
+        "第四步：上线后按请求量计费，提供免费额度吸引开发者"
+      ],
+      "revenueModel": "每百万token收取0.5元服务费，或预充值套餐，预估月收入5000-20000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 5000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Product Hunt上Muse Spark 1.1获123分，表明多模态推理是当前热点。同时GitHub上CherryHQ/cherry-studio（48429 star）提供统一AI入口，但专精多模态API的中转平台仍有空白。",
+      "sources": [
+        {
+          "title": "Product Hunt Muse Spark 1.1",
+          "url": "https://www.producthunt.com/products/muse-spark-1-1-by-meta?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Linux漏洞一键扫",
+      "category": "开发工具",
+      "market": "国内为主",
+      "tags": [
+        "安全",
+        "Linux",
+        "漏洞扫描",
+        "GhostLock"
+      ],
+      "summary": "快速检测Linux系统15年堆UAF漏洞的工具",
+      "description": "HN上GhostLock漏洞披露（热度59）显示一个存在15年的堆UAF漏洞影响所有Linux发行版。许多运维或独立开发者没有精力手动检测。可开发一个轻量级命令行工具（Shell脚本+Rust），自动检查系统内核版本、glibc版本、相关配置，并比对CVE数据库输出风险等级和修复建议。可扩展为支持其他常见Linux本地提权漏洞。启动成本极低，只需开发脚本+维护漏洞数据库。差异化：集成流行漏洞一键检测，输出可读报告，支持邮件告警。",
+      "painPoint": "Linux安全漏洞层出不穷，运维人员难以手动跟踪每个CVE并及时检测本地系统是否受影响。",
+      "path": [
+        "第一步：编写cve-2026-xxxx-check脚本，针对GhostLock特征检测（socket缓冲区情况、内核模块版本）",
+        "第二步：建立CVE数据库（SQLite），每月更新，脚本联网查询",
+        "第三步：开发终端UI（colorful输出）和HTML报告导出",
+        "第四步：打包为RPM/DEB包，发布到GitHub并支持Homebrew安装；提供付费商业版（补丁管理、定时扫描）"
+      ],
+      "revenueModel": "开源免费，商业版（集中扫描+告警）499元/年/节点，预估月收入2000-5000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "HN上GhostLock漏洞（热度59）引发关注，评论许多用户询问‘我的系统受影响吗？’，但现有工具（如Lynis）不够专注。",
+      "sources": [
+        {
+          "title": "GhostLock堆UAF漏洞",
+          "url": "https://nebusec.ai/research/ionstack-part-2/"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "数学证明可视化解说器",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "数学",
+        "GPT-5.6",
+        "证明",
+        "可视化"
+      ],
+      "summary": "将AI生成的数学证明转化为交互式可视化教程",
+      "description": "GPT-5.6 Sol Ultra生成Cycle Double Cover Conjecture的PDF证明（HN热度408），证明复杂且抽象。全球数学爱好者（尤其是学生）渴望理解前沿证明但苦于门槛高。可利用大模型极强的解释能力，将证明拆解为步骤，配上交互式图形（如graph visualization、动画）和关键引理弹出解释。目标用户：大学生、数学爱好者。启动方式：选取GPT-5.6已生成的证明，用HTML/Canvas制作交互页面，再用AI辅助生成中文/英文解说法。差异化：第一个聚焦AI生成证明的可视化平台，具有话题性。",
+      "painPoint": "前沿数学证明极其晦涩，普通人无法理解，即使有AI生成的证明文本也缺乏直观图形辅助。",
+      "path": [
+        "第一步：选择GPT-5.6证明的Cycle Double Cover Conjecture，手动提取关键推理步骤（约10步）",
+        "第二步：使用D3.js或Manim为每一步制作动画和可交互图（图论中的圈覆盖）",
+        "第三步：编写通俗解说脚本，用GPT-5.6翻译为中英文，添加旁白",
+        "第四步：上线为免费网站，通过赞助和付费‘挑战题’（引导用户自己尝试证明）盈利"
+      ],
+      "revenueModel": "免费，可接受捐赠和赞助；后续推出系列视频课程99元/套，预估月收入1000-3000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 4,
+      "potential": 4,
+      "competition": "低",
+      "evidence": "HN上GPT-5.6证明获得408高分，评论区好奇者众多。GitHub上Julia（49010 star）等数理工具热度高，说明数学社区活跃。该可视化可借GPT-5.6的东风获得初始流量。",
+      "sources": [
+        {
+          "title": "GPT-5.6证明Cycle Double Cover Conjecture PDF",
+          "url": "https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf"
+        },
+        {
+          "title": "HN GPT-5.6 Sol Ultra产生证明",
+          "url": "https://9to5mac.com/2026/07/10/apple-sues-openai-trade-secret-theft/"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49962,
+      "language": "TypeScript",
+      "insight": "可基于此构建数据管理 SaaS 或提升前端开发效率",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "AlistGo",
+      "repo": "alist",
+      "description": "🗂️A file list/WebDAV program that supports multiple storages, powered by Gin and Solidjs. / 一个支持多存储的文件列表/WebDAV程序，使用 Gin 和 Solidjs。",
+      "url": "https://github.com/AlistGo/alist",
+      "starsToday": 49843,
+      "language": "Go",
+      "insight": "快速搭建多存储文件管理服务，商用或自用皆可",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "hesreallyhim",
+      "repo": "awesome-claude-code",
+      "description": "A hand-picked collection of the finest of resources for the most awesome of agents, Claude Code, the undisputed champion of coding companions, from the unstoppable team at Anthropic PBC. A delectable showcase of top tier skills, ambidextrous agents, scintillating status lines, top notch developer tooling, and also we have plugins",
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "starsToday": 49762,
+      "language": "Python",
+      "insight": "了解 AI 编程伴侣前沿，辅助开发提升效率",
+      "opportunityType": "趋势",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "skylot",
+      "repo": "jadx",
+      "description": "Dex to Java decompiler",
+      "url": "https://github.com/skylot/jadx",
+      "starsToday": 49648,
+      "language": "Java",
+      "insight": "逆向分析 APK 文件，可做安全审计或二次开发工具",
+      "opportunityType": "学习",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "huginn",
+      "repo": "huginn",
+      "description": "Create agents that monitor and act on your behalf.  Your agents are standing by!",
+      "url": "https://github.com/huginn/huginn",
+      "starsToday": 49595,
+      "language": "Ruby",
+      "insight": "自建自动化监控与行动代理，替代 IFTTT 等商业服务",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "hashicorp",
+      "repo": "terraform",
+      "description": "Terraform enables you to safely and predictably create, change, and improve infrastructure. It is a source-available tool that codifies APIs into declarative configuration files that can be shared amongst team members, treated as code, edited, reviewed, and versioned.",
+      "url": "https://github.com/hashicorp/terraform",
+      "starsToday": 49217,
+      "language": "Go",
+      "insight": "掌握基础设施即代码，提升云上运维与就业竞争力",
+      "opportunityType": "就业",
+      "chinaFit": "high"
+    }
+  ]
+}
