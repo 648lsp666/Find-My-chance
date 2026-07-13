@@ -1,0 +1,460 @@
+{
+  "date": "2026-07-13",
+  "generatedAt": "2026-07-13T06:34:25.831Z",
+  "summary": "今日信号集中在AI Agent生态碎片化（MCP规范合规率仅0.023%）、品牌AI可见性监控需求、AI生成内容鉴别刚需，以及独立开发者高频迭代与跨渠道分发痛点。这些方向为中国独立开发者提供了低启动成本、短周期可见收益的副业切入机会。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "MCP合规检测器",
+      "category": "开发工具",
+      "market": "出海为主",
+      "tags": [
+        "MCP",
+        "服务器监控",
+        "AI基础设施"
+      ],
+      "summary": "扫描MCP服务器版本并提示兼容性",
+      "description": "MCP（Model Context Protocol）生态快速扩张，目前公开可访问的4,356个MCP服务器中仅有1个符合2026-07-28规范，绝大多数Agent集成时遭遇兼容性问题。本工具提供轻量级API或CLI，输入服务器地址即可检测MCP版本、接口完整性、安全漏洞，自动生成升级建议。面向AI Agent开发者、MCP插件市场、企业内部AI平台团队，销售周期短。可先做免费公开扫描页面引流，再推出私有部署版。",
+      "painPoint": "MCP服务器版本混乱，Agent集成时经常出错，手动排查耗时且无统一标准。",
+      "path": [
+        "基于开源MCP规范实现核心检测算法，支持HTTP和SSE协议",
+        "搭建静态前端页面，提供输入URL立即检测的功能",
+        "部署为免费公共工具，在HN、GitHub、Twitter/X宣发",
+        "根据反馈扩展企业版（定时扫描、告警、私有部署），定价199元/月"
+      ],
+      "revenueModel": "公开页面免费＋企业版订阅。预估月收入：早期接20家企业客户，约4000元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "信号显示：4,356个可访问的MCP服务器中仅1个符合最新规范，兼容性问题普遍存在（来源：GitHub上mcp-spec-check仓库作者实测）。",
+      "sources": [
+        {
+          "title": "Show HN: Only 1 of 4,356 reachable MCP servers is ready for the 2026-07-28 spec",
+          "url": "https://github.com/Roee-Tsur/mcp-spec-check"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "品牌AI提及监控",
+      "category": "企业服务",
+      "tags": [
+        "品牌监控",
+        "AI搜索",
+        "舆情"
+      ],
+      "summary": "追踪大模型如何描述你的品牌",
+      "description": "随着越来越多用户用ChatGPT、Claude、Gemini获取信息，品牌在这些模型中的描述直接影响潜在客户决策。产品AI Visibility（Product Hunt上552分热度）验证了需求。国内大模型（文心、通义、月之暗面等）同样存在品牌印象偏差。本工具定时向主流中文大模型提问品牌相关短语，记录并对比正面/负面/中性描述，生成舆情报告。支持API接入，适合市场部、公关公司和中小企业。",
+      "painPoint": "企业无法主动监控AI模型对其品牌的看法，负面描述比搜索引擎更难发现和纠正。",
+      "path": [
+        "编写脚本调用文心一言、通义千问、Kimi等公开API，设定标准品牌提问模板",
+        "搭建后台日志存储和简单可视化面板（每日品牌得分）",
+        "开发免费版：监控1个品牌、每日10次查询；付费版：多品牌、高频、预警",
+        "在36氪、少数派、V2EX推广，目标中小企业和SaaS创始人"
+      ],
+      "revenueModel": "免费版引流，99元/月（监控1品牌）或299元/月（5品牌）。预估月收入：起步阶段50个付费用户，约5000元。",
+      "timeToRevenue": "1.5个月",
+      "startupCost": "< 2000元",
+      "difficulty": 2,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "Product Hunt上AI Visibility产品获得552分热度，说明品牌对AI搜索中自身形象的监控需求强烈（来源：Product Hunt AI Visibility页面）。",
+      "sources": [
+        {
+          "title": "AI Visibility: Check how ChatGPT, Gemini and Claude talk about your brand",
+          "url": "https://www.producthunt.com/products/ai-visibility?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "AI文本痕迹检测（中文）",
+      "category": "内容创作",
+      "tags": [
+        "AI检测",
+        "原创性",
+        "文字识别"
+      ],
+      "summary": "识别中文文章中的AI写作痕迹",
+      "description": "V2EX上帖子《有哪些词让你一看到就觉得是AI写的？》获得48个点赞，评论区热议“边界”“赋能”“交互”等AI高频词。目前多数AI检测工具（如GPTZero）对中文支持差。本工具结合字频、句长分布、常用AI废话模式（堆砌术语、重复结构），提供百分制AI评分和具体可疑段落标注。面向自媒体编辑、内容平台审核、高校老师。可用浏览器插件或Web API形式。",
+      "painPoint": "中文环境下缺少有效的AI文本检测工具，现有英文检测器误判率高。",
+      "path": [
+        "收集大量中文AI生成文本和人类文本（知乎、博客、公众号），提取特征",
+        "训练轻量分类模型（或基于规则+简单统计），实现Web版检测",
+        "发布为免费在线工具，在V2EX、少数派、知乎推广",
+        "推出API付费版：1000次10元，供内容平台批量审核"
+      ],
+      "revenueModel": "免费在线检测引流，API付费按量计费。预估月收入：初期调用量50万次，收入5000元。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1500元",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "V2EX帖子《有哪些词让你一看到就觉得是AI写的？》获得48个回复，列举了“边界”“赋能”等典型AI用词，表明开发者群体对AI写作痕迹的辨别需求（来源：V2EX帖子）。",
+      "sources": [
+        {
+          "title": "有哪些词让你一看到就觉得是 AI 写的？",
+          "url": "https://www.v2ex.com/t/1226775"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "AI图片真伪溯源",
+      "category": "内容创作",
+      "tags": [
+        "AI图像",
+        "防伪",
+        "数字水印"
+      ],
+      "summary": "检测图片是否由AI生成并追溯源头",
+      "description": "少数派文章《你这图「保真」吗？AI生图时代的信息防伪》引发热议。主流AI生图模型（Midjourney、Stable Diffusion、DALL·E）在元数据中隐含特征。本工具解析图片的Exif、DCT统计、噪声模式，结合公开AI模型指纹库，输出AI生成概率和可能使用的模型。也可集成C2PA标准验证。面向新闻机构、社交媒体平台、普通网民。初期提供免费在线检测，后期推出API和浏览器扩展。",
+      "painPoint": "AI生成的虚假图片泛滥，普通用户难以分辨，媒体机构急需低成本真伪验证方案。",
+      "path": [
+        "研究主流AI生图模型的输出特征（元数据、像素统计），建立指纹库",
+        "开发前端上传页面，后端调用Python脚本检测",
+        "部署为免费公共工具，在Hacker News、少数派、知乎宣传",
+        "推出API接口（0.1元/次）和企业批量检测套餐（199元/月）"
+      ],
+      "revenueModel": "免费检测引流，API付费。预估月收入：企业客户+散户调用量共300元/天，月入9000元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "少数派文章《你这图「保真」吗？AI生图时代的信息防伪》直接触达中文读者对AI图像鉴别需求（来源：少数派文章）。",
+      "sources": [
+        {
+          "title": "你这图「保真」吗？AI 生图时代的信息防伪",
+          "url": "https://sspai.com/post/112185"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "跨渠道内容分发器",
+      "category": "自动化流程",
+      "tags": [
+        "多平台发布",
+        "SEO",
+        "自动化"
+      ],
+      "summary": "一键同步文章到Dev.to、知乎等平台",
+      "description": "IndieHackers上开发者分享在6个月内用dev.to、Hashnode、Bluesky、YouTube等跨渠道分发替代SEO耐心的策略，获得验证。国内有类似需求：独立开发者写完博客要手动同步到公众号、知乎、掘金、CSDN等多个平台。本工具提供Markdown编写、格式适配（tag、封面图、排版）、定时发布功能。支持webhook和GitHub Action自动同步。先针对开发者社区，后期扩展通用自媒体。",
+      "painPoint": "独立开发者内容精力有限，手动分发耗时且容易遗漏平台，难以维持多平台活跃度。",
+      "path": [
+        "调研几个主流中文技术社区的API或手动发布流程，设计模板化转换",
+        "用Node.js实现基础同步引擎，支持掘金、知乎、公众号（借助第三方发布接口）",
+        "开发Web界面，提供发布历史和管理面板",
+        "定价9.9元/月（个人版），99元/月（团队版含定时、批量）"
+      ],
+      "revenueModel": "月订阅制。预估月收入：吸引200个独立开发者付费，约2000元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "IndieHackers文章《Why I'm betting cross-channel distribution beats SEO patience in months 1-6》详细描述了测试跨渠道分发代替SEO的6个月策略，表明该模式已被实践验证（来源：dev.to文章）。",
+      "sources": [
+        {
+          "title": "Why I'm betting cross-channel distribution beats SEO patience in months 1-6",
+          "url": "https://dev.to/morinaga/why-im-betting-cross-channel-distribution-beats-seo-patience-in-months-1-6-4el8"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "动态OG图即服务",
+      "category": "SaaS工具",
+      "tags": [
+        "OG图像",
+        "社交媒体",
+        "可视化编辑"
+      ],
+      "summary": "可视化编辑并自动生成动态OG图",
+      "description": "Product Hunt上OGCanvas获得17分热度，显示开发者对动态OG图的需求。国内独立开发者项目常忽略OG图，导致分享到微信、微博时卡片丑陋。本工具提供拖拽式模板编辑，支持变量（标题、作者、阅读量等）实时渲染，部署为SaaS。免费版可每月生成50张，付费版99元/月无限生成。还可提供Node.js API供开发者集成到博客系统。",
+      "painPoint": "开发者不擅长设计，手动制作OG图效率低，项目分享时缺乏吸引眼球的社会化卡片。",
+      "path": [
+        "使用React+Canvas绘制OG图编辑器核心，内置10个模板",
+        "搭建后端渲染服务（Puppeteer或Sharp），生成PNG/JPEG",
+        "部署为Web应用，提供免费试用和付费订阅",
+        "在V2EX、GitHub、Product Hunt宣传，目标独立开发者和小团队"
+      ],
+      "revenueModel": "Freemium订阅。预估月收入：100个付费用户，约9900元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "Product Hunt上OGCanvas产品获得17票，表明动态OG图编辑工具有市场需求（来源：Product Hunt OGCanvas页面）。",
+      "sources": [
+        {
+          "title": "OGCanvas: A visual editor for dynamic Open Graph images",
+          "url": "https://www.producthunt.com/products/ogcanvas?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "邮件转任务同步桥",
+      "category": "SaaS工具",
+      "tags": [
+        "邮件",
+        "项目协作",
+        "自动化"
+      ],
+      "summary": "将客户邮件自动转为Issue跟踪",
+      "description": "Product Hunt上ServiceBeard获得154分热度，实现邮箱与issue追踪器双向同步。中国开发者同样面临客户邮件散落、无法统一跟踪的问题。本工具支持对接Gmail/163/QQ邮箱，自动提取关键信息（主题、发件人、时间），创建到GitHub Issues/飞书多维表格/企业微信任务。支持规则过滤和AI摘要。面向自由职业者和小型外包团队。",
+      "painPoint": "客户通过邮件沟通需求后，开发者需手动搬运到任务管理工具，容易遗漏或混淆。",
+      "path": [
+        "用IMAP协议读取邮箱，解析邮件结构，提供webhook目标创建Issue",
+        "支持主流目标：GitHub Issues、飞书、DingTalk、Trello",
+        "开发配置页面，用户自定义规则（按发件人/主题关键字自动分配）",
+        "免费试用100封/月，付费39元/月（无限）。"
+      ],
+      "revenueModel": "按月订阅。预估月收入：50个付费用户，约1950元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Product Hunt上ServiceBeard获得154分热度，说明邮件与issue同步的痛点被广泛认可（来源：Product Hunt ServiceBeard页面）。",
+      "sources": [
+        {
+          "title": "ServiceBeard: Sync your mailbox with your issue tracker",
+          "url": "https://www.producthunt.com/products/servicebeard?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "AI分心阻断插件",
+      "category": "本地服务",
+      "tags": [
+        "专注",
+        "AI拦截",
+        "浏览器扩展"
+      ],
+      "summary": "用AI识别并屏蔽分心内容",
+      "description": "Product Hunt上LockIn for Chrome获得25分热度，主打AI distraction blocking。国内用户同样面临社交媒体、短视频的注意力劫持。本插件可在后台运行轻量AI模型或调用API，实时分析用户正在浏览的页面，判断是否为“分心内容”（如八卦、购物、游戏），拦截前弹出确认。支持自定义白名单和专注时段。面向学生、程序员、远程工作者。",
+      "painPoint": "传统网站拦截需要手动添加黑白名单，无法智能识别动态分心内容。",
+      "path": [
+        "开发Chrome扩展基础框架：内容脚本+后台服务通信",
+        "集成简单分类API（如调用免费AI接口或本地TinyML），标注页面类型",
+        "实现弹窗拦截、统计专注时长等功能",
+        "在Chrome Web Store发布，定价15元/月或一次性99元买断"
+      ],
+      "revenueModel": "免费基础版（10次AI检测/天）＋付费版。预估月收入：200付费用户，约3000元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "Product Hunt上LockIn for Chrome产品获得25分，描述为'Increase productivity with AI distraction blocking'，直接验证AI阻断分心模式（来源：Product Hunt LockIn页面）。",
+      "sources": [
+        {
+          "title": "LockIn for Chrome: Increase productivity with AI distraction blocking",
+          "url": "https://www.producthunt.com/products/lockin-mcp?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "API集成测试记忆器",
+      "category": "开发工具",
+      "tags": [
+        "API测试",
+        "回归",
+        "自动化"
+      ],
+      "summary": "记录API历史失败案例并预警重复问题",
+      "description": "Product Hunt上FetchSandbox获383分热度，主打'remembers what breaks'。国内开发者在集成第三方API时经常遇到同样错误反复出现（如鉴权过期、接口参数变化）。本工具拦截用户发起的API请求，记录响应状态，建立失败案例知识库。下次相同请求触发时自动提醒'上次遇到XX问题'。也可作为CI步骤嵌入，比传统postman更智能。面向API重度使用者、后端团队。",
+      "painPoint": "API集成中同类型bug反复出现，调试浪费大量时间，缺乏积累机制。",
+      "path": [
+        "基于MITM代理或Service Worker拦截HTTP请求，存储hash+响应快照",
+        "开发浏览器插件或本地CLI工具，提供历史对比和预警",
+        "加入免费单人版，Pro版支持团队共享和告警，49元/月",
+        "在V2EX、GitHub、掘金推广，重点强调'AI辅助记忆'概念"
+      ],
+      "revenueModel": "Freemium。预估月收入：100个Pro用户，约4900元。",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2500元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Product Hunt上FetchSandbox获得383分热度，描述为'API integration testing that remembers what breaks'，直接证明市场对记忆性API测试工具有强需求（来源：Product Hunt FetchSandbox页面）。",
+      "sources": [
+        {
+          "title": "FetchSandbox: API integration testing that remembers what breaks",
+          "url": "https://www.producthunt.com/products/fetchsandbox?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "极简分析仪表盘",
+      "category": "SaaS工具",
+      "tags": [
+        "数据分析",
+        "可视化",
+        "轻量化"
+      ],
+      "summary": "漂亮且极简的网站分析面板",
+      "description": "Product Hunt上Mochi Analytics获得23分热度，主打'analytics you would actually want to look at'。传统的Google Analytics、Umami等对独立开发者来说过于复杂或缺乏美感。本工具聚焦核心指标（PV、UV、留存、页面停留时间），UI追求优雅简洁，支持自定义图表和邮件日报。优先集成自托管数据源（Plausible、Nginx日志等），也可直接嵌入JS代码。面向个人网站、独立产品。",
+      "painPoint": "现有分析工具UI臃肿，独立开发者需要一眼看清关键数据而非复杂报表。",
+      "path": [
+        "选定技术栈（Vue3+ECharts），设计清爽的仪表盘模板",
+        "接入Plausible API或自行开发轻量后端收集数据",
+        "部署在线版本，免费版支持1个站点1000PV/月",
+        "付费版29元/月（无限PV、多站点）"
+      ],
+      "revenueModel": "Freemium。预估月收入：300付费用户，约8700元。",
+      "timeToRevenue": "1.5个月",
+      "startupCost": "< 2000元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Product Hunt上Mochi Analytics产品获得23分，强调'analytics you would actually want to look at'，说明对美观极简分析工具有需求（来源：Product Hunt Mochi Analytics页面）。",
+      "sources": [
+        {
+          "title": "Mochi Analytics: Analytics you would actually want to look at",
+          "url": "https://www.producthunt.com/products/mochi-analytics?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "模板收敛检测工具",
+      "category": "开发工具",
+      "tags": [
+        "SEO",
+        "程序化站点",
+        "内容重复"
+      ],
+      "summary": "检测程序化网站页面间的相似度",
+      "description": "IndieHackers文章《What I learned fixing in-category template convergence across three programmatic sites》详细描述了1700+页面中模板收敛问题，即同分类下页面内容过于相似，导致SEO惩罚。本工具通过爬取站点分类列表，计算页面正文相似度（余弦距离），标记高度重复页面，并给出差异化建议（添加独特内容、改变结构）。面向SEO从业者、程序化站点运营者、内容农场主。可做成Chrome扩展或独立SaaS。",
+      "painPoint": "程序化生成大量页面后内部相似度过高，被搜索引擎判为低质量，需手动分析难以发现。",
+      "path": [
+        "用Python实现页面抓取+文本清洗+相似度计算（TF-IDF/LSH）",
+        "开发前端输入站点URL即可输出报告，包含相似度热力图",
+        "免费试用1个站点3个页面，完整版49元/次或包月99元",
+        "在SEO社区、V2EX、IndieHackers推广"
+      ],
+      "revenueModel": "按次或包月。预估月收入：30个活跃站点检查，约3000元。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1500元",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "IndieHackers文章作者提到在1700+页面中修复模板收敛问题，说明该问题在程序化站点中普遍存在（来源：dev.to文章）。",
+      "sources": [
+        {
+          "title": "What I learned fixing in-category template convergence across three programmatic sites",
+          "url": "https://dev.to/morinaga/what-i-learned-fixing-in-category-template-convergence-across-three-programmatic-sites-458l"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Claude Code开销对比器",
+      "category": "开发工具",
+      "tags": [
+        "Claude Code",
+        "Token优化",
+        "成本"
+      ],
+      "summary": "比较不同AI编码工具的Token消耗",
+      "description": "HN热文《Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k》获得539分，引发广泛讨论。开发者使用AI编码助手时往往忽略隐性的token开销（预填充、系统提示等）。本工具提供客观对比：用户只需选择工具和任务类型（翻译、重构、生成等），即可估算实际token消耗和成本。也可集成用户自己的API日志进行分析。面向所有使用AI编码助手的开发者。",
+      "painPoint": "开发者不清楚AI coding工具的Token浪费，导致成本飙升而不自知。",
+      "path": [
+        "基于公开数据（Claude Code、OpenCode、Cursor、Copilot等）建立开销模型",
+        "创建在线计算器页面，输入任务描述估算token和成本",
+        "提供浏览器扩展或CLI工具记录本地使用情况生成报告",
+        "免费使用，Pro版99元/月（团队账单分析+优化建议）"
+      ],
+      "revenueModel": "Freemium。预估月收入：50个Pro用户，约4950元。",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1500元",
+      "difficulty": 2,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "HN文章获得539分，详细对比了Claude Code（33k tokens）和OpenCode（7k tokens）的预填充开销，直接揭示了开发者对Token浪费的关注（来源：systima.ai博客）。",
+      "sources": [
+        {
+          "title": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k",
+          "url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49978,
+      "language": "TypeScript",
+      "insight": "学习前端数据管理，提升开发效率",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "hesreallyhim",
+      "repo": "awesome-claude-code",
+      "description": "A hand-picked collection of the finest of resources for the most awesome of agents, Claude Code, the undisputed champion of coding companions, from the unstoppable team at Anthropic PBC. A delectable showcase of top tier skills, ambidextrous agents, scintillating status lines, top notch developer tooling, and also we have plugins",
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "starsToday": 49891,
+      "language": "Python",
+      "insight": "利用AI编码助手，加速开发流程",
+      "opportunityType": "趋势",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "skylot",
+      "repo": "jadx",
+      "description": "Dex to Java decompiler",
+      "url": "https://github.com/skylot/jadx",
+      "starsToday": 49668,
+      "language": "Java",
+      "insight": "逆向分析安卓应用，发现安全机会",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "huginn",
+      "repo": "huginn",
+      "description": "Create agents that monitor and act on your behalf.  Your agents are standing by!",
+      "url": "https://github.com/huginn/huginn",
+      "starsToday": 49604,
+      "language": "Ruby",
+      "insight": "搭建自动化流程，打造个人代理服务",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49177,
+      "language": "Python",
+      "insight": "掌握数据分析，支持数据驱动产品",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "JuliaLang",
+      "repo": "julia",
+      "description": "The Julia Programming Language",
+      "url": "https://github.com/JuliaLang/julia",
+      "starsToday": 49023,
+      "language": "Julia",
+      "insight": "进入高性能计算领域，开拓新市场",
+      "opportunityType": "趋势",
+      "chinaFit": "medium"
+    }
+  ]
+}
