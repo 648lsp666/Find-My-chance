@@ -1,0 +1,471 @@
+{
+  "date": "2026-07-18",
+  "generatedAt": "2026-07-18T05:39:09.908Z",
+  "summary": "今日信号集中在大模型（Kimi K3 开源 3T 模型）、AI 应用伦理、隐私监控（拼多多屏幕读取事件）、以及开发工具与硬件（Z80 50 周年、SSH 蜜罐、SQLite 优化）。适合国内独立开发者从隐私检测、模型测评、复古硬件、以及本地化教程切入。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "SSH攻击实时看板",
+      "category": "开发工具",
+      "market": "海外为主",
+      "tags": [
+        "网络安全",
+        "蜜罐",
+        "可视化"
+      ],
+      "summary": "将 SSH 蜜罐攻击数据实时可视化，提供公开看板与 API",
+      "description": "基于 HN 上展示的 SSH 蜜罐实时互动项目（honeypotlive.cc），可搭建一个更全面的攻击数据看板，显示攻击来源 IP、分布、常用用户名、爆破频率等。同时提供数据 API 供安全研究者调用。国内市场对网络安全可视化需求增长，但可优先面向海外安全社区。竞品有 Shodan 但偏被动扫描，本机会侧重攻击行为实时展示。差异化：零部署、开源、可嵌入个人博客。",
+      "painPoint": "安全爱好者和小企业缺乏低成本、可视化的攻击态势感知工具",
+      "path": [
+        "第一步：基于现有开源蜜罐（如 cowrie）搭建私有蜜罐，收集攻击日志",
+        "第二步：使用 Elasticsearch + Kibana 或 Grafana 搭建实时仪表盘",
+        "第三步：开发公共 Web 页面展示当前攻击热点，并开放 RESTful API",
+        "第四步：在 HN 和 Twitter 上推广，提供嵌入代码让博客展示实时攻击"
+      ],
+      "revenueModel": "免费公开看板吸引流量，通过赞助（GitHub Sponsors）或 API 调用付费（如 0.001$/次）获取收入，预计月收入 500-2000 元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "Hacker News 上 Show HN 项目 'Watch bots interact with an SSH honeypot in real time' 获得 150 个 upvote，说明社区对此类实时可视化有浓厚兴趣",
+      "sources": [
+        {
+          "title": "Show HN: Watch bots interact with an SSH honeypot in real time",
+          "url": "https://honeypotlive.cc/"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "拼多多隐私监控插件",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "隐私",
+        "浏览器插件",
+        "App行为"
+      ],
+      "summary": "浏览器插件+手机端检测 App 是否读取屏幕截图",
+      "description": "V2EX 热帖发现拼多多能通过读取微信内图片实现精准推送，暴露了 App 间数据共享的隐私风险。可开发双端工具：浏览器插件检测网页端行为，安卓端检测 App 是否调用截图/读取剪贴板。面向对隐私敏感的中文用户。竞品如 AppOps 但需 root，本工具无需 root，通过 accessibility 或 VPN 模式监测。初期聚焦电商类 App，提供预警和报告。",
+      "painPoint": "用户想知道哪些 App 在偷偷读取自己的屏幕截图或剪贴板数据",
+      "path": [
+        "第一步：开发 Android 端监测服务（使用 AccessibilityService 或 VPN 模式）抓取行为日志",
+        "第二步：开发 Chrome 插件监听页面截图/粘贴事件并比对推送结果",
+        "第三步：搭建后端分析引擎，关联 App 推送与用户操作的时间线",
+        "第四步：在 V2EX、酷安等平台发布，提供免费版本和付费高级报告"
+      ],
+      "revenueModel": "免费基础监测，付费报告（9.9 元/次）或订阅制（19.9 元/月），预计月收入 3000-8000 元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "V2EX 帖 '在 nga 看到一个帖子, 说拼多多会监控用户手机屏幕' 获得 104 个热度，大量用户表示震惊并寻求解决方案，说明痛点强烈",
+      "sources": [
+        {
+          "title": "在 nga 看到一个帖子, 说拼多多会监控用户手机屏幕, 试了下竟然是真的",
+          "url": "https://www.v2ex.com/t/1228005"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "多模型UI对比站",
+      "category": "整活玩具",
+      "market": "国内为主",
+      "tags": [
+        "大模型",
+        "UI生成",
+        "对比评测"
+      ],
+      "summary": "输入一句话，对比Kimi/GPT5.6/Gemini3.1生成的页面审美",
+      "description": "V2EX 用户用同一提示词 '水墨风格留言板' 让三个模型生成页面，发现风格差异大。可建立网站让用户输入任意提示词，并调用多个模型生成前端页面（HTML/CSS），支持投票和收藏。面向设计师和 AI 爱好者，帮助挑选最佳设计风格。竞品有各种 AI 图片生成对比，但针对前端代码生成的对比工具较少。差异化：一键预览、代码查看、审美排行榜。",
+      "painPoint": "设计师想知道哪个大模型生成的前端页面最符合自己审美",
+      "path": [
+        "第一步：对接 Kimi K3、GPT-5.6、Gemini 3.1 API，编写页面生成逻辑",
+        "第二步：搭建预览网站，支持用户输入提示词并展示多个结果",
+        "第三步：加入投票、评论、分享功能，建立模型审美排行榜",
+        "第四步：在 V2EX、少数派、即刻推广，吸引用户参与投票"
+      ],
+      "revenueModel": "免费使用，通过广告或赞助商（如模型厂商）盈利，可开通付费会员去广告，预计月收入 1000-3000 元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "V2EX 帖子 'Kimi k3， gpt5.6， gemini3.1 生成的单页面哪个好看' 获得 23 个回复，用户积极比较，说明有对比需求",
+      "sources": [
+        {
+          "title": "Kimi k3， gpt5.6， gemini3.1 生成的单页面哪个好看",
+          "url": "https://www.v2ex.com/t/1228104"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "小米NAS应用商店",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "NAS",
+        "小米",
+        "应用推荐"
+      ],
+      "summary": "为小米NAS用户提供第三方应用推荐与安装指南",
+      "description": "少数派发布小米NAS拆解与上手文章，小米NAS 刚发布，国内用户热情高但官方应用生态薄弱。可搭建非官方应用市场，收集整理兼容的 Docker 应用、一键安装脚本、配置教程。面向小米NAS 早期用户群体，解决找应用、装应用难的痛点。竞品有各种 NAS 教程站但专一品牌少。差异化：聚合小米NAS 专属应用、自动安装脚本、论坛问答。",
+      "painPoint": "小米NAS 用户找不到第三方应用和安装方法",
+      "path": [
+        "第一步：收集小米NAS 兼容的 Docker 应用列表，编写安装教程",
+        "第二步：搭建网站，按类别展示应用，附一键部署命令",
+        "第三步：开发用户提交与评论系统，形成社区",
+        "第四步：在小米社区、少数派、值得买推广"
+      ],
+      "revenueModel": "通过联盟营销（如推荐 VPS、硬盘）获取佣金，可推出付费会员享专属教程，预计月收入 2000-5000 元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 2,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "少数派文章 '小米 NAS 拆解与初步上手' 是热门内容，说明用户关注度高，且 NAS 应用生态尚不完善",
+      "sources": [
+        {
+          "title": "小米 NAS 拆解与初步上手：它会是你的第一台 NAS 吗？",
+          "url": "https://sspai.com/post/112398"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "日历秒查小助手",
+      "category": "SaaS工具",
+      "market": "海外为主",
+      "tags": [
+        "日历",
+        "效率",
+        "API"
+      ],
+      "summary": "3秒拉取日历空闲时间，支持嵌入网页和邮件",
+      "description": "Product Hunt 上 Timely 产品获得 184 票，它能快速拉取日历可用性。可复刻一个轻量版，支持 Google Calendar、Outlook、以及国内企业微信/钉钉日历。面向自由职业者、销售、招聘人员，他们需要快速展示自己的空闲时间。竞品有 Calendly 但需要对方操作，本工具只需一键分享空闲区间。差异化：支持国内日历、纯 API 调用、可嵌入个人网站。",
+      "painPoint": "预约会议时来回确认时间太麻烦",
+      "path": [
+        "第一步：对接 Google Calendar API、Outlook API 和国内日历 SDK",
+        "第二步：开发一个 Web 界面，用户授权后点击按钮即可复制一段文本 '我明天 10-12 点空闲'",
+        "第三步：提供可嵌入的 iframe 或按钮，放在个人网站或邮件签名中",
+        "第四步：在 Product Hunt 和 V2EX 推广，提供免费版和付费定制域名"
+      ],
+      "revenueModel": "免费版 3 个日历源，付费版 19 美元/月无限日历和自定义品牌，预计月收入 3000-8000 元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Product Hunt 上 Timely 获得 184 票，说明市场对快速获取日历可用性的工具需求强烈",
+      "sources": [
+        {
+          "title": "Timely: Pull your calendar availability in 3 seconds",
+          "url": "https://www.producthunt.com/products/timely-9?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Huginn中文学院",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "自动化",
+        "Huginn",
+        "教程"
+      ],
+      "summary": "Huginn自动化代理的中文课程与模板市场",
+      "description": "GitHub 上 Huginn 项目 49,600+ 星标，是强大的自动化代理框架，但中文资料稀缺。可制作系统性中文教程（文字+视频），涵盖安装、常见场景（新闻抓取、监控价格、自动发推）。同时搭建模板市场，让用户一键导入预设 agent。面向中文开发者、运维、营销人员。竞品有英文官方文档，但中文深度教程空白。差异化：从零到一、实战案例、社区模板。",
+      "painPoint": "中文开发者想用 Huginn 但缺乏中文教程和现成模板",
+      "path": [
+        "第一步：撰写 5-10 篇 Huginn 核心概念与安装教程，发布在独立博客",
+        "第二步：录制系列视频上传 B站，配套代码仓库",
+        "第三步：搭建模板市场网站，用户可上传/下载 agent 配置",
+        "第四步：在 V2EX、掘金、吾爱破解推广，通过付费模板或课程变现"
+      ],
+      "revenueModel": "免费教程引流，付费模板（9.9 元/个）和系统性课程（199 元），预计月收入 2000-5000 元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "GitHub 上 Huginn 拥有 49,633 个 star，说明社区庞大，但中文资料匮乏，需求未被满足",
+      "sources": [
+        {
+          "title": "huginn/huginn: Create agents that monitor and act on your behalf",
+          "url": "https://github.com/huginn/huginn"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "watchOS 27极速指南",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "AppleWatch",
+        "watchOS",
+        "新特性"
+      ],
+      "summary": "交互式 watchOS 27 新特性速查网站",
+      "description": "少数派发布了 watchOS 27 公测版详解，新系统有动态应用网格、Liquid Glass 微调等特性。可制作一个精美的交互式指南，每项新特性带动图演示、操作步骤、注意事项。面向国内 Apple Watch 用户（尤其是公测版体验者）。竞品有各种科技媒体评测，但缺少可检索、可交互的速查工具。差异化：动图对比、收藏功能、搜索。",
+      "painPoint": "watchOS 公测用户想快速了解每个新特性怎么用",
+      "path": [
+        "第一步：整理 watchOS 27 所有新特性，制作动图或短视频",
+        "第二步：搭建静态网站，按分类列展示，支持搜索和过滤",
+        "第三步：增加评论和投票功能，收集用户反馈",
+        "第四步：在少数派、威锋网、即刻推广"
+      ],
+      "revenueModel": "免费访问，通过 Google AdSense 或联盟链接（如 Apple 配件）盈利，预计月收入 500-1500 元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 300元",
+      "difficulty": 2,
+      "potential": 4,
+      "competition": "低",
+      "evidence": "少数派文章 '具透 | watchOS 27 公测版一览' 是近期热门，说明用户对新系统特性有强烈查询需求",
+      "sources": [
+        {
+          "title": "具透 | watchOS 27 公测版一览：动态应用网格、Liquid Glass 微调……",
+          "url": "https://sspai.com/post/112430"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "开源AI年报中文版",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "开源",
+        "AI",
+        "报告"
+      ],
+      "summary": "将 stateofopensource.ai 报告翻译并加入中文解读",
+      "description": "Hacker News 上 stateofopensource.ai 报告获得 405 分，全面分析开源 AI 现状。可制作中文精简版，提取关键数据（模型数、许可证变化、社区趋势），并加入国内开源 AI 对比（如百川、Qwen）。面向中文 AI 开发者、投资人和产品经理。竞品有各类报告翻译但缺少分析。差异化：精华提炼、数据可视化、国内对比。",
+      "painPoint": "中文读者想了解全球开源 AI 现状但英文报告阅读门槛高",
+      "path": [
+        "第一步：通读原报告，提取核心数据与图表",
+        "第二步：翻译并撰写中文解读文章，发布在公众号/知乎",
+        "第三步：制作数据可视化长图和交互式网页",
+        "第四步：在即刻、V2EX、微博扩散，引流至网站或咨询服务"
+      ],
+      "revenueModel": "免费内容为主，附带付费订阅深度分析或企业定制报告，预计月收入 1000-3000 元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Hacker News 上该报告获得 405 个 upvote，说明全球开发者高度关注，国内同样有解读需求",
+      "sources": [
+        {
+          "title": "The state of open source AI",
+          "url": "https://stateofopensource.ai/"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "铁路热轨科普工坊",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "铁路",
+        "安全",
+        "科普"
+      ],
+      "summary": "制作铁路轨道涂白降温原理的交互式科普",
+      "description": "HN 文章介绍在铁路轨道侧面涂白可减少脱轨（72 分），这是一个鲜为人知但有趣的工程案例。可制作一个交互式网页，展示不同颜色对轨道温度的影响，模拟热胀冷缩，并解释背后的物理原理。面向学生、铁路爱好者、科普博主。竞品有各种工程科普但缺少交互。差异化：可拖动温度滑块、实时显示形变、中英文双语。",
+      "painPoint": "普通人想理解铁路工程中的热管理原理但缺乏可视化工具",
+      "path": [
+        "第一步：研究文章数据，建立热力学简化模型",
+        "第二步：用 D3.js 或 Three.js 制作交互式模拟",
+        "第三步：编写中文科普文案，标注来源链接",
+        "第四步：在知乎、B站、科普网站分享"
+      ],
+      "revenueModel": "免费科普，通过打赏或广告收入，可与教育机构合作定制课程，预计月收入 200-1000 元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 200元",
+      "difficulty": 3,
+      "potential": 3,
+      "competition": "低",
+      "evidence": "Hacker News 上文章 'Painting the sides of railroad rails white to reduce derailment' 获得 72 个 upvote，说明该话题有传播潜力",
+      "sources": [
+        {
+          "title": "Painting the sides of railroad rails white to reduce derailment",
+          "url": "https://www.up.com/news/safety/Tracking-Rail-Heat-260608"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "乐高说明书时光机",
+      "category": "整活玩具",
+      "market": "海外为主",
+      "tags": [
+        "乐高",
+        "设计历史",
+        "交互"
+      ],
+      "summary": "交互式乐高说明书历史演变浏览工具",
+      "description": "Lego 官方发布了 50 年间的说明书演变文章（92 分）。可做一个交互式时间轴，展示不同年代说明书的扫描件、设计风格、印刷技术。面向乐高爱好者和设计师。竞品有 BrickLink 的历史数据库但偏产品。差异化：专注于说明书本身的设计演变、全屏浏览、分享功能。",
+      "painPoint": "乐高爱好者想回顾说明书设计变迁但缺乏集中展示平台",
+      "path": [
+        "第一步：爬取或合作获取乐高说明书高清扫描图（年代分类）",
+        "第二步：构建时间轴界面，支持缩放和点击展示",
+        "第三步：添加文字说明，介绍每个年代的印刷工艺和排版特点",
+        "第四步：在 BrickLink 论坛、Reddit r/lego 推广"
+      ],
+      "revenueModel": "免费，可通过赞助或乐高联盟营销赚取佣金，预计月收入 500-1500 元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 500元",
+      "difficulty": 3,
+      "potential": 4,
+      "competition": "低",
+      "evidence": "Hacker News 上文章 'Lego building instructions through time' 获得 92 个 upvote，说明乐高粉丝对此内容感兴趣",
+      "sources": [
+        {
+          "title": "Lego building instructions through time",
+          "url": "https://www.lego.com/en-us/history/articles/d-lego-building-instructions-through-time"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Z80在线仿真器",
+      "category": "整活玩具",
+      "market": "海外为主",
+      "tags": [
+        "Z80",
+        "复古",
+        "模拟器"
+      ],
+      "summary": "基于浏览器的 Z80 CPU 仿真与编程教学工具",
+      "description": "Zilog Z80 诞生 50 周年（194 分），该芯片在复古计算机和游戏机中地位重要。可开发一个在线 Z80 仿真器，支持汇编代码编写、单步执行、寄存器查看，并配套入门教程。面向电子爱好者、复古游戏开发者、计算机教育者。竞品有 Jeemulator 等但偏重完整系统，本工具专注 CPU 仿真，更轻量。差异化：纯前端、中文界面、内置教程关卡。",
+      "painPoint": "爱好者想学习 Z80 汇编但没有便捷的在线运行环境",
+      "path": [
+        "第一步：用 JavaScript 实现 Z80 指令集仿真器（参考已有开源库）",
+        "第二步：构建 Web 界面，带代码编辑器、调试面板",
+        "第三步：编写中文入门教程，涵盖加法、循环、中断等基础",
+        "第四步：在 Hacker News、复古计算机论坛、B站发布"
+      ],
+      "revenueModel": "免费，可通过赞助或高级教程（如电子书）收费，预计月收入 500-2000 元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 300元",
+      "difficulty": 4,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "Hacker News 上文章 'The Zilog Z80 has turned 50' 获得 194 个 upvote，说明社区对 Z80 有怀旧与技术兴趣，仿真器需求明显",
+      "sources": [
+        {
+          "title": "The Zilog Z80 has turned 50",
+          "url": "https://goliath32.com/blog/z80.html"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "开源电子书助手",
+      "category": "本地服务",
+      "market": "海外为主",
+      "tags": [
+        "电子书",
+        "开源硬件",
+        "Kindle替代"
+      ],
+      "summary": "为 Open Book Touch 开源电子书提供固件与工具",
+      "description": "Crowd Supply 上 Open Book Touch 开源电子书阅读器获得 85 分，面向喜欢开源的极客。可开发配套工具：一键刷机脚本、字体包管理、电子书格式转换工具、在线商店聚合（Project Gutenberg 等）。面向 DIY 电子书爱好者。竞品有 Kobo 的官方工具，本工具专注开源硬件。差异化：跨平台支持、批量处理、中文图书源。",
+      "painPoint": "开源电子书用户缺少方便的刷机与内容管理工具",
+      "path": [
+        "第一步：研究 Open Book Touch 的硬件规格和固件源码",
+        "第二步：开发桌面应用（Electron）集成刷机、字体管理、格式转换",
+        "第三步：搭建在线资源站，提供中文书籍源",
+        "第四步：在 Crowd Supply 社区、Reddit r/opensource 推广"
+      ],
+      "revenueModel": "免费工具，通过赞助或付费精装教程（如改造指南）盈利，预计月收入 500-2000 元",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 1000元",
+      "difficulty": 3,
+      "potential": 4,
+      "competition": "低",
+      "evidence": "Hacker News 上 'Open Book Touch: open-source e-reader' 获得 85 个 upvote，说明开源电子书社区活跃，工具需求存在",
+      "sources": [
+        {
+          "title": "Open Book Touch: open-source e-reader",
+          "url": "https://www.crowdsupply.com/oddly-specific-objects/open-book-touch"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49945,
+      "language": "TypeScript",
+      "insight": "掌握前端数据管理核心，提升开发效率",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "huginn",
+      "repo": "huginn",
+      "description": "Create agents that monitor and act on your behalf.  Your agents are standing by!",
+      "url": "https://github.com/huginn/huginn",
+      "starsToday": 49633,
+      "language": "Ruby",
+      "insight": "搭建自动化监控服务，实现被动收入",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49214,
+      "language": "Python",
+      "insight": "数据分析必备技能，拓展变现路径",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "x64dbg",
+      "repo": "x64dbg",
+      "description": "An open-source user mode debugger for Windows. Optimized for reverse engineering and malware analysis.",
+      "url": "https://github.com/x64dbg/x64dbg",
+      "starsToday": 48919,
+      "language": "C++",
+      "insight": "逆向工程利器，进入安全领域门槛",
+      "opportunityType": "学习",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "tldraw",
+      "repo": "tldraw",
+      "description": "Build infinite canvas apps in React with the tldraw SDK. World's best, top-most agent recommended #1 five star SDK.",
+      "url": "https://github.com/tldraw/tldraw",
+      "starsToday": 48900,
+      "language": "TypeScript",
+      "insight": "快速构建在线白板产品，迎合协作需求",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "JuliaLang",
+      "repo": "julia",
+      "description": "The Julia Programming Language",
+      "url": "https://github.com/JuliaLang/julia",
+      "starsToday": 48894,
+      "language": "Julia",
+      "insight": "关注高性能计算趋势，抢占细分市场",
+      "opportunityType": "趋势",
+      "chinaFit": "low"
+    }
+  ]
+}
