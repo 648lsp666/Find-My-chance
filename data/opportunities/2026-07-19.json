@@ -1,0 +1,483 @@
+{
+  "date": "2026-07-19",
+  "generatedAt": "2026-07-19T06:10:52.581Z",
+  "summary": "今日信号密集分布在AI能力突破（GPT-5.6解决凸优化问题、Chrome DevTools MCP开源）、独立开发工具（Transcribe.cpp、Q3Edit）、以及安全合规（LG监视器静默安装、MCP marketplace trojan）三大方向。中国开发者可重点关注本地化AI工具、代码质量质检、以及独立站生态的落地机会。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "AI代码过度抽象检测器",
+      "category": "开发工具",
+      "market": "国内为主",
+      "tags": [
+        "AI辅助编程",
+        "代码质量",
+        "VSCode插件"
+      ],
+      "summary": "检测AI生成代码中无意义的辅助函数",
+      "description": "针对V2EX用户普遍抱怨的AI写代码滥用小函数问题，开发一款VSCode插件或CLI工具，利用静态分析+模式匹配识别过度抽象（如一次性helper、wrapper）。可与现有lint工具集成，支持自定义阈值。中国AI程序员群体超200万，5%付费意愿即百万级市场。竞品现有pylint等但缺乏AI生成代码专项检测。",
+      "painPoint": "AI写的代码充斥着大量琐碎辅助函数，难以维护和审查",
+      "path": [
+        "第一步：用Python+Tree-sitter实现AST分析，识别典型的过度抽象模式（单次调用函数、纯转发wrapper）",
+        "第二步：封装为VSCode/LazyVim插件，支持中文提示和阈值配置",
+        "第三步：在V2EX、掘金发帖推广，提供30天免费试用",
+        "第四步：Pro版增加团队规则共享、CICD集成，定价19元/月"
+      ],
+      "revenueModel": "个人基础版免费（每日检测上限50次），Pro版19元/月，预估月收入3000元（按160个付费用户）",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "低",
+      "evidence": "V2EX上『AI 写代码的时候总是使用大量的辅助函数』帖子获得22条回复，用户明确表达『不要做辅助函数小王子』的痛点",
+      "sources": [
+        {
+          "title": "V2EX用户抱怨AI过度抽象",
+          "url": "https://www.v2ex.com/t/1228216"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "离线AI视频放大桌面工具",
+      "category": "AI应用",
+      "market": "国内为主",
+      "tags": [
+        "视频超分",
+        "本地运行",
+        "老片修复"
+      ],
+      "summary": "纯本地运行的中文AI视频放大软件",
+      "description": "GitHub上Upscayl（AI图像放大）有47k+ star，但视频放大领域缺乏优秀中文桌面工具。可以基于开源模型（如Real-ESRGAN、BasicSR）封装为直观的Windows/Mac应用，支持批量处理、多档位放大、实时预览。针对B站UP主、老视频修复爱好者，无需上传云端保障隐私。",
+      "painPoint": "现有视频放大工具要么云端收费高，要么配置复杂难用",
+      "path": [
+        "第一步：选型Real-ESRGAN视频模型，用PyQt或Tauri构建桌面UI",
+        "第二步：集成中文提示和预置场景（动画、真人、老电影）",
+        "第三步：发布免费试用版（只处理1分钟视频），Pro版29元/永久",
+        "第四步：在少数派、知乎创作『如何用AI将480p老视频修复成1080p』教程引流"
+      ],
+      "revenueModel": "永久授权29元，预估首月卖出500份≈14500元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元（开发工具+模型存储）",
+      "difficulty": 3,
+      "potential": 8,
+      "competition": "中",
+      "evidence": "HN上PixelUp（AI视频超分）虽评分仅6但引起关注；GitHub上Upscayl获得47377 star，表明AI图像放大需求极大，视频方向是自然延伸",
+      "sources": [
+        {
+          "title": "PixelUp离线AI视频放大器",
+          "url": "https://steelsoft.site/software/PixelUp_home.html"
+        },
+        {
+          "title": "Upscayl开源AI图像放大",
+          "url": "https://github.com/upscayl/upscayl"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Quake3地图编辑器中文社区",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "游戏模组",
+        "浏览器工具",
+        "教程"
+      ],
+      "summary": "围绕Q3Edit建立中文教程和扩展资源",
+      "description": "HN上Q3Edit（79分）是浏览器内Quake3地图编辑器，引起复古游戏爱好者关注。但缺乏中文资料和分享平台。可创建中文教程站（视频+图文）、资源库（纹理包、模型）、以及地图作品展示区。通过广告和赞助盈利。国内Quake3怀旧玩家群体虽小众但黏性极高，可延伸至其他经典游戏地图编辑教学。",
+      "painPoint": "Q3Edit功能强大但全是英文，国内玩家不会用且无人交流",
+      "path": [
+        "第一步：系统学习Q3Edit用法，录制10个中文教程视频（B站发布）",
+        "第二步：搭建静态网站（Nuxt+Markdown）聚合文档、常见问题、工具链",
+        "第三步：建立QQ群/Discord社群，组织地图制作比赛",
+        "第四步：与Q3Edit作者沟通，争取中文本地化支持"
+      ],
+      "revenueModel": "网站广告（联盟广告）+ Patreon赞助，预估月收入2000元（3000日活，点击率1%）",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元（域名+服务器）",
+      "difficulty": 2,
+      "potential": 4,
+      "competition": "低",
+      "evidence": "HN上Q3Edit获得79分，用户评论积极，说明对复古游戏工具存在兴趣",
+      "sources": [
+        {
+          "title": "Q3Edit浏览器地图编辑器",
+          "url": "https://q3edit.com"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "AI生成UI设计质量评测工具",
+      "category": "开发工具",
+      "market": "出海为主",
+      "tags": [
+        "AI设计",
+        "UI检查",
+        "设计系统"
+      ],
+      "summary": "自动检测AI生成UI是否符合设计规范",
+      "description": "GitHub上Impeccable（47k+ star）是一个让AI更好设计的语言框架，但缺少评估AI生成UI质量的工具。开发浏览器扩展或API，输入截图或代码，自动识别布局偏差、色彩越界、间距异常等，与Figma/Design System对比。目标用户是使用V0、Bolt等AI生成UI的开发者。",
+      "painPoint": "AI生成的UI看起来不错但一上真机就变丑，缺乏自动化的质量门禁",
+      "path": [
+        "第一步：基于OpenCV+CSS解析器提取UI元素位置/颜色/间距",
+        "第二步：与用户上传的设计规范（JSON）比对，输出违规报告",
+        "第三步：免费开放独立页面测试，Pro API按次收费0.1美元",
+        "第四步：在Product Hunt、GitHub发布，并集成到主流AI UI生成工具"
+      ],
+      "revenueModel": "API按次数付费（0.1美元/次，首次100次免费），预估月收入1500美元（按15000次调用）",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元（服务器）",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "GitHub上Impeccable仓库获得47954 star，说明AI设计质量是社区关注焦点，但缺乏配套检测工具",
+      "sources": [
+        {
+          "title": "Impeccable设计语言",
+          "url": "https://github.com/pbakaus/impeccable"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "独立博客低成本托管指南",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "独立站",
+        "省钱指南",
+        "IndieWeb"
+      ],
+      "summary": "教中国博主用0.1元/天运行独立博客",
+      "description": "HN上Hardcore IndieWeb（125分）展示$0.01/day运行网站，但针对国外服务。国内有阿里云OSS+CDN、轻量应用服务器等更廉价方案。推出中文版指南（电子书+视频），涵盖域名备案、静态博客（Hugo/Hexo）、图床、评论系统搭建。目标用户是厌倦公众号和平台限制的写作者。",
+      "painPoint": "国内独立博客被高成本（服务器+域名）和备案门槛劝退",
+      "path": [
+        "第一步：实测阿里云轻量应用服务器24元/月+OSS+CDN组合，写出低成本方案",
+        "第二步：制作《0.1元/天拥有独立博客》PDF教程（定价19元）",
+        "第三步：在少数派、即刻发布精华版文章引流",
+        "第四步：提供付费代搭建服务（99元/次）"
+      ],
+      "revenueModel": "电子书19元+代搭建99元，预估月收入3000元（100本+20次搭建）",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 200元",
+      "difficulty": 1,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "HN上Hardcore IndieWeb获得125分，表明对低成本独立网站有全球性兴趣",
+      "sources": [
+        {
+          "title": "Hardcore IndieWeb低至0.01美元/天",
+          "url": "https://www.neatnik.net/hardcore-indieweb"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "日韩议会数据API服务",
+      "category": "数据服务",
+      "market": "出海为主",
+      "tags": [
+        "东亚政治",
+        "开放数据",
+        "API"
+      ],
+      "summary": "提供日本和韩国国会议员结构化数据API",
+      "description": "HN上East Asia Insights（6分）展示了日本和韩国议会成员档案。此数据对媒体、学术、情报机构有商业价值。可清洗整理为标准化JSON API，包含基本信息、委员会任职、投票记录（如有）、联系方式。月费订阅制。竞争小，已有开源数据但缺乏稳定API。",
+      "painPoint": "研究者需要日韩议员数据但逐一爬取耗时且不稳定",
+      "path": [
+        "第一步：爬取现有公开数据（国会官网），用ETL清洗Person/Committee/Party关联",
+        "第二步：基于Cloudflare Workers构建REST API，支持过滤和搜索",
+        "第三步：免费层提供100次/天，付费层49美元/月起（无限+实时更新）",
+        "第四步：在HN原帖评论区、学术论坛推广"
+      ],
+      "revenueModel": "月费49美元起，预估首月5个机构用户=245美元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元（域名+CF Workers）",
+      "difficulty": 3,
+      "potential": 4,
+      "competition": "低",
+      "evidence": "HN上East Asia Insights已上线基础数据页面，虽只获6分但表明对东亚政治数据有需求",
+      "sources": [
+        {
+          "title": "日本和韩国议会成员档案",
+          "url": "https://eastasiainsights.com/"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "P2P加密文件传输网页版",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "WebRTC",
+        "文件传输",
+        "隐私"
+      ],
+      "summary": "无需注册的浏览器端加密文件传输工具",
+      "description": "HN上airdows（11分）是WebRTC P2P文件传输。中国用户因局域网环境、防火墙等需要适配。开发中文版，加入端到端加密（使用浏览器Crypto API）、二维码扫码连接、分片传输（解决大文件）、自定义过期时间。无需任何账号，用完即走。对标奶牛快传但更注重隐私和P2P。",
+      "painPoint": "国内大文件传输多依赖云服务（限速、隐私风险），P2P方案配置复杂",
+      "path": [
+        "第一步：基于WebRTC+DataChannel实现点对点传输，集成TweetNaCl加密",
+        "第二步：增加中文界面、微信分享二维码、断点续传",
+        "第三步：免费使用，Pro版提供更大文件（2GB+）和更长时间保留（通过中继服务器）",
+        "第四步：在『小众软件』、『异次元』等网站投稿推广"
+      ],
+      "revenueModel": "免费基础（200MB内），Pro月费9元（无限大小+永久链接），预估月收入4000元（按444人订阅）",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元（STUN/TURN服务器+CDN）",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "HN上airdows获得11分，展示WebRTC P2P文件传输的可行性",
+      "sources": [
+        {
+          "title": "airdows浏览器P2P文件传输",
+          "url": "https://airdows.com/"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "AI数学解题能力对比站",
+      "category": "数据服务",
+      "market": "出海为主",
+      "tags": [
+        "AI评测",
+        "数学",
+        "Benchmark"
+      ],
+      "summary": "实时对比各模型在数学题上的表现",
+      "description": "HN上GPT-5.6用prompt闭包凸优化（540分）和Fable 5 vs GPT-5.6（232分）显示社区对AI数学能力极度关注。可搭建平台：用户提交数学题（LaTeX），系统调用多个模型（GPT-5.6、Claude、Gemini、Fable等）并展示解法、准确性、用时。做成类似Chatbot Arena但专注数学。",
+      "painPoint": "用户想知道哪个AI模型最能解决特定数学问题，但缺乏统一评测入口",
+      "path": [
+        "第一步：用Next.js搭建前端，接入各模型API（预付$50额度）",
+        "第二步：实现问题类型标签（代数、几何、优化等），自动评分（参考标准答案或人工）",
+        "第三步：免费开放提交，查看结果需注册，高级用户可下载历史数据（9美元/月）",
+        "第四步：在HN原帖评论区、Reddit r/math推广"
+      ],
+      "revenueModel": "订阅制9美元/月，预估首月100用户=900美元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元（域名+API预付）",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "GPT-5.6解决凸优化问题在HN获540分，Fable 5对比获232分，显示数学能力是AI社区核心关注点",
+      "sources": [
+        {
+          "title": "GPT-5.6凸优化突破",
+          "url": "https://old.reddit.com/r/math/comments/1uxj3cy/after_openais_cdc_proof_announcement_gpt56_used_a/"
+        },
+        {
+          "title": "Fable 5 vs GPT-5.6在NP难问题上的对比",
+          "url": "https://charlesazam.com/blog/fable-5-gpt-5-6-sol-goal/"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Elixir中文实战教程平台",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "Elixir",
+        "函数式编程",
+        "入门教程"
+      ],
+      "summary": "面向中国程序员提供Elixir系统学习课程",
+      "description": "HN上Elixir-lang.org新设计（207分）和Gleam上线Tangled（224分）表明BEAM语言生态活跃。国内Elixir教程稀缺且过时。开发一套从零到Web开发的实战课，包含Phoenix LiveView、Nx数据科学等，配套在线代码运行环境（利用fly.io或Gitpod）。",
+      "painPoint": "想学Elixir但找不到优质的国内中文教程和社区",
+      "path": [
+        "第一步：编写前10节免费课程（GitHub Pages+Markdown）",
+        "第二步：录制视频教程（B站发布），搭建Discord中文社区",
+        "第三步：推出付费进阶课程（99元，含项目实战+一对一答疑）",
+        "第四步：与Elixir官方合作，申请翻译文档"
+      ],
+      "revenueModel": "课程售价99元，预估首月售出200份=19800元",
+      "timeToRevenue": "3个月",
+      "startupCost": "< 500元（域名+视频剪辑软件）",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "Elixir-lang.org新设计获207分，Gleam上线获224分，显示BEAM社区活跃且增长",
+      "sources": [
+        {
+          "title": "Elixir-lang新设计",
+          "url": "https://elixir-lang.org/"
+        },
+        {
+          "title": "Gleam上线Tangled",
+          "url": "https://tangled.org/gleam.run/gleam"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "降胆固醇药物科普聚合平台",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "健康",
+        "药物",
+        "科普"
+      ],
+      "summary": "汇总分析中国市场上的降胆固醇药物信息",
+      "description": "FDA批准新口服PCSK9抑制剂（55分）引起关注。中国高胆固醇患者超2亿，但面对众多药物（他汀、PCSK9、依折麦布）缺乏客观对比。搭建中文站：药物说明书、临床数据对比、价格、医保信息、副作用报告、专家访谈。通过医疗广告和内容营销变现。",
+      "painPoint": "高胆固醇患者面对多种药不知道怎么选，网上信息杂乱无章",
+      "path": [
+        "第一步：收集国内已上市降胆固醇药物数据（NMPA、医保目录）",
+        "第二步：用Notion或Hugo搭建静态站，邀请医生审稿",
+        "第三步：SEO优化（长尾关键词如『PCSK9抑制剂多少钱』）",
+        "第四步：与药房或问诊平台合作联盟营销"
+      ],
+      "revenueModel": "联盟广告（京东健康）+ 软文合作，预估月收入3000元（日活5000，点击率2%）",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元（域名+服务器）",
+      "difficulty": 2,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "FDA批准新胆固醇药在HN获55分，说明公众对降脂药物信息有极大兴趣",
+      "sources": [
+        {
+          "title": "FDA批准首个口服PCSK9抑制剂",
+          "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-oral-pcsk9-inhibitor-lower-ldl-cholesterol-adults-high-cholesterol"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "IMAX黄金座位监控服务",
+      "category": "自动化流程",
+      "market": "国内为主",
+      "tags": [
+        "座位监控",
+        "影院",
+        "IMAX"
+      ],
+      "summary": "监控国内IMAX场次，空座自动通知",
+      "description": "HN上imaxxing（30分）监控《奥德赛》IMAX座位。移植到国内：对接猫眼/淘票票API（或爬虫），监控指定影院/电影的C位（如9-14排中间），当有票释放时通过微信服务号推送。中国IMAX影院超800家，热门电影一票难求时有发生。",
+      "painPoint": "热门IMAX电影好座位被一秒抢光，人工刷票效率极低",
+      "path": [
+        "第一步：用Python写爬虫监控猫眼/淘票票余票（注意反爬）",
+        "第二步：定义『黄金座位』规则（如倒数3-5排中间）",
+        "第三步：用户订阅指定电影+影院，通过Server酱或微信测试号推送",
+        "第四步：免费提供2次监控，Pro版9元/月（无限+优先轮询）"
+      ],
+      "revenueModel": "订阅制9元/月，预估月收入2700元（按300人订阅）",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元（服务器+代理IP）",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "低",
+      "evidence": "HN上imaxxing获30分，说明对特定影片座位监控存在需求",
+      "sources": [
+        {
+          "title": "IMAX座位置监控工具",
+          "url": "https://imaxxing.io/"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Chrome DevTools MCP中文指南",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "MCP",
+        "Chrome DevTools",
+        "AI编码代理"
+      ],
+      "summary": "教你给AI编码代理接入Chrome调试能力",
+      "description": "GitHub上Chrome DevTools MCP（47k+ star）让AI代理可控制Chrome开发者工具。但国内开发者对MCP协议和DevTools集成不够熟悉。推出中文图文教程+视频，从安装到实战（自动操作网页、抓取XHR等），帮助AI编码代理开发者提升调试效率。",
+      "painPoint": "AI编码代理无法直接利用Chrome DevTools的强大调试能力，教程多为英文",
+      "path": [
+        "第一步：本地部署chrome-devtools-mcp，记录详细踩坑笔记",
+        "第二步：制作『AI代理+Chrome DevTools』系列教程（5篇付费文章）",
+        "第三步：在掘金、博客园发布免费入门篇引流",
+        "第四步：推出『MCP from Zero』付费课程（69元）"
+      ],
+      "revenueModel": "课程69元+文章合集19元，预估月收入3500元（50份课程+100份文章）",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 200元",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "GitHub上Chrome DevTools MCP仓库获得47158 star，热度极高，但中文社区缺乏系统教程",
+      "sources": [
+        {
+          "title": "Chrome DevTools MCP",
+          "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49946,
+      "language": "TypeScript",
+      "insight": "学习高效数据管理，构建高性能前端应用",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "huginn",
+      "repo": "huginn",
+      "description": "Create agents that monitor and act on your behalf.  Your agents are standing by!",
+      "url": "https://github.com/huginn/huginn",
+      "starsToday": 49642,
+      "language": "Ruby",
+      "insight": "打造个人自动化监控与行动代理产品",
+      "opportunityType": "产品",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "x64dbg",
+      "repo": "x64dbg",
+      "description": "An open-source user mode debugger for Windows. Optimized for reverse engineering and malware analysis.",
+      "url": "https://github.com/x64dbg/x64dbg",
+      "starsToday": 48930,
+      "language": "C++",
+      "insight": "深入逆向工程学习，需注意合规风险",
+      "opportunityType": "学习",
+      "chinaFit": "low"
+    },
+    {
+      "owner": "JuliaLang",
+      "repo": "julia",
+      "description": "The Julia Programming Language",
+      "url": "https://github.com/JuliaLang/julia",
+      "starsToday": 48896,
+      "language": "Julia",
+      "insight": "关注新兴科学计算语言趋势，拓展技术栈",
+      "opportunityType": "趋势",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "Homebrew",
+      "repo": "brew",
+      "description": "🍺 The Package Manager for Everywhere",
+      "url": "https://github.com/Homebrew/brew",
+      "starsToday": 48872,
+      "language": "Ruby",
+      "insight": "掌握包管理技术，简化开发环境搭建",
+      "opportunityType": "学习",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "CherryHQ",
+      "repo": "cherry-studio",
+      "description": "AI productivity studio with smart chat, autonomous agents, and 300+ assistants. Unified access to frontier LLMs",
+      "url": "https://github.com/CherryHQ/cherry-studio",
+      "starsToday": 48742,
+      "language": "TypeScript",
+      "insight": "集成AI助手开发智能生产力应用",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    }
+  ]
+}
