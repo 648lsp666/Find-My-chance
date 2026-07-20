@@ -1,0 +1,429 @@
+{
+  "date": "2026-07-20",
+  "generatedAt": "2026-07-20T06:29:06.230Z",
+  "summary": "今日信号显示AI推理效率成为焦点（BaseRT 6.4倍加速），同时AI安全（HeimWall、Panguard.AI）和品牌监控（CitedSpy）需求爆发。国内Kimi K3引发热议，但A股工具Vibe Coding项目失败暴露痛点。硬件、游戏复古风（Minecraft SDL3、C64 Basic）也有新机会。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "AI推理加速对比站",
+      "category": "开发工具",
+      "market": "国内为主",
+      "tags": [
+        "AI推理",
+        "基准测试",
+        "LLM部署"
+      ],
+      "summary": "多模型推理加速引擎实时性能对比",
+      "description": "BaseRT在Product Hunt上宣称6.4倍于llama.cpp、3.9倍于MLX，热度228，开发者急需客观中立的性能对比工具。当前市场缺少针对国产卡（华为昇腾、寒武纪）和主流推理框架（vLLM、TGI、LocalAI）的国产化评测平台。可做成在线评测站，用户提交模型和硬件配置，自动跑分并生成对比报告，核心差异化在于适配国产硬件和中文场景。",
+      "painPoint": "AI模型部署时不知道哪个推理框架在自己硬件上最快，选型全靠经验。",
+      "path": [
+        "第一步：选取BaseRT、llama.cpp、MLX、vLLM等5个主流推理框架，在常见GPU（NVIDIA/昇腾）上跑标准测试集（如MT-Bench、中文QA）",
+        "第二步：搭建一个轻量Web应用，用户可上传自己的模型权重或选择预置模型，自动触发云端跑分，生成可视化对比报告",
+        "第三步：在国产硬件上（如华为云、百度飞桨）部署额外节点，增加差异化价值",
+        "第四步：通过AI开发者社区、知乎、V2EX推广，提供免费基础版+高级定制报告收费"
+      ],
+      "revenueModel": "免费跑分+高级报告月费99元/月，预计3个月后月收入3000-8000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 3000元（云服务器+GPU租赁）",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "Product Hunt上BaseRT获得228分，声称6.4x faster than llama.cpp，说明市场对推理加速对比有强需求；HN上Claude Code用Bun in Rust也热门（468分），表明开发者关注性能提升。",
+      "sources": [
+        {
+          "title": "Product Hunt BaseRT介绍",
+          "url": "https://www.producthunt.com/products/basert?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        },
+        {
+          "title": "HN Claude Code用Bun in Rust",
+          "url": "https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Vibe Coding副业诊断器",
+      "category": "自动化流程",
+      "market": "国内为主",
+      "tags": [
+        "Vibe Coding",
+        "副业评估",
+        "A股工具"
+      ],
+      "summary": "评估AI辅助开发的副业项目可行性",
+      "description": "V2EX上程序员分享了Vibe Coding四个月做A股分析工具失败的教训，热度50，坦言技术不是难点，市场验证和用户获取才是根本。当前大量程序员用AI辅助快速创业，但缺乏系统性的评估工具。可开发一个轻量SaaS，输入项目想法，自动进行市场分析、竞品检索、获客成本估算、目标用户访谈模板生成，帮助开发者避免盲目投入。集成类似“你的公平份额”的盈利计算逻辑。",
+      "painPoint": "用AI快速做产品很简单，但不知道这个点子值不值得做、怎么做才能赚钱。",
+      "path": [
+        "第一步：搭建基础版问答式评估界面，引导用户填写项目类型、目标市场、预期定价等",
+        "第二步：对接公开数据源（企查查、GitHub、Product Hunt）做竞品密度分析，生成报告",
+        "第三步：加入财务模型（类似'yourfairshare.info'的利润估算），估算保本用户数",
+        "第四步：在V2EX、即刻、少数派等渠道推广，前100份免费，后续每份报告19元"
+      ],
+      "revenueModel": "报告按次付费19元/份，或订阅制39元/月无限次评估，3个月后预估月收入1500-4000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 1000元（服务器+少量API费用）",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "V2EX帖子'Vibe Coding 副业四个月：成本超出收益，要放弃吗？'热度50，反映大量开发者有同样痛点；HN上'Your Fair Share'工具（14分）展示利润估算需求。",
+      "sources": [
+        {
+          "title": "V2EX Vibe Coding失败贴",
+          "url": "https://www.v2ex.com/t/1228385"
+        },
+        {
+          "title": "Your Fair Share利润计算器",
+          "url": "https://yourfairshare.info"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Midjourney风格迁移中文站",
+      "category": "内容创作",
+      "market": "国内为主",
+      "tags": [
+        "AI图像",
+        "风格迁移",
+        "Upscayl"
+      ],
+      "summary": "基于Upscayl的AI图像放大+风格迁移工具",
+      "description": "GitHub上Upscayl（AI Image Upscaler）获得47394星，是开源热门。但国内用户使用需翻墙或依赖国外服务。可基于Upscayl开源模型，叠加中文风格迁移功能（如水墨、国潮、书法），做成网页版或小程序。核心目标是服务设计师、自媒体、电商美工，提供免费放大+付费风格模板。与OpenSEO（开源Ahrefs替代）的思路类似：开源+付费增值。",
+      "painPoint": "国内设计师想用AI放大图片或转换风格，但主流工具要么贵要么访问受限。",
+      "path": [
+        "第一步：部署Upscayl开源模型，封装成API服务，支持本地或云端调用",
+        "第二步：训练或集成少量中文风格LoRA（水墨、青花瓷等），做成预设模板库",
+        "第三步：开发H5/小程序前端，用户上传图片、选择风格、预览效果后下载",
+        "第四步：在设计师社区、小红书、微博推广，免费使用基础放大，风格收费2-5元/次"
+      ],
+      "revenueModel": "按次付费2-5元，或月费19.9元无限次，3个月后预估月收入2000-6000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 2000元（GPU云服务器+域名）",
+      "difficulty": 3,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Upscayl GitHub星标47394，热度极高；OpenSEO作为开源Ahrefs替代在Product Hunt获652分，证明开源+付费增值模式可行。",
+      "sources": [
+        {
+          "title": "GitHub Upscayl仓库",
+          "url": "https://github.com/upscayl/upscayl"
+        },
+        {
+          "title": "OpenSEO开源替代",
+          "url": "https://www.producthunt.com/products/openseo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "AI Agent安全防护站",
+      "category": "企业服务",
+      "market": "国内为主",
+      "tags": [
+        "AI安全",
+        "恶意代码",
+        "Agent防护"
+      ],
+      "summary": "开源的AI Agent运行时恶意扫描工具",
+      "description": "Product Hunt上新项目Panguard.AI（36分）和HeimWall（33分）都聚焦AI安全——一个做AI代理的恶意软件扫描，一个防止秘密泄露到Cursor/Claude。国内AI Agent应用爆发但安全工具缺失。可合并思路：开发一个开源工具，监控AI Agent与外部工具的交互，检测敏感信息泄露和恶意指令注入，对标海外但本土化适配国产AI平台（如百度千帆、阿里百炼）。",
+      "painPoint": "使用AI Agent时担心泄露API Key、用户隐私或被注入恶意代码。",
+      "path": [
+        "第一步：基于开源沙箱技术（如gVisor）构建Agent运行时隔离环境，监控文件系统、网络请求",
+        "第二步：编写规则库，检测常见泄露模式（如GitHub token、数据库密码）和恶意prompt注入模式",
+        "第三步：做成命令行工具和浏览器插件，集成到Cline、Claude Code、Cursor等工具中",
+        "第四步：在V2EX、GitHub、掘金上开源核心框架，提供企业版高级规则订阅"
+      ],
+      "revenueModel": "开源免费+企业版年费1000元起，个人捐赠+付费插件，3个月后预估月收入1000-3000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1500元（服务器+测试成本）",
+      "difficulty": 4,
+      "potential": 8,
+      "competition": "低",
+      "evidence": "Panguard.AI（36分）和HeimWall（33分）同日出现，说明AI Agent安全问题受到关注；HN上Claude Code用Bun in Rust（468分）表明Agent工具使用广泛。",
+      "sources": [
+        {
+          "title": "Panguard.AI安全工具",
+          "url": "https://www.producthunt.com/products/panguard-ai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        },
+        {
+          "title": "HeimWall防止泄露工具",
+          "url": "https://www.producthunt.com/products/heimwall?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "开源SEO工具中文站",
+      "category": "数据服务",
+      "market": "国内为主",
+      "tags": [
+        "SEO",
+        "开源",
+        "关键词研究"
+      ],
+      "summary": "对标Ahrefs的开源SEO工具集成站",
+      "description": "OpenSEO在Product Hunt上获得652分，是开源Ahrefs替代，但主要支持英文站点。国内独立站长和中小SEO从业者缺少免费且开源的中文SEO工具集（关键词研究、反向链接分析、排名追踪）。可以OpenSEO代码为基础，替换中文数据源（百度索引、搜狗微信），添加百度站长工具对接，做成中文版开源SEO工具站。",
+      "painPoint": "中小企业做中文SEO买不起Ahrefs（月费上百美元），免费工具又零散、不准确。",
+      "path": [
+        "第一步：Fork OpenSEO代码，研究其数据采集和分析模块，替换为百度、360、搜狗等中文搜索引擎解析",
+        "第二步：对接百度站长平台API和公开数据，建立中文网站反向链接库",
+        "第三步：开发前端界面，提供关键词排名、竞争对手分析、页面优化建议等功能",
+        "第四步：在站长论坛、微博SEO圈推广，基础功能免费，高级API调用量付费"
+      ],
+      "revenueModel": "免费+付费API调用（0.01元/次），企业版年费500元起，3个月后预估月收入1500-4000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元（数据抓取服务器+域名）",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "OpenSEO在Product Hunt获652分，是当日最高分产品；国内SEO工具市场空白巨大，V2EX、少数派常有SEO讨论。",
+      "sources": [
+        {
+          "title": "OpenSEO开源Ahrefs替代",
+          "url": "https://www.producthunt.com/products/openseo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Kimi K3前端能力实战课",
+      "category": "教育培训",
+      "market": "国内为主",
+      "tags": [
+        "Kimi K3",
+        "前端开发",
+        "AI编程"
+      ],
+      "summary": "基于Kimi K3的前端开发实战课程",
+      "description": "V2EX上关于Kimi K3的讨论热度62，称其前端能力全球第一梯队。国内大量前端开发者希望用AI提升效率，但缺少系统教程。可制作一套视频课程，从环境配置到复杂组件生成，结合真实案例（如电商页面、管理后台），教授如何用Kimi K3高效开发前端。类似“Chrome DevTools MCP中文指南”需求的延续。",
+      "painPoint": "Kimi K3前端能力很强但不知道如何最大化利用，更别说系统化学习。",
+      "path": [
+        "第一步：深入测试Kimi K3在Vue、React、小程序等场景的前端生成能力，总结最佳实践",
+        "第二步：录制10-15节视频课程（每节10-20分钟），包含实操案例和提示词技巧",
+        "第三步：在小鹅通、知识星球、B站发布，定价39-79元，提供社群答疑",
+        "第四步：在V2EX、掘金、知乎发布免费试看内容引流"
+      ],
+      "revenueModel": "课程售价39-79元，预计售出200份，3个月后月收入3000-8000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元（录屏软件、B站会员）",
+      "difficulty": 2,
+      "potential": 6,
+      "competition": "低",
+      "evidence": "V2EX帖子'Kimi K3这波真的爆了'热度62，用户纷纷表示前端能力惊艳；HN上Qwen 3.8（843分）也证明大模型热度。",
+      "sources": [
+        {
+          "title": "V2EX Kimi K3讨论",
+          "url": "https://www.v2ex.com/t/1228376"
+        },
+        {
+          "title": "Qwen 3.8发布",
+          "url": "https://twitter.com/Alibaba_Qwen/status/2078759124914098291"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "魔改版Minecraft服务器",
+      "category": "本地服务",
+      "market": "国内为主",
+      "tags": [
+        "Minecraft",
+        "SDL3",
+        "游戏社区"
+      ],
+      "summary": "基于Minecraft SDL3更新的轻量化服务器",
+      "description": "Minecraft Java版改用SDL3成为HN热门（293分），意味着渲染性能优化和跨平台支持更好。国内有庞大MC玩家群体，但官方服务器延迟高、模组少。可搭建一个小众、轻量、面向怀旧玩家的MC服务器，利用SDL3优化降低硬件门槛，主打低延迟和自定义模组。也可提供服务器一键部署服务，面向家庭和朋友小团体。",
+      "painPoint": "官方Minecraft服务器延迟高，想和朋友们低延迟联机但设置复杂。",
+      "path": [
+        "第一步：搭建基于PaperMC+SDL3优化的服务端，配置国内节点（阿里云、腾讯云低配轻量服务器）",
+        "第二步：开发一键部署面板，用户选择人数、模组包后自动生成服务器",
+        "第三步：建立社区Discord群，定期举办建筑比赛等活动",
+        "第四步：在B站、MCBBS、贴吧推广，按服务器套餐收费（月卡、季卡）"
+      ],
+      "revenueModel": "服务器托管月费19-49元起，增值服务（皮肤、模组安装）额外收费，3个月后预估月收入2000-5000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 1000元（云服务器基础费用）",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "HN新闻'Minecraft: Java Edition now uses SDL3'热度293，表明技术更新引发广泛关注；国内MC玩家基数大，SDL3性能提升可吸引低配用户。",
+      "sources": [
+        {
+          "title": "Minecraft SDL3更新",
+          "url": "https://www.minecraft.net/en-us/article/minecraft-26-3-snapshot-4"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "抠门购物比价插件",
+      "category": "自动化流程",
+      "market": "国内为主",
+      "tags": [
+        "比价",
+        "折扣监控",
+        "Spycost"
+      ],
+      "summary": "自动检测电商虚假折扣的浏览器插件",
+      "description": "Product Hunt上Spycost获321分，产品名'Fell for a discount again?'直击痛点：消费者被虚假折扣欺骗。国内电商（淘宝、京东、拼多多）虚假促销更为普遍。可开发浏览器插件，自动记录商品历史价格并标注真实折扣率，在用户浏览商品时显示。结合拼多多隐私监控（V2EX帖子热度80，称PDD可读取相册），可增加隐私保护提示。",
+      "painPoint": "看到限时折扣以为捡了便宜，实际是提价后再打折，不知道自己有没有被坑。",
+      "path": [
+        "第一步：爬取主流电商平台商品历史价格（通过公开接口或众包数据），建立价格数据库",
+        "第二步：开发浏览器插件（Chrome/Edge），在商品详情页自动嵌入真实折扣标签和价格走势图",
+        "第三步：加入隐私监控模块，提醒用户APP可能读取的权限（相册、剪贴板）",
+        "第四步：在V2EX、知乎、微博数码博主推广，免费使用，高级功能（多平台同步、邮件通知）收费"
+      ],
+      "revenueModel": "免费基础版+高级版月费9.9元，3个月后预估月收入1000-3000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元（域名、服务器）",
+      "difficulty": 3,
+      "potential": 6,
+      "competition": "中",
+      "evidence": "Spycost在Product Hunt获321分，说明消费者对折扣真实性高度敏感；V2EX帖子'PDD这么牛批'热度80，展示数据隐私风险。",
+      "sources": [
+        {
+          "title": "Spycost折扣检测工具",
+          "url": "https://www.producthunt.com/products/spycost?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+claude+%28ID%3A+285824%29"
+        },
+        {
+          "title": "V2EX PDD隐私讨论",
+          "url": "https://www.v2ex.com/t/1228477"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "开源BI报表中文版",
+      "category": "开发工具",
+      "market": "国内为主",
+      "tags": [
+        "Metabase",
+        "BI",
+        "开源替代"
+      ],
+      "summary": "Metabase中文定制版及行业模板",
+      "description": "GitHub上Metabase获48276星，是开源BI工具的后起之秀，但默认界面和文档为英文。国内中小企业做数据分析常依赖Excel或昂贵的FineReport。可基于Metabase进行中文汉化、适配国内数据库（达梦、人大金仓）、预置行业报表模板（电商、餐饮、制造业）。做成发行版，提供在线试用和付费支持。",
+      "painPoint": "中小企业想用开源BI但英文门槛高、没有现成行业报表模板。",
+      "path": [
+        "第一步：Fork Metabase最新版本，全面汉化界面、帮助文档、error信息",
+        "第二步：对接国内主流数据库（MySQL、PostgreSQL、达梦），测试兼容性",
+        "第三步：制作3-5个行业模板（如电商销售看板、餐饮流水分析、工厂生产监控）",
+        "第四步：建立中文社区和文档站，在掘金、知乎推广，提供免费版和专业版订阅"
+      ],
+      "revenueModel": "免费版限制用户数和数据源，专业版月费99元/人，3个月后预估月收入3000-8000元",
+      "timeToRevenue": "2个月",
+      "startupCost": "< 2000元（服务器+域名）",
+      "difficulty": 4,
+      "potential": 7,
+      "competition": "中",
+      "evidence": "Metabase GitHub星标48276，说明社区活跃；国外有大量BI开源替代但中国化程度低。",
+      "sources": [
+        {
+          "title": "Metabase GitHub仓库",
+          "url": "https://github.com/metabase/metabase"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "居家健身挑战小程序",
+      "category": "整活玩具",
+      "market": "国内为主",
+      "tags": [
+        "健身",
+        "打卡",
+        "小程序"
+      ],
+      "summary": "趣味居家健身打卡和挑战社区",
+      "description": "HN上'Bananas sprout in Rayleigh Garden UK after 15 years'（147分）引发关于耐心和自然周期的讨论。居家健身热虽降温，但仍有大量坚持打卡的需求。可做一款微信小程序，结合植物拟人化激励：用户每次完成健身打卡，虚拟香蕉树/植物成长，连续打卡15天成树结果。类似'桌面宠物激励器'但更生活化。利用小游戏裂变传播。",
+      "painPoint": "一个人健身难以坚持，缺乏趣味性和社交激励。",
+      "path": [
+        "第一步：设计植物成长动画和打卡逻辑，用微信云开发实现后端",
+        "第二步：开发分组挑战功能（3人一组，累计运动时长排名，输者发红包）",
+        "第三步：集成微信运动步数，自动转换能量值用于植物浇水",
+        "第四步：在小红书、微信朋友圈推广，通过虚拟道具（种子皮肤、背景）内购收费"
+      ],
+      "revenueModel": "免费+内购（2-6元/个道具）+广告，3个月后预估月收入1000-3000元",
+      "timeToRevenue": "1个月",
+      "startupCost": "< 500元（微信小程序认证+云开发）",
+      "difficulty": 3,
+      "potential": 5,
+      "competition": "中",
+      "evidence": "HN新闻'Bananas sprout after 15 years'热度147，说明长期坚持的主题容易引发共鸣；国内居家健身打卡类小程序仍有用户基础。",
+      "sources": [
+        {
+          "title": "英国香蕉树15年后结果",
+          "url": "https://www.bbc.com/news/articles/cvg8edqq5g5o"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "TanStack",
+      "repo": "query",
+      "description": "🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.",
+      "url": "https://github.com/TanStack/query",
+      "starsToday": 49952,
+      "language": "TypeScript",
+      "insight": "用React Query快速构建数据密集型前端应用",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49229,
+      "language": "Python",
+      "insight": "开发数据清洗、报表等数据分析工具",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    },
+    {
+      "owner": "x64dbg",
+      "repo": "x64dbg",
+      "description": "An open-source user mode debugger for Windows. Optimized for reverse engineering and malware analysis.",
+      "url": "https://github.com/x64dbg/x64dbg",
+      "starsToday": 48942,
+      "language": "C++",
+      "insight": "用于逆向工程和安全分析插件开发",
+      "opportunityType": "就业",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "JuliaLang",
+      "repo": "julia",
+      "description": "The Julia Programming Language",
+      "url": "https://github.com/JuliaLang/julia",
+      "starsToday": 48905,
+      "language": "Julia",
+      "insight": "学习高性能科学计算与机器学习新语言",
+      "opportunityType": "学习",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "Homebrew",
+      "repo": "brew",
+      "description": "🍺 The Package Manager for Everywhere",
+      "url": "https://github.com/Homebrew/brew",
+      "starsToday": 48877,
+      "language": "Ruby",
+      "insight": "简化Mac开发环境配置与依赖管理",
+      "opportunityType": "学习",
+      "chinaFit": "medium"
+    },
+    {
+      "owner": "CherryHQ",
+      "repo": "cherry-studio",
+      "description": "AI productivity studio with smart chat, autonomous agents, and 300+ assistants. Unified access to frontier LLMs",
+      "url": "https://github.com/CherryHQ/cherry-studio",
+      "starsToday": 48777,
+      "language": "TypeScript",
+      "insight": "集成AI能力快速开发智能应用",
+      "opportunityType": "产品",
+      "chinaFit": "high"
+    }
+  ]
+}
