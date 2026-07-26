@@ -1,9 +1,18 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { Opportunity } from '@/lib/opportunities'
+import {
+  compareOpportunities,
+  getBookmarkKey,
+  getTimeBucket,
+  type SortOption,
+  type TimeBucket,
+} from '@/lib/opportunity-list'
 import OpportunityCard from './OpportunityCard'
 import { useVotes } from '@/hooks/useVotes'
+
+const BOOKMARKS_STORAGE_KEY = 'opportunity-radar:bookmarks:v1'
 
 const ALL_CATS = [
   'AI应用',
@@ -37,7 +46,6 @@ const CAT_COLORS: Record<string, string> = {
   '其他':     '#6B7280',
 }
 
-type TimeBucket = '1mo' | '1-3mo' | '3mo+'
 type TimeFilter = 'all' | TimeBucket
 
 const TIME_OPTIONS: { value: TimeFilter; label: string }[] = [
@@ -47,15 +55,13 @@ const TIME_OPTIONS: { value: TimeFilter; label: string }[] = [
   { value: '3mo+',  label: '📈 3个月+' },
 ]
 
-function getTimeBucket(timeToRevenue: string): TimeBucket {
-  if (timeToRevenue.includes('周')) return '1mo'
-  const nums = (timeToRevenue.match(/\d+/g) ?? []).map(Number)
-  if (nums.length === 0) return '1-3mo'
-  const max = Math.max(...nums)
-  if (max <= 1) return '1mo'
-  if (max <= 3) return '1-3mo'
-  return '3mo+'
-}
+const SORT_OPTIONS: { value: SortOption; label: string }[] = [
+  { value: 'default',     label: '默认顺序' },
+  { value: 'recommended', label: '综合推荐' },
+  { value: 'fastest',     label: '最快变现' },
+  { value: 'easiest',     label: '最低难度' },
+  { value: 'potential',   label: '最高潜力' },
+]
 
 interface Props {
   opportunities: Opportunity[]
@@ -67,8 +73,22 @@ export default function OpportunityList({ opportunities, date, selectedTag }: Pr
   const [search, setSearch]         = useState('')
   const [activeCats, setActiveCats] = useState<string[]>([])
   const [activeTime, setActiveTime] = useState<TimeFilter>('all')
+  const [sort, setSort]             = useState<SortOption>('default')
+  const [showBookmarks, setShowBookmarks] = useState(false)
+  const [bookmarks, setBookmarks]   = useState<Set<string>>(new Set())
   const ids = useMemo(() => opportunities.map(o => o.id), [opportunities])
   const voteCounts = useVotes(date, ids)
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(BOOKMARKS_STORAGE_KEY) ?? '[]')
+      if (Array.isArray(saved)) {
+        setBookmarks(new Set(saved.filter((item): item is string => typeof item === 'string')))
+      }
+    } catch {
+      localStorage.removeItem(BOOKMARKS_STORAGE_KEY)
+    }
+  }, [])
 
   const presentCats = useMemo(
     () => ALL_CATS.filter(c => opportunities.some(o => o.category === c)),
@@ -88,9 +108,29 @@ export default function OpportunityList({ opportunities, date, selectedTag }: Pr
       const matchText = !q || [o.title, o.summary, o.description, o.painPoint, ...o.tags, o.revenueModel]
         .some(t => t.toLowerCase().includes(q))
       const matchTag  = !selectedTag || o.tags.includes(selectedTag)
-      return matchCat && matchTime && matchText && matchTag
+      const matchBookmark = !showBookmarks || bookmarks.has(getBookmarkKey(date, o.id))
+      return matchCat && matchTime && matchText && matchTag && matchBookmark
     })
-  }, [opportunities, search, activeCats, activeTime, selectedTag])
+      .map((opportunity, originalIndex) => ({ opportunity, originalIndex }))
+      .sort((a, b) => compareOpportunities(a.opportunity, b.opportunity, sort) || a.originalIndex - b.originalIndex)
+      .map(({ opportunity }) => opportunity)
+  }, [opportunities, search, activeCats, activeTime, selectedTag, showBookmarks, bookmarks, date, sort])
+
+  const bookmarkedCount = useMemo(
+    () => opportunities.filter(o => bookmarks.has(getBookmarkKey(date, o.id))).length,
+    [opportunities, bookmarks, date],
+  )
+
+  function toggleBookmark(opportunityId: number) {
+    const key = getBookmarkKey(date, opportunityId)
+    setBookmarks(current => {
+      const next = new Set(current)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      localStorage.setItem(BOOKMARKS_STORAGE_KEY, JSON.stringify(Array.from(next)))
+      return next
+    })
+  }
 
   return (
     <div>
@@ -168,6 +208,39 @@ export default function OpportunityList({ opportunities, date, selectedTag }: Pr
         ))}
       </div>
 
+      {/* Sort and bookmarks */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 p-3 rounded-xl border border-r-border bg-r-card print:hidden">
+        <label className="flex items-center gap-2 min-w-0">
+          <span className="font-mono text-[10px] text-r-faint tracking-[0.15em] uppercase shrink-0">排序</span>
+          <select
+            value={sort}
+            onChange={event => setSort(event.target.value as SortOption)}
+            className="min-w-0 sm:min-w-[132px] rounded-lg border border-r-border bg-r-bg px-3 py-2 font-mono text-[12px] text-r-text outline-none transition-colors focus:border-r-accent focus:ring-2 focus:ring-r-accent/10"
+          >
+            {SORT_OPTIONS.map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            ))}
+          </select>
+        </label>
+
+        <button
+          type="button"
+          onClick={() => setShowBookmarks(current => !current)}
+          aria-pressed={showBookmarks}
+          className={`flex items-center justify-center gap-2 rounded-lg border px-3 py-2 font-mono text-[12px] transition-all ${
+            showBookmarks
+              ? 'border-r-accent bg-r-accent text-white shadow-sm'
+              : 'border-r-border bg-r-bg text-r-muted hover:border-r-accent hover:text-r-accent'
+          }`}
+        >
+          <svg aria-hidden="true" className="h-4 w-4" viewBox="0 0 24 24" fill={showBookmarks ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M6 3.75A1.75 1.75 0 0 1 7.75 2h8.5A1.75 1.75 0 0 1 18 3.75V22l-6-3.75L6 22V3.75Z" />
+          </svg>
+          只看收藏
+          <span className={showBookmarks ? 'text-white/75' : 'text-r-faint'}>({bookmarkedCount})</span>
+        </button>
+      </div>
+
       {/* Results */}
       {filtered.length > 0 ? (
         <div className="space-y-4">
@@ -178,6 +251,8 @@ export default function OpportunityList({ opportunities, date, selectedTag }: Pr
               index={i}
               date={date}
               initialCounts={voteCounts[opp.id]}
+              bookmarked={bookmarks.has(getBookmarkKey(date, opp.id))}
+              onToggleBookmark={() => toggleBookmark(opp.id)}
             />
           ))}
         </div>
@@ -185,7 +260,11 @@ export default function OpportunityList({ opportunities, date, selectedTag }: Pr
         <div className="text-center py-16 border border-r-border rounded-2xl bg-r-card">
           <p className="font-display text-2xl font-bold text-r-muted mb-2">无结果</p>
           <p className="font-mono text-[12px] text-r-faint tracking-wider">
-            {search ? `没有找到「${search}」相关机会` : '当前筛选条件下暂无数据'}
+            {showBookmarks && bookmarkedCount === 0
+              ? '还没有收藏机会，点击卡片右上角的收藏按钮即可添加'
+              : search
+                ? `没有找到「${search}」相关机会`
+                : '当前筛选条件下暂无数据'}
           </p>
         </div>
       )}

@@ -70,11 +70,15 @@ export default function OpportunityCard({
   index,
   date,
   initialCounts,
+  bookmarked,
+  onToggleBookmark,
 }: {
   opportunity: Opportunity
   index: number
   date: string
   initialCounts?: VoteCounts
+  bookmarked: boolean
+  onToggleBookmark: () => void
 }) {
   const cat = CATS[o.category] ?? {
     color: '#6B7280',
@@ -86,8 +90,13 @@ export default function OpportunityCard({
 
   return (
     <article
-      className="rounded-2xl border border-r-border bg-r-card card-lift fade-in overflow-hidden"
-      style={{ animationDelay: `${index * 80}ms` }}
+      className={`rounded-2xl border bg-r-card card-lift fade-in overflow-hidden ${
+        bookmarked ? 'border-r-accent' : 'border-r-border'
+      }`}
+      style={{
+        animationDelay: `${index * 80}ms`,
+        boxShadow: bookmarked ? '0 0 0 1px rgba(124,58,237,0.08)' : undefined,
+      }}
     >
       {/* Signal header — .signal-hdr gets overridden in dark mode via globals.css */}
       {o.sources.length > 0 && (() => {
@@ -139,9 +148,25 @@ export default function OpportunityCard({
         >
           ⚡ {o.timeToRevenue}
         </span>
-        <div className="w-full sm:w-auto sm:ml-auto flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2">
           <span className="font-mono text-[13px] text-r-muted">潜力</span>
           <Dots value={Math.round(o.potential / 2)} max={5} color={cat.color} />
+          <button
+            type="button"
+            onClick={onToggleBookmark}
+            aria-label={bookmarked ? `取消收藏：${o.title}` : `收藏：${o.title}`}
+            aria-pressed={bookmarked}
+            title={bookmarked ? '取消收藏' : '收藏机会'}
+            className={`ml-1 flex h-8 w-8 items-center justify-center rounded-full border transition-all active:scale-95 ${
+              bookmarked
+                ? 'border-r-accent bg-r-accent text-white shadow-sm'
+                : 'border-r-border bg-r-card text-r-muted hover:border-r-accent hover:text-r-accent'
+            }`}
+          >
+            <svg aria-hidden="true" className="h-4 w-4" viewBox="0 0 24 24" fill={bookmarked ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 3.75A1.75 1.75 0 0 1 7.75 2h8.5A1.75 1.75 0 0 1 18 3.75V22l-6-3.75L6 22V3.75Z" />
+            </svg>
+          </button>
         </div>
       </div>
 
