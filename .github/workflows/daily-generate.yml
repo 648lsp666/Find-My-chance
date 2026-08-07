@@ -43,6 +43,7 @@ jobs:
         run: npm run generate
 
       - name: Commit and push new data
+        if: ${{ !inputs.dry_run }}
         run: |
           git config user.name "OpRadar Bot"
           git config user.email "bot@opradar.indevs.in"
