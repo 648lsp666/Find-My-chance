@@ -18,6 +18,7 @@ import { join } from 'path'
 import { get as httpsGet } from 'https'
 import { requestOpenAIJson } from './openai-generation'
 import { generateDeterministicReport } from './deterministic-generation'
+import { typeLine } from './terminal-output'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -449,12 +450,12 @@ async function main() {
   const outPath = join(outDir, `${date}.json`)
 
   if (existsSync(outPath) && !process.env.FORCE_GENERATE) {
-    console.log(`✓ Already generated for ${date} (set FORCE_GENERATE=1 to overwrite)`)
+    await typeLine(`✓ ${date} 的机会已经生成，无需重复写入`)
     process.exit(0)
   }
 
   // ── Fetch signals ────────────────────────────────────────────────────────
-  console.log(`Fetching signals for ${date}…`)
+  await typeLine(`机会雷达正在读取 ${date} 的市场信号…`)
 
   const targetDate = process.env.TARGET_DATE || undefined
 
@@ -505,13 +506,14 @@ async function main() {
     data.trending = trendingRepos
 
     if (process.env.DRY_RUN === '1') {
-      console.log(`✓ Dry run complete: ${data.opportunities.length} opportunities; no file written`)
+      await typeLine(`✓ 演练完成：生成 ${data.opportunities.length} 个机会，未写入文件`)
       return
     }
 
     mkdirSync(outDir, { recursive: true })
     writeFileSync(outPath, JSON.stringify(data, null, 2) + '\n', 'utf-8')
-    console.log(`✓ Wrote ${data.opportunities.length} opportunities → ${outPath}`)
+    await typeLine(`✓ 生成完成：${data.opportunities.length} 个新机会`)
+    console.log(`  保存位置：${outPath}`)
     return
   }
 
