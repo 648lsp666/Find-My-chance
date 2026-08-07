@@ -2,19 +2,21 @@
 /**
  * Daily opportunity generator.
  * Fetches real signals from HN / GitHub / Product Hunt / 36kr / IndieHackers,
- * then calls DeepSeek API to produce a structured JSON file.
+ * then calls OpenAI Responses API to produce a structured JSON file.
  *
  * Usage:
  *   npm run generate              # skip if today's file exists
  *   npm run generate:force        # overwrite today's file
  *
- * Required env:  DEEPSEEK_API_KEY
- * Optional env:  PRODUCT_HUNT_TOKEN, GITHUB_TOKEN, FORCE_GENERATE
+ * Required env:  OPENAI_API_KEY
+ * Optional env:  OPENAI_MODEL, PRODUCT_HUNT_TOKEN, GITHUB_TOKEN,
+ *                FORCE_GENERATE, DRY_RUN
  */
 
 import { writeFileSync, existsSync, mkdirSync, readFileSync, readdirSync } from 'fs'
 import { join } from 'path'
 import { get as httpsGet } from 'https'
+import { requestOpenAIJson } from './openai-generation'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -24,6 +26,82 @@ interface Signal {
   url: string
   description?: string
   score?: number
+}
+
+const opportunitySchema = {
+  type: 'object',
+  additionalProperties: false,
+  properties: {
+    id: { type: 'integer' },
+    title: { type: 'string' },
+    category: { type: 'string' },
+    market: { type: 'string' },
+    tags: { type: 'array', items: { type: 'string' } },
+    summary: { type: 'string' },
+    description: { type: 'string' },
+    painPoint: { type: 'string' },
+    stage: { type: 'string' },
+    targetCustomer: { type: 'string' },
+    reachChannel: { type: 'string' },
+    facts: { type: 'array', items: { type: 'string' } },
+    assumptions: { type: 'array', items: { type: 'string' } },
+    validationWindow: { type: 'string' },
+    validationBudget: { type: 'string' },
+    validationPlan: { type: 'array', items: { type: 'string' } },
+    successCriteria: { type: 'string' },
+    stopCondition: { type: 'string' },
+    pricingHypothesis: { type: 'string' },
+    risks: { type: 'array', items: { type: 'string' } },
+    confidence: { type: 'integer' },
+    difficulty: { type: 'integer' },
+    evidence: { type: 'string' },
+    sources: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        properties: { title: { type: 'string' }, url: { type: 'string' } },
+        required: ['title', 'url'],
+      },
+    },
+  },
+  required: [
+    'id', 'title', 'category', 'market', 'tags', 'summary', 'description',
+    'painPoint', 'stage', 'targetCustomer', 'reachChannel', 'facts',
+    'assumptions', 'validationWindow', 'validationBudget', 'validationPlan',
+    'successCriteria', 'stopCondition', 'pricingHypothesis', 'risks',
+    'confidence', 'difficulty', 'evidence', 'sources',
+  ],
+}
+
+const dailySchema = {
+  type: 'object',
+  additionalProperties: false,
+  properties: {
+    date: { type: 'string' },
+    generatedAt: { type: 'string' },
+    summary: { type: 'string' },
+    opportunities: { type: 'array', items: opportunitySchema },
+  },
+  required: ['date', 'generatedAt', 'summary', 'opportunities'],
+}
+
+const opportunityArraySchema = { type: 'array', items: opportunitySchema }
+
+const trendingAnnotationSchema = {
+  type: 'array',
+  items: {
+    type: 'object',
+    additionalProperties: false,
+    properties: {
+      owner: { type: 'string' },
+      repo: { type: 'string' },
+      insight: { type: 'string' },
+      opportunityType: { type: 'string', enum: ['就业', '产品', '学习', '趋势'] },
+      chinaFit: { type: 'string', enum: ['high', 'medium', 'low'] },
+    },
+    required: ['owner', 'repo', 'insight', 'opportunityType', 'chinaFit'],
+  },
 }
 
 // ─── Signal fetchers ─────────────────────────────────────────────────────────
@@ -273,6 +351,7 @@ function loadRecentHistory(outDir: string, days: number = 14): string {
 
 async function runQualityCheck(
   apiKey: string,
+  model: string,
   draft: any[],
   historyContext: string,
 ): Promise<any[] | null> {
@@ -280,58 +359,41 @@ async function runQualityCheck(
     ? `\n近14天历史机会（用于去重判断）：\n${historyContext}\n`
     : ''
 
-  const qualityPrompt = `你是内容质检员。${historySection}
-今日草稿机会（${draft.length}条）：
+  const qualityPrompt = `你是极其保守的商业机会质检员。宁可一条不留，也不能把技术热度包装成付费需求。${historySection}
+今日候选假设（${draft.length}条）：
 ${JSON.stringify(draft, null, 2)}
 
 任务：
-1. 标记与历史 category+主题重复度 > 70% 的条目
-2. 标记 evidence 字段模糊（无具体数字或案例）的条目
-3. 删除被标记的条目，从剩余中保留质量最高的 10-12 条
-4. 只返回最终机会数组的 JSON，格式：[{ ...opportunity对象 }]，不要有任何其他文字`
+1. 删除与历史 category+主题重复度 > 70% 的条目
+2. 删除只有点赞、star、榜单热度，却无法支持付费需求的条目
+3. 删除找不到明确付费者或无法触达前 10 个潜在客户的条目
+4. 删除个人无法在 7 天内做出验证物、48-72 小时内无法获得真实反馈的条目
+5. 删除依赖大规模平台、双边市场、企业私有数据、未开放 API、牌照或高风险爬虫的条目
+6. facts 只能写信号直接证明的事实，assumptions 必须明确为待验证推测
+7. successCriteria 必须包含可计数的真实承诺，stopCondition 必须能让人果断停止
+8. 最多保留 3 条；没有合格条目时返回 []
+9. 只返回最终数组 JSON，不要有任何其他文字`
 
   try {
-    const res = await fetch('https://api.deepseek.com/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: 'deepseek-v4-flash',
-        max_tokens: 16384,
-        messages: [{ role: 'user', content: qualityPrompt }],
-      }),
+    const result = await requestOpenAIJson<any[]>({
+      apiKey,
+      model,
+      prompt: qualityPrompt,
+      schemaName: 'quality_checked_opportunities',
+      schema: opportunityArraySchema,
     })
-
-    if (!res.ok) {
-      console.warn(`  ⚠ Pass 2 API error ${res.status}`)
+    if (!Array.isArray(result)) {
+      console.warn('  ⚠ Pass 2 did not return an array')
       return null
     }
-
-    const json: any = await res.json()
-    const raw: string = json.choices?.[0]?.message?.content ?? ''
-    const stripped = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim()
-    const start = stripped.indexOf('[')
-    const end = stripped.lastIndexOf(']')
-    if (start === -1 || end === -1) {
-      console.warn('  ⚠ Pass 2 failed: no JSON array in response')
-      return null
-    }
-
-    const result = JSON.parse(stripped.slice(start, end + 1))
-    if (!Array.isArray(result) || result.length === 0) {
-      console.warn('  ⚠ Pass 2 returned empty array')
-      return null
-    }
-    return result
+    return result.slice(0, 3)
   } catch (err: any) {
     console.warn(`  ⚠ Pass 2 failed: ${err?.message ?? err}`)
     return null
   }
 }
 
-async function annotateTrending(apiKey: string, repos: any[]): Promise<any[] | null> {
+async function annotateTrending(apiKey: string, model: string, repos: any[]): Promise<any[] | null> {
   if (repos.length === 0) return null
 
   const repoList = repos.map((r: any, i: number) =>
@@ -358,23 +420,14 @@ opportunityType 必须是以下之一：就业、产品、学习、趋势
 chinaFit 必须是以下之一：high、medium、low`
 
   try {
-    const res = await fetch('https://api.deepseek.com/chat/completions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-      body: JSON.stringify({
-        model: 'deepseek-v4-flash',
-        max_tokens: 2048,
-        messages: [{ role: 'user', content: annotatePrompt }],
-      }),
+    const result = await requestOpenAIJson<any[]>({
+      apiKey,
+      model,
+      prompt: annotatePrompt,
+      schemaName: 'trending_annotations',
+      schema: trendingAnnotationSchema,
+      maxOutputTokens: 2048,
     })
-    if (!res.ok) { console.warn(`  ⚠ Trending annotation ${res.status}`); return null }
-    const json: any = await res.json()
-    const raw: string = json.choices?.[0]?.message?.content ?? ''
-    const stripped = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim()
-    const start = stripped.indexOf('[')
-    const end = stripped.lastIndexOf(']')
-    if (start === -1 || end === -1) return null
-    const result = JSON.parse(stripped.slice(start, end + 1))
     return Array.isArray(result) ? result : null
   } catch (err: any) {
     console.warn(`  ⚠ Trending annotation failed: ${err?.message ?? err}`)
@@ -383,8 +436,9 @@ chinaFit 必须是以下之一：high、medium、low`
 }
 
 async function main() {
-  const apiKey = process.env.DEEPSEEK_API_KEY
-  if (!apiKey) throw new Error('DEEPSEEK_API_KEY is required')
+  const apiKey = process.env.OPENAI_API_KEY
+  if (!apiKey) throw new Error('OPENAI_API_KEY is required')
+  const model = process.env.OPENAI_MODEL ?? 'gpt-5.6-terra'
 
   const date = process.env.BACKFILL_DATE
     ?? new Date().toLocaleString('sv', { timeZone: 'Asia/Shanghai' }).slice(0, 10)
@@ -463,16 +517,19 @@ ${signalBlock}
 ${dedupeSection}
 ---
 
-请基于以上真实信号，为中国独立开发者/个人创业者挖掘 12-15 个可落地的副业机会。
+请基于以上真实信号，筛选 0-3 个值得中国独立开发者进一步验证的商业假设。宁缺毋滥；没有合格候选时 opportunities 必须返回空数组。
 
 **严格要求：**
 1. 每个机会必须由上面某条信号触发，sources[].url 必须直接使用上面列表中的真实 URL（不允许使用主页 URL）
-2. 面向 1 人独立执行，3 个月内可见收益，启动成本可控
-3. 优先考虑国内市场可行性（也可做海外向）
+2. 当前内容只能称为“待验证假设”，不得声称需求、收入或回收周期已经成立
+3. 面向 1 人验证：7 天内能做出验证物，48-72 小时内能接触真实潜在客户，验证预算不超过 500 元
 4. category 只能从以下选择：AI应用、SaaS工具、开发工具、数据服务、自动化流程、企业服务、教育培训、出海产品、自媒体、整活玩具、本地服务、内容创作
 5. ${historyContext ? 'category 相同且主题高度相似的机会不得重复出现（参考近14天历史）' : '避免生成过于相似的机会'}
-6. evidence 必须引用上方信号列表中的真实数据（具体数字、用户量、涨幅等），不允许使用模糊表达如"市场需求旺盛"
-7. 所有文本字段（description、evidence、painPoint 等）中，禁止使用 [数字] 格式（如 [55]、[12]）引用信号编号，直接用文字描述内容即可
+6. 热度只能证明“有人关注”，不能证明“有人付费”；facts 与 evidence 不得越过信号能支持的范围
+7. 必须写明明确付费者、触达前 10 位潜客的具体渠道、一票否决风险、成功标准和停止条件
+8. pricingHypothesis 只能给出待测试的价格及计算依据，禁止预估月收入
+9. 禁止先开发完整产品；validationPlan 必须以访谈、落地页、手工服务、样品或预售为主
+10. 所有文本字段中禁止使用 [数字] 格式引用信号编号，直接用文字描述内容
 
 只返回如下格式的 JSON，不要有任何其他文字或 markdown 代码块：
 
@@ -487,22 +544,28 @@ ${dedupeSection}
       "category": "AI应用",
       "market": "国内为主",
       "tags": ["标签1", "标签2", "标签3"],
-      "summary": "一句话概括核心机会（25字以内）",
-      "description": "详细分析，包含市场规模估算、竞品现状、差异化切入点（100-200字）",
-      "painPoint": "核心用户痛点（一句话）",
-      "path": [
-        "第一步：具体动作",
-        "第二步：具体动作",
-        "第三步：具体动作",
-        "第四步：具体动作"
+      "summary": "一句话描述要验证的商业假设（25字以内）",
+      "description": "说明信号与商业假设之间的推理，同时明确目前尚未证明什么（80-150字）",
+      "painPoint": "假设中的核心用户痛点（一句话）",
+      "stage": "待验证",
+      "targetCustomer": "具体到可识别、可联系的首批付费者",
+      "reachChannel": "找到并联系前10位潜在客户的具体地点或方法",
+      "facts": ["信号直接证明的事实，不做外推"],
+      "assumptions": ["必须通过行动验证的关键推测"],
+      "validationWindow": "48小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "制作最小验证物，不开发完整产品",
+        "联系10位具体潜在客户",
+        "提出明确价格并索取真实承诺"
       ],
-      "revenueModel": "具体收费模式和预估月收入",
-      "timeToRevenue": "X个月",
-      "startupCost": "< XXX元",
+      "successCriteria": "量化的继续标准，例如10人中3人愿意付99元订金",
+      "stopCondition": "量化的停止标准，例如联系20人仍无人愿意访谈或付费",
+      "pricingHypothesis": "待测试价格及起始依据，不包含月收入预测",
+      "risks": ["最大的一票否决风险"],
+      "confidence": 3,
       "difficulty": 3,
-      "potential": 7,
-      "competition": "低",
-      "evidence": "直接引用信号中的具体数字或案例，例如：'该 GitHub 仓库 3 天内获得 2400 star，说明开发者对此类工具需求强烈'",
+      "evidence": "引用信号中的具体事实，并明确它只支持关注度还是确有购买意向",
       "sources": [
         { "title": "信号来源描述", "url": "必须是上面信号列表中的真实 URL" }
       ]
@@ -510,46 +573,28 @@ ${dedupeSection}
   ]
 }`
 
-  // ── Call DeepSeek ─────────────────────────────────────────────────────────
-  console.log('Calling DeepSeek API…')
-  const res = await fetch('https://api.deepseek.com/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model: 'deepseek-v4-flash',
-      max_tokens: 16384,
-      messages: [{ role: 'user', content: prompt }],
-    }),
+  // ── Call OpenAI ───────────────────────────────────────────────────────────
+  console.log(`Calling OpenAI Responses API (${model})…`)
+  const data: any = await requestOpenAIJson({
+    apiKey,
+    model,
+    prompt,
+    schemaName: 'daily_opportunities',
+    schema: dailySchema,
   })
-  if (!res.ok) {
-    const err = await res.text()
-    throw new Error(`DeepSeek API ${res.status}: ${err}`)
-  }
-  const json: any = await res.json()
-  const finishReason = json.choices?.[0]?.finish_reason
-  if (finishReason === 'length') {
-    throw new Error('DeepSeek response truncated (finish_reason=length) — output too long')
-  }
-  const raw: string = json.choices?.[0]?.message?.content ?? ''
-
-  // Strip optional ```json fences if model added them
-  const stripped = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim()
-  const jsonStart = stripped.indexOf('{')
-  const jsonEnd = stripped.lastIndexOf('}')
-  if (jsonStart === -1 || jsonEnd === -1) {
-    throw new Error(`No JSON found in response:\n${raw.slice(0, 500)}`)
-  }
-
-  const data = JSON.parse(stripped.slice(jsonStart, jsonEnd + 1))
 
   // Strip citation-style [number] references from text fields (e.g. "Signal[55]" artifacts)
   const stripCitations = (text: string) => text.replace(/\s*\[\d+\]/g, '')
   if (Array.isArray(data.opportunities)) {
     data.opportunities = data.opportunities.map((opp: any) => ({
       ...opp,
+      stage: '待验证',
+      path: Array.isArray(opp.validationPlan) ? opp.validationPlan : [],
+      revenueModel: opp.pricingHypothesis ?? '价格尚未验证',
+      timeToRevenue: opp.validationWindow ?? '48–72小时',
+      startupCost: opp.validationBudget ?? '≤500元',
+      potential: Math.max(2, Math.min(10, Number(opp.confidence ?? 1) * 2)),
+      competition: '未知，待验证',
       description: opp.description ? stripCitations(opp.description) : opp.description,
       evidence: opp.evidence ? stripCitations(opp.evidence) : opp.evidence,
       painPoint: opp.painPoint ? stripCitations(opp.painPoint) : opp.painPoint,
@@ -557,19 +602,29 @@ ${dedupeSection}
     }))
   }
 
-  if (!Array.isArray(data.opportunities) || data.opportunities.length === 0) {
+  if (!Array.isArray(data.opportunities)) {
     throw new Error('Response missing opportunities array')
   }
+  data.opportunities = data.opportunities.slice(0, 3)
 
   // ── Pass 2: quality check ─────────────────────────────────────────────────
   console.log('Running quality check (Pass 2)…')
-  const checkedOpportunities = await runQualityCheck(apiKey, data.opportunities, historyContext)
+  const checkedOpportunities = data.opportunities.length > 0
+    ? await runQualityCheck(apiKey, model, data.opportunities, historyContext)
+    : []
 
-  if (checkedOpportunities && checkedOpportunities.length >= 8) {
+  if (checkedOpportunities !== null) {
     console.log(`  ✓ Pass 2: ${data.opportunities.length} → ${checkedOpportunities.length} opportunities`)
-    data.opportunities = checkedOpportunities
-  } else if (checkedOpportunities && checkedOpportunities.length < 8) {
-    console.warn(`  ⚠ Pass 2 filtered too aggressively (${checkedOpportunities.length} left), using Pass 1`)
+    data.opportunities = checkedOpportunities.map((opp: any) => ({
+      ...opp,
+      stage: '待验证',
+      path: Array.isArray(opp.validationPlan) ? opp.validationPlan : [],
+      revenueModel: opp.pricingHypothesis ?? '价格尚未验证',
+      timeToRevenue: opp.validationWindow ?? '48–72小时',
+      startupCost: opp.validationBudget ?? '≤500元',
+      potential: Math.max(2, Math.min(10, Number(opp.confidence ?? 1) * 2)),
+      competition: '未知，待验证',
+    }))
   } else {
     console.warn('  ⚠ Pass 2 failed, using Pass 1 output')
   }
@@ -577,7 +632,7 @@ ${dedupeSection}
   // ── Pass 3: annotate trending repos ──────────────────────────────────────
   if (trendingRepos.length > 0) {
     console.log('Annotating trending repos (Pass 3)…')
-    const annotations = await annotateTrending(apiKey, trendingRepos)
+    const annotations = await annotateTrending(apiKey, model, trendingRepos)
     if (annotations && annotations.length > 0) {
       console.log(`  ✓ Pass 3: annotated ${annotations.length} repos`)
       data.trending = trendingRepos.map((repo: any) => {
@@ -591,6 +646,10 @@ ${dedupeSection}
   }
 
   // ── Write output ─────────────────────────────────────────────────────────
+  if (process.env.DRY_RUN === '1') {
+    console.log(`✓ Dry run complete: ${data.opportunities.length} opportunities; no file written`)
+    return
+  }
   mkdirSync(outDir, { recursive: true })
   writeFileSync(outPath, JSON.stringify(data, null, 2) + '\n', 'utf-8')
   console.log(`✓ Wrote ${data.opportunities.length} opportunities → ${outPath}`)
