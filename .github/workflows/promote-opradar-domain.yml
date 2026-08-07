@@ -1,0 +1,22 @@
+name: Promote OpRadar Domain
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Point opradar.indevs.in to verified deployment
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+        run: >
+          npx --yes vercel@54.4.1 alias set
+          opportunity-radar-ckjdv526a-648lsp666s-projects.vercel.app
+          opradar.indevs.in
+          --token "$VERCEL_TOKEN"
+          --scope "$VERCEL_ORG_ID"
