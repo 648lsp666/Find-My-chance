@@ -17,6 +17,7 @@ import { writeFileSync, existsSync, mkdirSync, readFileSync, readdirSync } from 
 import { join } from 'path'
 import { get as httpsGet } from 'https'
 import { requestOpenAIJson } from './openai-generation'
+import { generateDeterministicReport } from './deterministic-generation'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -436,9 +437,10 @@ chinaFit 必须是以下之一：high、medium、low`
 }
 
 async function main() {
-  const apiKey = process.env.OPENAI_API_KEY
-  if (!apiKey) throw new Error('OPENAI_API_KEY is required')
-  const model = process.env.OPENAI_MODEL ?? 'gpt-5.6-terra'
+  // Kept only for the unreachable legacy implementation below while the
+  // deterministic path is rolled out and verified.
+  const apiKey = ''
+  const model = ''
 
   const date = process.env.BACKFILL_DATE
     ?? new Date().toLocaleString('sv', { timeZone: 'Asia/Shanghai' }).slice(0, 10)
@@ -491,6 +493,26 @@ async function main() {
     console.log(`  ✓ Loaded dedup history: ${historyContext.split('\n').length} recent opportunities`)
   } else {
     console.log('  ℹ No history found (first run or empty dir)')
+  }
+
+  // ── Deterministic generation (no model/API dependency) ───────────────────
+  {
+    const historyTitles = historyContext
+      .split('\n')
+      .map(line => line.replace(/^-\s*\[[^\]]+\]\s*/, ''))
+      .filter(Boolean)
+    const data: any = generateDeterministicReport({ date, signals, historyTitles })
+    data.trending = trendingRepos
+
+    if (process.env.DRY_RUN === '1') {
+      console.log(`✓ Dry run complete: ${data.opportunities.length} opportunities; no file written`)
+      return
+    }
+
+    mkdirSync(outDir, { recursive: true })
+    writeFileSync(outPath, JSON.stringify(data, null, 2) + '\n', 'utf-8')
+    console.log(`✓ Wrote ${data.opportunities.length} opportunities → ${outPath}`)
+    return
   }
 
   // ── Build prompt ─────────────────────────────────────────────────────────
@@ -614,8 +636,8 @@ ${dedupeSection}
     : []
 
   if (checkedOpportunities !== null) {
-    console.log(`  ✓ Pass 2: ${data.opportunities.length} → ${checkedOpportunities.length} opportunities`)
-    data.opportunities = checkedOpportunities.map((opp: any) => ({
+    console.log(`  ✓ Pass 2: ${data.opportunities.length} → ${checkedOpportunities!.length} opportunities`)
+    data.opportunities = checkedOpportunities!.map((opp: any) => ({
       ...opp,
       stage: '待验证',
       path: Array.isArray(opp.validationPlan) ? opp.validationPlan : [],
@@ -633,10 +655,10 @@ ${dedupeSection}
   if (trendingRepos.length > 0) {
     console.log('Annotating trending repos (Pass 3)…')
     const annotations = await annotateTrending(apiKey, model, trendingRepos)
-    if (annotations && annotations.length > 0) {
-      console.log(`  ✓ Pass 3: annotated ${annotations.length} repos`)
+    if ((annotations ?? []).length > 0) {
+      console.log(`  ✓ Pass 3: annotated ${annotations!.length} repos`)
       data.trending = trendingRepos.map((repo: any) => {
-        const ann = annotations.find((a: any) => a.repo === repo.repo && a.owner === repo.owner)
+        const ann = annotations!.find((a: any) => a.repo === repo.repo && a.owner === repo.owner)
         return ann ? { ...repo, insight: ann.insight, opportunityType: ann.opportunityType, chinaFit: ann.chinaFit } : repo
       })
     } else {
