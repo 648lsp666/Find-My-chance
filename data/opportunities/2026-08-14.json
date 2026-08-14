@@ -1,0 +1,228 @@
+{
+  "date": "2026-08-14",
+  "generatedAt": "2026-08-14T05:10:42.098Z",
+  "summary": "今日从公开信号中按来源质量、热度和可验证性筛选出 3 个待验证方向。所有方向均需先确认付费意愿。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "KRTirtho/spotube",
+      "category": "AI应用",
+      "market": "国内外均可验证",
+      "tags": [
+        "AI应用",
+        "GitHub",
+        "待验证"
+      ],
+      "summary": "围绕“KRTirtho/spotube”验证可收费的小型服务",
+      "description": "GitHub 出现了“KRTirtho/spotube: 🎧 Open source music streaming app! Available for both desktop & mobile!”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“KRTirtho/spotube”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 GitHub 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "GitHub 出现相关公开信号",
+        "公开热度为 48338"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 3,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "GitHub 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "KRTirtho/spotube: 🎧 Open source music streaming app! Available for both desktop & mobile!",
+          "url": "https://github.com/KRTirtho/spotube"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "pixijs/pixijs",
+      "category": "内容创作",
+      "market": "国内外均可验证",
+      "tags": [
+        "内容创作",
+        "GitHub",
+        "待验证"
+      ],
+      "summary": "围绕“pixijs/pixijs”验证可收费的小型服务",
+      "description": "GitHub 出现了“pixijs/pixijs: The HTML5 Creation Engine: Create beautiful digital content with the fastest, most flexible 2D WebGL renderer.”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“pixijs/pixijs”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 GitHub 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "GitHub 出现相关公开信号",
+        "公开热度为 48007"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 2,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "GitHub 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "pixijs/pixijs: The HTML5 Creation Engine: Create beautiful digital content with the fastest, most flexible 2D WebGL renderer.",
+          "url": "https://github.com/pixijs/pixijs"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "calesthio/OpenMontag",
+      "category": "自动化流程",
+      "market": "国内外均可验证",
+      "tags": [
+        "自动化流程",
+        "GitHub",
+        "待验证"
+      ],
+      "summary": "围绕“calesthio/OpenMontag”验证可收费的小型服务",
+      "description": "GitHub 出现了“calesthio/OpenMontage: World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“calesthio/OpenMontag”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 GitHub 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "GitHub 出现相关公开信号",
+        "公开热度为 48002"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 2,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "GitHub 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "calesthio/OpenMontage: World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.",
+          "url": "https://github.com/calesthio/OpenMontage"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "huginn",
+      "repo": "huginn",
+      "description": "Create agents that monitor and act on your behalf.  Your agents are standing by!",
+      "url": "https://github.com/huginn/huginn",
+      "starsToday": 49789,
+      "language": "Ruby"
+    },
+    {
+      "owner": "tldraw",
+      "repo": "tldraw",
+      "description": "Build infinite canvas apps in React with the tldraw SDK. World's best, top-most agent recommended #1 five star SDK.",
+      "url": "https://github.com/tldraw/tldraw",
+      "starsToday": 49775,
+      "language": "TypeScript"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49525,
+      "language": "Python"
+    },
+    {
+      "owner": "hashicorp",
+      "repo": "terraform",
+      "description": "Terraform enables you to safely and predictably create, change, and improve infrastructure. It is a source-available tool that codifies APIs into declarative configuration files that can be shared amongst team members, treated as code, edited, reviewed, and versioned.",
+      "url": "https://github.com/hashicorp/terraform",
+      "starsToday": 49500,
+      "language": "Go"
+    },
+    {
+      "owner": "ClickHouse",
+      "repo": "ClickHouse",
+      "description": "ClickHouse® is a real-time analytics database management system",
+      "url": "https://github.com/ClickHouse/ClickHouse",
+      "starsToday": 49238,
+      "language": "C++"
+    },
+    {
+      "owner": "astral-sh",
+      "repo": "ruff",
+      "description": "An extremely fast Python linter and code formatter, written in Rust.",
+      "url": "https://github.com/astral-sh/ruff",
+      "starsToday": 49188,
+      "language": "Rust"
+    }
+  ]
+}
