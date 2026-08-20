@@ -1,0 +1,228 @@
+{
+  "date": "2026-08-20",
+  "generatedAt": "2026-08-20T04:03:16.393Z",
+  "summary": "今日从公开信号中按来源质量、热度和可验证性筛选出 3 个待验证方向。所有方向均需先确认付费意愿。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "upscayl/upscayl",
+      "category": "AI应用",
+      "market": "国内外均可验证",
+      "tags": [
+        "AI应用",
+        "GitHub",
+        "待验证"
+      ],
+      "summary": "围绕“upscayl/upscayl”验证可收费的小型服务",
+      "description": "GitHub 出现了“upscayl/upscayl: 🆙 Upscayl - #1 Free and Open Source AI Image Upscaler for Linux, MacOS and Windows.”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“upscayl/upscayl”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 GitHub 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "GitHub 出现相关公开信号",
+        "公开热度为 48617"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 3,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "GitHub 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "upscayl/upscayl: 🆙 Upscayl - #1 Free and Open Source AI Image Upscaler for Linux, MacOS and Windows.",
+          "url": "https://github.com/upscayl/upscayl"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "A joke domain purcha",
+      "category": "AI应用",
+      "market": "国内外均可验证",
+      "tags": [
+        "AI应用",
+        "Hacker News",
+        "待验证"
+      ],
+      "summary": "围绕“A joke domain purcha”验证可收费的小型服务",
+      "description": "Hacker News 出现了“A joke domain purchase turned in geopolitical warfare”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“A joke domain purcha”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 Hacker News 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "Hacker News 出现相关公开信号",
+        "公开热度为 797"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 3,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "Hacker News 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "A joke domain purchase turned in geopolitical warfare",
+          "url": "https://sprocketfox.io/xssfox/2026/08/19/sondehub-and-war/"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "OpenRouter is joinin",
+      "category": "SaaS工具",
+      "market": "国内外均可验证",
+      "tags": [
+        "SaaS工具",
+        "Hacker News",
+        "待验证"
+      ],
+      "summary": "围绕“OpenRouter is joinin”验证可收费的小型服务",
+      "description": "Hacker News 出现了“OpenRouter is joining Stripe”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“OpenRouter is joinin”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 Hacker News 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "Hacker News 出现相关公开信号",
+        "公开热度为 710"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 2,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "Hacker News 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "OpenRouter is joining Stripe",
+          "url": "https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "tldraw",
+      "repo": "tldraw",
+      "description": "Build infinite canvas apps in React with the tldraw SDK. World's best, top-most agent recommended #1 five star SDK.",
+      "url": "https://github.com/tldraw/tldraw",
+      "starsToday": 49872,
+      "language": "TypeScript"
+    },
+    {
+      "owner": "roboflow",
+      "repo": "supervision",
+      "description": "We write your reusable computer vision tools. 💜",
+      "url": "https://github.com/roboflow/supervision",
+      "starsToday": 49559,
+      "language": "Python"
+    },
+    {
+      "owner": "pandas-dev",
+      "repo": "pandas",
+      "description": "Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more",
+      "url": "https://github.com/pandas-dev/pandas",
+      "starsToday": 49523,
+      "language": "Python"
+    },
+    {
+      "owner": "hashicorp",
+      "repo": "terraform",
+      "description": "Terraform enables you to safely and predictably create, change, and improve infrastructure. It is a source-available tool that codifies APIs into declarative configuration files that can be shared amongst team members, treated as code, edited, reviewed, and versioned.",
+      "url": "https://github.com/hashicorp/terraform",
+      "starsToday": 49494,
+      "language": "Go"
+    },
+    {
+      "owner": "ChromeDevTools",
+      "repo": "chrome-devtools-mcp",
+      "description": "Chrome DevTools for coding agents",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "starsToday": 49442,
+      "language": "TypeScript"
+    },
+    {
+      "owner": "ClickHouse",
+      "repo": "ClickHouse",
+      "description": "ClickHouse® is a real-time analytics database management system",
+      "url": "https://github.com/ClickHouse/ClickHouse",
+      "starsToday": 49349,
+      "language": "C++"
+    }
+  ]
+}
