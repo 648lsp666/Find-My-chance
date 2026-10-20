@@ -1,0 +1,228 @@
+{
+  "date": "2026-10-20",
+  "generatedAt": "2026-10-20T08:42:31.339Z",
+  "summary": "今日从公开信号中按来源质量、热度和可验证性筛选出 3 个待验证方向。所有方向均需先确认付费意愿。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "Wine ported to OpenB",
+      "category": "SaaS工具",
+      "market": "国内外均可验证",
+      "tags": [
+        "SaaS工具",
+        "Hacker News",
+        "待验证"
+      ],
+      "summary": "围绕“Wine ported to OpenB”验证可收费的小型服务",
+      "description": "Hacker News 出现了“Wine ported to OpenBSD”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“Wine ported to OpenB”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 Hacker News 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "Hacker News 出现相关公开信号",
+        "公开热度为 559"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 2,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "Hacker News 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "Wine ported to OpenBSD",
+          "url": "https://marc.info/?l=openbsd-ports&m=179236125692175"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "I built a drone with",
+      "category": "内容创作",
+      "market": "国内外均可验证",
+      "tags": [
+        "内容创作",
+        "Hacker News",
+        "待验证"
+      ],
+      "summary": "围绕“I built a drone with”验证可收费的小型服务",
+      "description": "Hacker News 出现了“I built a drone with only one motor [video]”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“I built a drone with”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 Hacker News 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "Hacker News 出现相关公开信号",
+        "公开热度为 531"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 2,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "Hacker News 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "I built a drone with only one motor [video]",
+          "url": "https://www.youtube.com/watch?v=Ndftcft6XhU"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "MiniMax M3.1 Flash",
+      "category": "SaaS工具",
+      "market": "国内外均可验证",
+      "tags": [
+        "SaaS工具",
+        "Hacker News",
+        "待验证"
+      ],
+      "summary": "围绕“MiniMax M3.1 Flash”验证可收费的小型服务",
+      "description": "Hacker News 出现了“MiniMax M3.1 Flash”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“MiniMax M3.1 Flash”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 Hacker News 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "Hacker News 出现相关公开信号",
+        "公开热度为 460"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 2,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "Hacker News 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "MiniMax M3.1 Flash",
+          "url": "https://www.minimax.io/blog/minimax-m31f"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "hashicorp",
+      "repo": "terraform",
+      "description": "Terraform enables you to safely and predictably create, change, and improve infrastructure. It is a source-available tool that codifies APIs into declarative configuration files that can be shared amongst team members, treated as code, edited, reviewed, and versioned.",
+      "url": "https://github.com/hashicorp/terraform",
+      "starsToday": 49986,
+      "language": "Go"
+    },
+    {
+      "owner": "x64dbg",
+      "repo": "x64dbg",
+      "description": "An open-source user mode debugger for Windows. Optimized for reverse engineering and malware analysis.",
+      "url": "https://github.com/x64dbg/x64dbg",
+      "starsToday": 49964,
+      "language": "C++"
+    },
+    {
+      "owner": "tmux",
+      "repo": "tmux",
+      "description": "tmux source code",
+      "url": "https://github.com/tmux/tmux",
+      "starsToday": 49938,
+      "language": "C"
+    },
+    {
+      "owner": "mudler",
+      "repo": "LocalAI",
+      "description": "LocalAI is the open-source AI engine. Run any model - LLMs, vision, voice, image, video - on any hardware. No GPU required.",
+      "url": "https://github.com/mudler/LocalAI",
+      "starsToday": 49763,
+      "language": "Go"
+    },
+    {
+      "owner": "DavidHDev",
+      "repo": "react-bits",
+      "description": "The largest open-source library of animated, interactive, and customizable React & Next.js components for building standout web products and experiences. Built for humans and AI agents.",
+      "url": "https://github.com/DavidHDev/react-bits",
+      "starsToday": 49756,
+      "language": "JavaScript"
+    },
+    {
+      "owner": "metabase",
+      "repo": "metabase",
+      "description": "The easy-to-use open source Business Intelligence and Embedded Analytics tool that lets everyone work with data :bar_chart:",
+      "url": "https://github.com/metabase/metabase",
+      "starsToday": 49753,
+      "language": "Clojure"
+    }
+  ]
+}
