@@ -1,0 +1,228 @@
+{
+  "date": "2026-11-21",
+  "generatedAt": "2026-11-21T11:26:33.680Z",
+  "summary": "今日从公开信号中按来源质量、热度和可验证性筛选出 3 个待验证方向。所有方向均需先确认付费意愿。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "apache/airflow",
+      "category": "自动化流程",
+      "market": "国内外均可验证",
+      "tags": [
+        "自动化流程",
+        "GitHub",
+        "待验证"
+      ],
+      "summary": "围绕“apache/airflow”验证可收费的小型服务",
+      "description": "GitHub 出现了“apache/airflow: Apache Airflow - A platform to programmatically author, schedule, and monitor workflows”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“apache/airflow”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 GitHub 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "GitHub 出现相关公开信号",
+        "公开热度为 47583"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 2,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "GitHub 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "apache/airflow: Apache Airflow - A platform to programmatically author, schedule, and monitor workflows",
+          "url": "https://github.com/apache/airflow"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "luongnv89/claude",
+      "category": "自动化流程",
+      "market": "国内外均可验证",
+      "tags": [
+        "自动化流程",
+        "GitHub",
+        "待验证"
+      ],
+      "summary": "围绕“luongnv89/claude”验证可收费的小型服务",
+      "description": "GitHub 出现了“luongnv89/claude-howto: A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value.”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“luongnv89/claude”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 GitHub 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "GitHub 出现相关公开信号",
+        "公开热度为 47482"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 2,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "GitHub 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "luongnv89/claude-howto: A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value.",
+          "url": "https://github.com/luongnv89/claude-howto"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "LibreChat",
+      "category": "自动化流程",
+      "market": "国内外均可验证",
+      "tags": [
+        "自动化流程",
+        "GitHub",
+        "待验证"
+      ],
+      "summary": "围绕“LibreChat”验证可收费的小型服务",
+      "description": "GitHub 出现了“LibreChat-AI/LibreChat: Enhanced ChatGPT Clone: Features Agents, MCP, Skills, DeepSeek, Anthropic, AWS, OpenAI, Responses API, Azure, Groq, o1, GPT-5, Mistral, OpenRouter, Vertex AI, Gemini, Artifacts, AI model switching, message search, Code Interpreter, langchain, DALL-E-3, OpenAPI Actions, Functions, Secure Multi-User Auth, Presets, open-source for self-hosting. Active”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“LibreChat”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 GitHub 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "GitHub 出现相关公开信号",
+        "公开热度为 47382"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 2,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "GitHub 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "LibreChat-AI/LibreChat: Enhanced ChatGPT Clone: Features Agents, MCP, Skills, DeepSeek, Anthropic, AWS, OpenAI, Responses API, Azure, Groq, o1, GPT-5, Mistral, OpenRouter, Vertex AI, Gemini, Artifacts, AI model switching, message search, Code Interpreter, langchain, DALL-E-3, OpenAPI Actions, Functions, Secure Multi-User Auth, Presets, open-source for self-hosting. Active",
+          "url": "https://github.com/LibreChat-AI/LibreChat"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "bevyengine",
+      "repo": "bevy",
+      "description": "A refreshingly simple data-driven game engine built in Rust",
+      "url": "https://github.com/bevyengine/bevy",
+      "starsToday": 49902,
+      "language": "Rust"
+    },
+    {
+      "owner": "bigskysoftware",
+      "repo": "htmx",
+      "description": "</> htmx - high power tools for HTML",
+      "url": "https://github.com/bigskysoftware/htmx",
+      "starsToday": 49649,
+      "language": "JavaScript"
+    },
+    {
+      "owner": "JuliaLang",
+      "repo": "julia",
+      "description": "The Julia Programming Language",
+      "url": "https://github.com/JuliaLang/julia",
+      "starsToday": 49285,
+      "language": "Julia"
+    },
+    {
+      "owner": "DeusData",
+      "repo": "codebase-memory-mcp",
+      "description": "Local code intelligence for developers and AI agents. Connect code, docs and infrastructure in a persistent graph, with CBM Lens, MCP tools, agent integrations and change-aware test selection.",
+      "url": "https://github.com/DeusData/codebase-memory-mcp",
+      "starsToday": 48970,
+      "language": "C"
+    },
+    {
+      "owner": "pixijs",
+      "repo": "pixijs",
+      "description": "The HTML5 Creation Engine: Create beautiful digital content with the fastest, most flexible 2D WebGL renderer.",
+      "url": "https://github.com/pixijs/pixijs",
+      "starsToday": 48868,
+      "language": "TypeScript"
+    },
+    {
+      "owner": "abhigyanpatwari",
+      "repo": "GitNexus",
+      "description": "GitNexus: The Zero-Server Code Intelligence Engine ",
+      "url": "https://github.com/abhigyanpatwari/GitNexus",
+      "starsToday": 48708,
+      "language": "TypeScript"
+    }
+  ]
+}
