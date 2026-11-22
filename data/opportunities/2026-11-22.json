@@ -1,0 +1,228 @@
+{
+  "date": "2026-11-22",
+  "generatedAt": "2026-11-22T11:41:11.160Z",
+  "summary": "今日从公开信号中按来源质量、热度和可验证性筛选出 3 个待验证方向。所有方向均需先确认付费意愿。",
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "omacom/omarchy",
+      "category": "SaaS工具",
+      "market": "国内外均可验证",
+      "tags": [
+        "SaaS工具",
+        "GitHub",
+        "待验证"
+      ],
+      "summary": "围绕“omacom/omarchy”验证可收费的小型服务",
+      "description": "GitHub 出现了“omacom/omarchy: Beautiful, Modern & Opinionated Linux”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“omacom/omarchy”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 GitHub 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "GitHub 出现相关公开信号",
+        "公开热度为 47356"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 2,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "GitHub 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "omacom/omarchy: Beautiful, Modern & Opinionated Linux",
+          "url": "https://github.com/omacom/omarchy"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "siyuan",
+      "category": "自动化流程",
+      "market": "国内外均可验证",
+      "tags": [
+        "自动化流程",
+        "GitHub",
+        "待验证"
+      ],
+      "summary": "围绕“siyuan”验证可收费的小型服务",
+      "description": "GitHub 出现了“siyuan-note/siyuan: An open-source, privacy-first, self-hosted knowledge workspace where humans and AI agents work together 开源、隐私优先、自托管的知识工作空间，让人与智能体在此协作”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“siyuan”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 GitHub 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "GitHub 出现相关公开信号",
+        "公开热度为 47338"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 2,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "GitHub 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "siyuan-note/siyuan: An open-source, privacy-first, self-hosted knowledge workspace where humans and AI agents work together 开源、隐私优先、自托管的知识工作空间，让人与智能体在此协作",
+          "url": "https://github.com/siyuan-note/siyuan"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "AstrBotDevs/AstrBot",
+      "category": "自动化流程",
+      "market": "国内外均可验证",
+      "tags": [
+        "自动化流程",
+        "GitHub",
+        "待验证"
+      ],
+      "summary": "围绕“AstrBotDevs/AstrBot”验证可收费的小型服务",
+      "description": "GitHub 出现了“AstrBotDevs/AstrBot: AI Agent Assistant & development framework that integrates lots of IM platforms, LLMs, plugins and AI feature, and can be your openclaw alternative. ✨”这一公开信号。该信号只能说明相关主题受到关注，尚不能证明用户愿意付费；建议先用访谈或手工服务验证。",
+      "painPoint": "目标用户可能需要更省时地处理与“AstrBotDevs/AstrBot”相关的工作",
+      "stage": "待验证",
+      "targetCustomer": "正在公开讨论或使用相关方案的 GitHub 用户",
+      "reachChannel": "从来源页面及相关社区筛选并联系前 10 位活跃用户",
+      "facts": [
+        "GitHub 出现相关公开信号",
+        "公开热度为 47331"
+      ],
+      "assumptions": [
+        "目标用户存在可量化的时间或成本损失",
+        "至少部分用户愿意为更省时的方案付费"
+      ],
+      "validationWindow": "48–72小时",
+      "validationBudget": "≤500元",
+      "validationPlan": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "path": [
+        "整理一页服务说明或样例",
+        "联系10位具体潜在用户",
+        "提出明确测试价格并索取订金或书面承诺"
+      ],
+      "successCriteria": "10位有效沟通对象中至少3位愿意继续试用，且至少1位接受付费测试",
+      "stopCondition": "联系20位目标用户后仍无人愿意访谈，或10次访谈均否认该问题",
+      "pricingHypothesis": "首轮测试价99–499元，按节省的一次人工服务时间校准",
+      "revenueModel": "按次服务或小额订阅，价格尚待验证",
+      "timeToRevenue": "48–72小时验证",
+      "startupCost": "≤500元",
+      "risks": [
+        "公开热度不等于真实付费需求"
+      ],
+      "confidence": 5,
+      "difficulty": 2,
+      "potential": 10,
+      "competition": "未知，待验证",
+      "evidence": "GitHub 的公开页面提供了该主题的真实信号；当前证据仅支持关注度，不支持收入判断。",
+      "sources": [
+        {
+          "title": "AstrBotDevs/AstrBot: AI Agent Assistant & development framework that integrates lots of IM platforms, LLMs, plugins and AI feature, and can be your openclaw alternative. ✨",
+          "url": "https://github.com/AstrBotDevs/AstrBot"
+        }
+      ]
+    }
+  ],
+  "trending": [
+    {
+      "owner": "JuliaLang",
+      "repo": "julia",
+      "description": "The Julia Programming Language",
+      "url": "https://github.com/JuliaLang/julia",
+      "starsToday": 49286,
+      "language": "Julia"
+    },
+    {
+      "owner": "DeusData",
+      "repo": "codebase-memory-mcp",
+      "description": "Local code intelligence for developers and AI agents. Connect code, docs and infrastructure in a persistent graph, with CBM Lens, MCP tools, agent integrations and change-aware test selection.",
+      "url": "https://github.com/DeusData/codebase-memory-mcp",
+      "starsToday": 49017,
+      "language": "C"
+    },
+    {
+      "owner": "abhigyanpatwari",
+      "repo": "GitNexus",
+      "description": "GitNexus: The Zero-Server Code Intelligence Engine ",
+      "url": "https://github.com/abhigyanpatwari/GitNexus",
+      "starsToday": 48726,
+      "language": "TypeScript"
+    },
+    {
+      "owner": "paperless-ngx",
+      "repo": "paperless-ngx",
+      "description": "A community-supported supercharged document management system: scan, index and archive all your documents",
+      "url": "https://github.com/paperless-ngx/paperless-ngx",
+      "starsToday": 48473,
+      "language": "Python"
+    },
+    {
+      "owner": "SimplifyJobs",
+      "repo": "Summer2027-Internships",
+      "description": "Summer 2027 software engineering, data science, AI, quant, product management, and hardware internship postings. Updated daily by Simplify and Pitt CSC.",
+      "url": "https://github.com/SimplifyJobs/Summer2027-Internships",
+      "starsToday": 48468,
+      "language": "Python"
+    },
+    {
+      "owner": "nvm-windows",
+      "repo": "nvm",
+      "description": "The Node.js version manager for Windows.",
+      "url": "https://github.com/nvm-windows/nvm",
+      "starsToday": 48247,
+      "language": "Inno Setup"
+    }
+  ]
+}
